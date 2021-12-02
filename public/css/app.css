@@ -904,18 +904,16 @@ video {
 	margin-left: 1.5rem;
 }.mb-4{
 	margin-bottom: 1rem;
-}.-mt-px{
-	margin-top: -1px;
-}.mb-3{
-	margin-bottom: 0.75rem;
-}.mt-20{
-	margin-top: 5rem;
-}.ml-auto{
-	margin-left: auto;
-}.mb-2{
-	margin-bottom: 0.5rem;
 }.mb-0{
 	margin-bottom: 0px;
+}.-mt-px{
+	margin-top: -1px;
+}.mt-20{
+	margin-top: 5rem;
+}.mb-3{
+	margin-bottom: 0.75rem;
+}.mb-2{
+	margin-bottom: 0.5rem;
 }.block{
 	display: block;
 }.flex{
