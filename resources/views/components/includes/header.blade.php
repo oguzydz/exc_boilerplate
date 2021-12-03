@@ -12,7 +12,7 @@
         <div class="responsive-mobile-menu">
             <div class="logo-wrapper mobile-logo">
                 <a href="index.html" class="logo">
-                    <img src="assets\img\exxefy-logo.png" width="150px" alt="logo">
+                    <img src="assets\img\exxefy-logo.png" width="130px" alt="logo">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Riyaqas_main_menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="Riyaqas_main_menu">
             <div class="logo-wrapper desktop-logo">
                 <a href="index.html" class="logo">
-                    <img src="assets\img\exxefy-logo.png" width="150px" alt="logo">
+                    <img src="assets\img\exxefy-logo.png" width="130px" alt="logo">
                 </a>
             </div>
             <ul class="navbar-nav">
@@ -87,7 +87,7 @@
                                     <div class="media-body">
                                         <a class="title" href="#">Smart watch red color</a>
                                         <p>Quantity: 1</p>
-                                        <span class="price">$150.00</span>
+                                        <span class="price">$130.00</span>
                                     </div>
                                 </div>
                                 <a class="remove-product" href="#"><span class="ti-close"></span></a>
@@ -100,7 +100,7 @@
                                     <div class="media-body">
                                         <a class="title" href="#">Smart watch red color</a>
                                         <p>Quantity: 1</p>
-                                        <span class="price">$150.00</span>
+                                        <span class="price">$130.00</span>
                                     </div>
                                 </div>
                                 <a class="remove-product" href="#"><span class="ti-close"></span></a>
