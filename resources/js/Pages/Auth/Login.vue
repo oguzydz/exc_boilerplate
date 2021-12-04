@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <jet-button :class="form.processing ? 'opacity-25 bg-[#7450fe]' : 'bg-[#7450fe]'" :disabled="form.processing">
+                                        <jet-button :class="form.processing ? 'opacity-25 bg-[#01358D]' : 'bg-[#01358D]'" :disabled="form.processing">
                                             GİRİŞ
                                         </jet-button>
                                         <a href="#" @click="$inertia.get(route('register'))" class="no-underline inline-flex items-center px-4 py-2 bg-red-500 ml-2 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-red-300 disabled:opacity-25 transition">
@@ -38,7 +38,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="bg-[#7450fe] col-md-5 text-white rounded-r py-5 flex items-center justify-center" >
+                    <div class="bg-[#01358D] col-md-5 text-white rounded-r py-5 flex items-center justify-center" >
                         <img class="w-75" src="/assets/img/exxefylogo.png" />
                     </div>
                 </div>
@@ -82,3 +82,16 @@ export default {
     },
 }
 </script>
+<style>
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+p {
+  font-size: 14px;
+}
+input::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+}
+</style>

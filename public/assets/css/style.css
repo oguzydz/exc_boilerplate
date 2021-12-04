@@ -1,9 +1,9 @@
 ﻿@charset "UTF-8";
 /*
 Theme Name: Riyaqas
-Theme URI: 
-Author: 
-Author URI: 
+Theme URI:
+Author:
+Author URI:
 Description: Riyaqas is a Sass website template
 Version: 1.0.0
 */
@@ -1018,7 +1018,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 /*---------------------
-    ## Breadcumb 
+    ## Breadcumb
 ----------------------*/
 .breadcrumb-area {
   background-image: url(../img/bg/breadcrumb-bg.jpg);
@@ -1735,7 +1735,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 /*----------------------------------------------
-    # Nav bar 
+    # Nav bar
 ----------------------------------------------*/
 .navbar.navbar-area.white .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.50)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -2061,7 +2061,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   }
 
   .navbar-area .nav-container .nav-right-content ul li a {
-    color: #6a7795;
+    color: #01358D;
+    font-weight: 500;
+    font-size: 16px;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -5510,7 +5512,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 /*--------------------------------
-    ## All map 
+    ## All map
 ----------------------------------*/
 .worldmap-wrap {
   overflow: hidden;
