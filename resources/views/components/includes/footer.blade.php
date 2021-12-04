@@ -51,7 +51,7 @@
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
-                                    &copy; Riyaqas 2020 All rights reserved, Powered with <a href="http://zwin.io/" target="_blank"><i class="fa fa-heart"></i> by <span>Zwin.</span></a>
+                                    Copyright <i class="bx bx-copyright"></i> 2021 All right reserved! exxefy.com is the product of <a href="https://exxecode.com">Exxecode</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">

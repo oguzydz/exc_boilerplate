@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- header area start -->
-<div class="header-area header-bg" style="background-image:url(assets/img/bg/banner-bg.png);">
+<div class="header-area header-bg" style="background-image:url({{asset('assets/img/bg/banner-bg.png') }});">
     <div class="container">
         <div class="banner-slider banner-slider-one">
             <div class="banner-slider-item">
