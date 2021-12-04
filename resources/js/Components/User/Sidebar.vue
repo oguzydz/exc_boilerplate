@@ -12,7 +12,7 @@
       v-if="drawerMenuVisible"
       class="sidebar-brand d-lg-down-none p-2 justify-center items-center"
     >
-      <img src="/assets/img/exxefylogo.png" style="width: 60%" />
+      <img src="/assets/img/exxefylogo.png" style="width: 85px;" />
     </div>
     <ul
       class="sidebar-nav sidebar-scroll scrollbar"
@@ -33,8 +33,8 @@
   </div>
 </template>
 <script>
-import NavItem from "@/Components/Sidebar/NavItem";
-import NavTitle from "@/Components/Sidebar/NavTitle";
+import NavItem from '@/Components/Sidebar/NavItem'
+import NavTitle from '@/Components/Sidebar/NavTitle'
 
 export default {
   components: {
@@ -52,57 +52,87 @@ export default {
     return {
       navs: [
         {
-          tag: "nav-title",
-          text: "GENEL",
+          tag: 'nav-item',
+          text: 'Hesap Özeti',
+          url: 'admin.index',
+          icon: 'fad fa-chart-line',
         },
         {
-          tag: "nav-item",
-          text: "Ürünler",
-          url: "user.product.index",
-          icon: "fad fa-clone",
+          tag: 'nav-item',
+          text: 'Kategoriler',
+          url: 'admin.category.index',
+          icon: 'fad fa-clipboard-list',
         },
         {
-          tag: "nav-item",
-          text: "Kategoriler",
-          url: "user.category.index",
-          icon: "fad fa-clipboard-list",
+          tag: 'nav-item',
+          text: 'Ürünler',
+          url: 'admin.product.index',
+          icon: 'fad fa-clone',
         },
         {
-          tag: "nav-title",
-          text: "PROFİL",
+          tag: 'nav-item',
+          text: 'Dükkan Yönetimi',
+          url: 'admin.blog.index',
+          icon: 'fas fa-briefcase',
+        },
+         {
+          tag: 'nav-item',
+          text: 'Tahsilatlar',
+          url: 'admin.customer.index',
+          icon: 'fad fa-child',
         },
         {
-          tag: "nav-item",
-          text: "Siparişlerim",
-          url: "user.order.index",
-          icon: "fad fa-shopping-cart",
-        },
-        // {
-        //   tag: "nav-item",
-        //   text: "Müşteri Destek",
-        //   url: "user.order.index",
-        //   icon: "fad fa-envelope",
-        // },
-        // {
-        //   tag: "nav-item",
-        //   text: "Canlı Destek",
-        //   url: "user.index",
-        //   icon: "fad fa-headset",
-        // },
-        {
-          tag: "nav-item",
-          text: "Hesap Bilgilerim",
-          url: "user.setting",
-          icon: "fad fa-user-circle",
+          tag: 'nav-title',
+          text: 'TİCARET',
         },
         {
-          tag: "nav-item",
-          text: "Çıkış Yap",
-          url: "logout",
-          icon: "fad fa-sign-out",
+          tag: 'nav-item',
+          text: 'Siparişler',
+          url: 'admin.order.index',
+          icon: 'fad fa-shopping-cart',
+        },
+         {
+          tag: 'nav-item',
+          text: 'İadeler',
+          url: 'admin.order.index',
+          icon: 'fas fa-undo-alt',
+        },
+        {
+          tag: 'nav-item',
+          text: 'Ödeme Ayarları',
+          url: 'admin.payment-setting.index',
+          icon: 'fad fa-money-bill-wave',
+        },
+        {
+          tag: 'nav-item',
+          text: 'Kasa',
+          url: 'admin.index',
+          icon: 'fad fa-cash-register',
+        },
+        {
+          tag: 'nav-title',
+          text: 'DESTEK',
+        },
+        {
+          tag: 'nav-item',
+          text: 'Müşteri Destek',
+          url: 'admin.index',
+          icon: 'fad fa-envelope',
+        },
+        {
+          tag: 'nav-item',
+          text: 'Canlı Destek',
+          url: 'admin.index',
+          icon: 'fad fa-headset',
+        },
+        {
+          tag: 'nav-item',
+          text: 'Çıkış Yap',
+          url: 'logout',
+          icon: 'fad fa-sign-out',
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
