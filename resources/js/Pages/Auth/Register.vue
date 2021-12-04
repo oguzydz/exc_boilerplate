@@ -26,7 +26,7 @@
                     <input
                       class="form-control"
                       type="text"
-                      placeholder="Adı Soyadı"
+                      placeholder="Ad - Soyad"
                       v-model="form.name"
                       required
                       autofocus

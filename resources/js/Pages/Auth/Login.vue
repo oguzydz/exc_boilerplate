@@ -8,13 +8,13 @@
                     <div class="card col-md-7 p-4 mb-0">
                         <div class="card-body">
                             <h1>Kullanıcı Girişi</h1>
-                            <p class="text-medium-emphasis">Hesaba Giriş Yap</p>
+                            <p class="text-medium-emphasis">Hesaba Giriş YapYap</p>
                             <form @submit.prevent="submit">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">
                                         <i class="fad fa-user"></i>
                                     </span>
-                                    <input class="form-control" type="text" placeholder="Kullanıcı Adı" v-model="form.email" required autofocus />
+                                    <input class="form-control" type="text" placeholder="E-Posta" v-model="form.email" required autofocus />
                                 </div>
                                 <div class="input-group mb-4">
                                     <span class="bg-red-500 input-group-text">
