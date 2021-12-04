@@ -1,4 +1,3 @@
-<!-- newsletter area Start -->
 <div class="newsletter-area mg-top-110">
     <div class="container">
         <div class="row justify-content-center">
@@ -19,9 +18,7 @@
         </div>
     </div>
 </div>
-<!-- newsletter area End -->
 
-<!-- footer area start -->
 <footer class="footer-area mg-top-120" style="background-image:url(assets/img/bg/footer.png);">
     <div class="footer-top pd-top-120 padding-bottom-40">
         <div class="container">
@@ -51,7 +48,10 @@
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
-                                    Copyright <i class="bx bx-copyright"></i> 2021 All right reserved! exxefy.com is the product of <a href="https://exxecode.com">Exxecode</a>
+                                    Copyright <i class="bx bx-copyright"></i> 2021 All right reserved! exxefy.com is the product of
+                                    <a href="https://exxecode.com">
+                                        Exxecode
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -80,4 +80,3 @@
         </div>
     </div>
 </footer>
-<!-- footer area end -->
