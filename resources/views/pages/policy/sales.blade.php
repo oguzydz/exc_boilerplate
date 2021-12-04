@@ -34,7 +34,7 @@
 
 
 
-                                        <p>İş bu sözleşmenin konusu, ALICI’nın, SATICI’ya ait www.exxestock.com web
+                                        <p>İş bu sözleşmenin konusu, ALICI’nın, SATICI’ya ait www.exxefy.com web
                                             sitesinden elektronik ortamda veya +90 542 286 8415 nolu telefondan sipariş
                                             verdiği, sözleşmede bahsi geçen nitelikleri haiz ve yine sözleşmede satış fiyatı
                                             belirtilen mal/hizmetin satışı ve teslimi ile ilgili olarak 4077 sayılı
@@ -45,7 +45,7 @@
                                             mal/hizmet ile ilgili tüm ön bilgiler ve “cayma” hakkı konusunda bilgi sahibi
                                             olduğunu, bu ön bilgileri elektronik ortamda teyit ettiğini ve sonrasında
                                             mal/hizmeti sipariş verdiğini iş bu sözleşme hükümlerince kabul ve beyan eder.
-                                            www.exxestock.com&nbsp; sitesinde ödeme sayfasında yer alan ön bilgilendirme ve
+                                            www.exxefy.com&nbsp; sitesinde ödeme sayfasında yer alan ön bilgilendirme ve
                                             fatura iş bu sözleşmenin ayrılmaz parçalarıdır.</p>
 
 
@@ -130,7 +130,7 @@
 
 
                                         <p>Mal/hizmetin Cinsi ve Türü, Miktarı, Marka/Modeli, Rengi ve Tüm Vergiler Dâhil
-                                            Satış Bedeli www.exxestock.com adlı web sitesindeki mal/hizmet tanıtım
+                                            Satış Bedeli www.exxefy.com adlı web sitesindeki mal/hizmet tanıtım
                                             sayfasında yer alan bilgilerde ve iş bu sözleşmenin ayrılmaz parçası sayılan
                                             faturada belirtildiği gibidir.</p>
 
@@ -188,9 +188,9 @@
                                         <p>ALICI, sözleşme konusu mal/hizmetin kendisine veya gösterdiği adresteki
                                             kişi/kuruluşa tesliminden itibaren 7 (yedi) gün içinde cayma hakkını
                                             kullanabilir. Cayma hakkının kullanılması için aynı süre içinde SATICI’ya faks,
-                                            e-posta (info@exxestock.com) veya +90 542 286 8415 nolu telefon ile bildirimde
+                                            e-posta (info@exxefy.com) veya +90 542 286 8415 nolu telefon ile bildirimde
                                             bulunulması ve mal/hizmetin 14. madde hükümleri çerçevesinde ve iş bu
-                                            sözleşmenin ayrılmaz parçası olan ve ww www.exxestock.com web sitesinde
+                                            sözleşmenin ayrılmaz parçası olan ve ww www.exxefy.com web sitesinde
                                             yayınlanmış olan önbilgiler gereğince, ambalaj ve içeriğinin denenirken hasar
                                             görmemiş olası şarttır. Bu hakkın kullanılması halinde, 3. kişiye veya ALICI’ya
                                             teslim edilen mal/hizmete ilişkin fatura aslının iadesi zorunludur. Cayma

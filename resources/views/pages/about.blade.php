@@ -23,7 +23,7 @@
                     </div>
                     <h4 class="fadeInUp" data-wow-delay="0.3s">Exxestock - Lisanslı Ürün Platormu</h4>
                     <p class="fadeInUp" data-wow-delay="0.4s">
-                        Exxestock.com, sağlamış olduğu sağlamış olduğu altyapı sayesinde Stok görsel, lisanslı hesaplar ve hayatı kolaylaştıran birçok dijital lisansı en uygun fiyata sağlamaktadır.
+                        exxefy.com, sağlamış olduğu sağlamış olduğu altyapı sayesinde Stok görsel, lisanslı hesaplar ve hayatı kolaylaştıran birçok dijital lisansı en uygun fiyata sağlamaktadır.
                     </p>
                     <p class="fadeInUp" data-wow-delay="0.5s">
                         Tüm ürünler kendi yasal, orijinal hesaplarımızdan hazırlanarak zaman ve mekan farketmeksizin anında gönderilmektedir.

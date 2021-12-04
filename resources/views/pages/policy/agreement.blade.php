@@ -37,11 +37,11 @@
 
 
 
-                <p><strong>a)</strong>&nbsp;www.exxestock.com internet sitesinin faaliyetlerini yürüten Gökalp Mah. 39. Sokak no:82 Zeytinburnu İstanbul/TÜRKİYE adresinde mukim Yazılım Store – Yazılımda Profesyonel Çözüm – Windows 10 Pro (Bundan böyle “SATICI” olarak anılacaktır).</p>
+                <p><strong>a)</strong>&nbsp;www.exxefy.com internet sitesinin faaliyetlerini yürüten Gökalp Mah. 39. Sokak no:82 Zeytinburnu İstanbul/TÜRKİYE adresinde mukim Yazılım Store – Yazılımda Profesyonel Çözüm – Windows 10 Pro (Bundan böyle “SATICI” olarak anılacaktır).</p>
 
 
 
-                <p><strong>b)</strong>&nbsp;  www.exxestock.com  internet sitesine üye olan internet kullanıcısı bundan böyle (“ÜYE”) olarak anılacaktır.</p>
+                <p><strong>b)</strong>&nbsp;  www.exxefy.com  internet sitesine üye olan internet kullanıcısı bundan böyle (“ÜYE”) olarak anılacaktır.</p>
 
 
 
@@ -49,7 +49,7 @@
 
 
 
-                <p>İşbu Sözleşme’nin konusu SATICI’nın sahip olduğu internet sitesi  www.exxestock.com  ‘dan ÜYE’nin faydalanma şartlarının belirlenmesidir.</p>
+                <p>İşbu Sözleşme’nin konusu SATICI’nın sahip olduğu internet sitesi  www.exxefy.com  ‘dan ÜYE’nin faydalanma şartlarının belirlenmesidir.</p>
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-                <p><strong>3.1.</strong>&nbsp;ÜYE,  www.exxestock.com  internet sitesine üye olurken verdiği kişisel ve diğer sair bilgilerin kanunlar önünde doğru olduğunu, SATICI’nın bu bilgilerin gerçeğe aykırılığı nedeniyle uğrayacağı tüm zararları aynen ve derhal tazmin edeceğini beyan ve taahhüt eder.</p>
+                <p><strong>3.1.</strong>&nbsp;ÜYE,  www.exxefy.com  internet sitesine üye olurken verdiği kişisel ve diğer sair bilgilerin kanunlar önünde doğru olduğunu, SATICI’nın bu bilgilerin gerçeğe aykırılığı nedeniyle uğrayacağı tüm zararları aynen ve derhal tazmin edeceğini beyan ve taahhüt eder.</p>
 
 
 
@@ -65,19 +65,19 @@
 
 
 
-                <p><strong>3.3.</strong>&nbsp;ÜYE,  www.exxestock.com  internet sitesini kullanırken yasal mevzuat hükümlerine riayet etmeyi ve bunları ihlal etmemeyi baştan kabul ve taahhüt eder. Aksi takdirde, doğacak tüm hukuki ve cezai yükümlülükler tamamen ve münhasıran ÜYE’yi bağlayacaktır.</p>
+                <p><strong>3.3.</strong>&nbsp;ÜYE,  www.exxefy.com  internet sitesini kullanırken yasal mevzuat hükümlerine riayet etmeyi ve bunları ihlal etmemeyi baştan kabul ve taahhüt eder. Aksi takdirde, doğacak tüm hukuki ve cezai yükümlülükler tamamen ve münhasıran ÜYE’yi bağlayacaktır.</p>
 
 
 
-                <p><strong>3.4.</strong>&nbsp;ÜYE,  www.exxestock.com  internet sitesini hiç bir şekilde kamu düzenini bozucu, genel ahlaka aykırı, başkalarını rahatsız ve taciz edici şekilde, yasalara aykırı bir amaç için, başkalarının fikri ve telif haklarına tecavüz edecek şekilde kullanamaz. Ayrıca ÜYE, başkalarının hizmetleri kullanmasını önleyici veya zorlaştırıcı faaliyet (spam, virus, truva atı, vb.) ve işlemlerde bulunamaz.</p>
+                <p><strong>3.4.</strong>&nbsp;ÜYE,  www.exxefy.com  internet sitesini hiç bir şekilde kamu düzenini bozucu, genel ahlaka aykırı, başkalarını rahatsız ve taciz edici şekilde, yasalara aykırı bir amaç için, başkalarının fikri ve telif haklarına tecavüz edecek şekilde kullanamaz. Ayrıca ÜYE, başkalarının hizmetleri kullanmasını önleyici veya zorlaştırıcı faaliyet (spam, virus, truva atı, vb.) ve işlemlerde bulunamaz.</p>
 
 
 
-                <p><strong>3.5.&nbsp;</strong> www.exxestock.com  &nbsp;internet sitesinde üyeler tarafından beyan edilen, yazılan, kullanılan fikir ve düşünceler, tamamen üyelerin kendi kişisel görüşleridir ve görüş sahibini bağlar. Bu görüş ve düşüncelerin SATICI’yla hiçbir ilgi ve bağlantısı yoktur. SATICI’nın, ÜYE’nin beyan edeceği fikir ve görüşler nedeniyle üçüncü kişilerin uğrayabileceği zararlardan ve üçüncü kişilerin beyan edeceği fikir ve görüşler nedeniyle ÜYE’nin uğrayabileceği zararlardan dolayı herhangi bir sorumluluğu bulunmamaktadır.</p>
+                <p><strong>3.5.&nbsp;</strong> www.exxefy.com  &nbsp;internet sitesinde üyeler tarafından beyan edilen, yazılan, kullanılan fikir ve düşünceler, tamamen üyelerin kendi kişisel görüşleridir ve görüş sahibini bağlar. Bu görüş ve düşüncelerin SATICI’yla hiçbir ilgi ve bağlantısı yoktur. SATICI’nın, ÜYE’nin beyan edeceği fikir ve görüşler nedeniyle üçüncü kişilerin uğrayabileceği zararlardan ve üçüncü kişilerin beyan edeceği fikir ve görüşler nedeniyle ÜYE’nin uğrayabileceği zararlardan dolayı herhangi bir sorumluluğu bulunmamaktadır.</p>
 
 
 
-                <p><strong>3.6.</strong>&nbsp;SATICI, ÜYE verilerinin yetkisiz kişilerce okunmasından ve ÜYE yazılım ve verilerine gelebilecek zararlardan dolayı sorumlu olmayacaktır. ÜYE,  www.exxestock.com internet sitesinin kullanılmasından dolayı uğrayabileceği herhangi bir zarar yüzünden SATICI’dan tazminat talep etmemeyi peşinen kabul etmiştir.</p>
+                <p><strong>3.6.</strong>&nbsp;SATICI, ÜYE verilerinin yetkisiz kişilerce okunmasından ve ÜYE yazılım ve verilerine gelebilecek zararlardan dolayı sorumlu olmayacaktır. ÜYE,  www.exxefy.com internet sitesinin kullanılmasından dolayı uğrayabileceği herhangi bir zarar yüzünden SATICI’dan tazminat talep etmemeyi peşinen kabul etmiştir.</p>
 
 
 
@@ -93,15 +93,15 @@
 
 
 
-                <p><strong>3.10.</strong>&nbsp; www.exxestock.com &nbsp;internet sitesi yazılım ve tasarımı SATICI mülkiyetinde olup, bunlara ilişkin telif hakkı ve/veya diğer fikri mülkiyet hakları ilgili kanunlarca korunmakta olup, bunlar ÜYE tarafından izinsiz kullanılamaz, iktisap edilemez ve değiştirilemez. Bu web sitesinde adı geçen başkaca şirketler ve ürünleri sahiplerinin ticari markalarıdır ve ayrıca fikri mülkiyet hakları kapsamında korunmaktadır.</p>
+                <p><strong>3.10.</strong>&nbsp; www.exxefy.com &nbsp;internet sitesi yazılım ve tasarımı SATICI mülkiyetinde olup, bunlara ilişkin telif hakkı ve/veya diğer fikri mülkiyet hakları ilgili kanunlarca korunmakta olup, bunlar ÜYE tarafından izinsiz kullanılamaz, iktisap edilemez ve değiştirilemez. Bu web sitesinde adı geçen başkaca şirketler ve ürünleri sahiplerinin ticari markalarıdır ve ayrıca fikri mülkiyet hakları kapsamında korunmaktadır.</p>
 
 
 
-                <p><strong>3.11.</strong>&nbsp;SATICI tarafından  www.exxestock.com  internet sitesinin iyileştirilmesi, geliştirilmesine yönelik olarak ve/veya yasal mevzuat çerçevesinde siteye erişmek için kullanılan İnternet servis sağlayıcısının adı ve Internet Protokol (IP) adresi, Siteye erişilen tarih ve saat, sitede bulunulan sırada erişilen sayfalar ve siteye doğrudan bağlanılmasını sağlayan Web sitesinin Internet adresi gibi birtakım bilgiler toplanabilir.</p>
+                <p><strong>3.11.</strong>&nbsp;SATICI tarafından  www.exxefy.com  internet sitesinin iyileştirilmesi, geliştirilmesine yönelik olarak ve/veya yasal mevzuat çerçevesinde siteye erişmek için kullanılan İnternet servis sağlayıcısının adı ve Internet Protokol (IP) adresi, Siteye erişilen tarih ve saat, sitede bulunulan sırada erişilen sayfalar ve siteye doğrudan bağlanılmasını sağlayan Web sitesinin Internet adresi gibi birtakım bilgiler toplanabilir.</p>
 
 
 
-                <p><strong>3.12.</strong>&nbsp;SATICI kullanıcılarına daha iyi hizmet sunmak, ürünlerini ve hizmetlerini iyileştirmek, sitenin kullanımını kolaylaştırmak için kullanımını kullanıcılarının özel tercihlerine ve ilgi alanlarına yönelik çalışmalarda üyelerin kişisel bilgilerini kullanabilir. SATICI, ÜYE’nin  www.exxestock.com internet sitesi üzerinde yaptığı hareketlerin kaydını bulundurma hakkını saklı tutar.</p>
+                <p><strong>3.12.</strong>&nbsp;SATICI kullanıcılarına daha iyi hizmet sunmak, ürünlerini ve hizmetlerini iyileştirmek, sitenin kullanımını kolaylaştırmak için kullanımını kullanıcılarının özel tercihlerine ve ilgi alanlarına yönelik çalışmalarda üyelerin kişisel bilgilerini kullanabilir. SATICI, ÜYE’nin  www.exxefy.com internet sitesi üzerinde yaptığı hareketlerin kaydını bulundurma hakkını saklı tutar.</p>
 
 
 

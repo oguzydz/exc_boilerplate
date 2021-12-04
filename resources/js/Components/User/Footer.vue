@@ -3,7 +3,7 @@
     <p class="ms-auto color-black">
       Copyright 2021
       <InertiaLink :href="route('home')" target="blank">
-        exxestock.com
+        exxefy.com
       </InertiaLink>
       Made by
       <InertiaLink href="https://exxecode.com" target="blank">

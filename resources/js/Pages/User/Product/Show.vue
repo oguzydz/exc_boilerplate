@@ -268,7 +268,7 @@ export default {
     },
     methods: {
         whatsappOrder() {
-            const message = `${this.paymentSetting.whatsapp_text} %0aKullanıcı Kimliği: ${this.user} %0aÜrün: exxestock.com/user/products/${this.product.slug}`;
+            const message = `${this.paymentSetting.whatsapp_text} %0aKullanıcı Kimliği: ${this.user} %0aÜrün: exxefy.com/user/products/${this.product.slug}`;
             window.open(
                 `https://wa.me/${this.paymentSetting.whatsapp}?text=${message}`,
                 "_blank"

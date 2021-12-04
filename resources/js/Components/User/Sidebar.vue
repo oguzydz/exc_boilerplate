@@ -12,7 +12,7 @@
       v-if="drawerMenuVisible"
       class="sidebar-brand d-lg-down-none p-2 justify-center items-center"
     >
-      <img src="/img/core-img/exxe-stock-logo-white.png" style="width: 60%" />
+      <img src="/assets/img/exxefylogo.png" style="width: 60%" />
     </div>
     <ul
       class="sidebar-nav sidebar-scroll scrollbar"

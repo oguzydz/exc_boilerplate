@@ -19,7 +19,7 @@
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #6c63ff;
+    background-color: #01358D;
 }
 
 a {
@@ -29,7 +29,7 @@ a {
 
 .sidebar {
     transition: width 0.15s, display 0.15s ease 0.15s !important;
-    background-color: #6c63ff !important;
+    background-color: #01358D !important;
 }
 
 .sidebar-brand {

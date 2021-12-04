@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="bg-[#7450fe] col-md-5 text-white rounded-r py-5 flex items-center justify-center" >
-                        <img class="w-75" src="/img/core-img/exxe-stock-logo-white.png" />
+                        <img class="w-75" src="/assets/img/exxefylogo.png" />
                     </div>
                 </div>
             </div>
