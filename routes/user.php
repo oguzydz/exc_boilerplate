@@ -6,6 +6,7 @@
  */
 
 use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -20,7 +21,7 @@ use App\Http\Controllers\User\PaymentController;
 
 Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user'], 'as' => 'user.'], function(){
 
-    Route::get('/', [ProductController::class, 'index'])->name('index');
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::get('/settings', [UserProfileController::class, 'show'])->name('setting');
 
     Route::group(['prefix' => 'products', 'as' => 'product.'], function(){

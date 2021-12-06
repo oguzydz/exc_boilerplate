@@ -25,10 +25,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->foreignId('city_id')->references('id')->on('cities');
-            $table->foreignId('county_id')->references('id')->on('counties');
+            $table->foreignId('city_id')->nullable()->references('id')->on('cities');
+            $table->foreignId('county_id')->nullable()->references('id')->on('counties');
             $table->string('address')->unique()->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
