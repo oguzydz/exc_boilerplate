@@ -12,7 +12,7 @@
       v-if="drawerMenuVisible"
       class="sidebar-brand d-lg-down-none p-2 justify-center items-center"
     >
-      <img src="/assets/img/exxefylogo.png" style="width: 85px;" />
+      <img src="/assets/img/exxefy-logo-white.png" style="width: 85px;" />
     </div>
     <ul
       class="sidebar-nav sidebar-scroll scrollbar"

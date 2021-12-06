@@ -2,7 +2,7 @@
   <div
     class="bg-light min-vh-100 d-flex flex-row align-items-center"
     style="
-      background-image: url(/images/login-wallpaper-2.jpg);
+      background-image: url(/assets/img/register-bg.png);
       background-size: cover;
       background-position: center;
     "
@@ -130,7 +130,7 @@
                     >
                       KAYDOL
                     </jet-button>
-                    <a
+                    <!-- <a
                       href="#"
                       @click="$inertia.get(route('login'))"
                       class="
@@ -157,7 +157,7 @@
                       "
                     >
                       GİRİŞ YAP
-                    </a>
+                    </a> -->
                   </div>
                 </form>
               </div>
@@ -174,7 +174,7 @@
                 justify-center
               "
             >
-              <img class="w-75" src="/img/core-img/exxe-stock-logo-white.png" />
+              <img class="img-login" src="/assets/img/exxefy-logo-white.png" />
             </div>
           </div>
         </div>
@@ -237,5 +237,8 @@ p {
 input::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 14px;
+}
+.img-login {
+    width: 120px;
 }
 </style>
