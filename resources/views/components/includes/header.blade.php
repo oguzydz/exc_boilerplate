@@ -12,7 +12,7 @@
         <div class="responsive-mobile-menu">
             <div class="logo-wrapper mobile-logo">
                 <a href="index.html" class="logo">
-                    <img src="assets\img\exxefy-logo.png" width="130px" alt="logo">
+                    <img src="assets\img\exxefy-logo.png" width="150px" alt="logo">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Riyaqas_main_menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="Riyaqas_main_menu">
             <div class="logo-wrapper desktop-logo">
                 <a href="index.html" class="logo">
-                    <img src="assets\img\exxefy-logo.png" width="130px" alt="logo">
+                    <img src="assets\img\exxefy-logo.png" width="150px" alt="logo">
                 </a>
             </div>
             <ul class="navbar-nav">
