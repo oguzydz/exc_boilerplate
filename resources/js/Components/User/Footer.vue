@@ -1,6 +1,6 @@
 <template>
   <footer class="footer bg-white">
-    <p class="ms-auto color-black">
+    <p class="ms-auto color-black mb-0">
       Copyright 2021
       <InertiaLink :href="route('home')" target="blank">
         exxefy.com

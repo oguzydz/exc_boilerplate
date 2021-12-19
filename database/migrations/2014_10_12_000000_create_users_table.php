@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->foreignId('membership_type')->nullable()->references('id')->on('user_types');
             $table->foreignId('city_id')->nullable()->references('id')->on('cities');
             $table->foreignId('county_id')->nullable()->references('id')->on('counties');
             $table->string('address')->unique()->nullable();
