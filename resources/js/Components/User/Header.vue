@@ -7,7 +7,7 @@
                         :href="route('user.index')"
                         class="header-brand d-lg-none float-left"
                     >
-                        <img src="/img/core-img/exxestock-logo.png" />
+                        <img src="/assets/img/exxefy-logo.png" class="m-logo"/>
                     </InertiaLink>
                 </div>
                 <div class="col-6 m-auto">
@@ -35,3 +35,13 @@ export default {
     },
 };
 </script>
+<style>
+.header > .container-fluid {
+    display: unset!important;
+    min-height: unset!important;
+}
+
+.m-logo {
+    width: 96px;
+}
+</style>
