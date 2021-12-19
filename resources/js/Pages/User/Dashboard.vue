@@ -9,13 +9,25 @@
           simple
           style="margin-top: 20px"
         >
+        <div class="col-md-3">
           <el-step title="Üyelik Bilgileri"></el-step>
+        </div>
+        <div class="col-md-3">
           <el-step title="Banka Hesabı"></el-step>
+        </div>
+        <div class="col-md-3">
           <el-step title="Satılan Ürün"></el-step>
+        </div>
+        <div class="col-md-3">
           <el-step title="Tamamla"></el-step>
+        </div>
         </el-steps>
-        <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
 
+        <el-form v-if="active === 0">
+        ...
+        </el-form>
+
+        <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
       </div>
     </div>
   </app-layout>
