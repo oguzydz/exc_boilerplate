@@ -119,3 +119,8 @@ label {
     padding-bottom: 0px;
 }
 
+.el-button--success {
+    background-color: #67c23a;
+    box-shadow: 0px 11px 14px #32e2a94d;
+    border: unset;
+}

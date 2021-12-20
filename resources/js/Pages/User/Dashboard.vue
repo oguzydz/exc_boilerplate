@@ -26,7 +26,7 @@
       <div class="col-md-12">
         <div class="step-tab-content">
           <div class="row" v-if="active === 0">
-            <div class="col-md-6 text-center m-auto">
+            <div class="col-md-6 text-center form-info-side">
               <div class="form-info">
                 <h3>Üyelik Bilgileriniz</h3>
                 <p class="text-information">
@@ -34,6 +34,7 @@
                   içerisinde oluşturabilirsiniz. Lütfen istenilen bilgileri
                   girerek "İlerle" butonuna tıklayınız.
                 </p>
+                <img src="/assets/img/we-provide/1.png" class="img">
               </div>
             </div>
             <div class="col-md-6">
@@ -133,10 +134,16 @@
                 </el-form-item>
 
                 <el-form-item class="float-right">
-                  <el-button type="info" icon="el-icon-edit" @click="back('secondForm')"
+                  <el-button
+                    type="info"
+                    icon="el-icon-edit"
+                    @click="back('secondForm')"
                     >Geri</el-button
                   >
-                  <el-button type="success" icon="el-icon-check" @click="submitForm('firstForm')"
+                  <el-button
+                    type="success"
+                    icon="el-icon-check"
+                    @click="submitForm('firstForm')"
                     >İLERLE</el-button
                   >
                 </el-form-item>
@@ -144,7 +151,7 @@
             </div>
           </div>
           <div class="row" v-if="active === 1">
-            <div class="col-md-6 text-center m-auto">
+            <div class="col-md-6 text-center form-info-side">
               <div class="form-info">
                 <h3>Banka Hesabınız</h3>
                 <p class="text-information">
@@ -208,8 +215,14 @@
 .el-form-item__label {
   font-size: 13px;
 }
-.el-button [class*=el-icon-]+span {
-    font-weight: bold;
+.el-button [class*="el-icon-"] + span {
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .form-info-side {
+    border-right-width: 1px;
+    border-style: dashed;
+  }
 }
 </style>
 
