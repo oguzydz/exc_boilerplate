@@ -30,11 +30,11 @@
               <div class="form-info">
                 <h3>Üyelik Bilgileriniz</h3>
                 <p class="text-information">
-                  Shopier hesabınızı ücretsiz olarak sadece birkaç dakika
+                  Exxefy hesabınızı ücretsiz olarak sadece birkaç dakika
                   içerisinde oluşturabilirsiniz. Lütfen istenilen bilgileri
                   girerek "İlerle" butonuna tıklayınız.
                 </p>
-                <img src="/assets/img/we-provide/1.png" class="img">
+                <img src="/assets/img/we-provide/1.png" class="img" />
               </div>
             </div>
             <div class="col-md-6">
@@ -46,7 +46,7 @@
                 label-position="right"
                 size="medium"
               >
-                <el-form-item label="Üyelik Tipi" prop="user_type">
+                <el-form-item label="Üyelik Tipi:" prop="user_type">
                   <el-select
                     v-model="firstForm.user_type"
                     placeholder="Üyelik tipiniz."
@@ -59,20 +59,20 @@
                     ></el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="Ad-Soyad" prop="name">
+                <el-form-item label="Ad-Soyad:" prop="name">
                   <el-input
                     v-model="firstForm.name"
                     placeholder="Adınızı ve soyadınız."
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="T.C. Numarası" prop="tc">
+                <el-form-item label="T.C. Numarası:" prop="tc">
                   <el-input
                     v-model="firstForm.tc"
                     type="number"
                     placeholder="T.C. kimlik numaranız."
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="Doğum Tarihi" required>
+                <el-form-item label="Doğum Tarihi:" required>
                   <el-form-item prop="born_date">
                     <el-date-picker
                       type="date"
@@ -82,21 +82,21 @@
                     ></el-date-picker>
                   </el-form-item>
                 </el-form-item>
-                <el-form-item label="Telefon Numarası" prop="phone">
+                <el-form-item label="Telefon Numarası:" prop="phone">
                   <el-input
                     v-model="firstForm.phone"
                     type="number"
                     placeholder="Cep telefonu numaranız."
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="Adres" prop="address">
+                <el-form-item label="Adres:" prop="address">
                   <el-input
                     type="textarea"
                     v-model="firstForm.address"
                     placeholder="Açık adresiniz."
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="İl - İlçe" required>
+                <el-form-item label="İl - İlçe:" required>
                   <el-col :span="11">
                     <el-form-item prop="city_id">
                       <el-select
@@ -158,9 +158,19 @@
                   Yaptığınız satışlarla ilgili ödemelerinizin banka hesabınıza
                   transfer edilebilmesi için lütfen gerekli bilgileri giriniz.
                 </p>
+                <img src="/assets/img/we-provide/1.png" class="img" />
               </div>
             </div>
             <div class="col-md-6">
+              <el-alert
+                title="Bilgi:"
+                type="info"
+                description="Para gönderimleri, Exxefy’a kayıtlı kişi adına IBAN bilgisi ile yapılmaktadır."
+                show-icon
+                class="mb-3"
+              >
+              </el-alert>
+
               <el-form
                 :model="secondForm"
                 :rules="secondRules"
@@ -169,20 +179,78 @@
                 label-position="right"
                 size="medium"
               >
-                <el-form-item label="IBAN" prop="iban">
+                <el-form-item label="IBAN:" prop="iban">
                   <el-input
                     v-model="secondForm.iban"
                     type="number"
-                    placeholder="T.C. kimlik numaranız."
+                    placeholder="Iban, TL hesabınız."
                   ></el-input>
                 </el-form-item>
-
-                <el-form-item>
-                  <el-button type="info" @click="back('secondForm')"
+                <el-form-item class="float-right">
+                  <el-button
+                    type="info"
+                    icon="el-icon-edit"
+                    @click="back()"
                     >Geri</el-button
                   >
-                  <el-button type="success" @click="submitForm('secondForm')"
-                    >İlerle</el-button
+                  <el-button
+                    type="success"
+                    icon="el-icon-check"
+                    @click="submitForm('secondForm')"
+                    >İLERLE</el-button
+                  >
+                </el-form-item>
+              </el-form>
+            </div>
+          </div>
+          <div class="row" v-if="active === 2">
+            <div class="col-md-6 text-center form-info-side">
+              <div class="form-info">
+                <h3>Satılan Ürün</h3>
+                <p class="text-information">
+                    Satış yaptığınız ürünler veya hizmetlerin detayları ile birlikte internet üzerinde satış amaçlı
+                    oluşturduğunuz sayfalarınızı veya hesaplarınızı belirtiniz.
+                </p>
+                <img src="/assets/img/we-provide/1.png" class="img" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <el-alert
+                title="Bilgi:"
+                type="info"
+                description="Exxefy’da ne tür ürünlerin veya hizmetlerin satışını yapmayı planlıyorsunuz?"
+                show-icon
+                class="mb-3"
+              >
+              </el-alert>
+
+              <el-form
+                :model="thirdForm"
+                :rules="thirddRules"
+                ref="thirdForm"
+                label-width="130px"
+                label-position="right"
+                size="medium"
+              >
+                <el-form-item label="Satılan Ürün Özeti:" prop="address">
+                  <el-input
+                    type="textarea"
+                    v-model="thirdForm.service_text"
+                    placeholder="Satılan ürün veya hizmet hakkında bilgi."
+                  ></el-input>
+                </el-form-item>
+                <el-form-item class="float-right">
+                  <el-button
+                    type="info"
+                    icon="el-icon-edit"
+                    @click="back()"
+                    >Geri</el-button
+                  >
+                  <el-button
+                    type="success"
+                    icon="el-icon-check"
+                    @click="submitForm('thirdForm')"
+                    >İLERLE</el-button
                   >
                 </el-form-item>
               </el-form>
@@ -258,9 +326,9 @@ export default {
         iban: "",
       },
       thirdForm: {
-        user: "",
+        service_text: "",
       },
-      rules: {
+      rulesx: {
         name: [
           {
             required: true,
@@ -337,25 +405,27 @@ export default {
           },
         ],
       },
-      secondRules: {
-        name: [
+      secondRulesx: {
+        iban: [
           {
             required: true,
-            message: "Lütfen ad-soyad alanını doldurunuz.",
+            message: "Lütfen iban giriniz.",
             trigger: "blur",
           },
           {
-            min: 3,
-            max: 40,
-            message: "En küçük 3, en fazla 40 karakter olabilir.",
+            min: 11,
+            max: 11,
+            message: "Iban 11 haneli olmalı",
             trigger: "blur",
           },
         ],
-        user_type: [
+      },
+      thirdRulesx: {
+        address: [
           {
             required: true,
-            message: "Lütfen üyelik tipinizi seçiniz.",
-            trigger: "change",
+            message: "Lütfen adresinizi giriniz.",
+            trigger: "blur",
           },
         ],
       },
@@ -366,6 +436,9 @@ export default {
   methods: {
     next() {
       if (this.active++ > 2) this.active = 0;
+    },
+    back() {
+      if (this.active-- < 1) this.active = 0;
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
