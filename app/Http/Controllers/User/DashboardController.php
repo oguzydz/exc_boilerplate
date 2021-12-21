@@ -4,8 +4,12 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\User;
+use App\Models\UserConfirmData;
+use App\Models\UserIban;
 use App\Models\UserType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
@@ -44,7 +48,44 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userId = Auth::user()->id;
+
+        $userData = [
+            'user_type' => $request->user_type,
+            'name' => $request->name,
+            'tc' => $request->tc,
+            'born_date' => $request->born_date,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city_id' => $request->city_id,
+            'county_id' => $request->county_id,
+        ];
+
+        $userIbanData = [
+            'user_id' => $request->userId,
+            'iban' => $request->iban,
+        ];
+
+        $userConfirmData = [
+            'user_id' => $request->userId,
+            'service_text' => $request->service_text,
+        ];
+
+        $user = User::findOrFail($userId);
+
+        try {
+            $user->update($userData);
+            UserIban::create($userIbanData);
+            UserConfirmData::create($userConfirmData);
+
+
+            return redirect()->back()->with('toast_success', __('Bilgi talebiniz başarıyla iletildi en kısa süre içinde iletişime geçmiş olacağız!'));
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
+            return redirect()->back();
+        }
+
     }
 
     /**
