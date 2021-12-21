@@ -21,7 +21,11 @@ use App\Http\Controllers\User\PaymentController;
 
 Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user'], 'as' => 'user.'], function(){
 
-    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
+        Route::get('/', [DashboardController::class, 'index'])->name('index');
+        Route::post('/store', [DashboardController::class, 'store'])->name('store');
+    });
+
     Route::get('/settings', [UserProfileController::class, 'show'])->name('setting');
 
     Route::group(['prefix' => 'products', 'as' => 'product.'], function(){

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-6">
                     <InertiaLink
-                        :href="route('user.index')"
+                        :href="route('user.dashboard.index')"
                         class="header-brand d-lg-none float-left"
                     >
                         <img src="/assets/img/exxefy-logo.png" class="m-logo"/>

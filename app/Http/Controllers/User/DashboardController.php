@@ -62,28 +62,25 @@ class DashboardController extends Controller
         ];
 
         $userIbanData = [
-            'user_id' => $request->userId,
+            'user_id' => $userId,
             'iban' => $request->iban,
         ];
 
         $userConfirmData = [
-            'user_id' => $request->userId,
+            'user_id' => $userId,
             'service_text' => $request->service_text,
         ];
 
-        $user = User::findOrFail($userId);
-
+        dd($userConfirmData);
         try {
+            $user = User::findOrFail($userId);
             $user->update($userData);
             UserIban::create($userIbanData);
             UserConfirmData::create($userConfirmData);
 
-
             return redirect()->back()->with('toast_success', __('Bilgi talebiniz başarıyla iletildi en kısa süre içinde iletişime geçmiş olacağız!'));
         } catch (\Exception $e) {
-            $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
-            return redirect()->back();
+            return redirect()->back()->with('success_message', 'Yay it worked');
         }
 
     }

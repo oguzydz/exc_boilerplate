@@ -110,7 +110,7 @@ export default {
         // {
         //   tag: "nav-item",
         //   text: "Canlı Destek",
-        //   url: "user.index",
+        //   url: "user.dashboard.index",
         //   icon: "fad fa-headset",
         // },
         {
