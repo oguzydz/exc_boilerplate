@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Stok Görselleri">
+    <app-layout title="Kayıt Ekranı">
         <page-title :title="title" />
         <div class="row">
             <div class="col-md-12">
@@ -285,7 +285,7 @@
                             </el-form>
                         </div>
                     </div>
-                    <div class="row" v-if="active === 3">
+                    <div class="row" v-if="active === 3 || active === 4">
                         <div class="col-md-6 text-center form-info-side">
                             <div class="form-info">
                                 <h3>Başvurunuz Tamamlandı</h3>
@@ -302,6 +302,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                            <el-alert
+                                title="Başvuru Özeti:"
+                                type="success"
+                                description="Başvurunuz başarıyla tamamlandı, ekibimizin incelemesinden sonra hemen satış yapmaya başlayabilirsiniz."
+                                show-icon
+                                class="mb-2"
+                            >
+                            </el-alert>
+
                             <el-alert
                                 title="Bilgi:"
                                 type="info"
@@ -367,7 +376,8 @@ export default {
     },
     data() {
         return {
-            active: 0,
+            stabilActive: this.userStatus != 0 ? true : false,
+            active: this.userStatus == 4 ? 4 : 0,
             title: "ÜCRETSİZ HESAP OLUŞTURUN",
             firstForm: {
                 membership_type: "",
@@ -503,7 +513,12 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     if (formName == "thirdForm") {
-                        this.fullForm = Object.assign({}, this.firstForm, this.secondForm, this.thirdForm);
+                        this.fullForm = Object.assign(
+                            {},
+                            this.firstForm,
+                            this.secondForm,
+                            this.thirdForm
+                        );
 
                         this.$inertia.post(
                             route("user.dashboard.store"),
@@ -515,7 +530,7 @@ export default {
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
-                                    if (this.active++ > 2) this.active = 0;
+                                    this.active = 4;
                                 },
                                 onError: (errors) => {
                                     this.$message({
