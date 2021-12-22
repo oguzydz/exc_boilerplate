@@ -20,12 +20,32 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
+    const STATUS_NEW = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_CANCELED = 2;
+    const STATUS_DELETED = 3;
+    const STATUS_READY = 4;
+    const STATUS_PASIVE = 5;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'membership_type',
+        'born_date',
+        'name',
+        'tc',
+        'phone',
+        'address',
+        'city_id',
+        'county_id',
+        'status',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

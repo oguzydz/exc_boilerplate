@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserConfirmRequest;
 use App\Models\City;
 use App\Models\User;
 use App\Models\UserConfirmData;
 use App\Models\UserIban;
 use App\Models\UserType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -22,11 +24,13 @@ class DashboardController extends Controller
     public function index()
     {
         $userTypes = UserType::all();
+        $userStatus = Auth::user()->status;
         $cities = City::all();
 
         return Inertia::render('User/Dashboard', [
             'userTypes' => $userTypes,
             'cities' => $cities,
+            'userStatus' => $userStatus,
         ]);
     }
 
@@ -46,19 +50,20 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserConfirmRequest $request)
     {
         $userId = Auth::user()->id;
 
         $userData = [
-            'user_type' => $request->user_type,
+            'membership_type' => $request->membership_type,
             'name' => $request->name,
             'tc' => $request->tc,
-            'born_date' => $request->born_date,
+            'born_date' => Carbon::parse($request->born_date),
             'phone' => $request->phone,
             'address' => $request->address,
             'city_id' => $request->city_id,
             'county_id' => $request->county_id,
+            'status' => User::STATUS_READY,
         ];
 
         $userIbanData = [
@@ -71,18 +76,17 @@ class DashboardController extends Controller
             'service_text' => $request->service_text,
         ];
 
-        dd($userConfirmData);
         try {
             $user = User::findOrFail($userId);
             $user->update($userData);
+
             UserIban::create($userIbanData);
             UserConfirmData::create($userConfirmData);
 
-            return redirect()->back()->with('toast_success', __('Bilgi talebiniz başarıyla iletildi en kısa süre içinde iletişime geçmiş olacağız!'));
+            return redirect()->back()->withSuccess(['msg' => 'The Messagex']);
         } catch (\Exception $e) {
-            return redirect()->back()->with('success_message', 'Yay it worked');
+            return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
         }
-
     }
 
     /**

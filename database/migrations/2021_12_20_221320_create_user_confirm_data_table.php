@@ -16,7 +16,7 @@ class CreateUserConfirmDataTable extends Migration
         Schema::create('user_confirm_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->index();
-            $table->string('service_text');
+            $table->text('service_text');
             $table->timestamps();
         });
     }
