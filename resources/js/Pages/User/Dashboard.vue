@@ -9,18 +9,10 @@
                     simple
                     style="margin-top: 20px"
                 >
-                    <div class="col-md-3">
-                        <el-step title="Üyelik Bilgileri"></el-step>
-                    </div>
-                    <div class="col-md-3">
-                        <el-step title="Banka Hesabı"></el-step>
-                    </div>
-                    <div class="col-md-3">
-                        <el-step title="Satılan Ürün"></el-step>
-                    </div>
-                    <div class="col-md-3">
-                        <el-step title="Tamamla"></el-step>
-                    </div>
+                    <el-step title="Üyelik Bilgileri"></el-step>
+                    <el-step title="Banka Hesabı"></el-step>
+                    <el-step title="Satılan Ürün"></el-step>
+                    <el-step title="Sonuç Ekranı"></el-step>
                 </el-steps>
             </div>
             <div class="col-md-12">
@@ -288,7 +280,7 @@
                     <div class="row" v-if="active === 3 || active === 4">
                         <div class="col-md-6 text-center form-info-side">
                             <div class="form-info">
-                                <h3>Başvurunuz Tamamlandı</h3>
+                                <h3>BAŞVURUNUZ TAMAMLANDI!</h3>
                                 <p class="text-information">
                                     Exxefy giriş başvurunuz başarıyla
                                     tamamlandı! Ücretsiz satışa başlamadan önce
@@ -312,9 +304,9 @@
                             </el-alert>
 
                             <el-alert
-                                title="Bilgi:"
+                                title="Onay Süresi:"
                                 type="info"
-                                description="Exxefy’da ne tür ürünlerin veya hizmetlerin satışını yapmayı planlıyorsunuz?"
+                                description="En geç 1 iş günü içerisinde başvurunuz sonuçlanacaktır. Aklınıza takılan bir soru olursa canlı destek üzerinden yardım alabilirsiniz."
                                 show-icon
                                 class="mb-3"
                             >
@@ -330,6 +322,7 @@
 <style>
 .el-step.is-simple .el-step__title {
     font-size: 12px;
+    line-height: 14px;
 }
 .el-steps--simple {
     background: #ffffff;
