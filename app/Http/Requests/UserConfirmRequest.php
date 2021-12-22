@@ -26,11 +26,10 @@ class UserConfirmRequest extends FormRequest
         return [
             'membership_type' => ['required', 'numeric'],
             'name' => ['required', 'string'],
-            'tc' => ['required', 'string'],
+            'tc' => ['required', 'string', 'unique:users'],
             'born_date' => ['required', 'date'],
-            'phone' => ['required', 'string'],
+            'phone' => ['required', 'string', 'unique:users'],
             'address' => ['required', 'string'],
-            'phone' => ['required', 'string'],
             'city_id' => ['required', 'numeric'],
             'county_id' => ['required', 'numeric'],
             'iban' => ['required', 'string'],

@@ -39,7 +39,7 @@
                                 :rules="rules"
                                 ref="firstForm"
                                 label-width="130px"
-                                label-position="right"
+                                :label-position="isMobile() ? 'left' : 'right'"
                                 size="medium"
                             >
                                 <el-form-item
@@ -141,7 +141,7 @@
                                     </el-col>
                                 </el-form-item>
 
-                                <el-form-item class="float-right">
+                                <div class="float-right">
                                     <el-button
                                         type="info"
                                         icon="el-icon-edit"
@@ -154,7 +154,7 @@
                                         @click="submitForm('firstForm')"
                                         >İLERLE</el-button
                                     >
-                                </el-form-item>
+                                </div>
                             </el-form>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                                 :rules="secondRules"
                                 ref="secondForm"
                                 label-width="130px"
-                                label-position="right"
+                                :label-position="isMobile() ? 'left' : 'right'"
                                 size="medium"
                             >
                                 <el-form-item label="IBAN:" prop="iban">
@@ -198,7 +198,7 @@
                                         placeholder="Iban, TL hesabınız."
                                     ></el-input>
                                 </el-form-item>
-                                <el-form-item class="float-right">
+                                <div class="float-right">
                                     <el-button
                                         type="info"
                                         icon="el-icon-edit"
@@ -211,7 +211,7 @@
                                         @click="submitForm('secondForm')"
                                         >İLERLE</el-button
                                     >
-                                </el-form-item>
+                                </div>
                             </el-form>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                                 :rules="thirddRules"
                                 ref="thirdForm"
                                 label-width="130px"
-                                label-position="right"
+                                :label-position="isMobile() ? 'left' : 'right'"
                                 size="medium"
                             >
                                 <el-form-item
@@ -260,7 +260,7 @@
                                         placeholder="Satılan ürün veya hizmet hakkında bilgi."
                                     ></el-input>
                                 </el-form-item>
-                                <el-form-item class="float-right">
+                                <div class="float-right">
                                     <el-button
                                         type="info"
                                         icon="el-icon-edit"
@@ -273,7 +273,7 @@
                                         @click="submitForm('thirdForm')"
                                         >GÖNDER</el-button
                                     >
-                                </el-form-item>
+                                </div>
                             </el-form>
                         </div>
                     </div>
@@ -348,6 +348,18 @@
     .form-info-side {
         border-right-width: 1px;
         border-style: dashed;
+    }
+}
+@media screen and (max-width: 768px) {
+    .el-step.is-simple:not(:last-of-type) .el-step__title {
+        word-break: unset !important;
+    }
+    .el-step__arrow {
+        display: none !important;
+    }
+    .el-step.is-simple .el-step__title {
+        font-size: 10px;
+        line-height: 12px;
     }
 }
 </style>
@@ -482,10 +494,10 @@ export default {
                 ],
             },
             thirdRules: {
-                address: [
+                service_text: [
                     {
                         required: true,
-                        message: "Lütfen adresinizi giriniz.",
+                        message: "Lütfen özet giriniz.",
                         trigger: "blur",
                     },
                 ],
@@ -499,9 +511,11 @@ export default {
         next() {
             if (this.active++ > 2) this.active = 0;
         },
+
         back() {
             if (this.active-- < 1) this.active = 0;
         },
+
         submitForm(formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
@@ -545,6 +559,7 @@ export default {
                 }
             });
         },
+
         resetForm(formName) {
             this.$refs[formName].resetFields();
         },
@@ -555,6 +570,18 @@ export default {
                 .then((response) => {
                     this.counties = response.data;
                 });
+        },
+
+        isMobile() {
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                )
+            ) {
+                return true;
+            } else {
+                return false;
+            }
         },
     },
 };
