@@ -32,6 +32,11 @@
     </ul>
   </div>
 </template>
+<style>
+.nav-link span {
+    font-size: 14px;
+}
+</style>
 <script>
 import NavItem from "@/Components/Sidebar/NavItem";
 import NavTitle from "@/Components/Sidebar/NavTitle";
@@ -57,9 +62,15 @@ export default {
         },
         {
           tag: "nav-item",
+          text: "Gösterge Paneli",
+          url: "user.dashboard.index",
+          icon: "fad fa-clone",
+        },
+        {
+          tag: "nav-item",
           text: "Ürünler",
           url: "user.product.index",
-          icon: "fad fa-clone",
+          icon: "fad fa-shopping-cart",
         },
         {
           tag: "nav-item",
