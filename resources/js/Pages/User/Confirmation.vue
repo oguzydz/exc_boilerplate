@@ -299,7 +299,7 @@
                                 type="success"
                                 description="Başvurunuz başarıyla tamamlandı, ekibimizin incelemesinden sonra hemen satış yapmaya başlayabilirsiniz."
                                 show-icon
-                                class="mb-2"
+                                class="mb-2 mt-xs-3"
                             >
                             </el-alert>
 
@@ -308,7 +308,15 @@
                                 type="info"
                                 description="En geç 1 iş günü içerisinde başvurunuz sonuçlanacaktır. Aklınıza takılan bir soru olursa canlı destek üzerinden yardım alabilirsiniz."
                                 show-icon
-                                class="mb-3"
+                                class="mb-2"
+                            >
+                            </el-alert>
+                            <el-alert
+                                title="Bilgi:"
+                                type="info"
+                                description="Başvurunuz onaylanana kadar Exxefy'ın tüm özelliklerine erişemeyeceksiniz."
+                                show-icon
+                                class="mb-2"
                             >
                             </el-alert>
                         </div>

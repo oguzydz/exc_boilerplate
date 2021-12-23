@@ -68,9 +68,9 @@ export default {
         },
         {
           tag: "nav-item",
-          text: "Ürünler",
-          url: "user.product.index",
-          icon: "fad fa-shopping-cart",
+          text: "Dükkan Yönetimi",
+          url: "user.category.index",
+          icon: "fas fa-store-alt",
         },
         {
           tag: "nav-item",
@@ -80,21 +80,21 @@ export default {
         },
         {
           tag: "nav-item",
-          text: "Dükkan Yönetimi",
-          url: "user.category.index",
-          icon: "fas fa-briefcase",
-        },
-        {
-          tag: "nav-item",
-          text: "Tahsilatlar",
-          url: "user.category.index",
-          icon: "fad fa-child",
+          text: "Ürünler",
+          url: "user.product.index",
+          icon: "fad fa-shopping-cart",
         },
         {
           tag: "nav-item",
           text: "Siparişler",
           url: "user.category.index",
-          icon: "fad fa-shopping-cart",
+          icon: "fad fa-clipboard-check",
+        },
+        {
+          tag: "nav-item",
+          text: "Tahsilatlar",
+          url: "user.category.index",
+          icon: "fad fa-briefcase",
         },
         {
           tag: "nav-item",
