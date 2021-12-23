@@ -13,10 +13,11 @@
                     <div class="col-xl-5 col-lg-6 col-md-6 offset-xl-1">
                         <div class="header-inner-details">
                             <div class="header-inner">
-                                <h1 class="title s-animate-1">Better <span>software</span> promotes sales & profits</h1>
-                                <p class="s-animate-2">There are many variations of passages of Lorem Ipsum available, <br> but the majority have suffered alteration.</p>
+                                <h1 class="title s-animate-1">Ücretsiz <span>mağaza</span> açıp satışa başla!</h1>
+                                <p class="s-animate-2">Exxefy ile hemen ücretsiz mağazanı açarak satışa başlayabilirsiniz. <br>
+                                    Tüm bankalardan ödeme alabilir ve kullanışlı arayüz ile mağazanızı yönetebilirsiniz.</p>
                                 <div class="btn-wrapper desktop-left padding-top-20">
-                                    <a href="#" class="btn btn-radius btn-green s-animate-3">Read More</a>
+                                    <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen Kayıt Ol</a>
                                 </div>
                             </div>
                         </div>
@@ -24,9 +25,7 @@
                     <div class="col-lg-6 col-md-6 hidden-sm">
                         <div class="banner-thumb-wrap">
                             <div class="banner-thumb">
-                                <img class="header-inner-img" src="assets\img\banner\1.png" alt="banner-img">
-                                <img class="banner-1-img2" src="assets\img\banner\2.png" alt="banner-img">
-                                <img class="banner-1-img3" src="assets\img\banner\3.png" alt="banner-img">
+                                <img class="header-inner-img" src="assets/img/banner/15.png" alt="banner-img">
                             </div>
                         </div>
                     </div>
@@ -37,10 +36,11 @@
                     <div class="col-xl-5 col-lg-6 col-md-6  offset-xl-1">
                         <div class="header-inner-details">
                             <div class="header-inner">
-                                <h1 class="title s-animate-1">Crafting online <span>software</span> for you</h1>
-                                <p class="s-animate-2">There are many variations of passages of Lorem Ipsum available, <br> but the majority have suffered alteration.</p>
+                                <h1 class="title s-animate-1">Güvenli ve hızlı <span>mağazanı</span> oluştur!</h1>
+                                <p class="s-animate-2">Güvenilir ve hızlı bir alt yapı ile ürünlerini herkese gösterebilirsin. <br>
+                                     Exxefy kullanıcı dostu bir mağaza tasarımı sunmaktadır, hemen şimdi ücretsiz deneyebilirsiniz.</p>
                                 <div class="btn-wrapper desktop-left padding-top-20">
-                                    <a href="#" class="btn btn-radius btn-green s-animate-3">Read More</a>
+                                    <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen Kayıt Ol</a>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,9 @@
                     <div class="col-xl-5 col-lg-6 col-md-6  offset-xl-1">
                         <div class="header-inner-details">
                             <div class="header-inner">
-                                <h1 class="title s-animate-1">Most advantage <span>Technology</span></h1>
-                                <p class="s-animate-2">There are many variations of passages of Lorem Ipsum available, <br> but the majority have suffered alteration.</p>
+                                <h1 class="title s-animate-1">Tüm bankalardan <span>ödeme</span> al!</h1>
+                                <p class="s-animate-2">Exxefy'da tüm banka kartlarından sorunsuz ödeme alabilirsiniz.<br>
+                                     Hemde piyasadaki en uygun komisyonlandırma sistemi ile ertesi gün paranız hesabınızda.</p>
                                 <div class="btn-wrapper desktop-left padding-top-20">
                                     <a href="#" class="btn btn-radius btn-green s-animate-3">Read More</a>
                                 </div>
