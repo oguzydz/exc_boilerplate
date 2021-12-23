@@ -2,7 +2,7 @@
     .swp-right-thumb {
         padding-left: 50px;
     }
-    .signUp-popup.login-register-popup .riyaqas-form-wrap .btn-wrap {
+    .signUp-popup.login-register-popup .exxefy-form-wrap .btn-wrap {
         margin-top: 15px;
     }
 }
@@ -107,7 +107,7 @@
     .error-page-left-img .top-image {
         margin-bottom: 0;
     }
-    .signUp-popup.login-register-popup .riyaqas-form-wrap .btn-wrap {
+    .signUp-popup.login-register-popup .exxefy-form-wrap .btn-wrap {
         margin-top: 10px;
     }
     .header-area .title {
@@ -172,7 +172,7 @@
         margin-top: 75px;
     }
 
- 
+
     /*** home 8 ***/
     .h8-banner-area .title {
         font-size: 55px;
@@ -255,11 +255,11 @@
     .talented-pepole-list ul li {
         padding: 0 15px;
     }
-    .sbs-provide-security .riyaqas-check-list img {
+    .sbs-provide-security .exxefy-check-list img {
         margin-right: 9px;
         height: 25px;
     }
-    .sbs-provide-security .riyaqas-check-list span {
+    .sbs-provide-security .exxefy-check-list span {
         font-size: 13px;
     }
     .leftside-image-area.business-tool {
@@ -370,7 +370,7 @@
     .sba-manage-data-area {
         padding-top: 60px;
     }
-    
+
 
     /********* Home 3 business solution *********/
     .sbbs-header-area .banner-thumbnail {
@@ -615,7 +615,7 @@
     .marketing-slider .marketing-slider-details .marketing-slider-content p {
         font-size: 14px;
     }
-    .riyaqas-list-3 li:before {
+    .exxefy-list-3 li:before {
         top: 8px;
     }
 
@@ -743,7 +743,7 @@
         margin-top: 30px;
         margin-bottom: 10px;
     }
-    
+
     .cart-popup .order-table {
         padding: 30px;
     }
@@ -1057,7 +1057,7 @@
     .widget-product-sorting input {
         width: 46%;
     }
-    .riyaqas-stab .nav-tabs .nav-link {
+    .exxefy-stab .nav-tabs .nav-link {
         margin: 0 35px 0 10px;
         font-size: 16px;
     }
@@ -1123,10 +1123,10 @@
     .single-service {
         margin-bottom: 18px;
     }
-    .riyaqas-check-list {
+    .exxefy-check-list {
         margin-bottom: 16px;
     }
-    .riyaqas-check-list img {
+    .exxefy-check-list img {
         margin-right: 6px;
         height: 16px;
     }
@@ -1281,7 +1281,7 @@
     .single-service-2 h6 {
         font-size: 18px;
     }
-   
+
 
 
     /********** home 5 responsive ***********/
@@ -1338,7 +1338,7 @@
 
 
     /******* home 6 responsive *******/
-    .riyaqas-check-bg {
+    .exxefy-check-bg {
         margin-left: -136px;
     }
     .section-title.style-three {
@@ -1347,13 +1347,13 @@
     .marketing-area .section-title {
         padding: 35px;
     }
-    .riyaqas-list-2 li {
+    .exxefy-list-2 li {
         height: 85px;
         width: 85px;
         line-height: 85px;
         margin: 0 12px;
     }
-    .riyaqas-list-2 li img {
+    .exxefy-list-2 li img {
         width: 57%;
     }
 
@@ -1424,13 +1424,13 @@
     .cart-popup .order-table {
         width: 70%;
     }
-    .login-register-popup .riyaqas-form-wrap {
+    .login-register-popup .exxefy-form-wrap {
         padding: 0 30px;
     }
     .login-register-popup {
         width: 85%;
     }
-    .login-register-popup .riyaqas-form-wrap .btn-wrap {
+    .login-register-popup .exxefy-form-wrap .btn-wrap {
         margin-top: 15px;
     }
     .checkout-form-product .single-cart-product .media-body p {
@@ -1475,7 +1475,7 @@
         margin-top: -10px;
     }
 
-    
+
     .work-processing-details .section-title.style-four .title {
         font-size: 30px;
     }
@@ -1581,7 +1581,7 @@
         font-size: 40px !important;
         line-height: 1.2 !important;
     }
-    
+
 }
 
 
@@ -1598,7 +1598,7 @@
     .sbbs-header-area {
         height: auto;
     }
-    
+
 
     .btn {
         height: 45px;
@@ -1695,7 +1695,7 @@
     }
     .sbs-business-tool {
         background-size: 135% 100%;
-    } 
+    }
     .sbs-testimonial-section {
         background-size: 100%;
         background-repeat: no-repeat;
@@ -1706,7 +1706,7 @@
     .sbs-testimonial-section .section-title {
         margin-bottom: 44px !important;
     }
-    .sbs-what-riyaqas {
+    .sbs-what-exxefy {
         background: none;
     }
     .talented-pepole-list ul li {
@@ -1746,10 +1746,10 @@
         height: auto;
         margin-top: 0;
     }
-    .sbs-what-riyaqas {
+    .sbs-what-exxefy {
         background-size: 100% 100%;
     }
-    .sbs-what-riyaqas .section-title.style-two {
+    .sbs-what-exxefy .section-title.style-two {
         margin-top: 40px;
     }
     .worldmap-wrap {
@@ -1816,7 +1816,7 @@
     .sbbs-business-manage-area:after {
         display: none;
     }
-    .sbbs-pricing-area .no-gutters>.col, 
+    .sbbs-pricing-area .no-gutters>.col,
     .sbbs-pricing-area .no-gutters>[class*=col-] {
         padding-right: 10px;
         padding-left: 10px;
@@ -1824,11 +1824,11 @@
     .sbbs-business-manage-area .section-title.style-two {
         margin-bottom: 30px;
     }
-    .sbbs-business-manage-area .riyaqas-check-list {
+    .sbbs-business-manage-area .exxefy-check-list {
         display: inline-block;
         margin: 0 6px 20px 6px;
     }
-    
+
 
 
     /****** home 4 responsive ******/
@@ -1884,7 +1884,7 @@
         display: none;
     }
     .single-post img {
-        width: 100%;   
+        width: 100%;
     }
     .team-slider .team-slider-item .team-member-img {
         width: 400px;
@@ -1945,19 +1945,19 @@
     .marketing-slider .marketing-slider-details .thumb {
         width: auto;
     }
-    .riyaqas-list-2 li {
+    .exxefy-list-2 li {
         height: 75px;
         width: 75px;
         line-height: 75px;
         margin: 0 6px;
     }
-    .riyaqas-list-2 li img {
+    .exxefy-list-2 li img {
         width: 53%;
     }
     .sbtl-better-service .section-title.style-two {
         margin-bottom: 20px;
     }
-    .sbtl-better-service .riyaqas-list-3 li {
+    .sbtl-better-service .exxefy-list-3 li {
         font-size: 13px;
     }
     .sbimg-center-align {
@@ -2022,7 +2022,7 @@
     .checkout-form-wrap:after {
         display: none;
     }
-    .login-register-popup .riyaqas-form-wrap .widget-title {
+    .login-register-popup .exxefy-form-wrap .widget-title {
         font-size: 16px;
     }
     .widget-title {
@@ -2047,7 +2047,7 @@
     .single-input-wrap label {
         top: 14px;
     }
-    .login-register-popup .riyaqas-form-wrap .btn-wrap .btn {
+    .login-register-popup .exxefy-form-wrap .btn-wrap .btn {
         height: 40px;
         line-height: 40px;
         padding: 0 25px;
@@ -2106,11 +2106,11 @@
     }
 
     /****** clist page *******/
-    .riyaqas-file-input-wrap .riyaqas-file-input {
+    .exxefy-file-input-wrap .exxefy-file-input {
         height: 48px;
         line-height: 48px;
     }
-    .riyaqas-file-input-wrap label {
+    .exxefy-file-input-wrap label {
         height: 50px;
         line-height: 51px;
     }
@@ -2129,7 +2129,7 @@
     .job-details-area span {
         font-size: 16px;
     }
-    
+
     /***** work processing ******/
     .work-processing-details .section-title .counting-number {
         font-size: 62px;
@@ -2167,7 +2167,7 @@
 
 
 
-    
+
     #map {
         height: 350px;
     }
@@ -2203,8 +2203,8 @@
         font-size: 23px;
     }
 
-    
-    
+
+
     /******** all section mg pd *********/
     .mg-bottom-0-991 {
         margin-bottom: 0 !important;
@@ -2220,7 +2220,7 @@
         padding: 46px 25px 25px 25px;
     }
 
-    .sbs-what-riyaqas.pd-default-120 {
+    .sbs-what-exxefy.pd-default-120 {
         padding: 0;
         background-image: none !important;
     }
@@ -2394,7 +2394,7 @@
     .header-inner {
         margin-left: 0 !important;
         text-align: center;
-    } 
+    }
     .header-inner .btn-wrapper {
         text-align: center;
     }
@@ -2428,10 +2428,10 @@
         background-position: 0px 9%;
         background-size: 95%;
     }
-    .leftside-image-area.what-is-riyaqas {
+    .leftside-image-area.what-is-exxefy {
         padding-top: 30px;
     }
-    .leftside-image-area.what-is-riyaqas {
+    .leftside-image-area.what-is-exxefy {
         background-position: 0 3%;
     }
     .worldmap-wrap {
@@ -2722,7 +2722,7 @@
         padding-top: 100px;
     }
 
-    
+
 
 
     /********* home 5 responsive *********/
@@ -2772,7 +2772,7 @@
     }
 
     /********* home 6 *********/
-    .riyaqas-list-3 li {
+    .exxefy-list-3 li {
         font-size: 13px;
         line-height: 26px;
     }
@@ -2794,10 +2794,10 @@
     .marketing-slider .owl-stage {
         right: 60px;
     }
-    .riyaqas-list-3 li {
+    .exxefy-list-3 li {
         padding-left: 25px;
     }
-    .riyaqas-check-list img {
+    .exxefy-check-list img {
         margin-right: 12px;
     }
     .marketing-slider .marketing-slider-details .marketing-slider-content a {
@@ -2807,7 +2807,7 @@
         margin-left: -35px;
     }
     .marketing-slider .marketing-slider-details .marketing-slider-content a img {
-        width: 35px !important; 
+        width: 35px !important;
     }
 
 
@@ -2834,7 +2834,7 @@
     .widget-title:after {
         bottom: -1px;
     }
-    .widget-gallery .custom-gutters-16>.col, 
+    .widget-gallery .custom-gutters-16>.col,
     .widget-gallery .custom-gutters-16>[class*=col-] {
         padding-right: 8px;
         padding-left: 8px;
@@ -2848,7 +2848,7 @@
     .single-blog-content .single-blog-details h5 a {
         font-size: 24px;
     }
-    .riyaqas-pagination ul li .page-numbers {
+    .exxefy-pagination ul li .page-numbers {
         font-size: 14px;
     }
     .comments-area .comment-list li {
@@ -2864,9 +2864,9 @@
 
 
     /******* shop responsive ********/
-    .single-cart-product .media-body p, 
-    .cart-product-price, 
-    .total-shapping-area 
+    .single-cart-product .media-body p,
+    .cart-product-price,
+    .total-shapping-area
     .total-amount span {
         font-size: 13px;
     }
@@ -2893,17 +2893,17 @@
         height: 250px;
         overflow: hidden;
     }
-    .login-register-popup .riyaqas-form-wrap .widget-title {
+    .login-register-popup .exxefy-form-wrap .widget-title {
         margin-bottom: 20px;
     }
-    .login-register-popup .riyaqas-form-wrap {
+    .login-register-popup .exxefy-form-wrap {
         padding: 20px 20px 30px;
     }
     .login-register-popup {
         width: 70%;
     }
 
-    
+
     /***** error page *******/
     .error-area {
         padding: 60px 0;
@@ -2912,7 +2912,7 @@
     .error-back-to-home a {
         margin-top: 25px;
     }
-    
+
 
     /***** comming soon page *******/
     .comming-soon-area {
@@ -2955,7 +2955,7 @@
     }
 
 
-    
+
     .contact-info .title {
         font-size: 26px;
         margin-bottom: 30px;
@@ -2963,7 +2963,7 @@
     .single-input-wrap .single-input {
         margin-bottom: 20px;
     }
-    .riyaqas-form-wrap .btn {
+    .exxefy-form-wrap .btn {
         margin-top: 20px;
     }
     /******* footer responsive *******/
@@ -2989,7 +2989,7 @@
         padding: 15px;
     }
 
-    
+
     .hidden-sm {
         display: none !important;
     }
@@ -3020,7 +3020,7 @@
     }
     .sba-manage-data-area {
         padding-top: 100px;
-    }   
+    }
     .sbst-provide-security.mg-top-120 {
         margin-top: 90px;
     }
@@ -3068,7 +3068,7 @@
     }
 
     /******* home 9 *****/
-    .accordion.style-two .single-accordion .card-header h2 button:before, 
+    .accordion.style-two .single-accordion .card-header h2 button:before,
     .accordion.style-two .single-accordion .card-header h2 button:after {
         left: 14px;
         background: var(--main-color-one);
@@ -3092,7 +3092,7 @@
     .single-service-left .media .media-body {
         margin-left: 10px;
     }
-    .riyaqas-form-wrap .btn {
+    .exxefy-form-wrap .btn {
         margin-top: 15px;
     }
     .single-offer {
@@ -3101,7 +3101,7 @@
     .product-thumbnail-wrapper {
         padding: 0 8px;
     }
-    .product-thumbnail-wrapper .custom-gutters-16>.col, 
+    .product-thumbnail-wrapper .custom-gutters-16>.col,
     .product-thumbnail-wrapper .custom-gutters-16>[class*=col-] {
         padding-right: 8px;
         padding-left: 8px;
@@ -3290,7 +3290,7 @@
     .software-store-wrap li {
         width: 100%;
     }
-    .riyaqas-check-list span {
+    .exxefy-check-list span {
         font-size: 13px;
     }
     .navbar-area .nav-container .nav-right-content ul li .cart-icon i {
@@ -3316,7 +3316,7 @@
     .checkout-title a {
         font-size: 11px;
     }
-    .login-register-popup .riyaqas-form-wrap .check-box-area .float-right {
+    .login-register-popup .exxefy-form-wrap .check-box-area .float-right {
         float: left !important;
         margin-top: 6px;
     }
@@ -3345,7 +3345,7 @@
     .sbtc-header-area.header-area .title {
         font-size: 31px !important;
     }
-    
+
     /******* home 8 *******/
     .h8-banner-area .title {
         font-size: 28px !important;

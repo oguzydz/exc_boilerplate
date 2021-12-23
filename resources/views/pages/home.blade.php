@@ -143,7 +143,7 @@
 <!-- service area End -->
 
 <!-- soft-box area start -->
-<div class="sbs-what-riyaqas pd-default-120 mg-top-105" style="background-image:url(assets/img/bg/1h1.png);">
+<div class="sbs-what-exxefy pd-default-120 mg-top-105" style="background-image:url(assets/img/bg/1h1.png);">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
@@ -152,26 +152,26 @@
             <div class="col-xl-5 col-lg-6 desktop-center-item">
                 <div class="desktop-center-area wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
                     <div class="section-title style-two">
-                        <h2 class="title">What is <span>Riyaqas?</span></h2>
+                        <h2 class="title">What is <span>exxefy?</span></h2>
                         <p>SoftBox One of the best Softwire Development company. SoftBox is at the forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business</p>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="riyaqas-check-list">
+                            <div class="exxefy-check-list">
                                 <img src="assets\img\icons\check.svg" alt="check">
                                 <span>Concept Design</span>
                             </div>
-                            <div class="riyaqas-check-list">
+                            <div class="exxefy-check-list">
                                 <img src="assets\img\icons\check.svg" alt="check">
                                 <span>Concept Implementation</span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="riyaqas-check-list">
+                            <div class="exxefy-check-list">
                                 <img src="assets\img\icons\check.svg" alt="check">
                                 <span>Concept Development</span>
                             </div>
-                            <div class="riyaqas-check-list">
+                            <div class="exxefy-check-list">
                                 <img src="assets\img\icons\check.svg" alt="check">
                                 <span>Testing work</span>
                             </div>
@@ -239,10 +239,10 @@
                 <div class="section-title style-two">
                     <h2 class="title"><span>Developers</span> First</h2>
                 </div>
-                <div class="riyaqas-stab">
+                <div class="exxefy-stab">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#d_tabs_1">Riyaqas</a>
+                            <a class="nav-link active" data-toggle="tab" href="#d_tabs_1">exxefy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#d_tabs_2">Curl</a>
@@ -256,26 +256,26 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="d_tabs_1">
-                            <div class="riyaqas-stab-content">
-                                <p>Riyaqas One of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
+                            <div class="exxefy-stab-content">
+                                <p>exxefy One of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
                                 <p>From concept design to development, testing & implementation, our team is here to support and guide you every step of the way.</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="d_tabs_2">
-                            <div class="riyaqas-stab-content">
-                                <p>Riyaqas Two of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
+                            <div class="exxefy-stab-content">
+                                <p>exxefy Two of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
                                 <p>From concept design to development, testing & implementation, our team is here to support and guide you every step of the way.</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="d_tabs_3">
-                            <div class="riyaqas-stab-content">
-                                <p>Riyaqas Three of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
+                            <div class="exxefy-stab-content">
+                                <p>exxefy Three of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
                                 <p>From concept design to development, testing & implementation, our team is here to support and guide you every step of the way.</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="d_tabs_4">
-                            <div class="riyaqas-stab-content">
-                                <p>Riyaqas Four of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
+                            <div class="exxefy-stab-content">
+                                <p>exxefy Four of the best Softwire Development company. The forefront as the most innovative web development company. Our cost efficient and structured teamwork justifies our position. Our clients count on our offshore business solutions on a regular.</p>
                                 <p>From concept design to development, testing & implementation, our team is here to support and guide you every step of the way.</p>
                             </div>
                         </div>
@@ -302,15 +302,15 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-9">
-                            <div class="riyaqas-check-list media">
+                            <div class="exxefy-check-list media">
                                 <img class="media-left" src="assets\img\business-tool\pencil.svg" alt="check">
                                 <span>Our support team will get assistance from AI-powered suggestions, making it quicker than.</span>
                             </div>
-                            <div class="riyaqas-check-list media">
+                            <div class="exxefy-check-list media">
                                 <img class="media-left" src="assets\img\business-tool\search.svg" alt="check">
                                 <span>Our support team will get assistance from AI-powered suggestions.</span>
                             </div>
-                            <div class="riyaqas-check-list media mg-bottom-0-991">
+                            <div class="exxefy-check-list media mg-bottom-0-991">
                                 <img class="media-left" src="assets\img\business-tool\settings.svg" alt="check">
                                 <span>Our support team will get assistance from AI-powered, making it quicker than ever to handle support.</span>
                             </div>
@@ -344,21 +344,21 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="riyaqas-check-list">
+                        <div class="exxefy-check-list">
                             <img class="media-left" src="assets\img\icons\9.svg" alt="check">
                             <span>Unique Design</span>
                         </div>
-                        <div class="riyaqas-check-list">
+                        <div class="exxefy-check-list">
                             <img class="media-left" src="assets\img\icons\10.svg" alt="check">
                             <span>Custom domain</span>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="riyaqas-check-list">
+                        <div class="exxefy-check-list">
                             <img class="media-left" src="assets\img\icons\11.svg" alt="check">
                             <span>Mobile ready</span>
                         </div>
-                        <div class="riyaqas-check-list">
+                        <div class="exxefy-check-list">
                             <img class="media-left" src="assets\img\icons\12.svg" alt="check">
                             <span>Testing work</span>
                         </div>

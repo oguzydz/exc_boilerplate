@@ -8,7 +8,7 @@
         --------------------------------------------------*/
         $(document).on('click','.navbar-area .navbar-nav li.menu-item-has-children>a',function(e){
             e.preventDefault();
-        })  
+        })
 
         /*-------------------------------------------------
             wow js init
@@ -133,7 +133,7 @@
         }
 
         /*-------------------------------
-            Portfolio filter 
+            Portfolio filter
         ---------------------------------*/
         var $Container = $('.gallery-masonry');
         if ($Container.length > 0) {
@@ -156,7 +156,7 @@
                 $(this).addClass('active');
             });
         }
-        
+
         /*-------------------------------------
             client carousel
         -------------------------------------*/
@@ -188,7 +188,7 @@
         }
 
         /*-------------------------------------
-            client carousel 
+            client carousel
         -------------------------------------*/
         var $clientCarousel2 = $('.client-slider-2');
         if ($clientCarousel2.length > 0) {
@@ -219,8 +219,8 @@
         /*--------------------------------------
             testimonial-slider
         ---------------------------------------*/
-        $("#testimonial-slider").AnimatedSlider( { 
-            prevButton: "#btn_prev", 
+        $("#testimonial-slider").AnimatedSlider( {
+            prevButton: "#btn_prev",
             nextButton: "#btn_next",
             visibleItems: 5,
             infiniteScroll: true,
@@ -350,13 +350,13 @@
             projection = d3.geoEquirectangular().scale( scale ).rotate( [0,0] ).center([0,5]).translate( offset ),
             bounds = mercatorBounds( projection ),
             scaleExtent;
-          
+
             scale = width / (bounds[ 1 ][ 0 ] - bounds[ 0 ][ 0 ]);
             scaleExtent = [ scale, 10 * scale ];
 
             projection
             .scale( scaleExtent[ 0 ] );
-          
+
           return projection;
         },
         mercatorBounds = function(projection) {
@@ -370,10 +370,10 @@
         };
         d3.json(mapJsonUrl, function (error, worldJson) {
             if (error) throw error;
-          
+
             var projection = getProjection(),
             path = d3.geoPath().projection( projection );
-          
+
             svg.selectAll( 'path.land' )
             .data( topojson.feature( worldJson, worldJson.objects.countries ).features )
             .enter().append( 'path' )
@@ -394,7 +394,7 @@
                 }
             });
         }
-        
+
 
         /*--------------------------------------
             pricing Active
@@ -415,8 +415,8 @@
             e.preventDefault();
             $(this).parent().fadeOut();
         });
-        
-       
+
+
         /*--------------------------------------------
             Search Popup
         ---------------------------------------------*/
@@ -543,8 +543,8 @@
         /**---------------------------------------
          *  file upload
         * -------------------------------------*/
-        if($('.riyaqas-file-input').length){
-            $(".riyaqas-file-input").on("change", function() {
+        if($('.exxefy-file-input').length){
+            $(".exxefy-file-input").on("change", function() {
               var fileName = $(this).val().split("\\").pop();
               $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             });
@@ -594,7 +594,7 @@
             } );
         }
 
-    
+
 
     });
 
@@ -619,9 +619,9 @@
         else {
             $('.navbar-area').removeClass('navbar-area-fixed');
         }
-       
+
     });
-           
+
 
     $(window).on('load',function(){
 
@@ -651,7 +651,7 @@
     /* -------------------------------------------------------------
             Image Gallery Popup
     ------------------------------------------------------------- */
-    function riyaqas_image_popup(selector){
+    function exxefy_image_popup(selector){
         if ($(selector).length){
             $(selector).magnificPopup({
                 delegate: 'a',
@@ -670,7 +670,7 @@
         }
     }
     /* ------- Gallery image Popup--------- */
-    riyaqas_image_popup('.gallery-masonry .masonry-item');
+    exxefy_image_popup('.gallery-masonry .masonry-item');
 
 
     /* -------------------------------------------------------------
