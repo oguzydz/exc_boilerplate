@@ -166,7 +166,7 @@
                 <div class="col-xl-3 col-md-6 col-sm-6">
                     <div class="single-service wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
                         <img src="assets/img/features/4.svg" alt="service">
-                        <h6><a href="#">Kullanışlı Yönetim Paneli</a></h6>
+                        <h6><a href="#">A+ Yönetim Paneli</a></h6>
                         <p>
                             Mağazanı, siparişlerini, kargolarını, müşterilerini, satış raporlarını kısaca aklınıza
                             gelebilecek herşeyi
@@ -221,9 +221,11 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center ">
                     <div class="section-title style-two mb-0">
-                        <h2 class="title">What Our <span>Client Say?</span></h2>
-                        <p>Our support team will get assistance from AI-powered <br> suggestions, making it quicker than
-                            ever to handle support <br>requests. assistance from AI-powered</p>
+                        <h2 class="title">Bizi Kullananlar <span>Ne Diyor?</span></h2>
+                        <p>
+                            Exxefy sayesinde işini geliştiren, kullanıcılarımız bizim
+                            hakkımızda ne anlatıyor? Sizlerde ücretsiz mağazanızı açarak hemen satış yapmaya başlayabilirsiniz.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -235,8 +237,8 @@
                                         <div class="media">
                                             <img class="media-left" src="assets\img\client\4.png" alt="client">
                                             <div class="media-body">
-                                                <h6>Wilson Mojika</h6>
-                                                <p class="designation">Founder at todo</p>
+                                                <h6>Yunus Emre Öztürk</h6>
+                                                <p class="designation">Exxecode</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -253,8 +255,8 @@
                                         <div class="media">
                                             <img class="media-left" src="assets\img\client\5.png" alt="client">
                                             <div class="media-body">
-                                                <h6>Ema Wilson</h6>
-                                                <p class="designation">CEO at craft</p>
+                                                <h6>Yunus Emre Öztürk</h6>
+                                                <p class="designation">Exxecode</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>

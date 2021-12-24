@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-11">
                 <div class="section-title style-five text-center">
-                    <h2 class="title">Quick <span>Navigation</span></h2>
-                    <p class="sub-title"><span>Can’t find answer?</span><br> Call us at +880 1122 333 444 or email us info@riyaqas.com</p>
+                    <h2 class="title">Sıkça Sorulan <span>Sorular</span></h2>
+                    <p class="sub-title"><span>Aradığın cevabı bulamadın mı?</span><br> Bize canlı destek veya yandaki numarayı arayak ulaşabilirsiniz. 0 (850) 111 11 11 veya destek@exxefy.com</p>
                 </div>
                 <div class="accordion style-two accordion-h-five" id="accordion">
                     <!-- single accordion -->
