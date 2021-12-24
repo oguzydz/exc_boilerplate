@@ -4003,6 +4003,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 .service-area {
   position: relative;
+  margin-bottom: 98px;
 }
 .service-area:after {
   content: "";
@@ -6364,6 +6365,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   padding: 96px 40px 35px 40px;
   margin-bottom: 16px;
   transition: all 0.3s ease-in;
+  text-align: center;
 }
 .single-service img {
   margin-bottom: 42px;
@@ -6381,7 +6383,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .single-service p {
   font-size: var(--body-font-size);
   line-height: var(--line-height30);
-  letter-spacing: 0.3px;
+  /**letter-spacing: 0.3px;**/
 }
 .single-service .read-more {
   margin-top: 35px;
