@@ -82,6 +82,12 @@ export default {
           icon: 'fad fa-child',
         },
         {
+          tag: 'nav-item',
+          text: 'Yeni Üyeler',
+          url: 'admin.newcustomer.index',
+          icon: 'fad fa-child',
+        },
+        {
           tag: 'nav-title',
           text: 'TİCARET',
         },

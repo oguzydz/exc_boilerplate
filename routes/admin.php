@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\NewCostumerController;
+use App\Http\Controllers\Admin\NewCustomerController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\ProductFeatureController;
@@ -31,6 +33,16 @@ Route::group(['prefix' => 'adminexxe', 'middleware'=> ['auth:sanctum', 'role:adm
         Route::get('/show/{id}', [CustomerController::class, 'show'])->name('show');
         Route::post('/update', [CustomerController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::group(['prefix' => 'newcustomers', 'as' => 'newcustomer.'], function () {
+        Route::get('/', [NewCostumerController::class, 'index'])->name('index');
+        Route::get('/create', [NewCostumerController::class, 'create'])->name('create');
+        Route::post('/store', [NewCostumerController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [NewCostumerController::class, 'edit'])->name('edit');
+        Route::get('/show/{id}', [NewCostumerController::class, 'show'])->name('show');
+        Route::post('/update', [NewCostumerController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [NewCostumerController::class, 'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {

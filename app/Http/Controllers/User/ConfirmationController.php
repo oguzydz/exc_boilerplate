@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
-class ConfirmationController extends Controller
+    class ConfirmationController extends Controller
 {
     /**
      * Display a listing of the resource.
