@@ -25,7 +25,7 @@ class OrderController extends Controller
      */
     public function index(int $status = 0)
     {
-        $orders = Order::where('status', $status)->with('user')->orderBy('created_at')->paginate(10);
+        $orders = Order::where('status', $status)->with('user')->orderBy('id', 'desc')->paginate(10);
 
         return Inertia::render('Admin/Order/Index', [
             'data' => $orders,
