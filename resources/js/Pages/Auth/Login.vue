@@ -1,6 +1,6 @@
 <template>
 <inertia-head title="Exxestock - Kullanıcı Girişi"></inertia-head>
-<div class="bg-light min-vh-100 d-flex flex-row align-items-center" style="background-image: url(/assets/img/login-bg.jpg); background-size: cover; background-position: center;">
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bg.jpg); background-size: cover; background-position: center;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 shadow-lg  ">
@@ -51,6 +51,16 @@
     </div>
 </div>
 </template>
+
+<style>
+@media screen and (max-width: 768px) {
+    .login {
+        min-width: unset;
+        background-image: unset !important;
+        background-color: white !important;
+    }
+}
+</style>
 
 <script>
 import JetButton from '@/Jetstream/Button'
