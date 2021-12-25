@@ -92,7 +92,7 @@ export default {
   data() {
     return {
       routeName: 'admin.customer',
-      name: 'Yeni Üye',
+      name: 'Üye',
     }
   },
 
