@@ -11,12 +11,30 @@
                     <div class="single-accordion card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What is your refund policy ?</button>
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Exxefy ne işe yarar?
+                                </button>
                             </h2>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="card-body">
-                                Riyaqas One of the best Softwire Development company. Riyaqas is at the standard industry's forefront as the most innovative development company. Riyaqas One of the best Softwire Development company. Riyaqas is at the forefront as the most innovative web development company.
+                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy üzerinden yapılan alışveriş müşterilerinize
+                                en güzel deneyimi ve güvenli alışverişi sağlar.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single accordion -->
+                    <div class="single-accordion card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOneP" aria-expanded="true" aria-controls="collapseOneP">
+                                    Kendi alan adım olacak mı?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOneP" class="collapse" aria-labelledby="headingOneP" data-parent="#accordion">
+                            <div class="card-body">
+                                Evet! Mağazanızın adıyla uyumlu ve sadece size özel bir url'niz olacak. Örneğin: exxefy.com/edabutik
                             </div>
                         </div>
                     </div>
@@ -24,12 +42,15 @@
                     <div class="single-accordion card">
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">How many elements in Riyaqas?</button>
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                    Üyelik ücreti veya listeleme ücreti var mı?
+                                </button>
                             </h2>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                Riyaqas One of the best Softwire Development company. Riyaqas is at the standard industry's forefront as the most innovative development company. Riyaqas One of the best Softwire Development company. Riyaqas is at the forefront as the most innovative web development company.
+                                Kesinlikle yok, exxefy'a ücretsiz kayıt olabilir ve dilediğiniz kadar ürün ekleyebilirsiniz. Ücretlendirme yalnızca başarılı satışlarınızdan
+                                kesilen %2,95 değerindeki komisyondan alınmaktadır.
                             </div>
                         </div>
                     </div>
@@ -37,12 +58,15 @@
                     <div class="single-accordion card">
                         <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">How long does delivery take?</button>
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                    Sistemden satışlarımı ve müşterilerimi yönetebilir miyim?
+                                </button>
                             </h2>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                             <div class="card-body">
-                                Riyaqas One of the best Softwire Development company. Riyaqas is at the standard industry's forefront as the most innovative development company. Riyaqas One of the best Softwire Development company. Riyaqas is at the forefront as the most innovative web development company.
+                                Exxefy üzerinden açtığınız mağazanıza gelen tüm siparişleri, iadeleri, kargolamaları gelişmiş
+                                yönetim panelinizden görüntüleyebilir ve üzerinde işlem yapabilirsiniz.
                             </div>
                         </div>
                     </div>
@@ -50,12 +74,15 @@
                     <div class="single-accordion card">
                         <div class="card-header" id="headingFour">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">How is the payment methode?</button>
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                                    Müşterilerime e-posta, mesaj, bildirim gönderebilir miyim?
+                                </button>
                             </h2>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                             <div class="card-body">
-                                Riyaqas One of the best Softwire Development company. Riyaqas is at the standard industry's forefront as the most innovative development company. Riyaqas One of the best Softwire Development company. Riyaqas is at the forefront as the most innovative web development company.
+                                Exxefy mağaza paneliniz üzerinden müşterilerinize ister toplu ister seçerek kampanya mesajları gönderebilir, ayrıca destek sistemiyle
+                                sorularını da yanıtlayabilirsiniz.
                             </div>
                         </div>
                     </div>
@@ -70,14 +97,14 @@
         <div class="row justify-content-center">
             <div class="col-xl-7 col-lg-11 text-center">
                 <div class="section-title text-center">
-                    <h2 class="title">Get our latest <span>Newslatter</span></h2>
-                    <p>Offer your business with the best assistance for growth.</p>
+                    <h2 class="title">Yenliliklerden <span>Haberdar Ol</span></h2>
+                    <p>E-Posta aboneliği ile yenilikleri ve sistemde yapılan güncellemeleri takip edebilirsiniz.</p>
                 </div>
                 <div class="newsletter-subcribe">
                     <form id="news-subcribeform" class="subcribe-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your E-mail..." name="mail" required="">
-                            <button type="submit" class="btn-blue subcribe-submit">submit</button>
+                            <input type="text" class="form-control" placeholder="E-posta adresiniz" name="mail" required="">
+                            <button type="submit" class="btn-blue subcribe-submit">Gönder</button>
                         </div>
                     </form>
                 </div>
@@ -91,7 +118,10 @@
                             <a href="{{ route('home') }}" class="footer-logo">
                                 <img src="{{ asset('assets\img\footer-logo-v2.png') }}" alt="footer logo">
                             </a>
-                            <p>Our support team will get assistance from AI-powered suggestions, making it quicker than ever to handle support requests.</p>
+                            <p>
+                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Gelişmiş ve kullanışlı altyapı ile
+                                müşterilerinize yüksek seviye deneyim ve ödeme kolaylığı yaratır.
+                            </p>
                             <ul class="social-icon">
                                 <li>
                                     <a class="facebook" href="#" target="_blank"><i class="fa fa-facebook  "></i></a>
@@ -110,42 +140,44 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget widget widget_nav_menu">
+                        <h4 class="widget-title">Faydalı Linkler</h4>
+                        <ul>
+                            <li><a href="#">Hemen Başla</a></li>
+                            <li><a href="#">Giriş Yap</a></li>
+                            <li><a href="#">Fiyatlandırma</a></li>
+                            <li><a href="#">Hakkımızda</a></li>
+                            <li><a href="#">İletişim</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget widget widget_nav_menu">
+                        <h4 class="widget-title">Yardım</h4>
+                        <ul>
+                            <li><a href="#">7/24 Destek</a></li>
+                            <li><a href="#">Kullanım Koşulları</a></li>
+                            <li><a href="#">Kullanıcı Sözleşmesi</a></li>
+                            <li><a href="#">Gizlilik Politikası</a></li>
+                            <li><a href="#">Kişisel Verilerin Korunması</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
                     <div class="footer-widget widget ">
-                        <h4 class="widget-title">Contact</h4>
+                        <h4 class="widget-title">İletişim</h4>
                         <div class="contact_info_list">
-                            <p class="contact-content">Manama Tower, Badda Link Road, Badda Dhaka, Bangladesh</p>
-                            <p><span>Contact:</span> +088 012121240</p>
-                            <p><span>E-mail:</span> riyaqas@gmail.com</p>
+                            <p class="contact-content">
+                                1222. Sokak, Fatih Sultan Mehmet Mahallesi, Ümraniye İstanbul
+                            </p>
+                            <p><span>Telefon:</span> 0 (850) 111 11 11</p>
+                            <p><span>E-Posta:</span> info@exxefy.com</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget widget_nav_menu">
-                        <h4 class="widget-title">Quick Link</h4>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget widget_nav_menu">
-                        <h4 class="widget-title">Need Help?</h4>
-                        <ul>
-                            <li><a href="#">FAQS</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Policy</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Documentation</a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-widget widget">
-                        <h4 class="widget-title">Latest News</h4>
+                        <h4 class="widget-title">Kullanıcı Rehberi</h4>
                         <div class="about_recent_post">
                             <div class="media">
                                 <img src="assets/img/blog/widget1.png" alt="post">

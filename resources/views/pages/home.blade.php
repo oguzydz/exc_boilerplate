@@ -214,6 +214,37 @@
         </div>
     </div>
 
+    <div class="business-time pd-top-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-md-6 sbimg-center-align">
+                    <div class="img-with-video img-with-video-2 margin-bottom-40">
+                        <div class="img-wrap sbdm-image-gurd2">
+                            <img class="sbdm-image-1" src="assets/img/bg/12.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6 offset-xl-1 desktop-center-item">
+                    <div class="mg-top-767-45">
+                        <div class="section-title style-two">
+                            <h2 class="title">Sosyal medya <span>takipçilerin</span> müşterin olsun!</h2>
+                            <p>
+                                Exxefy alt yapısı ile artık sosyal medyadaki takipçilerine kendi mağazan üzerinden
+                                ürünlerini satabilirsin.
+                            </p>
+                            <p>
+                                Takipçilerine sana özel ürettiğimiz alan adı ile kolayca ulaşmasını sağlayabilirsin.
+                                Sosyal medya takipçilerin artık müşterin olsun istiyorsan
+                                hemen ücretsiz kayıt ol!
+                            </p>
+                            <a class="btn btn-green text-white" href="http://127.0.0.1:5444/register" style="line-height: 52px;">Hemen Kayıt Ol</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- testimonial area Start -->
     <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120"
         style="background-image:url(assets/img/bg/1h3.png);">
@@ -354,4 +385,5 @@
         </div>
     </div>
     <!-- testimonial area End -->
+
 @endsection
