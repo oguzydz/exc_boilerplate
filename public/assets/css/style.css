@@ -7501,6 +7501,18 @@ ul.wp-block-latest-posts.is-grid.alignwide {
         height: 110px;
         overflow: hidden;
     }
+
+    .cover-body p {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .cover-body {
+        left: unset !important;
+        padding: unset !important;
+    }
+    .cover figure {
+        min-height: 250px !important;
+    }
 }
 
 @media (min-width: 2400px) {
@@ -7536,7 +7548,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(rgba(255, 255, 255, 0.1), #fff 99%);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), #fff 99%);
 }
 
 .profile-page .profile-header .cover .cover-body {
@@ -7562,7 +7574,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .profile-page .profile-header .cover .cover-body .profile-name {
     font-size: 20px;
     font-weight: 600;
-    margin-left: 17px;
 }
 
 .profile-page .profile-header .header-links {
