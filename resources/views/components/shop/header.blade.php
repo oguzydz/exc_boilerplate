@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<nav class="navbar navbar-area navbar-expand-lg nav-style-01">
+<nav class="navbar navbar-area navbar-expand-lg nav-style-01 bg-white">
     <div class="container nav-container">
         <div class="responsive-mobile-menu">
             <div class="logo-wrapper mobile-logo">
@@ -15,7 +15,8 @@
                     <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="150px" alt="logo">
                 </a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exxefy_main_menu" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exxefy_main_menu"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggle-icon">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -79,3 +80,54 @@
         </div>
     </div>
 </nav>
+
+<div class="profile-page tx-13">
+    <div class="grid-margin">
+        <div class="profile-header">
+            <div class="cover">
+                <div class="gray-shade"></div>
+                <figure style="background-image: {{ $profileBgImage }}"></figure>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="cover-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <img class="profile-pic" src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                        alt="profile">
+                                    <span class="profile-name">Amiah Burton</span>
+                                    <p class="d-inline-block">
+                                        asdasda
+                                    </p>
+                                </div>
+                                <div class="d-none d-md-block">
+                                    <button class="btn btn-primary btn-icon-text btn-edit-profile">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-edit btn-icon-prepend">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                        </svg> Edit profile
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contact-info text-center">
+                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-phone"></i></span> +088
+                                012121240</p>
+                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-envelope"></i></span>
+                                riyaqas@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

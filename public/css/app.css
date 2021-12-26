@@ -901,10 +901,10 @@ video {
 	margin-left: 1.5rem;
 }.mb-4{
 	margin-bottom: 1rem;
-}.-mt-px{
-	margin-top: -1px;
 }.mb-0{
 	margin-bottom: 0px;
+}.-mt-px{
+	margin-top: -1px;
 }.mt-20{
 	margin-top: 5rem;
 }.mb-3{
@@ -913,6 +913,10 @@ video {
 	margin-top: 0px;
 }.mb-2{
 	margin-bottom: 0.5rem;
+}.mb-5{
+	margin-bottom: 1.25rem;
+}.mr-1{
+	margin-right: 0.25rem;
 }.block{
 	display: block;
 }.flex{
