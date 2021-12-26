@@ -119,7 +119,7 @@
                                 <img src="{{ asset('assets\img\footer-logo-v2.png') }}" alt="footer logo">
                             </a>
                             <p>
-                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Gelişmiş ve kullanışlı altyapı ile
+                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Gelişmiş ve kullanışlı altyapısı ile
                                 müşterilerinize yüksek seviye deneyim ve ödeme kolaylığı yaratır.
                             </p>
                             <ul class="social-icon">
@@ -159,7 +159,7 @@
                             <li><a href="#">Kullanım Koşulları</a></li>
                             <li><a href="#">Kullanıcı Sözleşmesi</a></li>
                             <li><a href="#">Gizlilik Politikası</a></li>
-                            <li><a href="#">Kişisel Verilerin Korunması</a></li>
+                            <li><a href="#">KVKK</a></li>
                         </ul>
                     </div>
                 </div>

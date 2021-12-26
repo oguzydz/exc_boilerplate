@@ -18,12 +18,14 @@ use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\PolicyController;
 use App\Http\Controllers\Web\ProductController;
+use App\Http\Controllers\Web\ShopController;
 use App\Models\Category;
 use App\Models\Product;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
+Route::get('/shop', [ShopController::class, 'index'])->name('indexxx');
 
 Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');
 Route::post('/iletisim/gonder', [ContactController::class, 'send'])->name('contact.send');
