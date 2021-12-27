@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserCancel;
 use App\Models\UserConfirmData;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,9 +18,9 @@ class NewCostumerController extends Controller
      */
     public function index()
     {
-        $customers = User::where('status', 4)->select(['id', 'name', 'email', 'created_at', 'updated_at'])->paginate(5);
+        $customers = User::where('status', User::STATUS_READY)->select(['id', 'name', 'email', 'created_at', 'updated_at'])->paginate(5);
 
-        return Inertia::render('Admin/Newcustomer/Index', [
+        return Inertia::render('Admin/NewCustomer/Index', [
             'data' => $customers
         ]);
     }
@@ -53,11 +54,80 @@ class NewCostumerController extends Controller
      */
     public function show($id)
     {
-        $data = User::where('id', $id)->firstOrFail();
+        $data = User::where('id', $id)->with(['iban', 'confirmData'])->firstOrFail();
 
-        return Inertia::render('Admin/Newcustomer/Show', [
-            'user' => $data
+        return Inertia::render('Admin/NewCustomer/Show', [
+            'data' => $data
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm(Request $request, int $id)
+    {
+        $user = User::findOrFail($id);
+
+        try {
+            $user->update([
+                'status' => User::STATUS_ACTIVE
+            ]);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelShow(Request $request, int $id)
+    {
+        $user = User::findOrFail($id);
+
+        return Inertia::render('Admin/NewCustomer/Cancel', [
+            'data' => $user
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelStore(Request $request, int $id)
+    {
+        $user = User::findOrFail($id);
+
+        $data = [
+            'user_id' => $id,
+            'text' => $request->text,
+        ];
+
+        try {
+            $user->update([
+                'status' => User::STATUS_CANCELED
+            ]);
+
+            UserCancel::create($data);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message',__('Kullanıcı güncellenirken beklenmedik bir hata oldu'));
+            return redirect()->back();
+        }
     }
 
     /**

@@ -41,6 +41,9 @@ Route::group(['prefix' => 'adminexxe', 'middleware'=> ['auth:sanctum', 'role:adm
         Route::post('/store', [NewCostumerController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [NewCostumerController::class, 'edit'])->name('edit');
         Route::get('/show/{id}', [NewCostumerController::class, 'show'])->name('show');
+        Route::get('/confirm/{id}', [NewCostumerController::class, 'confirm'])->name('confirm');
+        Route::get('/cancel/{id}', [NewCostumerController::class, 'cancelShow'])->name('cancelShow');
+        Route::post('/cancelStore/{id}', [NewCostumerController::class, 'cancelStore'])->name('cancelStore');
         Route::post('/update', [NewCostumerController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [NewCostumerController::class, 'destroy'])->name('destroy');
     });

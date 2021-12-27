@@ -18,4 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets\css\animated-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\responsive.css')  }}">
+    <link rel="stylesheet" href="{{ asset('assets\css\nice-select.css')  }}">
+    <link rel="stylesheet" href="{{ asset('assets\css\jquery-ui.min.css')  }}">
+
 </head>

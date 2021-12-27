@@ -8,7 +8,7 @@
               type="primary"
               class="mr-2"
               icon="el-icon-back"
-              v-on:click="$inertia.get(route('admin.newcostumer.index'))"
+              v-on:click="$inertia.get(route(`${routeName}.index`))"
               size="mini"
             >
             </el-button>
@@ -18,27 +18,51 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <th>Ad Soyad:</th>
-                  <td>{{ data.user.name }}</td>
+                  <th>Ad-Soyad:</th>
+                  <td>{{ data.name }}</td>
                 </tr>
                 <tr>
-                  <th>Ürün</th>
-                  <td><a href="#" target="blank">{{ data.product.title + ' - #' + data.product.id }}</a></td>
+                  <th>E-Posta:</th>
+                  <td>{{ data.email }}</td>
                 </tr>
                 <tr>
-                  <th>Ürün Ücreti</th>
-                  <td>{{ data.product.price }} TL</td>
+                  <th>Telefon</th>
+                  <td>{{ data.phone }}</td>
                 </tr>
                 <tr>
-                  <th>Ürün Notu</th>
-                  <td>{{ data.text }}</td>
+                  <th>T.C.</th>
+                  <td>{{ data.tc }}</td>
                 </tr>
                 <tr>
-                  <th>Durum</th>
-                  <td>{{ orderStatus(data.status).title }}</td>
+                  <th>Doğum Tarihi</th>
+                  <td>{{ $moment(data.born_date).format('DD-MM-Y') }}</td>
                 </tr>
                 <tr>
-                  <th>Eklenme Tarihi</th>
+                  <th>Şehir</th>
+                  <td>{{ data.city_id }}</td>
+                </tr>
+                <tr>
+                  <th>İlçe</th>
+                  <td>{{ data.county_id }}</td>
+                </tr>
+                <tr>
+                  <th>Adres</th>
+                  <td>{{ data.address }}</td>
+                </tr>
+                <tr>
+                  <th>Üyelik Durumu</th>
+                  <td>{{ userStatus(data.status).title }}</td>
+                </tr>
+                <tr>
+                  <th>İban</th>
+                  <td>{{ data.iban.iban }}</td>
+                </tr>
+                <tr>
+                  <th>Hizmet Yazısı</th>
+                  <td>{{ data.confirm_data.service_text }}</td>
+                </tr>
+                <tr>
+                  <th>Kayıt Tarihi</th>
                   <td>{{ $moment(data.created_at).format('DD-MM-Y H:s') }}</td>
                 </tr>
                 <tr>
@@ -53,40 +77,22 @@
                         icon="el-icon-d-arrow-right"
                         size="mini"
                         @click="
-                        $inertia.get(route(`${routeName}.edit`, [data.id]))
+                        $inertia.get(route(`${routeName}.confirm`, [data.id]))
                         "
                     >
-                    Düzenle
+                    Kaydı Onayla
                     </el-button>
                     <el-button
                         type="primary"
                         icon="el-icon-d-arrow-right"
                         size="mini"
                         @click="
-                        $inertia.get(route(`${routeName}.completeView`, [data.id]))
+                        $inertia.get(route(`${routeName}.cancelShow`, [data.id]))
                         "
                     >
-                    Siparişi Tamamla
+                    Reddet
                     </el-button>
                   </td>
-                </tr>
-              </tbody>
-              <tbody v-if="payment">
-                <h4 class="mt-4">Ödeme Bilgileri</h4>
-                <tr v-if="payment.papara_account_name">
-                    <th>Papara Bilgileri:</th>
-                    <td>{{ payment.papara_account_name }}</td>
-                    <td>{{ payment.papara_payment_date }}</td>
-                </tr>
-                <tr v-if="payment.bitcoin_wallet_address">
-                    <th>Bitcoin Bilgileri:</th>
-                    <td>{{ payment.bitcoin_wallet_address }}</td>
-                    <td>{{ payment.bitcoin_payment_date }}</td>
-                </tr>
-                <tr v-if="payment.bank_account_number">
-                    <th>Banka Bilgileri:</th>
-                    <td>{{ payment.bank_account_number }}</td>
-                    <td>{{ payment.bank_payment_date }}</td>
                 </tr>
               </tbody>
             </table>
@@ -106,19 +112,17 @@ export default {
   },
   props: {
     data: Object,
-    payment: Object,
     errors: {},
   },
   data() {
     return {
-      routeName: 'admin.order',
-      name: 'Sipariş Detayı',
+      routeName: 'admin.newcustomer',
+      name: 'Yeni Müşteri Detay',
     }
   },
 
   methods: {
     destroy(data) {
-      console.log(data)
       data._method = 'POST'
       this.$inertia.post(route('admin.contacRequest.destroy'), data, {
         onSuccess: (page) => {

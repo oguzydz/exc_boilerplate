@@ -21,31 +21,31 @@ import "@coreui/utils/dist/coreui-utils.js";
 
 const el = document.getElementById("app");
 
-const orderStatus = (status) => {
+const userStatus = (status) => {
     const list = [
         {
-            title: "ÖDEME BEKLENİYOR",
+            title: "Yeni Üye",
             tag: "info",
         },
         {
-            title: "ÖDENDİ",
-            tag: "",
-        },
-        {
-            title: "İŞLEME ALINDI",
-            tag: "warning",
-        },
-        {
-            title: "TAMAMLANDI",
+            title: "Aktif Üye",
             tag: "success",
         },
         {
-            title: "İPTAL EDİLDİ",
-            tag: "danger",
+            title: "Reddedildi",
+            tag: "info",
         },
         {
-            title: "ÖDEME ALINAMADI",
-            tag: "danger",
+            title: "Silindi",
+            tag: "info",
+        },
+        {
+            title: "Başvuru Formunu Doldurdu",
+            tag: "info",
+        },
+        {
+            title: "Pasif",
+            tag: "info",
         },
     ];
 
@@ -93,7 +93,7 @@ createInertiaApp({
             .mixin({
                 methods: {
                     route,
-                    orderStatus,
+                    userStatus,
                     booleanStatus,
                     errorsToMessage,
                     imageUrlAlt,

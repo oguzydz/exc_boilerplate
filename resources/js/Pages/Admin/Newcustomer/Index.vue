@@ -34,27 +34,11 @@
                 <template #default="scope">
                   <el-button
                     type="primary"
-                    icon="el-icon-edit"
+                    icon="el-icon-arrow-right"
                     size="mini"
                     @click="
-                      $inertia.get(route(`${routeName}.`, [scope.row.id]))
+                      $inertia.get(route(`${routeName}.show`, [scope.row.id]))
                     "
-                  ></el-button>
-                  <el-button
-                    type="warning"
-                    size="mini"
-                    @click="
-                      $inertia.get(route(`${routeName}.edit`, [scope.row.id]))
-                    "
-                  >
-                    <i class="fad fa-truck"></i>
-                  </el-button>
-
-                  <el-button
-                    type="danger"
-                    icon="el-icon-delete"
-                    size="mini"
-                    @click="confirmDelete(scope.row.id, routeName)"
                   ></el-button>
                 </template>
               </el-table-column>
@@ -91,8 +75,8 @@ export default {
 
   data() {
     return {
-      routeName: 'admin.customer',
-      name: 'Üye',
+      routeName: 'admin.newcustomer',
+      name: 'Yeni Üyelik',
     }
   },
 

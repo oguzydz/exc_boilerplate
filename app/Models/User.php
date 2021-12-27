@@ -86,8 +86,13 @@ class User extends Authenticatable
         return $date->format('Ymd His');
     }
 
-    // public function userId()
-    // {
-    //     return $this->hasMany(UserConfirmData::class, 'user_id', 'id')->orderBy('order', 'asc');
-    // }
+    public function iban()
+    {
+        return $this->hasOne(UserIban::class);
+    }
+
+    public function confirmData()
+    {
+        return $this->hasOne(UserConfirmData::class);
+    }
 }
