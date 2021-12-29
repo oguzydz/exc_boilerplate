@@ -67,7 +67,7 @@
               </el-table-column>
               <el-table-column label="Oluşturulma Zamanı">
                 <template #default="scope">
-                  {{ $moment(scope.row.created_at).format('DD-MM-Y H:s') }}
+                  {{ $moment(scope.row.created_at).format('DD-MM-Y H:mm') }}
                 </template>
               </el-table-column>
               <el-table-column label="Options" align="right">

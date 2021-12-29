@@ -39,11 +39,11 @@
                 </tr>
                 <tr>
                   <th>Eklenme Tarihi</th>
-                  <td>{{ $moment(data.created_at).format('DD-MM-Y H:s') }}</td>
+                  <td>{{ $moment(data.created_at).format('DD-MM-Y H:mm') }}</td>
                 </tr>
                 <tr>
                   <th>Güncellenme Tarihi</th>
-                  <td>{{ $moment(data.updated_at).format('DD-MM-Y H:s') }}</td>
+                  <td>{{ $moment(data.updated_at).format('DD-MM-Y H:mm') }}</td>
                 </tr>
                 <tr>
                   <th>Seçenekler</th>

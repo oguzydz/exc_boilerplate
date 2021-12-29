@@ -95,4 +95,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserConfirmData::class);
     }
+
+    public function type()
+    {
+        return $this->hasOne(UserType::class, 'id', 'membership_type');
+    }
 }

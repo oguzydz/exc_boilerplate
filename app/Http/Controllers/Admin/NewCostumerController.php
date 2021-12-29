@@ -54,7 +54,7 @@ class NewCostumerController extends Controller
      */
     public function show($id)
     {
-        $data = User::where('id', $id)->with(['iban', 'confirmData'])->firstOrFail();
+        $data = User::where('id', $id)->with(['iban', 'confirmData', 'type'])->firstOrFail();
 
         return Inertia::render('Admin/NewCustomer/Show', [
             'data' => $data

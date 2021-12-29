@@ -26,51 +26,55 @@
                   <td>{{ data.email }}</td>
                 </tr>
                 <tr>
-                  <th>Telefon</th>
+                  <th>Telefon:</th>
                   <td>{{ data.phone }}</td>
                 </tr>
                 <tr>
-                  <th>T.C.</th>
+                  <th>T.C.:</th>
                   <td>{{ data.tc }}</td>
                 </tr>
                 <tr>
-                  <th>Doğum Tarihi</th>
+                  <th>Doğum Tarihi:</th>
                   <td>{{ $moment(data.born_date).format('DD-MM-Y') }}</td>
                 </tr>
                 <tr>
-                  <th>Şehir</th>
+                  <th>Şehir:</th>
                   <td>{{ data.city_id }}</td>
                 </tr>
                 <tr>
-                  <th>İlçe</th>
+                  <th>İlçe:</th>
                   <td>{{ data.county_id }}</td>
                 </tr>
                 <tr>
-                  <th>Adres</th>
+                  <th>Adres:</th>
                   <td>{{ data.address }}</td>
                 </tr>
                 <tr>
-                  <th>Üyelik Durumu</th>
+                  <th>Üyelik Tipi:</th>
+                  <td>{{ data.type.name }}</td>
+                </tr>
+                <tr>
+                  <th>Üyelik Durumu:</th>
                   <td>{{ userStatus(data.status).title }}</td>
                 </tr>
                 <tr>
-                  <th>İban</th>
+                  <th>İban:</th>
                   <td>{{ data.iban.iban }}</td>
                 </tr>
                 <tr>
-                  <th>Hizmet Yazısı</th>
+                  <th>Hizmet Yazısı:</th>
                   <td>{{ data.confirm_data.service_text }}</td>
                 </tr>
                 <tr>
-                  <th>Kayıt Tarihi</th>
-                  <td>{{ $moment(data.created_at).format('DD-MM-Y H:s') }}</td>
+                  <th>Kayıt Tarihi:</th>
+                  <td>{{ $moment(data.created_at).format('DD-MM-Y H:mm') }}</td>
                 </tr>
                 <tr>
-                  <th>Güncellenme Tarihi</th>
-                  <td>{{ $moment(data.updated_at).format('DD-MM-Y H:s') }}</td>
+                  <th>Güncellenme Tarihi:</th>
+                  <td>{{ $moment(data.updated_at).format('DD-MM-Y H:mm') }}</td>
                 </tr>
                 <tr>
-                  <th>Seçenekler</th>
+                  <th>Seçenekler:</th>
                   <td>
                     <el-button
                         type="primary"
