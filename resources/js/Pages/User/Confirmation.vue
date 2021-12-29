@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-12">
                 <div class="step-tab-content">
-                    <div class="row" v-if="active === 0">
+                    <div class="row" v-if="active === 0 || active === 5">
                         <div class="col-md-6 text-center form-info-side">
                             <div class="form-info">
                                 <h3>Üyelik Bilgileriniz</h3>
@@ -70,6 +70,7 @@
                                     <el-input
                                         v-model="firstForm.tc"
                                         type="number"
+                                        maxlength="11"
                                         placeholder="T.C. kimlik numaranız."
                                     ></el-input>
                                 </el-form-item>
@@ -90,6 +91,7 @@
                                     <el-input
                                         v-model="firstForm.phone"
                                         type="number"
+                                        maxlength="11"
                                         placeholder="Cep telefonu numaranız."
                                     ></el-input>
                                 </el-form-item>
@@ -195,6 +197,7 @@
                                     <el-input
                                         v-model="secondForm.iban"
                                         type="number"
+                                        maxlength="24"
                                         placeholder="Iban, TL hesabınız."
                                     ></el-input>
                                 </el-form-item>
@@ -327,50 +330,6 @@
     </app-layout>
 </template>
 
-<style>
-.el-step.is-simple .el-step__title {
-    font-size: 12px;
-    line-height: 14px;
-}
-.el-steps--simple {
-    background: #ffffff;
-    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-}
-.step-tab-content {
-    background: white;
-    margin-top: 20px;
-    padding: 35px;
-    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-}
-.text-information {
-    font-size: 14px;
-    color: gray;
-}
-.el-form-item__label {
-    font-size: 13px;
-}
-.el-button [class*="el-icon-"] + span {
-    font-weight: bold;
-}
-@media screen and (min-width: 768px) {
-    .form-info-side {
-        border-right-width: 1px;
-        border-style: dashed;
-    }
-}
-@media screen and (max-width: 768px) {
-    .el-step.is-simple:not(:last-of-type) .el-step__title {
-        word-break: unset !important;
-    }
-    .el-step__arrow {
-        display: none !important;
-    }
-    .el-step.is-simple .el-step__title {
-        font-size: 10px;
-        line-height: 12px;
-    }
-}
-</style>
 
 <script>
 import AppLayout from "@/Layouts/AppUserLayout";
@@ -386,28 +345,15 @@ export default {
         userTypes: Object,
         cities: Object,
         toast_success: String,
+        firstForm: Object,
+        secondForm: Object,
+        thirdForm: Object,
     },
     data() {
         return {
             stabilActive: this.userStatus != 0 ? true : false,
-            active: this.userStatus == 4 ? 4 : 0,
+            active: this.userStatus ?? 0,
             title: "ÜCRETSİZ HESAP OLUŞTURUN",
-            firstForm: {
-                membership_type: "",
-                name: "",
-                tc: "",
-                born_date: "",
-                phone: "",
-                address: "",
-                city_id: "",
-                county_id: "",
-            },
-            secondForm: {
-                iban: "",
-            },
-            thirdForm: {
-                service_text: "",
-            },
             rules: {
                 name: [
                     {
@@ -457,8 +403,8 @@ export default {
                         trigger: "blur",
                     },
                     {
-                        min: 10,
-                        max: 10,
+                        min: 11,
+                        max: 11,
                         message:
                             "Numaranız 11 haneli olmalı, Örnek: 05394964002",
                         trigger: "blur",
@@ -494,9 +440,9 @@ export default {
                         trigger: "blur",
                     },
                     {
-                        min: 11,
-                        max: 11,
-                        message: "Iban 11 haneli olmalı",
+                        min: 24,
+                        max: 24,
+                        message: "Iban 24 haneli olmalı",
                         trigger: "blur",
                     },
                 ],
@@ -594,3 +540,48 @@ export default {
     },
 };
 </script>
+
+<style>
+.el-step.is-simple .el-step__title {
+    font-size: 12px;
+    line-height: 14px;
+}
+.el-steps--simple {
+    background: #ffffff;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+.step-tab-content {
+    background: white;
+    margin-top: 20px;
+    padding: 35px;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+.text-information {
+    font-size: 14px;
+    color: gray;
+}
+.el-form-item__label {
+    font-size: 13px;
+}
+.el-button [class*="el-icon-"] + span {
+    font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+    .form-info-side {
+        border-right-width: 1px;
+        border-style: dashed;
+    }
+}
+@media screen and (max-width: 768px) {
+    .el-step.is-simple:not(:last-of-type) .el-step__title {
+        word-break: unset !important;
+    }
+    .el-step__arrow {
+        display: none !important;
+    }
+    .el-step.is-simple .el-step__title {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}
+</style>

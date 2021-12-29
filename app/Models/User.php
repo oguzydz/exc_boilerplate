@@ -22,10 +22,10 @@ class User extends Authenticatable
 
     const STATUS_NEW = 0;
     const STATUS_ACTIVE = 1;
-    const STATUS_CANCELED = 2;
+    const STATUS_PASIVE = 2;
     const STATUS_DELETED = 3;
     const STATUS_READY = 4;
-    const STATUS_PASIVE = 5;
+    const STATUS_CANCELED = 5;
 
     /**
      * The attributes that are mass assignable.

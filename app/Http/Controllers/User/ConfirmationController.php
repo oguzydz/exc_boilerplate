@@ -23,14 +23,21 @@ use Inertia\Inertia;
      */
     public function index()
     {
+        $userId = Auth::user()->id;
         $userTypes = UserType::all();
         $userStatus = Auth::user()->status;
         $cities = City::all();
+
+        $userIban = UserIban::where('user_id', $userId)->select(['iban'])->first();
+        $userConfirm = UserConfirmData::where('user_id', $userId)->select(['service_text'])->first();
 
         return Inertia::render('User/Confirmation', [
             'userTypes' => $userTypes,
             'cities' => $cities,
             'userStatus' => $userStatus,
+            'firstForm' => Auth::user(),
+            'secondForm' => $userIban,
+            'thirdForm' => $userConfirm,
         ]);
     }
 
@@ -80,8 +87,20 @@ use Inertia\Inertia;
             $user = User::findOrFail($userId);
             $user->update($userData);
 
-            UserIban::create($userIbanData);
-            UserConfirmData::create($userConfirmData);
+            $userIban = UserIban::where('user_id', $userId)->first();
+            $userConfirm = UserConfirmData::where('user_id', $userId)->first();
+
+            if($userIban) {
+                $userIban->update($userIbanData);
+            } else {
+                UserIban::create($userIbanData);
+            }
+
+            if($userConfirm) {
+                $userConfirm->update($userConfirmData);
+            } else {
+                UserConfirmData::create($userConfirmData);
+            }
 
             return redirect()->back()->withSuccess(['msg' => 'The Messagex']);
         } catch (\Exception $e) {

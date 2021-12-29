@@ -32,10 +32,6 @@ const userStatus = (status) => {
             tag: "success",
         },
         {
-            title: "Reddedildi",
-            tag: "info",
-        },
-        {
             title: "Silindi",
             tag: "info",
         },
@@ -45,6 +41,10 @@ const userStatus = (status) => {
         },
         {
             title: "Pasif",
+            tag: "info",
+        },
+        {
+            title: "Reddedildi",
             tag: "info",
         },
     ];
