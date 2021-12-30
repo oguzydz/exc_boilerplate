@@ -1,7 +1,6 @@
 @extends('layouts.web')
-@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxestock')
-{{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
-
+@section('title', 'Kendi Özel Mağazanızı Açın ve Ürünlerinizi Kolayca Satın - Exxefy')
+@section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar.')
 
 @section('content')
     <!-- header area start -->

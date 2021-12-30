@@ -33,37 +33,14 @@
                 <li>
                     <a href="#">Anasayfa</a>
                 </li>
-                <li class="menu-item-has-children">
+                <li>
                     <a href="#">Hemen Başla</a>
-                    <ul class="sub-menu">
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="shop-grid.html">Shop Grid</a></li>
-                        <li><a href="shop-details.html">Shop Details</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                    </ul>
                 </li>
-                <li class="menu-item-has-children">
+                <li>
                     <a href="#">Fiyatlandırma</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
                 </li>
-                <li class="menu-item-has-children">
+                <li>
                     <a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="faq.html">Faq</a></li>
-                        <li><a href="offer.html">Offer</a></li>
-                        <li><a href="error.html">Error 404</a></li>
-                        <li><a href="comming-soon.html">Coming Soon</a></li>
-                        <li><a href="work-processing.html">Work Processing</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
