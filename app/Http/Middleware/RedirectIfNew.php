@@ -29,8 +29,6 @@ class RedirectIfNew
                     return redirect(route(RouteServiceProvider::USER_STATUS_CONFIRMATION));
                     break;
             }
-        } else {
-            return redirect(route(RouteServiceProvider::HOME));
         }
 
         return $next($request);

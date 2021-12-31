@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserConfirmRequest extends FormRequest
 {
@@ -23,12 +24,14 @@ class UserConfirmRequest extends FormRequest
      */
     public function rules()
     {
+        $userId = Auth::user()->id;
+
         return [
             'membership_type' => ['required', 'numeric'],
             'name' => ['required', 'string'],
-            'tc' => ['required', 'string', 'unique:users'],
+            'tc' => ['required', 'string', "unique:users,tc,$userId"],
             'born_date' => ['required', 'date'],
-            'phone' => ['required', 'string', 'unique:users'],
+            'phone' => ['required', 'string', "unique:users,phone,$userId"],
             'address' => ['required', 'string'],
             'city_id' => ['required', 'numeric'],
             'county_id' => ['required', 'numeric'],

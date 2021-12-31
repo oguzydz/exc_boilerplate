@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserConfirmRequest;
 use App\Models\City;
 use App\Models\User;
+use App\Models\UserCancel;
 use App\Models\UserConfirmData;
 use App\Models\UserIban;
 use App\Models\UserType;
@@ -28,8 +29,9 @@ use Inertia\Inertia;
         $userStatus = Auth::user()->status;
         $cities = City::all();
 
-        $userIban = UserIban::where('user_id', $userId)->select(['iban'])->first();
-        $userConfirm = UserConfirmData::where('user_id', $userId)->select(['service_text'])->first();
+        $userIban = UserIban::where('user_id', $userId)->select(['iban'])->first() ?? (object) [];
+        $userConfirm = UserConfirmData::where('user_id', $userId)->select(['service_text'])->first() ?? (object) [];
+        $userCancel = UserCancel::where('user_id', $userId)->first();
 
         return Inertia::render('User/Confirmation', [
             'userTypes' => $userTypes,
@@ -38,6 +40,7 @@ use Inertia\Inertia;
             'firstForm' => Auth::user(),
             'secondForm' => $userIban,
             'thirdForm' => $userConfirm,
+            'userCancel' => $userCancel,
         ]);
     }
 
