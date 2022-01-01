@@ -32,15 +32,15 @@ const userStatus = (status) => {
             tag: "success",
         },
         {
+            title: "Pasif",
+            tag: "info",
+        },
+        {
             title: "Silindi",
             tag: "info",
         },
         {
             title: "Başvuru Formunu Doldurdu",
-            tag: "info",
-        },
-        {
-            title: "Pasif",
             tag: "info",
         },
         {

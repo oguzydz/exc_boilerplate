@@ -61,9 +61,12 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/update/{payment}', [PaymentController::class, 'update'])->name('update');
     });
 
-    Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.', 'excluded_middleware' => ['user.status']], function() {
+    Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.'], function() {
         Route::get('/', [ConfirmationController::class, 'index'])->name('index');
         Route::post('/store', [ConfirmationController::class, 'store'])->name('store');
     });
 
 });
+
+
+//, 'excluded_middleware' => ['user.status']
