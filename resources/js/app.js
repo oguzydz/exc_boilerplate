@@ -8,6 +8,8 @@ import ElementPlus from "element-plus";
 import locale from "element-plus/lib/locale/lang/tr";
 import Maska from "maska";
 import { Link } from '@inertiajs/inertia-vue3'
+import CIcon from '@coreui/icons-vue'
+import { iconsSet as icons } from '@/assets/icons'
 
 import moment from 'moment';
 moment.locale('tr');
@@ -17,7 +19,7 @@ import "@coreui/coreui/dist/css/coreui.min.css";
 import "@coreui/coreui/dist/js/coreui.bundle.min.js";
 import "@coreui/chartjs/dist/js/coreui-chartjs.bundle.js";
 import "@coreui/utils/dist/coreui-utils.js";
-
+import CoreuiVue from '@coreui/vue'
 
 const el = document.getElementById("app");
 
@@ -150,6 +152,9 @@ createInertiaApp({
             .use(ElementPlus, { locale })
             .use(plugin)
             .use(Maska)
+            .use(CoreuiVue)
+            .provide('icons', icons)
+            .component('CIcon', CIcon)
             .use(Link);
 
             vueapp.config.globalProperties.$moment=moment;

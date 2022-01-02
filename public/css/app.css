@@ -798,6 +798,12 @@ video {
 	margin-top: 0;
 }.prose > :last-child{
 	margin-bottom: 0;
+}.visible{
+	visibility: visible;
+}.\!visible{
+	visibility: visible !important;
+}.static{
+	position: static;
 }.fixed{
 	position: fixed;
 }.absolute{
@@ -831,6 +837,8 @@ video {
 	grid-column: span 3 / span 3;
 }.col-span-4{
 	grid-column: span 4 / span 4;
+}.col-auto{
+	grid-column: auto;
 }.row-span-4{
 	grid-row: span 4 / span 4;
 }.row-span-1{
@@ -855,6 +863,15 @@ video {
 }.my-2{
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+}.mx-3{
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
+}.my-4{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}.mx-4{
+	margin-left: 1rem;
+	margin-right: 1rem;
 }.ml-3{
 	margin-left: 0.75rem;
 }.-ml-px{
@@ -913,8 +930,14 @@ video {
 	margin-top: 0px;
 }.mb-2{
 	margin-bottom: 0.5rem;
+}.mb-5{
+	margin-bottom: 1.25rem;
+}.mb-1{
+	margin-bottom: 0.25rem;
 }.block{
 	display: block;
+}.inline{
+	display: inline;
 }.flex{
 	display: flex;
 }.inline-flex{
@@ -923,6 +946,8 @@ video {
 	display: table;
 }.grid{
 	display: grid;
+}.contents{
+	display: contents;
 }.hidden{
 	display: none;
 }.h-5{
@@ -1027,6 +1052,8 @@ video {
 	cursor: default;
 }.cursor-pointer{
 	cursor: pointer;
+}.resize{
+	resize: both;
 }.list-inside{
 	list-style-position: inside;
 }.list-disc{
@@ -1045,6 +1072,8 @@ video {
 	flex-direction: column;
 }.flex-wrap{
 	flex-wrap: wrap;
+}.flex-nowrap{
+	flex-wrap: nowrap;
 }.items-start{
 	align-items: flex-start;
 }.items-center{
@@ -1061,6 +1090,8 @@ video {
 	gap: 1rem;
 }.gap-1{
 	gap: 0.25rem;
+}.gap-2{
+	gap: 0.5rem;
 }.space-x-8 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1240,6 +1271,8 @@ video {
 	padding: 0.25rem;
 }.p-4{
 	padding: 1rem;
+}.p-0{
+	padding: 0px;
 }.px-4{
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1282,6 +1315,12 @@ video {
 }.py-10{
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
+}.px-0{
+	padding-left: 0px;
+	padding-right: 0px;
+}.py-0{
+	padding-top: 0px;
+	padding-bottom: 0px;
 }.pt-6{
 	padding-top: 1.5rem;
 }.pt-5{
@@ -1316,6 +1355,8 @@ video {
 	padding-right: 0.25rem;
 }.pt-3{
 	padding-top: 0.75rem;
+}.pt-0{
+	padding-top: 0px;
 }.text-left{
 	text-align: left;
 }.text-center{

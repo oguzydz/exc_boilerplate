@@ -32,6 +32,12 @@
     </ul>
   </div>
 </template>
+<style>
+.nav-link span {
+    font-size: 14px;
+}
+</style>
+
 <script>
 import NavItem from '@/Components/Sidebar/NavItem'
 import NavTitle from '@/Components/Sidebar/NavTitle'
