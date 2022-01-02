@@ -20,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = 'user.dashboard.index';
     public const USER_STATUS_ACTIVE = 'user.dashboard.index';
     public const USER_STATUS_CONFIRMATION = 'user.confirmation.index';
+    public const USER_STATUS_CONFIRMATION_STORE = 'user.confirmation.store';
     public const USER_STATUS_OTHER = 'user.confirmation.other';
     public const ADMIN_HOME = 'admin.index';
 

@@ -256,7 +256,7 @@
               </el-form>
             </div>
           </div>
-          <div class="row" v-if="active === 3 || userStatus === 4">
+          <div class="row" v-if="active === 3 || active === 4 || userStatus === 4">
             <div class="col-md-6 text-center form-info-side">
               <div class="form-info">
                 <h3>BAŞVURUNUZ TAMAMLANDI!</h3>
@@ -325,7 +325,7 @@ export default {
   data() {
     return {
       stabilActive: this.userStatus != 0 ? true : false,
-      active: 0,
+      active: this.userStatus == 4 ? 4 : 0,
       title: "ÜCRETSİZ HESAP OLUŞTURUN",
       rules: {
         name: [
