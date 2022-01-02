@@ -1,5 +1,5 @@
 <template>
-    <header class="header header-sticky mb-3 bg-[#6610f]">
+    <header class="header header-sticky mb-2 bg-[#6610f]">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
@@ -50,8 +50,7 @@ export default {
     display: unset!important;
     min-height: unset!important;
 }
-
 .m-logo {
-    width: 96px;
+    width: 80px;
 }
 </style>
