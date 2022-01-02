@@ -32,14 +32,33 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
 
     Route::get('/settings', [UserProfileController::class, 'show'])->name('setting')->withoutMiddleware('user.status');
 
-    Route::group(['prefix' => 'products', 'as' => 'product.'], function() {
-        Route::get('/', [ProductController::class, 'index'])->name('index');
-        Route::get('/{product}', [ProductController::class, 'show'])->name('show');
+    Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+        Route::get('/show/{id}', [CategoryController::class, 'show'])->name('show');
+        Route::post('/update', [CategoryController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
     });
 
-    Route::group(['prefix' => 'categories', 'as' => 'category.'], function() {
-        Route::get('/', [CategoryController::class, 'index'])->name('index');
-        Route::get('/{categorySlug}', [CategoryController::class, 'show'])->name('show');
+    Route::group(['prefix' => 'products', 'as' => 'product.'], function() {
+        Route::get('/', [ProductController::class, 'index'])->name('index');
+        Route::get('/create', [ProductController::class, 'create'])->name('create');
+        Route::post('/store', [ProductController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+        Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
+        Route::post('/update', [ProductController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+
+        Route::group(['prefix' => 'feature/{productId}', 'as' => 'feature.'], function () {
+            Route::get('/', [ProductFeatureController::class, 'index'])->name('index');
+            Route::get('/create', [ProductFeatureController::class, 'create'])->name('create');
+            Route::post('/store', [ProductFeatureController::class, 'store'])->name('store');
+            Route::get('/edit/{featureId}', [ProductFeatureController::class, 'edit'])->name('edit');
+            Route::post('/update', [ProductFeatureController::class, 'update'])->name('update');
+            Route::post('/destroy/{featureId}', [ProductFeatureController::class, 'destroy'])->name('destroy');
+        });
     });
 
 

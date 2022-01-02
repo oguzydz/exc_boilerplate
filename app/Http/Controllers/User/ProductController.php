@@ -24,7 +24,7 @@ class ProductController extends Controller
             ->paginate(10);
 
         return Inertia::render('User/Product/Index', [
-            'products' => $products,
+            'data' => $products,
         ]);
     }
 

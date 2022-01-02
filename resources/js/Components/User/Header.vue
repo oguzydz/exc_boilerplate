@@ -26,10 +26,9 @@
             </div>
         </div>
     </header>
-        <CContainer fluid>
+    <CContainer fluid>
       <AppBreadcrumb />
     </CContainer>
-
 </template>
 <script>
 import AppBreadcrumb from './AppBreadcrumb'
@@ -39,9 +38,9 @@ export default {
         toggleDrawerMenu: Function,
         drawerMenuVisible: Boolean,
     },
-      components: {
-    AppBreadcrumb,
-  },
+    components: {
+        AppBreadcrumb,
+    },
 
 };
 </script>

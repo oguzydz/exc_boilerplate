@@ -1,59 +1,65 @@
 <template>
-  <app-layout title="Ürün Kategorileri">
+<app-layout title="Kategoriler">
     <div class="row">
-      <div class="col-md-12">
-        <h3>Kategoriler</h3>
-        <hr />
-        <div class="row">
-          <div
-            v-for="(category, index) in categories"
-            v-bind:key="index"
-            class="col-sm-12 col-md-3 my-2"
-          >
-            <div
-              class="grid grid-cols-3 grid-rows-7 grid-flow-row overflow-hidden rounded hover:shadow-xl transition-shadow duration-300 ease-in-out border position-relative"
-            >
-              <div class="col-span-3 row-span-4">
-                <a target="_blank" :href="route('user.category.show', [category.slug])">
-                  <img
-                    :src="`/storage/${category.image}`"
-                    alt="Placeholder"
-                    class="object-cover h-48 w-full"
-                  />
-                </a>
-              </div>
-              <div class="col-span-3 row-span-1 bg-[#909399]">
-                <header
-                  class="flex items-start flex-column justify-between leading-tight p-2 md:p-4"
-                >
-                  <h1 class="text-lg">
-                    <a
-                      class="no-underline hover:underline text-white"
-                      :href="route('user.category.show', [category.slug])"
-                      target="_blank"
-                    >
-                      {{ category.title }}
-                    </a>
-                  </h1>
-                </header>
-              </div>
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <el-page-header @back="goBack" title="Geri" content="Kategoriler">
+            </el-page-header>
+            <div class="header-divider mb-4"></div>
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        Kategori Listesi
+                        <el-button type="success" class="float-right" icon="el-icon-plus" v-on:click="
+                                $inertia.get(route('user.category.create'))
+                            " size="mini">
+                            Kategori Oluştur
+                        </el-button>
+                    </div>
+                    <div class="card-body">
+                        <el-table :data="data.data" style="width: 100%">
+                            <el-table-column prop="id" label="#" width="45"></el-table-column>
+                            <el-table-column label="Görsel" width="200">
+                                <template #default="scope">
+                                    <img :src="'/storage/' + scope.row.image" class="w-50" @error="imageUrlAlt" />
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="title" label="Başlık"></el-table-column>
+                            <el-table-column label="Options" width="200">
+                                <template #default="scope">
+                                    <el-button type="primary" icon="el-icon-edit" size="mini" v-on:click="
+                                            $inertia.get(
+                                                route('admin.blog.edit', {
+                                                    id: scope.row.id,
+                                                })
+                                            )
+                                        "></el-button>
+                                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="confirmDelete(scope.row.id)"></el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination background class="float-right my-6" layout="prev, pager, next" @current-change="handlePagination" :current-page="data.current_page" :page-size="data.per_page" :total="data.total"></el-pagination>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </app-layout>
+</app-layout>
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppUserLayout'
+import AppLayout from "@/Layouts/AppUserLayout";
 
 export default {
-  components: {
-    AppLayout,
-  },
-  props: {
-    categories: Object,
-  },
-}
+    components: {
+        AppLayout,
+    },
+    props: {
+        data: Object,
+    },
+    methods: {
+        goBack() {
+            console.log('go back');
+        }
+    }
+};
 </script>

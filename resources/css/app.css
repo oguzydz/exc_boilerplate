@@ -124,3 +124,13 @@ label {
     box-shadow: 0px 11px 14px #32e2a94d!important;
     border: unset!important;
 }
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #32E2A9!important;
+    box-shadow: 0px 11px 14px #32e2a94d!important;
+    border: unset!important;
+}
+
+.el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon {
+    display: unset!important;
+}
