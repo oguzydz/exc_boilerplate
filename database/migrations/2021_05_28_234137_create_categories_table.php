@@ -15,13 +15,14 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->references('id')->on('companies');
             $table->string('title');
             $table->longText('text');
             $table->string('image');
             $table->string('image_seo');
             $table->string('slug');
             $table->integer('order');
-            $table->integer('status');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,34 +45,28 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
+        $slug = Str::slug($request->title, '-');
+        $getFile = $request->file()['image'];
+
+        $fileName = $slug . '--' . time() . '.' . $getFile->getClientOriginalExtension();
+        $filePath = $getFile->storeAs('kategoriler', $fileName, 'public');
+
+        $data = [
+            'title' => $request->title,
+            'text' => $request->text,
+            'slug' => $slug,
+            'image' => $filePath,
+            'image_seo' => $fileName,
+            'order' => $request->order,
+            'status' => $this->booleanStatus(1)
+        ];
+
         try {
-            $image_seo = Str::slug($request->image_seo, '-');
-            $slug = Str::slug($request->slug, '-');
-            $getFile = $request->file()['image'];
-
-            $fileName = $image_seo . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-            $filePath = $getFile->storeAs('kategoriler', $fileName, 'public');
-
-            $data = [
-                'title' => $request->title,
-                'text' => $request->text,
-                'slug' => $slug,
-                'image' => $filePath,
-                'image_seo' => $image_seo,
-                'order' => $request->order,
-                'status' => $this->booleanStatus($request->status)
-            ];
-
             Category::create($data);
 
-            return redirect()->back();
+            return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {
-            $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Kategori eklenirken beklenmedik bir hata oldu'));
-
-            dd($e);
-
-            return redirect()->back();
+            return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
         }
     }
 
@@ -152,7 +146,7 @@ class CategoryController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Kategori güncellenirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Kategori güncellenirken beklenmedik bir hata oldu'));
 
             dd($e);
 
@@ -177,14 +171,15 @@ class CategoryController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Kategori silinirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Kategori silinirken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
     }
 
 
-    public function booleanStatus($status) {
+    public function booleanStatus($status)
+    {
         $list = collect([
             [
                 'id' => 0,

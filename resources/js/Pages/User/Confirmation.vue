@@ -11,7 +11,7 @@
         >
           <el-step title="Üyelik Bilgileri"></el-step>
           <el-step title="Banka Hesabı"></el-step>
-          <el-step title="Satılan Ürün"></el-step>
+          <el-step title="Mağaza Bilgiler"></el-step>
           <el-step title="Sonuç Ekranı"></el-step>
         </el-steps>
       </div>
@@ -227,14 +227,39 @@
               </el-alert>
 
               <el-form
+                :model="fourthForm"
+                :rules="fourthRules"
+                ref="fourthForm"
+                label-width="130px"
+                :label-position="isMobile() ? 'left' : 'right'"
+                size="medium"
+              >
+                <el-form-item label="Mağaza Adı:" prop="title">
+                  <el-input
+                    v-model="fourthForm.title"
+                    placeholder="Mağaza adınız."
+                  ></el-input>
+                </el-form-item>
+
+                <el-form-item label="Mağaza Açıklama:" prop="text">
+                  <el-input
+                    type="textarea"
+                    v-model="fourthForm.text"
+                    rows="4"
+                    placeholder="Sitede görünecek mağaza açıklamanız."
+                  ></el-input>
+                </el-form-item>
+              </el-form>
+
+              <el-form
                 :model="thirdForm"
-                :rules="thirddRules"
+                :rules="thirdRules"
                 ref="thirdForm"
                 label-width="130px"
                 :label-position="isMobile() ? 'left' : 'right'"
                 size="medium"
               >
-                <el-form-item label="Satılan Ürün Özeti:" prop="address">
+                <el-form-item label="Ürün Özeti:" prop="service_text">
                   <el-input
                     type="textarea"
                     v-model="thirdForm.service_text"
@@ -320,6 +345,7 @@ export default {
     firstForm: Object,
     secondForm: Object,
     thirdForm: Object,
+    fourthForm: Object,
     userCancel: Object,
   },
   data() {
@@ -428,6 +454,22 @@ export default {
           },
         ],
       },
+      fourthRules: {
+        title: [
+          {
+            required: true,
+            message: "Lütfen mağaza adı giriniz.",
+            trigger: "blur",
+          },
+        ],
+        text: [
+          {
+            required: true,
+            message: "Lütfen mağaza açıklaması giriniz.",
+            trigger: "blur",
+          },
+        ],
+      },
       counties: Object,
       fullForm: Object,
     };
@@ -450,7 +492,8 @@ export default {
               {},
               this.firstForm,
               this.secondForm,
-              this.thirdForm
+              this.thirdForm,
+              this.fourthForm,
             );
 
             this.$inertia.post(

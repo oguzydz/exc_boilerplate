@@ -30,6 +30,7 @@
                                 <el-input
                                     type="textarea"
                                     v-model="form.text"
+                                    placeholder="Kategori açıklaması giriniz."
                                 ></el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
@@ -51,12 +52,12 @@
                                 />
                             </el-form-item>
                             <div class="float-right">
-                  <el-button
-                    type="success"
-                    icon="el-icon-check"
-                    @click="submitForm('form')"
-                    >GÖNDER</el-button
-                  >
+                                <el-button
+                                    type="success"
+                                    icon="el-icon-check"
+                                    @click="submitForm('form')"
+                                    >GÖNDER</el-button
+                                >
                             </div>
                         </el-form>
                     </div>

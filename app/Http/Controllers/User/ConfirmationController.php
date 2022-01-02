@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserConfirmRequest;
 use App\Models\City;
+use App\Models\Company;
 use App\Models\User;
 use App\Models\UserCancel;
 use App\Models\UserConfirmData;
@@ -14,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
     class ConfirmationController extends Controller
 {
@@ -31,6 +33,7 @@ use Inertia\Inertia;
 
         $userIban = UserIban::where('user_id', $userId)->select(['iban'])->first() ?? (object) [];
         $userConfirm = UserConfirmData::where('user_id', $userId)->select(['service_text'])->first() ?? (object) [];
+        $company = Company::where('user_id', $userId)->select(['title', 'text'])->first() ?? (object) [];
         $userCancel = UserCancel::where('user_id', $userId)->first();
 
         return Inertia::render('User/Confirmation', [
@@ -40,6 +43,7 @@ use Inertia\Inertia;
             'firstForm' => Auth::user(),
             'secondForm' => $userIban,
             'thirdForm' => $userConfirm,
+            'fourthForm' => $company,
             'userCancel' => $userCancel,
         ]);
     }
@@ -86,12 +90,20 @@ use Inertia\Inertia;
             'service_text' => $request->service_text,
         ];
 
+        $companyData = [
+            'user_id' => $userId,
+            'title' => $request->title,
+            'text' => $request->text,
+            'slug' => Str::slug($request->text, '-'),
+        ];
+
         try {
             $user = User::findOrFail($userId);
             $user->update($userData);
 
             $userIban = UserIban::where('user_id', $userId)->first();
             $userConfirm = UserConfirmData::where('user_id', $userId)->first();
+            $company = Company::where('user_id', $userId)->first();
 
             if($userIban) {
                 $userIban->update($userIbanData);
@@ -105,7 +117,13 @@ use Inertia\Inertia;
                 UserConfirmData::create($userConfirmData);
             }
 
-            return redirect()->back()->withSuccess(['msg' => 'The Messagex']);
+            if($company) {
+                $company->update($companyData);
+            } else {
+                Company::create($companyData);
+            }
+
+            return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
         }
