@@ -1,14 +1,14 @@
 <template>
   <CRow>
-    <CCol :xs="3">
+    <CCol :md="3">
       <CWidgetStatsA class="mb-4" color="primary">
         <template #value
-          >26K
+          >0
           <span class="fs-6 fw-normal">
-            (-12.4% <CIcon icon="cil-arrow-bottom" />)
+            (0% <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
-        <template #title>Users</template>
+        <template #title>Toplam Sipariş</template>
         <template #action>
           <CDropdown placement="bottom-end">
             <CDropdownToggle
@@ -32,21 +32,26 @@
             style="height: 70px"
             :data="{
               labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
+                'Ocak',
+                'Şubat',
+                'Mart',
+                'Nisan',
+                'Mayıs',
+                'Haziran',
+                'Temmuz',
+                'Ağustos',
+                'Eylül',
+                'Ekim',
+                'Kasım',
+                'Aralık',
               ],
               datasets: [
                 {
-                  label: 'My First dataset',
+                  label: 'Aylık Sipariş',
                   backgroundColor: 'transparent',
                   borderColor: 'rgba(255,255,255,.55)',
                   pointBackgroundColor: '#321fdb',
-                  data: [68, 59, 84, 84, 51, 55, 40],
+                  data: [70, 50, 60, 70, 80, 60, 60, 40, 60, 60, 40, 54],
                 },
               ],
             }"
@@ -68,8 +73,8 @@
                   },
                 },
                 y: {
-                  min: 30,
-                  max: 89,
+                  min: -10,
+                  max: 110,
                   display: false,
                   grid: {
                     display: false,
@@ -95,15 +100,15 @@
         </template>
       </CWidgetStatsA>
     </CCol>
-    <CCol :xs="3">
+    <CCol :md="3">
       <CWidgetStatsA class="mb-4" color="info">
         <template #value
-          >$6.200
+          >0 TL
           <span class="fs-6 fw-normal">
-            (40.9% <CIcon icon="cil-arrow-top" />)
+            (0% <CIcon icon="cil-arrow-top" />)
           </span>
         </template>
-        <template #title>Income</template>
+        <template #title>Toplam Kazanç</template>
         <template #action>
           <CDropdown placement="bottom-end">
             <CDropdownToggle
@@ -127,21 +132,26 @@
             style="height: 70px"
             :data="{
               labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
+                'Ocak',
+                'Şubat',
+                'Mart',
+                'Nisan',
+                'Mayıs',
+                'Haziran',
+                'Temmuz',
+                'Ağustos',
+                'Eylül',
+                'Ekim',
+                'Kasım',
+                'Aralık',
               ],
               datasets: [
                 {
-                  label: 'My First dataset',
+                  label: 'Kazanç',
                   backgroundColor: 'transparent',
                   borderColor: 'rgba(255,255,255,.55)',
                   pointBackgroundColor: '#39f',
-                  data: [1, 18, 9, 17, 34, 22, 11],
+                  data: [1, 50, 60, 70, 80, 60, 60, 40, 60, 60, 40, 54],
                 },
               ],
             }"
@@ -163,8 +173,8 @@
                   },
                 },
                 y: {
-                  min: -9,
-                  max: 39,
+                  min: -10,
+                  max: 110,
                   display: false,
                   grid: {
                     display: false,
@@ -189,15 +199,15 @@
         </template>
       </CWidgetStatsA>
     </CCol>
-    <CCol :xs="3">
+    <CCol :md="3">
       <CWidgetStatsA class="mb-4" color="warning">
         <template #value
-          >2.49%
+          >0%
           <span class="fs-6 fw-normal">
-            (84.7% <CIcon icon="cil-arrow-top" />)
+            (0% <CIcon icon="cil-arrow-top" />)
           </span>
         </template>
-        <template #title>Conversion Rate</template>
+        <template #title>Toplam İade</template>
         <template #action>
           <CDropdown placement="bottom-end">
             <CDropdownToggle
@@ -221,20 +231,25 @@
             style="height: 70px"
             :data="{
               labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
+                'Ocak',
+                'Şubat',
+                'Mart',
+                'Nisan',
+                'Mayıs',
+                'Haziran',
+                'Temmuz',
+                'Ağustos',
+                'Eylül',
+                'Ekim',
+                'Kasım',
+                'Aralık',
               ],
               datasets: [
                 {
-                  label: 'My First dataset',
+                  label: 'İade',
                   backgroundColor: 'rgba(255,255,255,.2)',
                   borderColor: 'rgba(255,255,255,.55)',
-                  data: [78, 81, 80, 45, 34, 12, 40],
+                  data: [78, 81, 80, 45, 34, 12, 40, 12, 40, 12, 40, 12],
                   fill: true,
                 },
               ],
@@ -270,15 +285,15 @@
         </template>
       </CWidgetStatsA>
     </CCol>
-    <CCol :xs="3">
+    <CCol :md="3">
       <CWidgetStatsA class="mb-4" color="danger">
         <template #value
-          >44K
+          >0
           <span class="fs-6 fw-normal">
-            (-23.6% <CIcon icon="cil-arrow-bottom" />)
+            (0% <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
-        <template #title>Sessions</template>
+        <template #title>Oturum</template>
         <template #action>
           <CDropdown placement="bottom-end">
             <CDropdownToggle
@@ -302,22 +317,18 @@
             style="height: 70px"
             :data="{
               labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December',
-                'January',
-                'February',
-                'March',
-                'April',
+                'Ocak',
+                'Şubat',
+                'Mart',
+                'Nisan',
+                'Mayıs',
+                'Haziran',
+                'Temmuz',
+                'Ağustos',
+                'Eylül',
+                'Ekim',
+                'Kasım',
+                'Aralık',
               ],
               datasets: [
                 {
@@ -325,8 +336,7 @@
                   backgroundColor: 'rgba(255,255,255,.2)',
                   borderColor: 'rgba(255,255,255,.55)',
                   data: [
-                    78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67,
-                    82,
+                    78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98
                   ],
                   barPercentage: 0.6,
                 },

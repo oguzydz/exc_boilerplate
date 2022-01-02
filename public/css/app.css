@@ -1273,6 +1273,8 @@ video {
 	padding: 1rem;
 }.p-0{
 	padding: 0px;
+}.p-3{
+	padding: 0.75rem;
 }.px-4{
 	padding-left: 1rem;
 	padding-right: 1rem;

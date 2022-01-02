@@ -1,5 +1,5 @@
 <template>
-    <header class="header header-sticky mb-4 bg-[#6610f]">
+    <header class="header header-sticky mb-3 bg-[#6610f]">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
@@ -26,13 +26,23 @@
             </div>
         </div>
     </header>
+        <CContainer fluid>
+      <AppBreadcrumb />
+    </CContainer>
+
 </template>
 <script>
+import AppBreadcrumb from './AppBreadcrumb'
+
 export default {
     props: {
         toggleDrawerMenu: Function,
         drawerMenuVisible: Boolean,
     },
+      components: {
+    AppBreadcrumb,
+  },
+
 };
 </script>
 <style>
