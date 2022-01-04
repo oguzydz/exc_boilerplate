@@ -4,22 +4,18 @@
 
 @section('content')
 
-    <x-pageTitle title="Ödeme Ve Teslimat"  />
-
- <section class="clearfix">
+    {{-- <x-pageTitle title="Ödeme Ve Teslimat"  /> --}}
 
 
-    <div class="container">
-        <div class="row align-items-center">
+<section class=" clearfix">
 
-            <div class="col-md-12">
-                <div class="who-we-contant mt-s">
-                    <div class="sect-icon text-left fadeInUp" data-wow-delay="0.2s">
-                        <img src="img\svg\section-icon-2.svg" alt="">
-                    </div>
-                    <h4 class="fadeInUp text-center" data-wow-delay="0.3s">Ödeme ve Teslimat
-                    </h4>
-                    <p class="fadeInUp" data-wow-delay="0.4s">ÖDEME SEÇENEKLERİ</p>
+    <div class="sbst-service-area pd-top-112">
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div class="col-xl-6 col-lg-10">
+                    <div class="section-title ">
+                        <h2 class="title">Ödeme Ve <span>Teslimat</span></h2>
+                        <p class="fadeInUp" data-wow-delay="0.4s">ÖDEME SEÇENEKLERİ</p>
 
                         <p> 1– Banka Havalesi veya EFT (Elektronik Fon Transferi)
 
@@ -36,14 +32,24 @@
                       <p>  4 – Mail-Order Kredi Kartı Çekimi
 
                         Tarafınızdan onaylı alışveriş tutarının, firmamızda bulunan kredi kartı P.O.S. cihazlarımızdan elle girilerek çekilebilmesi işlemidir. Bu işlemi yapabilmemiz için gerekli olan formun tarafınızdan doldurularak imzalanması gerekmektedir. Ayrıca kredi kartı ve nüfus cüzdanınızın arkalı-önlü fotokopisi de gereklidir.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+    {{-- <div class="container">
+        <div class="row align-items-center">
+
+
+        </div> --}}
 
 
 
 
     </div>
 </section>
+
 
 @endsection

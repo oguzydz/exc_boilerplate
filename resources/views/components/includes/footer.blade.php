@@ -155,11 +155,11 @@
                     <div class="footer-widget widget widget_nav_menu">
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
-                            <li><a href="#">7/24 Destek</a></li>
-                            <li><a href="#">Kullanım Koşulları</a></li>
-                            <li><a href="#">Kullanıcı Sözleşmesi</a></li>
-                            <li><a href="#">Gizlilik Politikası</a></li>
-                            <li><a href="#">KVKK</a></li>
+                            <li><a href="{{route('policy.delivery')}}">7/24 Destek</a></li>
+                            <li><a href="{{route('policy.index')}}">Kullanım Koşulları</a></li>
+                            <li><a href="{{route('policy.sales')}}">Kullanıcı Sözleşmesi</a></li>
+                            <li><a href="{{route('policy.security')}}">Gizlilik Politikası</a></li>
+                            <li><a href="{{route('policy.agreement')}}">KVKK</a></li>
                         </ul>
                     </div>
                 </div>

@@ -157,7 +157,7 @@
                         <ul>
                             <li><a href="#">7/24 Destek</a></li>
                             <li><a href="#">Kullanım Koşulları</a></li>
-                            <li><a href="#">Kullanıcı Sözleşmesi</a></li>
+                            <li><a href="{{route('policy.agreement')}}">Kullanıcı Sözleşmesi</a></li>
                             <li><a href="#">Gizlilik Politikası</a></li>
                             <li><a href="#">KVKK</a></li>
                         </ul>
