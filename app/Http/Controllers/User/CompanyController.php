@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class CompanyController extends Controller
 {
@@ -14,7 +17,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $company = Company::where('user_id', Auth::user()->id)->first();
+
+        return Inertia::render('User/Company/Index', [
+            'data' => $company,
+        ]);
+
     }
 
     /**
@@ -69,7 +77,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $companyData = [
+            'title' => $request->title,
+            'text' => $request->text,
+            'logo' => Company::EXAMPLE_LOGO_URL,
+            'bg_image' => Company::EXAMPLE_BG_URL,
+            'email' => Auth::user()->email,
+            'phone' => Auth::user()->phone,
+            'slug' => Str::slug($request->title, '-'),
+        ];
     }
 
     /**

@@ -69,7 +69,7 @@ export default {
         {
           tag: "nav-item",
           text: "Dükkan Yönetimi",
-          url: "user.category.index",
+          url: "user.company.index",
           icon: "fas fa-store-alt",
         },
         {

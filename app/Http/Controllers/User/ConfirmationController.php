@@ -94,7 +94,11 @@ use Illuminate\Support\Str;
             'user_id' => $userId,
             'title' => $request->title,
             'text' => $request->text,
-            'slug' => Str::slug($request->text, '-'),
+            'logo' => Company::EXAMPLE_LOGO_URL,
+            'bg_image' => Company::EXAMPLE_BG_URL,
+            'email' => Auth::user()->email,
+            'phone' => Auth::user()->phone,
+            'slug' => Str::slug($request->title, '-'),
         ];
 
         try {

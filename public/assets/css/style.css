@@ -7496,6 +7496,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     margin-bottom: 0;
 }
 
+.cover-body p {
+    line-height: 20px;
+}
+
 @media (max-width: 767px) {
     .profile-page .profile-header .cover figure {
         height: 110px;
@@ -7562,7 +7566,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 .profile-page .profile-header .cover .cover-body .profile-pic {
     border-radius: 50%;
-    width: 100px;
+    width: 140px;
 }
 
 @media (max-width: 767px) {

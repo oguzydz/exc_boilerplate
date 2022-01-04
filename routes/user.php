@@ -6,6 +6,7 @@
  */
 
 use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\CompanyController;
 use App\Http\Controllers\User\ConfirmationController;
 use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,11 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
     });
 
     Route::get('/settings', [UserProfileController::class, 'show'])->name('setting')->withoutMiddleware('user.status');
+
+    Route::group(['prefix' => 'company', 'as' => 'company.'], function () {
+        Route::get('/', [CompanyController::class, 'index'])->name('index');
+        Route::post('/update', [CompanyController::class, 'update'])->name('update');
+    });
 
     Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
