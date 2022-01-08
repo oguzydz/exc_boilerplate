@@ -177,6 +177,7 @@ export default {
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
+                                    this.$inertia.get(route('user.category.index'))
                                 },
                                 onError: (errors) => {
                                     this.$message({

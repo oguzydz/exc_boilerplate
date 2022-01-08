@@ -97,7 +97,7 @@ use Illuminate\Support\Str;
             'logo' => Company::EXAMPLE_LOGO_URL,
             'bg_image' => Company::EXAMPLE_BG_URL,
             'email' => Auth::user()->email,
-            'phone' => Auth::user()->phone,
+            'phone' => $request->phone,
             'slug' => Str::slug($request->title, '-'),
         ];
 

@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,13 +47,15 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
+        $userCompany = Company::where('user_id', Auth::user()->id)->firstOrFail();
         $slug = Str::slug($request->title, '-');
         $getFile = $request->file()['image'];
 
-        $fileName = $slug . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-        $filePath = $getFile->storeAs('kategoriler', $fileName, 'public');
+        $fileName = $slug . '--' . $userCompany->id . '.' . $getFile->getClientOriginalExtension();
+        $filePath = $getFile->storeAs('category-images', $fileName, 'public');
 
         $data = [
+            'company_id' => $userCompany->id,
             'title' => $request->title,
             'text' => $request->text,
             'slug' => $slug,
@@ -89,21 +93,19 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
+        $userCompany = Company::where('user_id', Auth::user()->id)->firstOrFail();
+        $category = Category::where(['company_id' => $userCompany->id, 'id' => $id])->firstOrFail();
 
         $data = [
             'id' => $category->id,
             'title' => $category->title,
             'text' => $category->text,
             'image' => $category->image,
-            'image_seo' => $category->image_seo,
             'order' => $category->order,
-            'status' => $this->booleanStatus($category->status),
-            'slug' => $category->slug,
             'new_image',
         ];
 
-        return Inertia::render('Admin/Category/Edit', [
+        return Inertia::render('User/Category/Edit', [
             'data' => $data,
         ]);
     }
@@ -116,29 +118,26 @@ class CategoryController extends Controller
      */
     public function update(EditCategoryRequest $request)
     {
-
         try {
-            $category = Category::find($request->id);
-            $slug = Str::slug($request->slug, '-');
+            $category = Category::findorFail($request->id);
+            $slug = Str::slug($request->title, '-');
+            $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
 
             $data = [
                 'id' => $request->id,
                 'title' => $request->title,
                 'text' => $request->text,
                 'slug' => $slug,
-                'image_seo' => $request->image_seo,
                 'order' => $request->order,
                 'status' => $this->booleanStatus($request->status)
             ];
 
-            if (isset($request->file()['new_image'])) {
-                $image_seo = Str::slug($request->image_seo, '-');
-
-                $getFile = $request->file()['new_image'];
-                $fileName = $image_seo . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-                $filePath = $getFile->storeAs('kategoriler', $fileName, 'public');
+            if($newImage) {
+                $newImageName = $slug . '-category-image-' . time() . '.' . $newImage->getClientOriginalExtension();
+                $filePath = $newImage->storeAs('category-images', $newImageName, 'public');
 
                 $data['image'] = $filePath;
+                $data['image_seo'] = $newImageName;
             }
 
             $category->update($data);

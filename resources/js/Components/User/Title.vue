@@ -1,5 +1,5 @@
 <template>
-  <inertia-head :title="title ? `${title} - Exxestock` : 'Exxestock - Kullanıcı Paneli'">
+  <inertia-head :title="title ? `${title} - Exxefy` : 'Exxefy - Kullanıcı Paneli'">
     <slot />
   </inertia-head>
 </template>

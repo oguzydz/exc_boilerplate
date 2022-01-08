@@ -134,3 +134,6 @@ label {
 .el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon {
     display: unset!important;
 }
+.card {
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+}

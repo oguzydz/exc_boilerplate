@@ -1622,6 +1622,8 @@ input::-webkit-inner-spin-button {
     border: unset!important;
 }.el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon {
     display: unset!important;
+}.card {
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
 }.hover\:border-gray-300:hover{
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));

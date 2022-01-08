@@ -106,10 +106,10 @@ createInertiaApp({
                             page: page,
                         });
                     },
-                    confirmDelete(id, routeName) {
+                    confirmDelete(id, routeName, title = 'Bu öğeyi silmek üzeresiniz, devam edecek misiniz?') {
                         this.$confirm(
-                            "Bu öğeyi silmek üzeresiniz, devam edecek misiniz?",
-                            "Uyarı",
+                            title,
+                            "UYARI!",
                             {
                                 confirmButtonText: "OK",
                                 cancelButtonText: "İptal",

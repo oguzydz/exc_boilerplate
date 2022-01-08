@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Kategori Ekle">
+    <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header
@@ -20,7 +20,7 @@
                             :label-position="isMobile() ? 'left' : 'right'"
                             size="medium"
                         >
-                            <el-form-item label="Adı:" prop="title">
+                            <el-form-item label="Dükkan Adı:" prop="title">
                                 <el-input
                                     v-model="data.title"
                                     placeholder="Dükkan adı giriniz."
@@ -118,7 +118,7 @@ export default {
 
     data() {
         return {
-            title: "ÜCRETSİZ HESAP OLUŞTURUN",
+            title: "Dükkan Yönetimi",
             logo: this.data.logo,
             bg_image: this.data.bg_image,
             rules: {
@@ -168,20 +168,20 @@ export default {
                         trigger: ["blur", "change"],
                     },
                 ],
-                image: [
-                    {
-                        required: true,
-                        message: "Lütfen görsel giriniz.",
-                        trigger: "blur",
-                    },
-                ],
-                bg_image: [
-                    {
-                        required: true,
-                        message: "Lütfen bg görsel giriniz.",
-                        trigger: "blur",
-                    },
-                ],
+                //logo: [
+                //    {
+                //        required: true,
+                //        message: "Lütfen logo giriniz.",
+                //        trigger: "blur",
+                //    },
+                //],
+                //bg_image: [
+                //    {
+                //        required: true,
+                //        message: "Lütfen bg görsel giriniz.",
+                //        trigger: "blur",
+                //    },
+                //],
             },
         };
     },
@@ -214,15 +214,15 @@ export default {
                 if (valid) {
                     if (formName == "data") {
                         this.$inertia.post(
-                            route("user.company.store"),
-                            this.form,
+                            route("user.company.update"),
+                            this.data,
                             {
                                 onSuccess: (page) => {
-                                    console.log(page);
                                     this.$message({
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
+                                    location.reload()
                                 },
                                 onError: (errors) => {
                                     this.$message({

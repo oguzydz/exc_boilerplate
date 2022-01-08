@@ -24,16 +24,18 @@
                                 </template>
                             </el-table-column>
                             <el-table-column prop="title" label="Başlık"></el-table-column>
-                            <el-table-column label="Options" width="200">
+                            <el-table-column label="İşlem" width="200">
                                 <template #default="scope">
-                                    <el-button type="primary" icon="el-icon-edit" size="mini" v-on:click="
+                                    <el-button icon="el-icon-edit" size="mini"  v-on:click="
                                             $inertia.get(
-                                                route('admin.blog.edit', {
+                                                route('user.category.edit', {
                                                     id: scope.row.id,
                                                 })
                                             )
-                                        "></el-button>
-                                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="confirmDelete(scope.row.id)"></el-button>
+                                        ">Düzenle</el-button>
+                                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="confirmDelete(scope.row.id, '', deleteMessage)">
+                                        Sil
+                                    </el-button>
                                 </template>
                             </el-table-column>
                         </el-table>
@@ -60,6 +62,11 @@ export default {
         goBack() {
             console.log('go back');
         }
-    }
+    },
+    data() {
+        return {
+            deleteMessage: "Kategoriyi silerek bağlı olduğu tüm ürünleri ilk sıradaki aktif kategoriye atamış olacaksınız. Devam etmek istiyor musunuz?",
+        };
+    },
 };
 </script>
