@@ -8,13 +8,21 @@ use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
-use App\Models\Company;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+
+    public $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +30,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::where('company_id', $this->userService->getUserCompany(Auth::user()->id)->id)->paginate(10);
 
         return Inertia::render('User/Category/Index', [
             'data' => $categories,
@@ -47,22 +55,22 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $userCompany = Company::where('user_id', Auth::user()->id)->firstOrFail();
+        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
         $slug = Str::slug($request->title, '-');
         $getFile = $request->file()['image'];
 
-        $fileName = $slug . '--' . $userCompany->id . '.' . $getFile->getClientOriginalExtension();
+        $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
         $filePath = $getFile->storeAs('category-images', $fileName, 'public');
 
         $data = [
-            'company_id' => $userCompany->id,
+            'company_id' => $userCompanyId,
             'title' => $request->title,
             'text' => $request->text,
             'slug' => $slug,
             'image' => $filePath,
             'image_seo' => $fileName,
             'order' => $request->order,
-            'status' => $this->booleanStatus(1)
+            'status' => 1
         ];
 
         try {
@@ -93,8 +101,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $userCompany = Company::where('user_id', Auth::user()->id)->firstOrFail();
-        $category = Category::where(['company_id' => $userCompany->id, 'id' => $id])->firstOrFail();
+        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
+        $category = Category::where(['company_id' => $userCompanyId->id, 'id' => $id])->firstOrFail();
 
         $data = [
             'id' => $category->id,
@@ -129,7 +137,7 @@ class CategoryController extends Controller
                 'text' => $request->text,
                 'slug' => $slug,
                 'order' => $request->order,
-                'status' => $this->booleanStatus($request->status)
+                'status' => 1
             ];
 
             if($newImage) {
@@ -174,21 +182,5 @@ class CategoryController extends Controller
 
             return redirect()->back();
         }
-    }
-
-
-    public function booleanStatus($status)
-    {
-        $list = collect([
-            [
-                'id' => 0,
-                'boolean' => false,
-            ],
-            [
-                'id' => 1,
-                'boolean' => true,
-            ]
-        ]);
-        return $list->where('id', $status)->first()['id'];
     }
 }
