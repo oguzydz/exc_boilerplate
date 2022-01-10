@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->references('id')->on('companies');
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->string('title');
             $table->longText('text');
@@ -22,9 +23,9 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->float('discount_price');
             $table->string('image');
-            $table->string('image_seo');
-            $table->string('delivery_time');
-            $table->integer('status');
+            $table->integer('stock');
+            $table->integer('delivery_time');
+            $table->tinyInteger('status');
             $table->integer('order');
             $table->timestamps();
         });

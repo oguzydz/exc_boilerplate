@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    const STATUS_LIST = [
+        'STATUS_PASIVE' => 2,
+        'STATUS_DELETED' => 0,
+        'STATUS_ACTIVE' => 1,
+    ];
 
     protected $fillable = [
         'title',
@@ -14,13 +19,13 @@ class Product extends Model
         'slug',
         'price',
         'discount_price',
-        'best_seller',
         'image',
-        'image_seo',
         'order',
         'category_id',
+        'company_id',
         'delivery_time',
-        'status'
+        'stock',
+        'status',
     ];
 
     protected $hidden = [

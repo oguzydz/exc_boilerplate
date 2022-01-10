@@ -54,6 +54,25 @@ const userStatus = (status) => {
     return list[status];
 };
 
+const productStatus = (status) => {
+    const list = [
+        {
+            title: "Silinmiş",
+            tag: "info",
+        },
+        {
+            title: "Aktif",
+            tag: "success",
+        },
+        {
+            title: "Pasif",
+            tag: "info",
+        },
+    ];
+
+    return list[status];
+};
+
 const booleanStatus = (status) => {
     const list = [false, true];
     return list[status];
@@ -96,6 +115,7 @@ createInertiaApp({
                 methods: {
                     route,
                     userStatus,
+                    productStatus,
                     booleanStatus,
                     errorsToMessage,
                     imageUrlAlt,

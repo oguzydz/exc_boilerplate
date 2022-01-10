@@ -102,7 +102,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
-        $category = Category::where(['company_id' => $userCompanyId->id, 'id' => $id])->firstOrFail();
+        $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
 
         $data = [
             'id' => $category->id,
@@ -154,8 +154,6 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Kategori güncellenirken beklenmedik bir hata oldu'));
-
-            dd($e);
 
             return redirect()->back();
         }
