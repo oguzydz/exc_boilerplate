@@ -6,6 +6,17 @@
         </div>
     </div>
 </div>
+<!-- search Popup -->
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="index.html" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Mağazada arama yap...">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+<!-- //. search Popup -->
 
 <nav class="navbar navbar-area navbar-expand-lg nav-style-01 bg-white">
     <div class="container nav-container">
@@ -14,6 +25,61 @@
                 <a href="{{ route('home') }}" class="logo">
                     <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="150px" alt="logo">
                 </a>
+            </div>
+            <div class="nav-right-content">
+                <ul>
+                    <li class="search">
+                        <i class="ti-search"></i>
+                    </li>
+                    <li class="cart">
+                        <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
+                        <div class="widget_shopping_cart_content">
+                            <ul>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="assets/img/checkout/7.png" alt="img">
+                                        </div>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Smart watch red color</a>
+                                            <p>Quantity: 1</p>
+                                            <span class="price">$150.00</span>
+                                        </div>
+                                    </div>
+                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="assets/img/checkout/8.png" alt="img">
+                                        </div>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Smart watch red color</a>
+                                            <p>Quantity: 1</p>
+                                            <span class="price">$150.00</span>
+                                        </div>
+                                    </div>
+                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                </li>
+                            </ul>
+                            <p class="total">
+                                <strong>Subtotal:</strong>
+                                <span class="amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>129.00
+                                </span>
+                            </p>
+                            <p class="buttons">
+                                <a href="checkout.html" class="button">View Card &amp; Check out</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <a href="#">
+                            <i class="fa fa-heart-o"></i>
+                            <span class="notification-count">0</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exxefy_main_menu"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +101,7 @@
                     <a href="#">Anasayfa</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Hemen Başla</a>
+                    <a href="#">Kategoriler</a>
                     <ul class="sub-menu">
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="shop-grid.html">Shop Grid</a></li>
@@ -44,7 +110,7 @@
                     </ul>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Fiyatlandırma</a>
+                    <a href="#">Blog</a>
                     <ul class="sub-menu">
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="blog-grid.html">Blog Grid</a></li>
@@ -52,7 +118,7 @@
                     </ul>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Blog</a>
+                    <a href="#">İletişim</a>
                     <ul class="sub-menu">
                         <li><a href="about.html">About</a></li>
                         <li><a href="service.html">Service</a></li>
@@ -70,11 +136,56 @@
         </div>
         <div class="nav-right-content">
             <ul>
-                <li>
-                    <a href="{{ route('login') }}">Giriş Yap</a>
+                <li class="search">
+                    <i class="ti-search"></i>
                 </li>
-                <li>
-                    <a class="btn btn-green text-white" href="{{ route('register') }}">Ücretsiz Kayıt Ol</a>
+                <li class="cart">
+                    <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
+                    <div class="widget_shopping_cart_content">
+                        <ul>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="assets/img/checkout/7.png" alt="img">
+                                    </div>
+                                    <div class="media-body">
+                                        <a class="title" href="#">Smart watch red color</a>
+                                        <p>Quantity: 1</p>
+                                        <span class="price">$150.00</span>
+                                    </div>
+                                </div>
+                                <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="assets/img/checkout/8.png" alt="img">
+                                    </div>
+                                    <div class="media-body">
+                                        <a class="title" href="#">Smart watch red color</a>
+                                        <p>Quantity: 1</p>
+                                        <span class="price">$150.00</span>
+                                    </div>
+                                </div>
+                                <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                            </li>
+                        </ul>
+                        <p class="total">
+                            <strong>Subtotal:</strong>
+                            <span class="amount">
+                                <span class="woocommerce-Price-currencySymbol">$</span>129.00
+                            </span>
+                        </p>
+                        <p class="buttons">
+                            <a href="checkout.html" class="button">View Card &amp; Check out</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="notification">
+                    <a href="#">
+                        <i class="fa fa-heart-o"></i>
+                        <span class="notification-count">0</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -86,7 +197,7 @@
         <div class="profile-header">
             <div class="cover">
                 <div class="gray-shade"></div>
-                <figure style="background-image: {{ $profileBgImage }}"></figure>
+                <figure style="background-image: url('/storage/{{ $company->bg_image }}')"></figure>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -95,12 +206,12 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-2 col-3">
                                             <img class="profile-pic"
-                                                src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="profile">
+                                                src="/storage/{{ $company->logo }}" alt="profile">
                                         </div>
                                         <div class="col-md-10 col-9">
-                                            <span class="profile-name">Amiah Burton</span>
+                                            <span class="profile-name">{{ $company->title }}</span>
                                             <p class="">
-                                                Yumuşacık ve sağlıklı pamukları doğanın renkleriyle buluşturduk. Şimdi sıra size ulaştırmakta.
+                                                {{ $company->text }}
                                             </p>
                                         </div>
                                     </div>
@@ -118,10 +229,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="contact-info text-center">
-                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-phone"></i></span> +088
-                                012121240</p>
+                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-phone"></i></span> {{ $company->phone }}</p>
                             <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-envelope"></i></span>
-                                riyaqas@gmail.com
+                                {{ $company->email }}
                             </p>
                         </div>
                     </div>

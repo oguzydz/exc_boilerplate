@@ -5,7 +5,7 @@
 
 <body class="light-version">
 
-    <x-shop.header profileBgImage='url("{{ $profileBgImage }}")'/>
+    <x-shop.header/>
 
     @yield('content')
 

@@ -2382,9 +2382,9 @@
     .mg-top-767-45 {
         margin-top: 45px;
     }
-    .widget_shopping_cart_content {
+    /**.widget_shopping_cart_content {
         display: none;
-    }
+    }**/
     .section-title br {
         display: none;
     }

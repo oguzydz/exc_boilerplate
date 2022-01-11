@@ -15,12 +15,12 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Web\CategoryController;
+use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\PolicyController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\ShopController;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\Company;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
@@ -51,3 +51,13 @@ Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
     Route::get('{slug}', [BlogController::class, 'show'])->name('show');
 });
 
+
+/**
+ * Company Pages
+ */
+$companies = Company::all('slug');
+foreach ($companies as $company) {
+    Route::group(['slug' => $company->slug], function () use ($company) {
+        Route::get($company->slug, [CompanyController::class, 'index'])->name('company.index.' . $company->slug);
+    });
+}
