@@ -110,7 +110,7 @@
                                 </el-select>
                             </el-form-item>
 
-                            <el-form-item label="Görsel:" prop="image">
+                            <el-form-item label="Görsel(394x394):" prop="image">
                                 <file-pond
                                     v-model="data.image"
                                     ref="pond"

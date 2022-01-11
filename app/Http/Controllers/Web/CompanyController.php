@@ -4,26 +4,19 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\User;
 use App\Services\UserService;
+use App\View\Components\Shop\Header;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public $userService;
-
-    public $user;
-
     public $company;
 
-    public $slug;
-
-    public function __construct(UserService $userService, Request $request, User $user)
+    public function __construct(Header $header)
     {
-        //$this->userService = $userService;
-        //$this->slug = $request->route()->action['slug'];
-        //$this->company = $this->userService->getCompanyBySlug($this->slug);
-        //$this->user = $user->findorFail($this->company->user_id);
+        $this->company = $header->company;
     }
 
     /**
@@ -33,11 +26,10 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        //$categories = Category::where('company_id', $this->company->id);
+        $products = Product::where('company_id', $this->company->id)->paginate(20);
 
         return view('pages.company.index', [
-            //'company' => $this->company,
-            //'categories' => $categories,
+            'products' => $products,
         ]);
     }
 

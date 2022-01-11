@@ -6,7 +6,7 @@
         </div>
     </div>
 </div>
-<!-- search Popup -->
+
 <div class="body-overlay" id="body-overlay"></div>
 <div class="search-popup" id="search-popup">
     <form action="index.html" class="search-form">
@@ -16,14 +16,13 @@
         <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
     </form>
 </div>
-<!-- //. search Popup -->
 
 <nav class="navbar navbar-area navbar-expand-lg nav-style-01 bg-white">
     <div class="container nav-container">
         <div class="responsive-mobile-menu">
             <div class="logo-wrapper mobile-logo">
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="150px" alt="logo">
+                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="90px" alt="logo">
                 </a>
             </div>
             <div class="nav-right-content">
