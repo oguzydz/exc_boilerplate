@@ -4,6 +4,9 @@
 
 
 @section('content')
+<script>
+
+</script>
     <div class="shop-page-area pd-top-50">
         <div class="container">
             <div class="row custom-gutters-60">

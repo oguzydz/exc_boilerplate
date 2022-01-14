@@ -1,6 +1,8 @@
 <div class="back-to-top">
     <span class="back-top"><i class="fa fa-angle-up"></i></span>
 </div>
+@include('sweetalert::alert')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="{{ asset('assets\js\jquery-2.2.4.min.js') }}"></script>
 <script src="{{ asset('assets\js\popper.min.js') }}"></script>

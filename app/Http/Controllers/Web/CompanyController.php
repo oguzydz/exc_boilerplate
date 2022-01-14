@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\UserService;
 use App\View\Components\Shop\Header;
 use Illuminate\Http\Request;
+use Alert;
 
 class CompanyController extends Controller
 {

@@ -18,3 +18,5 @@
 <script src="{{ asset('assets\js\worldmap-topojson.js') }}"></script>
 <script src="{{ asset('assets\js\mediaelement.min.js') }}"></script>
 <script src="{{ asset('assets\js\main.js') }}"></script>
+@include('sweetalert::alert')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
