@@ -22,4 +22,9 @@ class Company extends Model
         'phone',
         'slug',
     ];
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }
