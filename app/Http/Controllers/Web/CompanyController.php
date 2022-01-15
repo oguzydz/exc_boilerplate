@@ -25,7 +25,6 @@ class CompanyController extends Controller
      */
     public function index(Request $request, CartService $cartService)
     {
-        dd(Cart::content());
         $products = Product::where('company_id', $this->company->id)->paginate(20);
 
         return view('pages.company.index', [

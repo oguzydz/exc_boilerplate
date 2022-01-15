@@ -16,13 +16,21 @@ class CartService
      */
     public function addToCart(int $productId)
     {
-        $product = Product::findorFail($productId);
-
         try {
-            Cart::add($product);
+            $product = Product::findorFail($productId);
+            Cart::add([
+                $product
+            ]);
+
+            return response()->json([
+                'message' => 'Ürün başarıyla sepetinize eklendi.',
+                'status' => true,
+            ], 200);
         } catch (Throwable $e) {
-            report($e);
-            return false;
+            return response()->json([
+                'message' => 'Ürün sepete eklenemedi, lütfen tekrar deneyiniz.',
+                'status' => false,
+            ], 200);
         }
     }
 

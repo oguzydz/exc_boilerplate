@@ -37,7 +37,7 @@
                                         <img src="/storage/{{ $product->image }}" alt="shop">
                                         <div class="cart-btn">
                                             <div class="cart-btn-wrap">
-                                                <a class="btn btn-red" href="#">Sepete Ekle <i
+                                                <a class="btn btn-red" href="{{ route('ajax.cart.add', $product->id) }}">Sepete Ekle <i
                                                         class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>

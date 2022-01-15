@@ -4,6 +4,7 @@
  * Route Helper
  */
 
+use App\Http\Controllers\Api\CartController;
 use Illuminate\Support\Facades\Route;
 
 /**
