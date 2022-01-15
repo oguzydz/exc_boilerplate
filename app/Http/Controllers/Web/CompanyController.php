@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
-use App\Services\UserService;
+use App\Services\CartService;
 use App\View\Components\Shop\Header;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Alert;
 
 class CompanyController extends Controller
 {
@@ -25,8 +23,9 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, CartService $cartService)
     {
+        dd(Cart::content());
         $products = Product::where('company_id', $this->company->id)->paginate(20);
 
         return view('pages.company.index', [
