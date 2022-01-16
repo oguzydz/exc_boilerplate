@@ -21,8 +21,7 @@ class Header extends Component
     public function __construct(UserService $userService, Request $request, User $user)
     {
         $this->userService = $userService;
-        $this->slug = $request->route()->action['slug'];
-        $this->company = $this->userService->getCompanyBySlug($this->slug);
+        $this->company = $this->userService->getCompanyBySlug($request->route()->action['slug']);
         $this->user = $user->findorFail($this->company->user_id);
     }
 
@@ -33,6 +32,11 @@ class Header extends Component
      */
     public function render()
     {
+        view()->composer('components.shop.footer', function ($view) {
+            $company = $this->company;
+            $view->with(compact('company'));
+        });
+
         return view('components.shop.header', [
             'user' => $this->user,
             'company' => $this->company,

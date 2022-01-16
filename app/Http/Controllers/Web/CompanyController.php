@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Services\CartService;
 use App\View\Components\Shop\Header;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -23,7 +22,7 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, CartService $cartService)
+    public function index(Request $request)
     {
         $products = Product::where('company_id', $this->company->id)->paginate(20);
 

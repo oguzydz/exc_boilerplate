@@ -92,119 +92,62 @@
         </div>
     </div>
 </div>
-<footer class="footer-area footer-area-2 pd-top-105">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-11 text-center">
-                <div class="section-title text-center">
-                    <h2 class="title">Yenliliklerden <span>Haberdar Ol</span></h2>
-                    <p>E-Posta aboneliği ile yenilikleri ve sistemde yapılan güncellemeleri takip edebilirsiniz.</p>
-                </div>
-                <div class="newsletter-subcribe">
-                    <form id="news-subcribeform" class="subcribe-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="E-posta adresiniz" name="mail" required="">
-                            <button type="submit" class="btn-blue subcribe-submit">Gönder</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="footer-widget-area mg-top-120">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget widget">
-                        <div class="about_us_widget">
-                            <a href="{{ route('home') }}" class="footer-logo">
-                                <img src="{{ asset('assets\img\footer-logo-v2.png') }}" alt="footer logo">
+
+<footer class="footer-area mg-top-120" style="background-image:url(assets/img/bg/footer.png);">
+    <div class="footer-top pd-top-120 padding-bottom-40">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-11">
+                    <div class="footer-widget widget text-center">
+                        <div class="footer_top_widget">
+                            <a href="{{ route('company.index.' . $company->slug) }}" class="footer-logo">
+                                <img src="/storage/{{ $company->logo }}" alt="footer logo">
                             </a>
-                            <p>
-                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Gelişmiş ve kullanışlı altyapısı ile
-                                müşterilerinize yüksek seviye deneyim ve ödeme kolaylığı yaratır.
-                            </p>
-                            <ul class="social-icon">
-                                <li>
-                                    <a class="facebook" href="#" target="_blank"><i class="fa fa-facebook  "></i></a>
-                                </li>
-                                <li>
-                                    <a class="twitter" href="#" target="_blank"><i class="fa fa-twitter  "></i></a>
-                                </li>
-                                <li>
-                                    <a class="linkedin" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                                <li>
-                                    <a class="pinterest" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                                </li>
-                            </ul>
+                            <p>{{ $company->text }}</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget widget_nav_menu">
-                        <h4 class="widget-title">Faydalı Linkler</h4>
+                    <div class="footer-widget widget widget_nav_menu text-center">
                         <ul>
-                            <li><a href="#">Hemen Başla</a></li>
-                            <li><a href="#">Giriş Yap</a></li>
-                            <li><a href="#">Fiyatlandırma</a></li>
-                            <li><a href="#">Hakkımızda</a></li>
-                            <li><a href="#">İletişim</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="pricing.html">Price</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="#">Pages</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget widget_nav_menu">
-                        <h4 class="widget-title">Yardım</h4>
-                        <ul>
-                            <li><a href="#">7/24 Destek</a></li>
-                            <li><a href="#">Kullanım Koşulları</a></li>
-                            <li><a href="{{route('policy.agreement')}}">Kullanıcı Sözleşmesi</a></li>
-                            <li><a href="#">Gizlilik Politikası</a></li>
-                            <li><a href="#">KVKK</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-widget widget ">
-                        <h4 class="widget-title">İletişim</h4>
-                        <div class="contact_info_list">
-                            <p class="contact-content">
-                                1222. Sokak, Fatih Sultan Mehmet Mahallesi, Ümraniye İstanbul
-                            </p>
-                            <p><span>Telefon:</span> 0 (850) 111 11 11</p>
-                            <p><span>E-Posta:</span> info@exxefy.com</p>
+                    <div class="copyright-inner">
+                        <div class="row custom-gutters-16">
+                            <div class="col-lg-7">
+                                <div class="copyright-text">
+                                    © <a href="{{ route('company.index.' . $company->slug) }}">{{ $company->title }}</a> Tüm Hakları Saklıdır! Ve <a href="{{ route('company.index.' . $company->slug) }}">{{ $company->title }}</a> bir <a href="http://zwin.io/" target="_blank"><i class="fa fa-heart"></i><span>Exxefy</span></a> mağazasıdır.
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <ul class="social-icon text-right">
+                                    <li>
+                                        <a class="dribbble" href="#"><i class="fa fa-dribbble  "></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="facebook" href="#" target="_blank"><i class="fa fa-facebook  "></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="twitter" href="#" target="_blank"><i class="fa fa-twitter  "></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="linkedin" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="pinterest" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-widget widget">
-                        <h4 class="widget-title">Kullanıcı Rehberi</h4>
-                        <div class="about_recent_post">
-                            <div class="media">
-                                <img src="assets/img/blog/widget1.png" alt="post">
-                                <div class="media-body">
-                                    <h6><a href="#">New Feature Added</a></h6>
-                                    <span>21 August 2019</span>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <img src="assets/img/blog/widget2.png" alt="post">
-                                <div class="media-body">
-                                    <h6><a href="#">Business Development</a></h6>
-                                    <span>21 August 2019</span>
-                                </div>
-                            </div>
-                       </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="copyright-inner">
-        <div class="copyright-text">
-            © Copyright <i class="bx bx-copyright"></i> 2021 All right reserved! exxefy.com is the product of
-            <a href="https://exxecode.com">
-                Exxecode
-            </a>
-        </div>
-</div>
 </footer>
