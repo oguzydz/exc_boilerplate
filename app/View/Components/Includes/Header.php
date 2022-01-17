@@ -19,7 +19,7 @@ class Header extends Component
      */
     public function __construct()
     {
-        $this->type = Route::getCurrentRoute()->uri() == '/';
+
     }
 
     /**

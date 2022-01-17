@@ -34,41 +34,36 @@
                         <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
                         <div class="widget_shopping_cart_content">
                             <ul>
+                                @if(count(Cart::content()))
+                                    @foreach (Cart::content() as $cart)
+                                    <li>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="assets/img/checkout/7.png" alt="img">
+                                            </div>
+                                            <div class="media-body">
+                                                <a class="title" href="#">{{ $cart->name }}</a>
+                                                <p>Adet: {{ $cart->qty }}</p>
+                                                <span class="price">₺{{ $cart->price * $cart->qty }}</span>
+                                            </div>
+                                        </div>
+                                        <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                    </li>
+                                    @endforeach
+                                @else
                                 <li>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/checkout/7.png" alt="img">
-                                        </div>
-                                        <div class="media-body">
-                                            <a class="title" href="#">Smart watch red color</a>
-                                            <p>Quantity: 1</p>
-                                            <span class="price">₺150.00</span>
-                                        </div>
-                                    </div>
-                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                    Sepetinizde henüz ürün bulunamadı.
                                 </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/checkout/8.png" alt="img">
-                                        </div>
-                                        <div class="media-body">
-                                            <a class="title" href="#">Smart watch red color</a>
-                                            <p>Quantity: 1</p>
-                                            <span class="price">$150.00</span>
-                                        </div>
-                                    </div>
-                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
-                                </li>
+                                @endif
                             </ul>
-                            <p class="total">
+                                <p class="total">
                                 <strong>Ara Toplam:</strong>
                                 <span class="amount">
                                     <span class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::total() }}
                                 </span>
                             </p>
                             <p class="buttons">
-                                <a href="checkout.html" class="button">View Card &amp; Check out</a>
+                                <a href="checkout.html" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
                             </p>
                         </div>
                     </li>
@@ -142,21 +137,27 @@
                     <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
                     <div class="widget_shopping_cart_content">
                         <ul>
-                            @foreach (Cart::content() as $cart)
+                            @if(count(Cart::content()))
+                                @foreach (Cart::content() as $cart)
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="assets/img/checkout/7.png" alt="img">
+                                        </div>
+                                        <div class="media-body">
+                                            <a class="title" href="#">{{ $cart->name }}</a>
+                                            <p>Adet: {{ $cart->qty }}</p>
+                                            <span class="price">₺{{ $cart->price * $cart->qty }}</span>
+                                        </div>
+                                    </div>
+                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                </li>
+                                @endforeach
+                            @else
                             <li>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="assets/img/checkout/7.png" alt="img">
-                                    </div>
-                                    <div class="media-body">
-                                        <a class="title" href="#">{{ $cart->name }}</a>
-                                        <p>Adet: {{ $cart->qty }}</p>
-                                        <span class="price">₺{{ $cart->price * $cart->qty }}</span>
-                                    </div>
-                                </div>
-                                <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                Sepetinizde henüz ürün bulunamadı.
                             </li>
-                            @endforeach
+                            @endif
                         </ul>
                         <p class="total">
                             <strong>Ara Toplam:</strong>
@@ -165,7 +166,7 @@
                             </span>
                         </p>
                         <p class="buttons">
-                            <a href="checkout.html" class="button">View Card &amp; Check out</a>
+                            <a href="checkout.html" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
                         </p>
                     </div>
                 </li>

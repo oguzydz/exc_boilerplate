@@ -4,10 +4,7 @@
 
 
 @section('content')
-<script>
-
-</script>
-    <div class="shop-page-area pd-top-50">
+<div class="shop-page-area pd-top-50">
         <div class="container">
             <div class="row custom-gutters-60">
                 {{-- <div class="col-md-12 section-title">
@@ -19,7 +16,7 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-6">
                             <div class="woocommerce-result-count">
-                                Toplam {{ $products->total() }} sonuçtan {{ $products->onEachSide }} adet ürün gösteriliyor.
+                                Toplam {{ $products->total() }} adet ürün bulundu ve {{ $products->currentPage() }}. sayfadasınız.
                             </div>
                         </div>
                         <div class="col-sm-6 mg-bottom-30">
@@ -30,7 +27,7 @@
                             </select>
                         </div>
                         @foreach ($products as $product)
-                            <div class="col-lg-4 col-sm-6">
+                            <div class="col-lg-3 col-sm-4">
                                 <div class="single-shop">
                                     <div class="thumb">
                                         {{-- <a class="product-badge btn-blue" href="#">New</a> --}}
@@ -52,7 +49,7 @@
                                             </div> --}}
                                         <a href="#">{{ $product->title }}</a>
                                         <div class="price">
-                                            <span>{{ $product->price }}₺</span><del>{{ $product->discount_price }}₺</del>
+                                            <span>₺{{ $product->price }}</span><del>₺{{ $product->discount_price }}</del>
                                         </div>
                                     </div>
                                 </div>

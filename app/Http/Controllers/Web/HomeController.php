@@ -18,8 +18,6 @@ class HomeController extends Controller
      */
     public function index(Product $product)
     {
-        dd(Cart::content());
-
         $blogs = Blog::paginate(3);
         $products = $product->where('best_seller', 1)->get();
 
