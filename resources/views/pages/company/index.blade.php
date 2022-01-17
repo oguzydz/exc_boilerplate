@@ -5,14 +5,14 @@
 
 @section('content')
 <div class="shop-page-area pd-top-50">
-        <div class="container">
-            <div class="row custom-gutters-60">
+    <div class="container">
+        <div class="row custom-gutters-60">
                 {{-- <div class="col-md-12 section-title">
                 <h2 class="title wow  fadeInUp animated" data-wow-duration="0.6s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.1s; animation-name: fadeInUp;">
                     Tüm Ürünler
                 </h2>
-            </div> --}}
-                <div class="col-lg-8">
+        </div> --}}
+            <div class="col-lg-8">
                     <div class="row justify-content-center">
                         <div class="col-sm-6">
                             <div class="woocommerce-result-count">
@@ -27,7 +27,7 @@
                             </select>
                         </div>
                         @foreach ($products as $product)
-                            <div class="col-lg-3 col-sm-4">
+                            <div class="col-lg-4 col-sm-4">
                                 <div class="single-shop">
                                     <div class="thumb">
                                         {{-- <a class="product-badge btn-blue" href="#">New</a> --}}
@@ -59,12 +59,12 @@
                             {{ $products->links('vendor.pagination.default') }}
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <x-shop.aside/>
-                </div>
+            </div>
+            <div class="col-lg-4">
+                <x-shop.aside/>
             </div>
         </div>
     </div>
+</div>
 
 @endsection
