@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'cart', 'as' => 'cart.'], function() {
-    Route::get('/add/{productId}', [CartController::class, 'add'])->name('add');
+    Route::post('/add/{productId}', [CartController::class, 'add'])->name('add');
+    Route::post('/remove/{productId}', [CartController::class, 'remove'])->name('remove');
 
 });
 

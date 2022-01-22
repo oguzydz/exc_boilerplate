@@ -20,5 +20,6 @@
 <script src="{{ asset('assets\js\worldmap-topojson.js') }}"></script>
 <script src="{{ asset('assets\js\mediaelement.min.js') }}"></script>
 <script src="{{ asset('assets\js\main.js') }}"></script>
+<script src="{{ asset('assets\js\cart.js') }}"></script>
 <script src="{{ asset('assets\js\jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('assets\js\jquery-ui.min.js') }}"></script>

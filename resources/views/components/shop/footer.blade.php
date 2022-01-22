@@ -18,14 +18,15 @@
         </div>
     </div>
 </div>
-<footer class="footer-area mg-top-120" style="background-image:url(assets/img/bg/footer.png);">
+
+<footer class="footer-area mg-top-120" style="background-image:url({{ asset('assets/img/bg/footer.png') }});">
     <div class="footer-top pd-top-120 padding-bottom-40">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-9 col-lg-11">
                     <div class="footer-widget widget text-center">
                         <div class="footer_top_widget">
-                            <a href="{{ route('company.index.' . $company->slug) }}" class="footer-logo">
+                            <a href="{{ route("$company->slug.index") }}" class="footer-logo">
                                 <img src="/storage/{{ $company->logo }}" alt="footer logo">
                             </a>
                             <p>{{ $company->text }}</p>
@@ -47,7 +48,7 @@
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
-                                    © <a href="{{ route('company.index.' . $company->slug) }}">{{ $company->title }}</a> - Tüm Hakları Saklıdır! Ve <a href="{{ route('company.index.' . $company->slug) }}">{{ $company->title }}</a> bir <a href="{{ route('home') }}" target="_blank"><i class="fa fa-heart"></i><span>Exxefy</span></a> mağazasıdır.
+                                    © <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> - Tüm Hakları Saklıdır! Ve <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> bir <a href="{{ route('home') }}" target="_blank"><i class="fa fa-heart"></i><span>Exxefy</span></a> mağazasıdır.
                                 </div>
                             </div>
                             <div class="col-lg-5">

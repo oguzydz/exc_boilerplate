@@ -6,7 +6,6 @@
         </div>
     </div>
 </div>
-
 <div class="body-overlay" id="body-overlay"></div>
 <div class="search-popup" id="search-popup">
     <form action="index.html" class="search-form">
@@ -33,13 +32,13 @@
                     <li class="cart">
                         <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
                         <div class="widget_shopping_cart_content">
-                            <ul>
+                            <ul id="cart-productsx">
                                 @if(count(Cart::content()))
                                     @foreach (Cart::content() as $cart)
                                     <li>
                                         <div class="media">
                                             <div class="media-left">
-                                                <img src="assets/img/checkout/7.png" alt="img">
+                                                <img src="/storage/{{ $cart->options->image }}" alt="img">
                                             </div>
                                             <div class="media-body">
                                                 <a class="title" href="#">{{ $cart->name }}</a>
@@ -47,7 +46,7 @@
                                                 <span class="price">₺{{ $cart->price * $cart->qty }}</span>
                                             </div>
                                         </div>
-                                        <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                        <a class="remove-product" onclick="removeFromCart('{{ $cart->rowId }}'); return false" href="#"><span class="ti-close"></span></a>
                                     </li>
                                     @endforeach
                                 @else
@@ -63,7 +62,7 @@
                                 </span>
                             </p>
                             <p class="buttons">
-                                <a href="checkout.html" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
+                                <a href="{{ route("$company->slug.index") }}" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
                             </p>
                         </div>
                     </li>
@@ -136,13 +135,13 @@
                 <li class="cart">
                     <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
                     <div class="widget_shopping_cart_content">
-                        <ul>
+                        <ul id="cart-products">
                             @if(count(Cart::content()))
                                 @foreach (Cart::content() as $cart)
                                 <li>
                                     <div class="media">
                                         <div class="media-left">
-                                            <img src="assets/img/checkout/7.png" alt="img">
+                                            <img src="/storage/{{ $cart->options->image }}" alt="img">
                                         </div>
                                         <div class="media-body">
                                             <a class="title" href="#">{{ $cart->name }}</a>
@@ -150,7 +149,7 @@
                                             <span class="price">₺{{ $cart->price * $cart->qty }}</span>
                                         </div>
                                     </div>
-                                    <a class="remove-product" href="#"><span class="ti-close"></span></a>
+                                    <a class="remove-product" onclick="removeFromCart('{{ $cart->rowId }}'); return false" href="#"><span class="ti-close"></span></a>
                                 </li>
                                 @endforeach
                             @else
@@ -162,11 +161,11 @@
                         <p class="total">
                             <strong>Ara Toplam:</strong>
                             <span class="amount">
-                                <span class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::total() }}
+                                <span class="woocommerce-Price-currencySymbol">₺</span><span id="cart-sub-total">{{ Cart::total() }}</span>
                             </span>
                         </p>
                         <p class="buttons">
-                            <a href="checkout.html" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
+                            <a href="{{ route("$company->slug.payment.checkout") }}" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
                         </p>
                     </div>
                 </li>

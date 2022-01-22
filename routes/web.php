@@ -59,6 +59,13 @@ Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
 $companies = Company::all('slug');
 foreach ($companies as $company) {
     Route::group(['slug' => $company->slug], function () use ($company) {
-        Route::get($company->slug, [CompanyController::class, 'index'])->name('company.index.' . $company->slug);
+        Route::group(['prefix' => $company->slug, 'as' => "$company->slug."], function () {
+            Route::get('/', [CompanyController::class, 'index'])->name('index');
+
+            Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
+                Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');
+            });
+        });
+
     });
 }

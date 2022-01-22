@@ -25,8 +25,8 @@ class CartController extends Controller
 
     }
 
-    public function remove()
+    public function remove(string $rowId)
     {
-
+        return $this->cartService->removeFromCart($rowId);
     }
 }

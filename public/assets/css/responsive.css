@@ -3253,9 +3253,9 @@
     .payment-method.style-two {
         padding: 10px 20px 20px;
     }
-    .payment-method ul li:before {
+    /* .payment-method ul li:before {
         margin-top: -14px;
-    }
+    } */
     .mobile-logo {
         width: 124px;
         height: auto;

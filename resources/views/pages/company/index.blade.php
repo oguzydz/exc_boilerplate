@@ -11,7 +11,7 @@
                 <h2 class="title wow  fadeInUp animated" data-wow-duration="0.6s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.1s; animation-name: fadeInUp;">
                     Tüm Ürünler
                 </h2>
-        </div> --}}
+                </div> --}}
             <div class="col-lg-8">
                     <div class="row justify-content-center">
                         <div class="col-sm-6">
@@ -34,7 +34,7 @@
                                         <img src="/storage/{{ $product->image }}" alt="shop">
                                         <div class="cart-btn">
                                             <div class="cart-btn-wrap">
-                                                <a class="btn btn-red" href="{{ route('ajax.cart.add', $product->id) }}">Sepete Ekle <i
+                                                <a class="btn btn-red" onclick="addToCart({{ $product->id }}); return false" href="#">Sepete Ekle <i
                                                         class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
