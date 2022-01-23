@@ -96,6 +96,14 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="col-12 payment-description">
+                                        <span class="d-block check-box-area">
+                                            <input id="1checkbox" type="checkbox" name="kvkk" required>
+                                            <label for="1checkbox">
+                                                Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni’ni okudum.
+                                            </label>
+                                        </span>
+                                    </div>
                                     <div class="col-12 text-right">
                                         <a class="btn btn-green" href="#">Ödemeye Geç</a>
                                     </div>

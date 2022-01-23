@@ -26,7 +26,6 @@ use App\Models\Company;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
-Route::get('/shop', [ShopController::class, 'index'])->name('indexxx');
 
 Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');
 Route::post('/iletisim/gonder', [ContactController::class, 'send'])->name('contact.send');
@@ -61,6 +60,7 @@ foreach ($companies as $company) {
     Route::group(['slug' => $company->slug], function () use ($company) {
         Route::group(['prefix' => $company->slug, 'as' => "$company->slug."], function () {
             Route::get('/', [CompanyController::class, 'index'])->name('index');
+            Route::get('/urun/{slug}', [CompanyController::class, 'show'])->name('show');
 
             Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
                 Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');

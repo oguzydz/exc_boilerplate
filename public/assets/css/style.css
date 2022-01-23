@@ -7653,3 +7653,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     background-size: cover;
     background-position: center;
 }
+.payment-description .check-box-area {
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.26px;
+    color: #8A8A8A;
+}
+.payment-description .check-box-area input {
+    float: left;
+    margin-right: 6px;
+    margin-top: 1px;
+}

@@ -61,7 +61,7 @@ class ProductController extends Controller
     public function store(CreateProductRequest $request)
     {
         $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
-        $slug = Str::slug($request->title, '-');
+        $slug = Str::slug($request->title, '-') . '--' . Product::getNextId();
         $getFile = $request->file()['image'];
 
         $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
@@ -147,7 +147,7 @@ class ProductController extends Controller
     {
         try {
             $product = Product::findorFail($request->id);
-            $slug = Str::slug($request->title, '-');
+            $slug = Str::slug($request->title, '-') . '--' . Product::getNextId();
             $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
 
             $data = [

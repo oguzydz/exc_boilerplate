@@ -16,6 +16,60 @@
     </form>
 </div>
 
+<!-- //. cart Popup -->
+<div class="cart-popup" id="cart-popup">
+    <div class="order-table table-responsive">
+        <div class="checkout-title text-center mb-0"><h6>Sepetiniz</h6></div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="media single-cart-product">
+                            <div class="media-left">
+                                <img src="assets\img\checkout\6.png" alt="img">
+                            </div>
+                            <div class="media-body">
+                                <span>Smart watch</span>
+                                <p>Red color</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-product-price text-center">$150.00</td>
+                    <td class="text-center">
+                        <div class="quantity-wrap">
+                            <div class="quantity">
+                                <input type="number" step="1" min="0" max="100" value="1" title="Qty" class="input-text qty text">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-product-price text-center">$300.00</td>
+                    <td class="text-center">
+                        <div class="cart-close">
+                            <span class="ti-close"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total-shapping-area-wrap">
+            <div class="total-shapping-area">
+                <div class="charge">
+                    <span>Shipping Charge:</span>
+                    <span class="amount float-right">$1.00</span>
+                </div>
+                <div class="total-amount">
+                    <span>Total:</span>
+                    <span class="amount float-right">$451.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrapper text-center pd-top-170">
+            <a class="btn btn-green" href="checkout.html">Proceed to Checkout</a>
+        </div>
+    </div>
+</div>
+<!-- //. cart Popup -->
+
 <nav class="navbar navbar-area navbar-expand-lg nav-style-01 bg-white">
     <div class="container nav-container">
         <div class="responsive-mobile-menu">

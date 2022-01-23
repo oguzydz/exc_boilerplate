@@ -65,6 +65,7 @@ function removeFromCart(rowId) {
 
 function updateCart(cart, subTotal) {
     var cartProducts = '';
+    var cartModalProducts = '';
 
     $.each(cart, function(key, val) {
         cartProducts += "<li>\n" +
@@ -80,6 +81,8 @@ function updateCart(cart, subTotal) {
                 "</div>\n" +
                 "<a class=\"remove-product\" onclick=\"removeFromCart('" + val.rowId + "'); return false\" href=\"#\"><span class=\"ti-close\"></span></a>\n" +
                 "</li>"
+
+        cartModalProducts += ""
     })
 
     $("#cart-products").empty()
