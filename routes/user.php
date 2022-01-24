@@ -20,6 +20,7 @@ use App\Http\Controllers\User\ProductController;
 use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\PaymentController;
+use App\Http\Controllers\User\ProductGalleryController;
 use App\Http\Middleware\RedirectIfNew;
 
 Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', 'user.status'], 'as' => 'user.'], function() {

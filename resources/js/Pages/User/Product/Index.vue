@@ -48,7 +48,7 @@
                                             size="mini"
                                             v-on:click="
                                                 $inertia.get(
-                                                    route('user.product.gallery.edit', {
+                                                    route('user.product.gallery.index', {
                                                         id: scope.row.id,
                                                     })
                                                 )

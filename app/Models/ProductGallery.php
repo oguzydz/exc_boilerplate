@@ -12,7 +12,6 @@ class ProductGallery extends Model
     public $fillable = [
         'product_id',
         'image',
-        'image_seo',
         'order',
     ];
 
