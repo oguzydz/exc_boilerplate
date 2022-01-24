@@ -21,20 +21,21 @@
     <div class="order-table table-responsive">
         <div class="checkout-title text-center mb-0"><h6>Sepetiniz</h6></div>
         <table class="table">
-            <tbody>
+            <tbody id="cart-modal-products">
+                @if(count(Cart::content()))
+                @foreach (Cart::content() as $cart)
                 <tr>
                     <td>
                         <div class="media single-cart-product">
                             <div class="media-left">
-                                <img src="assets\img\checkout\6.png" alt="img">
+                                <img src="/storage/{{ $cart->options->image }}" alt="img">
                             </div>
                             <div class="media-body">
-                                <span>Smart watch</span>
-                                <p>Red color</p>
+                                <span>{{ $cart->name }}</span>
                             </div>
                         </div>
                     </td>
-                    <td class="cart-product-price text-center">$150.00</td>
+                    <td class="cart-product-price text-center">₺{{ $cart->price }}</td>
                     <td class="text-center">
                         <div class="quantity-wrap">
                             <div class="quantity">
@@ -42,29 +43,31 @@
                             </div>
                         </div>
                     </td>
-                    <td class="cart-product-price text-center">$300.00</td>
+                    <td class="cart-product-price text-center">₺{{ $cart->price * $cart->qty }}</td>
                     <td class="text-center">
                         <div class="cart-close">
-                            <span class="ti-close"></span>
+                            <span onclick="removeFromCart('{{ $cart->rowId }}'); return false" class="ti-close"></span>
                         </div>
                     </td>
                 </tr>
+                @endforeach
+                @else
+                <tr>
+                    <td>Sepetinizde henüz ürün bulunamadı.</td>
+                </tr>
+                @endif
             </tbody>
         </table>
         <div class="total-shapping-area-wrap">
             <div class="total-shapping-area">
-                <div class="charge">
-                    <span>Shipping Charge:</span>
-                    <span class="amount float-right">$1.00</span>
-                </div>
                 <div class="total-amount">
-                    <span>Total:</span>
-                    <span class="amount float-right">$451.00</span>
+                    <span>Ara Toplam:</span>
+                    <span class="amount float-right" id="cart-modal-sub-total"><span class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::total() }}</span>
                 </div>
             </div>
         </div>
         <div class="btn-wrapper text-center pd-top-170">
-            <a class="btn btn-green" href="checkout.html">Proceed to Checkout</a>
+            <a class="btn btn-green" href="{{ route("$company->slug.payment.checkout") }}">Ödeme Yap</a>
         </div>
     </div>
 </div>
@@ -219,7 +222,8 @@
                             </span>
                         </p>
                         <p class="buttons">
-                            <a href="{{ route("$company->slug.payment.checkout") }}" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
+                            <a href="#" class="button" id="cart-btn" onclick="return false;">Sepeti Görüntüle</a>
+                            <a href="{{ route("$company->slug.payment.checkout") }}" class="button mt-2">Ödeme Yap</a>
                         </p>
                     </div>
                 </li>

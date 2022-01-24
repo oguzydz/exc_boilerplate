@@ -57,24 +57,14 @@
                         </div>
                         <button class="btn btn-gray ml-xl-5 ml-sm-4 cart-btn" onclick="addToCart({{ $product->id }})" type="button" id="cart-btn">Sepete Ekle <i class="fa fa-shopping-cart"></i></button>
                     </div>
-                    <span class="d-block check-box-area">
-                        <input id="1checkbox" type="checkbox">
-                        <label for="1checkbox">I Agree with the terms and conditions</label>
-                    </span>
                     <div class="row">
                         <div class="col-sm-6 col-7">
-                            <button class="w-100 btn btn-gray" type="button">Buy it now</button>
+                            <button class="w-100 btn btn-gray mt-4" type="button">Hemen Satın Al</button>
                         </div>
                     </div>
                     <div class="category">
-                        <span>Category: </span>
+                        <span>Ürün Kategorisi: </span>
                         <a href="#">Watch</a>
-                    </div>
-                    <div class="tags">
-                        <span>Tag: </span>
-                        <a href="#">Watch,</a>
-                        <a href="#">Smart Watch,</a>
-                        <a href="#">Time</a>
                     </div>
                 </div>
             </div>

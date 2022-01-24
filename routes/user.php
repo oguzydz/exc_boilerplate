@@ -65,6 +65,15 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
             Route::post('/update', [ProductFeatureController::class, 'update'])->name('update');
             Route::post('/destroy/{featureId}', [ProductFeatureController::class, 'destroy'])->name('destroy');
         });
+
+        Route::group(['prefix' => 'gallery/{productId}', 'as' => 'gallery.'], function () {
+            Route::get('/', [ProductGalleryController::class, 'index'])->name('index');
+            Route::get('/create', [ProductGalleryController::class, 'create'])->name('create');
+            Route::post('/store', [ProductGalleryController::class, 'store'])->name('store');
+            Route::get('/edit/{galleryId}', [ProductGalleryController::class, 'edit'])->name('edit');
+            Route::post('/update', [ProductGalleryController::class, 'update'])->name('update');
+            Route::post('/destroy/{galleryId}', [ProductGalleryController::class, 'destroy'])->name('destroy');
+        });
     });
 
 

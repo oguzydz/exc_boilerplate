@@ -41,8 +41,20 @@
                                     prop="title"
                                     label="Başlık"
                                 ></el-table-column>
-                                <el-table-column label="İşlem" width="200">
+                                <el-table-column label="İşlem" width="300">
                                     <template #default="scope">
+                                        <el-button
+                                            icon="el-icon-camera"
+                                            size="mini"
+                                            v-on:click="
+                                                $inertia.get(
+                                                    route('user.product.gallery.edit', {
+                                                        id: scope.row.id,
+                                                    })
+                                                )
+                                            "
+                                            >Galeri</el-button
+                                        >
                                         <el-button
                                             icon="el-icon-edit"
                                             size="mini"

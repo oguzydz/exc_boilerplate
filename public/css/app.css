@@ -835,13 +835,16 @@ video {
 	float: right;
 }.float-left{
 	float: left;
-}.m-auto{
-	margin: auto;
 }.m-8{
 	margin: 2rem;
+}.m-auto{
+	margin: auto;
 }.mx-auto{
 	margin-left: auto;
 	margin-right: auto;
+}.my-3{
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
 }.mx-4{
 	margin-left: 1rem;
 	margin-right: 1rem;
@@ -857,9 +860,6 @@ video {
 }.mx-2{
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
-}.my-3{
-	margin-top: 0.75rem;
-	margin-bottom: 0.75rem;
 }.ml-3{
 	margin-left: 0.75rem;
 }.-ml-px{
@@ -910,6 +910,8 @@ video {
 	margin-bottom: 0px;
 }.-mt-px{
 	margin-top: -1px;
+}.mb-8{
+	margin-bottom: 2rem;
 }.mt-20{
 	margin-top: 5rem;
 }.mb-3{
@@ -922,8 +924,6 @@ video {
 	margin-bottom: 0.25rem;
 }.mb-5{
 	margin-bottom: 1.25rem;
-}.mb-8{
-	margin-bottom: 2rem;
 }.block{
 	display: block;
 }.inline{
@@ -958,10 +958,10 @@ video {
 	height: 2.5rem;
 }.h-20{
 	height: 5rem;
-}.h-full{
-	height: 100%;
 }.h-1{
 	height: 0.25rem;
+}.h-full{
+	height: 100%;
 }.min-h-screen{
 	min-height: 100vh;
 }.w-5{
@@ -1220,6 +1220,8 @@ video {
 }.bg-gray-200{
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}.bg-transparent{
+	background-color: transparent;
 }.bg-red-500{
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
@@ -1229,8 +1231,6 @@ video {
 }.bg-\[\#25D366\]{
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 211, 102, var(--tw-bg-opacity));
-}.bg-transparent{
-	background-color: transparent;
 }.bg-opacity-25{
 	--tw-bg-opacity: 0.25;
 }.bg-cover{
@@ -1319,14 +1319,14 @@ video {
 	padding-top: 1rem;
 }.pb-1{
 	padding-bottom: 0.25rem;
-}.pt-8{
-	padding-top: 2rem;
 }.pl-0{
 	padding-left: 0px;
-}.pl-2{
-	padding-left: 0.5rem;
 }.pt-0{
 	padding-top: 0px;
+}.pt-8{
+	padding-top: 2rem;
+}.pl-2{
+	padding-left: 0.5rem;
 }.pt-3{
 	padding-top: 0.75rem;
 }.pb-0{
@@ -1370,10 +1370,10 @@ video {
 	font-weight: 500;
 }.font-semibold{
 	font-weight: 600;
-}.font-bold{
-	font-weight: 700;
 }.font-light{
 	font-weight: 300;
+}.font-bold{
+	font-weight: 700;
 }.font-black{
 	font-weight: 900;
 }.uppercase{

@@ -63,6 +63,43 @@ function removeFromCart(rowId) {
     });
 }
 
+function updateCartQuantity(rowId, type, qty) {
+    console.log(type)
+
+    switch(type)
+    {
+        case 'plus':
+            qty = parseInt(qty) + 1
+        break
+        case 'minus':
+            qty = qty < 1 ? 0 : qty - 1
+        break
+    }
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': CSRF_TOKEN
+        },
+        url: `${AJAX_URL}/update/${rowId}/${qty}`,
+        data: {
+            rowId: rowId
+        },
+        type: "POST",
+        success: function(response) {
+            if(response.status) {
+                updateCart(response.cart, response.cartSubTotal);
+                toastFire('success', 'Ürün adedi başarıyla güncellendi!')
+
+            } else {
+                toastFire('error', 'Ürün adedi güncellenemedi, lütfen tekrar deneyiniz!')
+            }
+        },
+        error: function(error) {
+            toastFire('error', 'Ürün adedi güncellenemedi, lütfen tekrar deneyiniz!')
+        }
+    });
+}
+
 function updateCart(cart, subTotal) {
     var cartProducts = '';
     var cartModalProducts = '';
@@ -82,18 +119,52 @@ function updateCart(cart, subTotal) {
                 "<a class=\"remove-product\" onclick=\"removeFromCart('" + val.rowId + "'); return false\" href=\"#\"><span class=\"ti-close\"></span></a>\n" +
                 "</li>"
 
-        cartModalProducts += ""
+
+        cartModalProducts += "" +
+                "<tr>" +
+                "    <td>" +
+                "        <div class=\"media single-cart-product\">" +
+                "            <div class=\"media-left\">" +
+                "                <img src=\"/storage/" + val.options.image + "\" alt=\"img\">" +
+                "            </div>" +
+                "            <div class=\"media-body\">" +
+                "                <span>" + val.name + "</span>" +
+                "            </div>" +
+                "        </div>" +
+                "    </td>" +
+                "    <td class=\"cart-product-price text-center\">₺" + val.price + "</td>" +
+                "    <td class=\"text-center\">" +
+                "        <div class=\"quantity-wrap\">" +
+                "            <div class=\"quantity\">" +
+                "                <input type=\"number\" step=\"1\" min=\"0\" max=\"100\" value=" + val.qty + " title=\"Qty\" class=\"input-text qty text\">" +
+                "                <a class=\"inc qty-button\" onclick=\"updateCartQuantity('" + val.rowId + "', 'plus', '" + val.qty + "'); return false\">+</a>" +
+                "                <a class=\"dec qty-button\" onclick=\"updateCartQuantity('" + val.rowId + "', 'minus', '" + val.qty + "'); return false\">-</a>" +
+                "            </div>" +
+                "        </div>" +
+                "    </td>" +
+                "    <td class=\"cart-product-price text-center\">₺" + val.price * val.qty + "</td>" +
+                "    <td class=\"text-center\">" +
+                "        <div class=\"cart-close\">" +
+                "            <span class=\"ti-close\" onclick=\"removeFromCart('" + val.rowId + "'); return false\"></span>" +
+                "        </div>" +
+                "    </td>" +
+                "</tr>"
     })
 
     $("#cart-products").empty()
+    $("#cart-modal-products").empty()
     $("#cart-sub-total").empty()
+    $("#cart-modal-sub-total").empty()
 
-    $("#cart-sub-total").append(subTotal)
+    $("#cart-sub-total").append(subTotal).hide().show('slow');
+    $("#cart-modal-sub-total").append(subTotal).hide().show('slow');
 
     if(Object.keys(cart).length) {
-        $("#cart-products").append(cartProducts)
+        $("#cart-products").append(cartProducts).hide().show('slow');
+        $("#cart-modal-products").append(cartModalProducts).hide().show('slow');
     } else {
-        $("#cart-products").append('<li> Sepetinizde henüz ürün bulunamadı. </li>')
+        $("#cart-products").append('<li>Sepetinizde henüz ürün bulunamadı.</li>').hide().show('slow');
+        $("#cart-modal-products").append('<tr><td>Sepetinizde henüz ürün bulunamadı.</td></tr>').hide().show('slow');
     }
 }
 

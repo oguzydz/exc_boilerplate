@@ -20,9 +20,9 @@ class CartController extends Controller
         return $this->cartService->addToCart($productId);
     }
 
-    public function update()
+    public function update(string $rowId, int $qty)
     {
-
+        return $this->cartService->updateQty($rowId, $qty);
     }
 
     public function remove(string $rowId)

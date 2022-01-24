@@ -37,6 +37,30 @@ class CartService
     /**
      * Remove product from cart
      * @param string $rowId;
+     * @param string $type;
+     */
+    public function updateQty(string $rowId, int $qty)
+    {
+        try {
+            Cart::update($rowId, $qty);
+
+            return response()->json([
+                'message' => 'Ürün adedi başarıyla güncellendi.',
+                'cart' => Cart::content(),
+                'cartSubTotal' => Cart::total(),
+                'status' => true,
+            ], 200);
+        } catch (Throwable $e) {
+            return response()->json([
+                'message' => 'Ürün adedi güncellenemedi, lütfen tekrar deneyiniz.',
+                'status' => false,
+            ], 200);
+        }
+    }
+
+    /**
+     * Remove product from cart
+     * @param string $rowId;
      */
     public function removeFromCart(string $rowId)
     {
