@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    const STATUS_PASIVE = 0;
+    const STATUS_ACTIVE = 1;
+
     protected $fillable = [
         'company_id',
         'title',

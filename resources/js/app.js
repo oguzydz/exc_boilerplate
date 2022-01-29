@@ -136,15 +136,15 @@ createInertiaApp({
                                 type: "warning",
                             }
                         )
-                            .then(() => {
+                        .then(() => {
                                 this.$inertia.post(
-                                    route(`${routeName}.destroy`, id),
+                                    route(routeName, id),
+                                    this.data,
                                     {
-                                        onSuccess: () => {
+                                        onSuccess: (page) => {
                                             this.$message({
                                                 type: "success",
-                                                message:
-                                                    "İşlem başarıyla tamamlandı.",
+                                                message: "İşlem başarıyla tamamlandı.",
                                             });
                                         },
                                         onError: (errors) => {
@@ -153,7 +153,7 @@ createInertiaApp({
                                                 dangerouslyUseHTMLString: true,
                                                 message:
                                                     "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
-                                                    errorsToMessage(errors),
+                                                    this.errorsToMessage(errors),
                                             });
                                         },
                                     }
@@ -164,8 +164,8 @@ createInertiaApp({
                                 this.$message({
                                     type: "info",
                                     message: "Silme İptal Edildi!",
-                                });
                             });
+                        });
                     },
                 },
             })

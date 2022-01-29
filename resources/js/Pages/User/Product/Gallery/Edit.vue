@@ -5,12 +5,12 @@
                 <el-page-header
                     @back="goBack"
                     title="Geri"
-                    content="Ürün Düzenleme"
+                    content="Ürün Resim Düzenleme"
                 >
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
-                    <div class="card-header">{{ data.title }} - Düzenle</div>
+                    <div class="card-header">{{ data.id }} - Düzenle</div>
                     <div class="card-body">
                         <el-form
                             :model="data"
@@ -20,72 +20,6 @@
                             :label-position="isMobile() ? 'left' : 'right'"
                             size="medium"
                         >
-                            <el-form-item label="Kategori:" prop="category_id">
-                                <el-select
-                                    v-model="data.category_id"
-                                    placeholder="Kategori seçiniz."
-                                >
-                                    <el-option
-                                        v-for="(category, index) in categories"
-                                        :label="category.title"
-                                        :value="category.id"
-                                        :key="index"
-                                    ></el-option>
-                                </el-select>
-                            </el-form-item>
-
-                            <el-form-item label="Adı:" prop="title">
-                                <el-input
-                                    v-model="data.title"
-                                    placeholder="Ürün adı giriniz."
-                                ></el-input>
-                            </el-form-item>
-                            <el-form-item label="Açıklaması:" prop="text">
-                                <el-input
-                                    type="textarea"
-                                    rows="5"
-                                    v-model="data.text"
-                                    placeholder="Ürün açıklaması giriniz."
-                                ></el-input>
-                            </el-form-item>
-                            <el-form-item label="Fiyat:" prop="price">
-                                <el-input
-                                    v-model="data.price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün fiyatı giriniz."
-                                ></el-input>
-                            </el-form-item>
-                            <el-form-item
-                                label="İndirimsiz Fiyat:"
-                                prop="discount_price"
-                            >
-                                <el-input
-                                    v-model="data.discount_price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün indirimsiz fiyatı giriniz."
-                                ></el-input>
-                            </el-form-item>
-                            <el-form-item label="Stok Sayısı:" prop="stock">
-                                <el-input
-                                    v-model="data.stock"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün stok sayısı giriniz."
-                                ></el-input>
-                            </el-form-item>
-                            <el-form-item
-                                label="Kargo Süresi:"
-                                prop="delivery_time"
-                            >
-                                <el-input
-                                    v-model="data.delivery_time"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün kargo süresi giriniz."
-                                ></el-input>
-                            </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
                                 <el-input
                                     v-model="data.order"
@@ -94,22 +28,6 @@
                                     placeholder="Ürün sırası giriniz."
                                 ></el-input>
                             </el-form-item>
-                            <el-form-item label="Durum:" prop="status">
-                                <el-select
-                                    v-model="data.status"
-                                    placeholder="Durum Seçiniz."
-                                >
-                                    <el-option
-                                        v-for="(
-                                            status, statusIndex
-                                        ) in statusList"
-                                        :key="status"
-                                        :label="statusIndex"
-                                        :value="status"
-                                    ></el-option>
-                                </el-select>
-                            </el-form-item>
-
                             <el-form-item label="Görsel(394x394):" prop="image">
                                 <file-pond
                                     v-model="data.image"
@@ -167,69 +85,14 @@ export default {
 
     data() {
         return {
-            title: "Ürün Düzenleme",
+            title: "Ürün Resim Düzenleme",
             image: this.data.image,
             rules: {
-                title: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün adı alanını doldurunuz.",
-                        trigger: "blur",
-                    },
-                    {
-                        min: 3,
-                        max: 40,
-                        message: "En küçük 3, en fazla 40 karakter olabilir.",
-                        trigger: "blur",
-                    },
-                ],
-                text: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün açıklaması giriniz.",
-                        trigger: "blur",
-                    },
-                ],
                 order: [
                     {
                         required: true,
                         message: "Lütfen ürün sırası giriniz.",
                         trigger: "blur",
-                    },
-                ],
-                price: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün fiyatı giriniz.",
-                        trigger: "blur",
-                    },
-                ],
-                discount_price: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün indirimsiz fiyatı giriniz.",
-                        trigger: "blur",
-                    },
-                ],
-                delivery_time: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün kargo süresi giriniz.",
-                        trigger: "blur",
-                    },
-                ],
-                stock: [
-                    {
-                        required: true,
-                        message: "Lütfen ürün stok sayısı giriniz.",
-                        trigger: "blur",
-                    },
-                ],
-                category_id: [
-                    {
-                        required: true,
-                        message: "Lütfen kategori seçiniz.",
-                        trigger: "change",
                     },
                 ],
             },
@@ -253,7 +116,7 @@ export default {
                 if (valid) {
                     if (formName == "data") {
                         this.$inertia.post(
-                            route("user.product.update"),
+                            route("user.product.gallery.update", { productId: this.data.product_id, galleryId: this.data.id }),
                             this.data,
                             {
                                 onSuccess: (page) => {

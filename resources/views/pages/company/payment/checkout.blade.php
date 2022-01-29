@@ -83,7 +83,7 @@
                                                 <li>
                                                     <input name="payment_type" type="radio" checked required
                                                         class="single-input">
-                                                    <strong>Kredi Kartı ile Öde</strong>
+                                                    Kredi Kartı ile Öde
                                                     <a href="#"><img src="{{ asset('assets\img\checkout\2.svg') }}"
                                                             alt="img"></a>
                                                     <a href="#"><img src="{{ asset('assets\img\checkout\4.svg') }}"
@@ -91,7 +91,7 @@
                                                 </li>
                                                 <li>
                                                     <input name="payment_type" type="radio" required class="single-input">
-                                                    <a href="#"><strong>Havale/Eft</strong></a>
+                                                    Havale/Eft
                                                 </li>
                                             </ul>
                                         </div>

@@ -147,7 +147,7 @@ class ProductController extends Controller
     {
         try {
             $product = Product::findorFail($request->id);
-            $slug = Str::slug($request->title, '-') . '--' . Product::getNextId();
+            $slug = Str::slug($request->title, '-') . '--' . $request->id;
             $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
 
             $data = [

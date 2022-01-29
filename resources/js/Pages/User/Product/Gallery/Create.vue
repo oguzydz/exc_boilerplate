@@ -80,19 +80,6 @@ export default {
         return {
             title: "Resim Ekle",
             rules: {
-                title: [
-                    {
-                        required: true,
-                        message: "Lütfen görsel adı alanını doldurunuz.",
-                        trigger: "blur",
-                    },
-                    {
-                        min: 3,
-                        max: 40,
-                        message: "En küçük 3, en fazla 40 karakter olabilir.",
-                        trigger: "blur",
-                    },
-                ],
                 image: [
                     {
                         required: true,

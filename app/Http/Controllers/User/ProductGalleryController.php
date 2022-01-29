@@ -103,11 +103,20 @@ class ProductGalleryController extends Controller
      */
     public function edit($productId, $galleryId)
     {
+        Product::where(['id' => $productId, 'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id])->firstOrFail();
+
         try {
-            $data = ProductGallery::find($galleryId);
+            $productGallery = ProductGallery::findOrFail($galleryId);
+            $data = [
+                'id' => $productGallery->id,
+                'product_id' => $productGallery->product_id,
+                'image' => $productGallery->image,
+                'order' => $productGallery->order,
+                'new_image',
+            ];
 
             return Inertia::render(
-                'Admin/Product/Gallery/Edit',
+                'User/Product/Gallery/Edit',
                 [
                     'data' => $data,
                 ]
@@ -127,29 +136,28 @@ class ProductGalleryController extends Controller
     public function update(Request $request)
     {
         try {
-            $productGalleryDetail = ProductGallery::find($request->id);
+            $productGallery = ProductGallery::findorFail($request->id);
+            $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
+
 
             $data = [
-                'image_seo' => $request->image_seo,
                 'order' => $request->order,
             ];
 
             if (isset($request->file()['new_image'])) {
-                $image_seo = Str::slug($request->image_seo, '-');
-
                 $getFile = $request->file()['new_image'];
-                $fileName = $image_seo . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-                $filePath = $getFile->storeAs('urunler', $fileName, 'public');
+                $fileName = $productGallery->id . '--' . time() . '.' . $getFile->getClientOriginalExtension();
+                $filePath = $getFile->storeAs('product-gallery', $fileName, 'public');
 
                 $data['image'] = $filePath;
             }
 
-            $productGalleryDetail->update($data);
+            $productGallery->update($data);
 
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Duyuru eklenirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Resim güncellenirken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
@@ -163,7 +171,7 @@ class ProductGalleryController extends Controller
      */
     public function destroy($productId, $galleryID, Request $request)
     {
-        $getImage = ProductGallery::find($galleryID)->image;
+        $getImage = ProductGallery::findOrFail($galleryID)->image;
 
         try {
             Storage::disk('public')->delete($getImage);
@@ -172,12 +180,7 @@ class ProductGalleryController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request
-                ->session()
-                ->flash(
-                    'message',
-                    __('Özellik silinirken beklenmedik bir hata oldu!')
-                );
+            $request->session()->flash('message', __('Resim silinirken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }

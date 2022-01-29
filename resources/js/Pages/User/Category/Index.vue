@@ -33,7 +33,7 @@
                                                 })
                                             )
                                         ">Düzenle</el-button>
-                                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="confirmDelete(scope.row.id, '', deleteMessage)">
+                                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="confirmDelete(scope.row.id, 'user.category.destroy', deleteMessage)">
                                         Sil
                                     </el-button>
                                 </template>

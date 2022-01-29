@@ -30,7 +30,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('company_id', $this->userService->getUserCompany(Auth::user()->id)->id)->paginate(10);
+        $categories = Category::where([
+                'status' => Category::STATUS_ACTIVE,
+                'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id
+        ])->paginate(10);
 
         return Inertia::render('User/Category/Index', [
             'data' => $categories,
@@ -167,11 +170,10 @@ class CategoryController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        $getImage = Category::findOrFail($id)->image;
-
+        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
         try {
-            Storage::disk('public')->delete($getImage);
-            Category::destroy($id);
+            $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
+            $category->update(['status' => Category::STATUS_PASIVE]);
 
             return redirect()->back();
         } catch (\Exception $e) {
