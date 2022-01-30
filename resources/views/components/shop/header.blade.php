@@ -28,7 +28,7 @@
                     <td>
                         <div class="media single-cart-product">
                             <div class="media-left">
-                                <img src="/storage/{{ $cart->options->image }}" alt="img">
+                                <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                             </div>
                             <div class="media-body">
                                 <span>{{ $cart->name }}</span>
@@ -39,7 +39,9 @@
                     <td class="text-center">
                         <div class="quantity-wrap">
                             <div class="quantity">
-                                <input type="number" step="1" min="0" max="100" value="1" title="Qty" class="input-text qty text">
+                                <input type="number" step="1" min="0" max="100" value="{{ $cart->qty }}" title="Qty" class="input-text qty text">
+                                <a class="inc qty-button" onclick="updateCartQuantity('{{ $cart->rowId }}', 'plus', {{ $cart->qty }}); return false">+</a>
+                                <a class="dec qty-button" onclick="updateCartQuantity('{{ $cart->rowId }}', 'minus', {{ $cart->qty }}); return false">-</a>
                             </div>
                         </div>
                     </td>
@@ -95,7 +97,7 @@
                                     <li>
                                         <div class="media">
                                             <div class="media-left">
-                                                <img src="/storage/{{ $cart->options->image }}" alt="img">
+                                                <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                                             </div>
                                             <div class="media-body">
                                                 <a class="title" href="#">{{ $cart->name }}</a>
@@ -119,7 +121,8 @@
                                 </span>
                             </p>
                             <p class="buttons">
-                                <a href="{{ route("$company->slug.index") }}" class="button">Sepeti Görüntüle &amp; Ödeme Yap</a>
+                                <a href="#" class="button" id="cart-btn" onclick="return false;">Sepeti Görüntüle</a>
+                                <a href="{{ route("$company->slug.payment.checkout") }}" class="button mt-2">Ödeme Yap</a>
                             </p>
                         </div>
                     </li>
@@ -148,7 +151,7 @@
             </div>
             <ul class="navbar-nav">
                 <li>
-                    <a href="#">Anasayfa</a>
+                    <a href="{{ route($company->slug . '.index') }}">Anasayfa</a>
                 </li>
                 <li class="menu-item-has-children">
                     <a href="#">Kategoriler</a>
@@ -198,7 +201,7 @@
                                 <li>
                                     <div class="media">
                                         <div class="media-left">
-                                            <img src="/storage/{{ $cart->options->image }}" alt="img">
+                                            <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                                         </div>
                                         <div class="media-body">
                                             <a class="title" href="#">{{ $cart->name }}</a>

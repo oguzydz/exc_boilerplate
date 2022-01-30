@@ -27,7 +27,7 @@
                             </select>
                         </div>
                         @foreach ($products as $product)
-                            <div class="col-lg-4 col-sm-4">
+                            <div class="col-lg-4 col-sm-4 col-6">
                                 <div class="single-shop">
                                     <div class="thumb">
                                         {{-- <a class="product-badge btn-blue" href="#">New</a> --}}

@@ -3407,7 +3407,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   line-height: 27px;
   letter-spacing: 0.28px;
   color: #5B6880;
-  margin-bottom: 55px;
+  margin-bottom: 30px;
 }
 .product-description .check-box-area {
   font-size: 13px;
@@ -3423,8 +3423,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-top: 1px;
 }
 .product-description .category {
-  margin-top: 70px;
-  margin-bottom: 20px;
+    margin-top: 30px;
 }
 .product-description .category span {
   font-size: var(--body-font-size);

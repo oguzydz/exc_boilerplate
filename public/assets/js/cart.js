@@ -14,7 +14,7 @@ const Toast = Swal.mixin({
     }
   })
 
-function addToCart(productId) {
+function addToCart(productId, type = 0, companySlug = null) {
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': CSRF_TOKEN
@@ -26,6 +26,9 @@ function addToCart(productId) {
         type: "POST",
         success: function(response) {
             if(response.status) {
+                if(type == 1) {
+                    window.location.href = '/' + companySlug + '/payment/checkout';
+                }
                 updateCart(response.cart, response.cartSubTotal);
                 toastFire('success', 'Ürün sepetinize başarıyla eklendi!')
             } else {
@@ -108,7 +111,7 @@ function updateCart(cart, subTotal) {
         cartProducts += "<li>\n" +
                 "<div class=\"media\">\n" +
                 "    <div class=\"media-left\">\n" +
-                "        <img src=\"/storage/" + val.options.image + "\" alt=\"img\">\n" +
+                "        <img src=\"/storage/" + val.options.image + "\" style='width: 90px' alt=\"img\">\n" +
                 "    </div>\n" +
                 "    <div class=\"media-body\">\n" +
                 "        <a class=\"title\" href=\"#\">" + val.name + "</a>\n" +
@@ -125,7 +128,7 @@ function updateCart(cart, subTotal) {
                 "    <td>" +
                 "        <div class=\"media single-cart-product\">" +
                 "            <div class=\"media-left\">" +
-                "                <img src=\"/storage/" + val.options.image + "\" alt=\"img\">" +
+                "                <img src=\"/storage/" + val.options.image + "\" style='width: 90px' alt=\"img\">" +
                 "            </div>" +
                 "            <div class=\"media-body\">" +
                 "                <span>" + val.name + "</span>" +

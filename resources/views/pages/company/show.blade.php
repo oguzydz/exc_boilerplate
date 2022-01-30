@@ -16,25 +16,23 @@
                                 <div class="single-thumbnail-item">
                                     <img src="/storage/{{ $product->image }}" alt="shop">
                                 </div>
+                                @foreach ($product->gallery as $gallery)
                                 <div class="single-thumbnail-item">
-                                    <img src="assets\img\shop-details\02.png" alt="shop">
+                                    <img src="/storage/{{ $gallery->image }}" alt="shop">
                                 </div>
-                                <div class="single-thumbnail-item">
-                                    <img src="assets\img\shop-details\03.png" alt="shop">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-9">
                             <div class="single-thumbnail-slider">
                                 <div class="slider-item">
-                                    <img src="/storage/{{ $product->image }}" alt="shop">
+                                    <img src="/storage/{{ $product->image }}" width="614px" alt="shop">
                                 </div>
-                                <div class="slider-item">
-                                    <img src="assets\img\shop-details\2.png" alt="shop">
+                                @foreach ($product->gallery as $gallery)
+                                <div class="single-thumbnail-item">
+                                    <img src="/storage/{{ $gallery->image }}" alt="shop">
                                 </div>
-                                <div class="slider-item">
-                                    <img src="assets\img\shop-details\3.png" alt="shop">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -52,23 +50,16 @@
                         {{ Str::substr($product->text, 0, 100) }}, <ins class="">Detaylı açıklama için sayfayı kaydırınız.</ins>
                     </p>
                     <div class="quantity-wrap">
-                        <div class="quantity float-left">
-                            <input type="number" step="1" min="0" max="100" value="1" title="Qty" class="input-text qty text">
-                        </div>
-                        <button class="btn btn-gray ml-xl-5 ml-sm-4 cart-btn" onclick="addToCart({{ $product->id }})" type="button" id="cart-btn">Sepete Ekle <i class="fa fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-7">
-                            <button class="w-100 btn btn-gray mt-4" type="button">Hemen Satın Al</button>
-                        </div>
+                        <button class="btn btn-gray cart-btn" onclick="addToCart({{ $product->id }})" type="button" id="cart-btn">Sepete Ekle <i class="fa fa-shopping-cart"></i></button>
+                        <button class="btn btn-green text-white cart-btn ml-xl-3 ml-sm-2" onclick="addToCart({{ $product->id }}, 1, '{{ $companySlug }}')" type="button">Satın Al<i class="fa fa-shopping-cart"></i></button>
                     </div>
                     <div class="category">
                         <span>Ürün Kategorisi: </span>
                         <a href="#">Watch</a>
                     </div>
                     <div class="tags">
-                        <span>Satıcı: </span>
-                        <a href="#">Watch,</a>
+                        <span>Stok: </span>
+                        <a href="#">11</a>
                     </div>
                 </div>
             </div>
@@ -76,10 +67,10 @@
                 <div class="product-information">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="descr-tab" data-toggle="tab" href="#descr" role="tab" aria-controls="descr" aria-selected="true">Description</a>
+                            <a class="nav-link active" id="descr-tab" data-toggle="tab" href="#descr" role="tab" aria-controls="descr" aria-selected="true">Açıklama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                            <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Yorumlar</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -87,8 +78,7 @@
                             <div class="row">
                                 <div class="col-lg-11">
                                     <div class="description-tab-content">
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
-                                        <p class="mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                        <p>{!! nl2br($product->text) !!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,53 +87,43 @@
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div class="review-area">
-                                        <h6 class="review-title">Reviews (32)</h6>
+                                        <h6 class="review-title">Yorumlar (0)</h6>
                                         <div class="single-review">
                                             <div class="media">
-                                                <img class="media-left" src="assets\img\blog\comments\1.png" alt="img">
+                                                <img class="media-left" src="/assets\img\blog\comments\1.png" alt="img">
                                                 <div class="media-body">
-                                                    <span>Jabel Ali</span>
-                                                    <p>CEO</p>
+                                                    <span>Exxefy</span>
+                                                    <p>Sistem Bilgilendirme</p>
                                                 </div>
                                             </div>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-area">
-                                        <div class="single-review">
-                                            <div class="media">
-                                                <img class="media-left" src="assets\img\blog\comments\1.png" alt="img">
-                                                <div class="media-body">
-                                                    <span>Jabel Ali</span>
-                                                    <p>CEO</p>
-                                                </div>
-                                            </div>
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                            <p>
+                                                Ürüne henüz yorum girilmedi.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="review-title">Your Reviews</h6>
-                            <form class="riyaqas-form-wrap">
+                            <h6 class="review-title">Yorum Ekle</h6>
+                            <form class="exxefy-form-wrap" method="POST">
                                 <div class="row custom-gutters-16">
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
                                             <textarea class="single-input textarea" cols="20"></textarea>
-                                            <label class="single-input-label">Review</label>
+                                            <label class="single-input-label">Yorum</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
                                             <input type="text" class="single-input">
-                                            <label>Name</label>
+                                            <label>Ad - Soyad</label>
                                         </div>
                                         <div class="single-input-wrap">
                                             <input type="text" class="single-input">
-                                            <label>E-mail</label>
+                                            <label>E-Posta</label>
                                         </div>
                                     </div>
                                     <div class="col-12 text-right">
-                                        <a class="btn btn-green" href="#">Submit</a>
+                                        <button class="btn btn-green" type="submit">Gönder</button>
                                     </div>
                                 </div>
                             </form>
@@ -154,6 +134,5 @@
        </div>
     </div>
 </div>
-
 
 @endsection

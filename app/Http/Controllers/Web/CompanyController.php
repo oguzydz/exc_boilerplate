@@ -61,12 +61,15 @@ class CompanyController extends Controller
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($slug, Request $request)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
 
         return view('pages.company.show', [
             'product' => $product,
+            'relatedProducts' => $relatedProducts,
+            'companySlug' => $request->route()->action['slug'],
         ]);
     }
 

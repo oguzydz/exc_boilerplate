@@ -28,7 +28,7 @@
                                     placeholder="Resim sırası giriniz."
                                 ></el-input>
                             </el-form-item>
-                            <el-form-item label="Görsel(394x394):" prop="image">
+                            <el-form-item label="Görsel:" prop="image">
                                 <file-pond
                                     v-model="form.image"
                                     ref="pond"

@@ -554,26 +554,26 @@
         /**---------------------------------------
          *  QTY Inputs
         * -------------------------------------*/
-        $(function() {
-            $("div.quantity").append('<a class="inc qty-button">+</a><a class="dec qty-button">-</a>');
-            $(".qty-button").on("click", function() {
-                console.log('clicked');
-                var $button = $(this);
-                var oldValue = $button.parent().find("input").val();
+        // $(function() {
+        //     $("div.quantity").append('<a class="inc qty-button">+</a><a class="dec qty-button">-</a>');
+        //     $(".qty-button").on("click", function() {
+        //         console.log('clicked');
+        //         var $button = $(this);
+        //         var oldValue = $button.parent().find("input").val();
 
-                if ($button.text() == "+") {
-                    var newVal = parseFloat(oldValue) + 1;
-                } else {
-                    // Don't allow decrementing below zero
-                    if (oldValue > 0) {
-                    var newVal = parseFloat(oldValue) - 1;
-                    } else {
-                        newVal = 0;
-                    }
-                }
-                $button.parent().find("input").val(newVal);
-            });
-        });
+        //         if ($button.text() == "+") {
+        //             var newVal = parseFloat(oldValue) + 1;
+        //         } else {
+        //             // Don't allow decrementing below zero
+        //             if (oldValue > 0) {
+        //             var newVal = parseFloat(oldValue) - 1;
+        //             } else {
+        //                 newVal = 0;
+        //             }
+        //         }
+        //         $button.parent().find("input").val(newVal);
+        //     });
+        // });
 
         /**---------------------------------------
          *  QTY Inputs
