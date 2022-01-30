@@ -41,13 +41,13 @@
                                     </div>
                                     <div class="content">
                                         {{-- <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
                                             </div> --}}
-                                        <a href="#">{{ $product->title }}</a>
+                                        <a href="{{ route($company->slug . ".show", $product->slug) }}">{{ $product->title }}</a>
                                         <div class="price">
                                             <span>₺{{ $product->price }}</span><del>₺{{ $product->discount_price }}</del>
                                         </div>

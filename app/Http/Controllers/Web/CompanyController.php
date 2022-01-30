@@ -28,6 +28,7 @@ class CompanyController extends Controller
 
         return view('pages.company.index', [
             'products' => $products,
+            'company' => $this->company,
         ]);
     }
 

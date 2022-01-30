@@ -238,51 +238,59 @@
     </div>
 </nav>
 
-<div class="profile-page tx-13">
-    <div class="grid-margin">
-        <div class="profile-header">
-            <div class="cover">
-                <div class="gray-shade"></div>
-                <figure style="background-image: url('/storage/{{ $company->bg_image }}')"></figure>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row cover-body justify-content-between align-items-center">
-                                <div class="col-md-8">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-2 col-3">
-                                            <img class="profile-pic"
-                                                src="/storage/{{ $company->logo }}" alt="profile">
-                                        </div>
-                                        <div class="col-md-10 col-9">
-                                            <span class="profile-name">{{ $company->title }}</span>
-                                            <p class="">
-                                                {{ $company->text }}
-                                            </p>
+@if (Route::currentRouteName() !== $company->slug . '.payment.checkout' &&
+     Route::currentRouteName() !== $company->slug . '.show')
+    <div class="profile-page tx-13">
+        <div class="grid-margin">
+            <div class="profile-header">
+                <div class="cover">
+                    <div class="gray-shade"></div>
+                    <figure style="background-image: url('/storage/{{ $company->bg_image }}')"></figure>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row cover-body justify-content-between align-items-center">
+                                    <div class="col-md-8">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-2 col-3">
+                                                <img class="profile-pic" src="/storage/{{ $company->logo }}" alt="profile">
+                                            </div>
+                                            <div class="col-md-10 col-9">
+                                                <span class="profile-name">
+                                                    <a href="{{ route($company->slug . '.index') }}">
+                                                        {{ $company->title }}
+                                                    </a>
+
+                                                </span>
+                                                <p class="">
+                                                    {{ $company->text }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="d-none d-md-block col-md-4 text-right">
-                                    <a class="btn btn-green text-white" href="http://127.0.0.1:5421/register">Abone
-                                        Ol!</a>
+                                    <div class="d-none d-md-block col-md-4 text-right">
+                                        <a class="btn btn-green text-white" href="http://127.0.0.1:5421/register">Abone
+                                            Ol!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="contact-info text-center">
-                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-phone"></i></span> {{ $company->phone }}</p>
-                            <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-envelope"></i></span>
-                                {{ $company->email }}
-                            </p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="contact-info text-center">
+                                <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-phone"></i></span> {{ $company->phone }}</p>
+                                <p class="shop-info d-inline-block mr-2"><span><i class="fa fa-envelope"></i></span>
+                                    {{ $company->email }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endif
+

@@ -66,6 +66,10 @@
                         <span>Ürün Kategorisi: </span>
                         <a href="#">Watch</a>
                     </div>
+                    <div class="tags">
+                        <span>Satıcı: </span>
+                        <a href="#">Watch,</a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12">

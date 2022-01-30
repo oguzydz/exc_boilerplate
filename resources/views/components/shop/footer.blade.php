@@ -48,7 +48,7 @@
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
-                                    © <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> - Tüm Hakları Saklıdır! Ve <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> bir <a href="{{ route('home') }}" target="_blank"><i class="fa fa-heart"></i><span>Exxefy</span></a> mağazasıdır.
+                                    © <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> - Tüm Hakları Saklıdır! ve <a href="{{ route("$company->slug.index") }}">{{ $company->title }}</a> bir <a href="{{ route('home') }}" target="_blank"><i class="fa fa-heart"></i><span>Exxefy</span></a> mağazasıdır.
                                 </div>
                             </div>
                             <div class="col-lg-5">
