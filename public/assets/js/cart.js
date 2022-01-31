@@ -154,19 +154,14 @@ function updateCart(cart, subTotal) {
                 "</tr>"
     })
 
-    $("#cart-products").empty()
-    $("#cart-modal-products").empty()
-    $("#cart-sub-total").empty()
-    $("#cart-modal-sub-total").empty()
-
-    $("#cart-sub-total").append(subTotal).hide().show('slow');
-    $("#cart-modal-sub-total").append(subTotal).hide().show('slow');
+    $("#cart-products, #cart-products-m,#cart-modal-products,#cart-sub-total,#cart-sub-total-m,#cart-modal-sub-total").empty()
+    $("#cart-sub-total,#cart-sub-total-m,#cart-modal-sub-total").append(subTotal).hide().show('slow');
 
     if(Object.keys(cart).length) {
-        $("#cart-products").append(cartProducts).hide().show('slow');
+        $("#cart-products, #cart-products-m").append(cartProducts).hide().show('slow');
         $("#cart-modal-products").append(cartModalProducts).hide().show('slow');
     } else {
-        $("#cart-products").append('<li>Sepetinizde henüz ürün bulunamadı.</li>').hide().show('slow');
+        $("#cart-products, #cart-products-m").append('<li>Sepetinizde henüz ürün bulunamadı.</li>').hide().show('slow');
         $("#cart-modal-products").append('<tr><td>Sepetinizde henüz ürün bulunamadı.</td></tr>').hide().show('slow');
     }
 }

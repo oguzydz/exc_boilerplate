@@ -65,7 +65,7 @@ export default {
     },
     data() {
         return {
-            deleteMessage: "Kategoriyi silerek bağlı olduğu tüm ürünleri ilk sıradaki aktif kategoriye atamış olacaksınız. Devam etmek istiyor musunuz?",
+            deleteMessage: "Kategoriyi silerek bağlı olduğu tüm ürünleri pasife almış olacaksınız. Devam etmek istiyor musunuz?",
         };
     },
 };

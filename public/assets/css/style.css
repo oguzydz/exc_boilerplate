@@ -1280,7 +1280,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: block;
 }
 .footer-widget .footer_top_widget .footer-logo img {
-  width: 160px;
+  width: 90px;
   height: auto;
 }
 .footer-widget .footer_top_widget p {
@@ -3228,6 +3228,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .single-shop .thumb img {
   transform: scale(1);
   transition: 0.8s;
+  width: 246px;
 }
 .single-shop .thumb .cart-btn {
   position: absolute;

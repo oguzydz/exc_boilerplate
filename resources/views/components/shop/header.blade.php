@@ -64,7 +64,10 @@
             <div class="total-shapping-area">
                 <div class="total-amount">
                     <span>Ara Toplam:</span>
-                    <span class="amount float-right" id="cart-modal-sub-total"><span class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::total() }}</span>
+                    <span class="amount float-right">
+                        <span class="woocommerce-Price-currencySymbol">₺</span>
+                        <span id="cart-modal-sub-total">{{ Cart::total() }}</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -91,7 +94,7 @@
                     <li class="cart">
                         <div class="cart-icon"><i class="la la-shopping-cart"></i></div>
                         <div class="widget_shopping_cart_content">
-                            <ul id="cart-productsx">
+                            <ul id="cart-products-m">
                                 @if(count(Cart::content()))
                                     @foreach (Cart::content() as $cart)
                                     <li>
@@ -117,7 +120,7 @@
                                 <p class="total">
                                 <strong>Ara Toplam:</strong>
                                 <span class="amount">
-                                    <span class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::total() }}
+                                    <span class="woocommerce-Price-currencySymbol">₺</span><span id="cart-sub-total">{{ Cart::total() }}</span>
                                 </span>
                             </p>
                             <p class="buttons">
@@ -156,10 +159,11 @@
                 <li class="menu-item-has-children">
                     <a href="#">Kategoriler</a>
                     <ul class="sub-menu">
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="shop-grid.html">Shop Grid</a></li>
-                        <li><a href="shop-details.html">Shop Details</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        @foreach ($company->categories as $category)
+                        <li>
+                            <a href="{{ route($company->slug . '.category.show', [$category->slug]) }}">{{ $category->title }}</a>
+                        </li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="menu-item-has-children">

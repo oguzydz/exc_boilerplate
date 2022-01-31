@@ -42,10 +42,6 @@ Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
     Route::get('/satıs-sozlesmesi', [PolicyController::class, 'sales'])->name('sales');
 });
 
-Route::group(['prefix' => 'kategoriler', 'as' => 'category.'], function () {
-    Route::get('/', [CategoryController::class, 'index'])->name('index');
-});
-
 Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('{slug}', [BlogController::class, 'show'])->name('show');
@@ -61,6 +57,11 @@ foreach ($companies as $company) {
         Route::group(['prefix' => $company->slug, 'as' => "$company->slug."], function () {
             Route::get('/', [CompanyController::class, 'index'])->name('index');
             Route::get('/urun/{slug}', [CompanyController::class, 'show'])->name('show');
+
+            Route::group(['prefix' => 'kategoriler', 'as' => 'category.'], function () {
+                Route::get('/', [CategoryController::class, 'index'])->name('index');
+                Route::get('{slug}', [CategoryController::class, 'show'])->name('show');
+            });
 
             Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
                 Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');

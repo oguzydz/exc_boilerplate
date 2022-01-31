@@ -8,6 +8,9 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
 
 class Product extends Model implements Buyable
 {
+    const STATUS_PASIVE = 0;
+    const STATUS_ACTIVE = 1;
+
     public function getBuyableIdentifier($options = null) {
         return $this->id;
     }

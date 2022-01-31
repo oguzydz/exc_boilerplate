@@ -100,7 +100,7 @@
                                         <span class="d-block check-box-area">
                                             <input id="1checkbox" type="checkbox" name="kvkk" required>
                                             <label for="1checkbox">
-                                                Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni’ni okudum.
+                                                KVKK İlişkin Aydınlatma Metni’ni okudum.
                                             </label>
                                         </span>
                                     </div>

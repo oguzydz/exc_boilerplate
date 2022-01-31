@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
+use App\Models\Product;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -174,6 +175,7 @@ class CategoryController extends Controller
         try {
             $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
             $category->update(['status' => Category::STATUS_PASIVE]);
+            $category->allProducts()->update(['status' => Product::STATUS_PASIVE]);
 
             return redirect()->back();
         } catch (\Exception $e) {

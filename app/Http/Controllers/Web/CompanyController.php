@@ -24,7 +24,7 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::where('company_id', $this->company->id)->paginate(20);
+        $products = Product::where(['company_id' => $this->company->id, 'status' => Product::STATUS_ACTIVE])->paginate(20);
 
         return view('pages.company.index', [
             'products' => $products,
