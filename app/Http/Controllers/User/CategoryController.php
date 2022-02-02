@@ -61,10 +61,16 @@ class CategoryController extends Controller
     {
         $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
         $slug = Str::slug($request->title, '-');
-        $getFile = $request->file()['image'];
+        $isImage = isset($request->file()['image']) ? $request->file()['image'] : false;
 
-        $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
-        $filePath = $getFile->storeAs('category-images', $fileName, 'public');
+        if($isImage) {
+            $getFile = $request->file()['image'];
+            $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
+            $filePath = $getFile->storeAs('category-images', $fileName, 'public');
+        } else {
+            $fileName = Category::DEFAULT_CATEGORY_PHOTO_PATH;
+            $filePath = Category::DEFAULT_CATEGORY_PHOTO_PATH;
+        }
 
         $data = [
             'company_id' => $userCompanyId,

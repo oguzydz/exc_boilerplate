@@ -27,7 +27,6 @@ class CreateCategoryRequest extends FormRequest
             'title' => ['required', 'string'],
             'text' => ['required', 'string'],
             'order' => ['required', 'numeric'],
-            'image' => ['required'],
         ];
     }
 }

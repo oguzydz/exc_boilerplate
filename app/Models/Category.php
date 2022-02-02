@@ -9,6 +9,7 @@ class Category extends Model
 {
     const STATUS_PASIVE = 0;
     const STATUS_ACTIVE = 1;
+    const DEFAULT_CATEGORY_PHOTO_PATH = 'category-images/default.jpeg';
 
     protected $fillable = [
         'company_id',

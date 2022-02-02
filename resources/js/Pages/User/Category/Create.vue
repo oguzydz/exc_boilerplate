@@ -112,13 +112,13 @@ export default {
                         trigger: "blur",
                     },
                 ],
-                image: [
-                    {
-                        required: true,
-                        message: "Lütfen görsel giriniz.",
-                        trigger: "blur",
-                    },
-                ],
+                // image: [
+                //     {
+                //         required: true,
+                //         message: "Lütfen görsel giriniz.",
+                //         trigger: "blur",
+                //     },
+                // ],
                 order: [
                     {
                         required: true,

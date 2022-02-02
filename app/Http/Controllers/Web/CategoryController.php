@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\View\Components\Shop\Header;
 
 class CategoryController extends Controller
 {
+    public $company;
+
+    public function __construct(Header $header)
+    {
+        $this->company = $header->company;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +23,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where(['company_id' => $this->company->id, 'status' => Category::STATUS_ACTIVE])->paginate(20);
 
-        return view('pages.category.index', [
+        return view('pages.company.category.index', [
             'categories' => $categories
         ]);
     }

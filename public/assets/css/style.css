@@ -1683,29 +1683,29 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 /********* widget job details *********/
-.widget-job-details {
+.widget-category-details {
   background: #fff;
   box-shadow: 0px 2px 50px #97A1B229;
   border-radius: 8px;
   padding: 70px 38px;
 }
-.widget-job-details .widget-title {
+.widget-category-details .widget-title {
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 0.2px;
   padding-bottom: 15px;
   margin-bottom: 32px;
 }
-.widget-job-details .single-job-details {
+.widget-category-details .single-category-details {
   margin-bottom: 25px;
 }
-.widget-job-details .single-job-details img {
+.widget-category-details .single-category-details img {
   margin-top: 2px;
 }
-.widget-job-details .single-job-details .media-body {
+.widget-category-details .single-category-details .media-body {
   margin-left: 25.25px;
 }
-.widget-job-details .single-job-details .media-body h6 {
+.widget-category-details .single-category-details .media-body h6 {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
@@ -1713,7 +1713,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   color: #535764;
   margin-bottom: 10px;
 }
-.widget-job-details .single-job-details .media-body span {
+.widget-category-details .single-category-details .media-body span {
   font-size: 15px;
   font-weight: 400;
   line-height: 30px;
@@ -3729,8 +3729,8 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-bottom: 57px;
 }
 
-/**job-position-area **/
-.single-job-list {
+/**category-position-area **/
+.single-category-list {
   background: #fff;
   box-shadow: 0px 4px 20px #9398A11A;
   border-radius: 8px;
@@ -3739,19 +3739,19 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-bottom: 40px;
   align-items: center;
 }
-.single-job-list:hover {
+.single-category-list:hover {
   box-shadow: 0px 7px 30px #9398A11C;
 }
-.single-job-list img {
-  width: 66px;
-  height: 66px;
+.single-category-list img {
+  width: 150px;
 }
-.single-job-list .media-body {
+.single-category-list .media-body {
   border-left: 1px solid #EEEBF7;
   margin-left: 26.5px;
+  margin-right: 26.5px;
   padding-left: 25.5px;
 }
-.single-job-list .media-body h6 {
+.single-category-list .media-body h6 {
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
@@ -3760,7 +3760,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: inline-block;
   margin-bottom: 12px;
 }
-.single-job-list .media-body span {
+.single-category-list .media-body span {
   font-size: var(--body-font-size);
   line-height: var(--line-height30);
   font-weight: 400;
@@ -3769,7 +3769,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: block;
 }
 
-.job-apply-btn {
+.category-apply-btn {
   background: #FFFFFF;
   border: 1px solid #D6DAE1;
   border-radius: 4px;
@@ -3783,19 +3783,19 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   padding: 0 30px;
   display: inline-block;
 }
-.job-apply-btn:hover {
+.category-apply-btn:hover {
   box-shadow: 0px 7px 16px #01358D6B;
   background: #01358D;
   color: #fff;
   border: 1px solid #01358D;
 }
-.job-apply-btn:focus, .job-apply-btn:active {
+.category-apply-btn:focus, .category-apply-btn:active {
   box-shadow: none;
   outline: 0;
 }
 
-/**job-details-area**/
-.job-details-area .section-title .title {
+/**category-details-area**/
+.category-details-area .section-title .title {
   font-size: 36px;
   margin-bottom: 0;
   font-weight: 500;
@@ -3804,7 +3804,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   padding: 0;
   display: inline-block;
 }
-.job-details-area h6.title {
+.category-details-area h6.title {
   font-size: 24px;
   line-height: 28px;
   font-weight: 500;
@@ -3812,14 +3812,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   color: #01358D;
   margin-bottom: 10px;
 }
-.job-details-area span {
+.category-details-area span {
   font-size: 18px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 0.36px;
   color: #5B6880;
 }
-.job-details-area .sub-title {
+.category-details-area .sub-title {
   margin-top: 26px;
   font-size: 20px;
   line-height: 24px;
@@ -3828,12 +3828,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   color: #01358D;
   margin-bottom: 10px;
 }
-.job-details-area ul {
+.category-details-area ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.job-details-area ul li {
+.category-details-area ul li {
   font-size: var(--body-font-size);
   line-height: var(--line-height30);
   letter-spacing: 0.3px;
@@ -3841,7 +3841,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   position: relative;
   padding-left: 18px;
 }
-.job-details-area ul li:after {
+.category-details-area ul li:after {
   content: "";
   position: absolute;
   height: 5px;
@@ -3851,14 +3851,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   border-radius: 50%;
   background: #5B6880;
 }
-.job-details-area .job-apply-btn {
+.category-details-area .category-apply-btn {
   margin-top: 69px;
   border: 0;
   box-shadow: 0px 7px 16px #01358D6B;
   background: #01358D;
   color: #fff;
 }
-.job-details-area .job-apply-btn:hover {
+.category-details-area .category-apply-btn:hover {
   opacity: 0.9;
 }
 
@@ -6369,7 +6369,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 .single-service img {
   margin-bottom: 42px;
-  width: auto !important;
+  width: 300px !important;
 }
 .single-service h6 {
   margin-bottom: 26px;
@@ -7321,24 +7321,24 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: none !important;
 }
 
-.job-apply-area {
+.category-apply-area {
   box-shadow: 0px 8px 30px #97A1B224;
   border-radius: 8px;
   padding: 120px 68px;
 }
-.job-apply-area .single-input-wrap .single-input {
+.category-apply-area .single-input-wrap .single-input {
   border: 0;
   border-bottom: 1px solid #D9DDE4;
   border-radius: 0;
   padding: 0;
 }
-.job-apply-area .single-input-wrap textarea {
+.category-apply-area .single-input-wrap textarea {
   padding: 10px 0 !important;
 }
-.job-apply-area .single-input-wrap label {
+.category-apply-area .single-input-wrap label {
   left: 0;
 }
-.job-apply-area .btn-blue {
+.category-apply-area .btn-blue {
   margin-top: 70px;
 }
 

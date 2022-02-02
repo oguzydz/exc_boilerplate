@@ -237,7 +237,7 @@
     }
     .single-service img {
         margin-bottom: 20px;
-        width: 75px !important;
+        width: 300px !important;
     }
     .single-service h6 {
         margin-bottom: 15px;
@@ -850,14 +850,14 @@
     }
 
     /******** job listing *********/
-    .job-apply-area {
+    .category-apply-area {
         padding: 80px 50px;
     }
-    .widget-job-details .single-job-details .media-body h6 {
+    .widget-category-details .single-category-details .media-body h6 {
         font-size: 18px;
         margin-bottom: 8px;
     }
-    .widget-job-details .single-job-details .media-body span {
+    .widget-category-details .single-category-details .media-body span {
         font-size: 14px;
     }
 
@@ -929,7 +929,7 @@
     .sbba-testimonial-area.pd-bottom-120 {
         padding-bottom: 110px;
     }
-    .job-details-area ul li:after {
+    .category-details-area ul li:after {
         top: 10px;
     }
 
@@ -2114,19 +2114,19 @@
         height: 50px;
         line-height: 51px;
     }
-    .job-apply-area {
+    .category-apply-area {
         padding: 50px 30px;
     }
-    .job-apply-area .btn-blue {
+    .category-apply-area .btn-blue {
         margin-top: 50px;
     }
-    .job-details-area .sub-title {
+    .category-details-area .sub-title {
         font-size: 18px;
     }
-    .job-details-area h6.title {
+    .category-details-area h6.title {
         font-size: 22px;
     }
-    .job-details-area span {
+    .category-details-area span {
         font-size: 16px;
     }
 
@@ -2154,14 +2154,14 @@
     }
 
     /********* listing page responsive *********/
-    .single-job-list {
+    .single-category-list {
         margin-bottom: 30px;
     }
-    .single-job-list .media-body h6 {
+    .single-category-list .media-body h6 {
         font-size: 15px;
         margin-bottom: 8px;
     }
-    .widget-job-details {
+    .widget-category-details {
         margin-top: 80px;
     }
 
@@ -2935,7 +2935,7 @@
 
 
     /******* job listing ********/
-    .job-apply-area .btn-blue {
+    .category-apply-area .btn-blue {
         margin-top: 50px !important;
     }
 
@@ -3052,10 +3052,10 @@
     .error-page-left-img .top-image span {
         font-size: 25px;
     }
-    .single-job-list {
+    .single-category-list {
         display: flow-root !important;
     }
-    .job-apply-btn {
+    .category-apply-btn {
         float: left !important;
     }
 
@@ -3198,18 +3198,22 @@
     .navbar-area button.navbar-toggler[aria-expanded="true"] .line:nth-child(3) {
         transform: translateY(-5px) rotate(-45deg);
     }
-    .single-job-list {
+    .single-category-list {
         margin-bottom: 30px;
         display: block;
         padding: 22px 35px 25px 26px;
     }
-    .single-job-list .media-body {
+    .single-category-list .media-body {
         border-left: 0;
         margin-left: 0;
+        margin-right: 0;
         padding-left: 0;
         margin-top: 20px;
     }
-    .job-apply-btn {
+    .single-category-list img {
+        width: 100%;
+    }
+    .category-apply-btn {
         margin-top: 20px;
     }
     .footer-widget.widget_nav_menu {
@@ -3320,7 +3324,7 @@
         float: left !important;
         margin-top: 6px;
     }
-    .job-details-area .section-title .title {
+    .category-details-area .section-title .title {
         font-size: 30px !important;
     }
     .product-information ul.nav-tabs li a {
