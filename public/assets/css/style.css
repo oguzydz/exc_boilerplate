@@ -1022,11 +1022,11 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .breadcrumb-area {
   background-image: url(../img/bg/breadcrumb-bg.jpg);
   text-align: center;
-  padding: 194px 0 114px;
+  padding: 114px 0 34px;
   background-size: cover;
 }
 .breadcrumb-area .page-title {
-  font-size: 46px;
+  font-size: 36px;
   font-weight: 700;
   letter-spacing: 1.38px;
   color: #01358D;
@@ -1037,7 +1037,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   padding: 0;
 }
 .breadcrumb-area .page-list li {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 1.32px;
   color: #5B6880;
@@ -3172,7 +3172,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 .woocommerce-result-count {
   font-size: 14px;
-  line-height: 48px;
   letter-spacing: 0.28;
   color: #97A1B2;
 }

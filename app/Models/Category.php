@@ -42,7 +42,7 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'category_id', 'id')->where('status', self::STATUS_PASIVE);
+        return $this->hasMany(Product::class, 'category_id', 'id')->where('status', self::STATUS_ACTIVE);
     }
 
     public function allProducts()
@@ -52,7 +52,7 @@ class Category extends Model
 
     public function productsWithLimit()
     {
-        return $this->hasMany(Product::class, 'category_id', 'id')->limit(3);
+        return $this->hasMany(Product::class, 'category_id')->paginate(10);
     }
 
     public function relatedProducts(int $productId)

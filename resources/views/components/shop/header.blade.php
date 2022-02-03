@@ -31,7 +31,9 @@
                                 <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                             </div>
                             <div class="media-body">
-                                <span>{{ $cart->name }}</span>
+                                <a href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">
+                                    <span>{{ $cart->name }}</span>
+                                </a>
                             </div>
                         </div>
                     </td>
@@ -103,7 +105,7 @@
                                                 <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                                             </div>
                                             <div class="media-body">
-                                                <a class="title" href="#">{{ $cart->name }}</a>
+                                                <a class="title" href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                                 <p>Adet: {{ $cart->qty }}</p>
                                                 <span class="price">₺{{ $cart->price * $cart->qty }}</span>
                                             </div>
@@ -157,7 +159,7 @@
                     <a href="{{ route($company->slug . '.index') }}">Anasayfa</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Kategoriler</a>
+                    <a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a>
                     <ul class="sub-menu">
                         @foreach ($company->categories as $category)
                         <li>
@@ -208,7 +210,7 @@
                                             <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
                                         </div>
                                         <div class="media-body">
-                                            <a class="title" href="#">{{ $cart->name }}</a>
+                                            <a class="title" href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                             <p>Adet: {{ $cart->qty }}</p>
                                             <span class="price">₺{{ $cart->price * $cart->qty }}</span>
                                         </div>
@@ -245,8 +247,7 @@
     </div>
 </nav>
 
-@if (Route::currentRouteName() !== $company->slug . '.payment.checkout' &&
-     Route::currentRouteName() !== $company->slug . '.show')
+@if (Route::currentRouteName() === $company->slug . '.index')
     <div class="profile-page tx-13">
         <div class="grid-margin">
             <div class="profile-header">
@@ -299,5 +300,7 @@
             </div>
         </div>
     </div>
+@else
+
 @endif
 

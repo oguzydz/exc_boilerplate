@@ -1,78 +1,72 @@
-@extends('layouts.web')
-@section('title', $category->title . ' - Exxestock')
+@extends('layouts.shop.light')
+@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxestock')
+{{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 
 @section('content')
+<x-pageTitle parentTitle="Kategoriler" parentRoute="{{ route($company->slug . '.category.index') }}" title="{{ $category->title }}" />
 
-    <x-pageTitle title="{{ $category->title }}" parentTitle="Kategoriler" parentRoute="{{ route('category.index') }}" />
-
-    <section class="features section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading text-center">
-                        <div class="sect-icon justify-content-center fadeInUp" data-wow-delay="0.2s"
-                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                            <img src="img/svg/section-icon-4.svg" alt="">
+<div class="shop-page-area pd-top-50">
+    <div class="container">
+        <div class="row custom-gutters-60">
+                {{-- <div class="col-md-12 section-title">
+                <h2 class="title wow  fadeInUp animated" data-wow-duration="0.6s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    Tüm Ürünler
+                </h2>
+                </div> --}}
+            <div class="col-lg-8">
+                <div class="row justify-content-start">
+                        <div class="col-sm-8">
+                            <div class="woocommerce-result-count mb-3">
+                                <strong>{{ $category->title }}</strong> kategorisinde Toplam {{ $categoryProducts->total() }} adet ürün bulundu ve {{ $categoryProducts->currentPage() }}. sayfadasınız.
+                            </div>
                         </div>
-                        <h2 class="fadeInUp" data-wow-delay="0.3s"
-                            style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">{{ $category->title }}
-                        </h2>
-                        <p class="fadeInUp" data-wow-delay="0.4s"
-                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                            {!! mb_substr(strip_tags($category->text), 0, 100) . '...'!!}
-                        </p>
-                    </div>
-                </div>
-                @foreach ($category->products as $product)
-                    <div class="services-column col-lg-4 col-md-12 col-xs-12">
-                        <div class="services-block-four">
-                            <div class="inner-box pl-0 text-center">
-                                <div class="mb-3">
-                                    <a href="{{ route('product.show.' . $product->slug) }}"><img src="storage/{{ $product->image }}" alt=""></a>
-                                </div>
-                                <h3><a href="{{ route('product.show.' . $product->slug) }}">{{ $product->title }}</a></h3>
-                                <div class="text">
-                                    {!! mb_substr(strip_tags($product->text), 0, 100) . '...'!!}
-                                </div>
-                                <div class="list-wrap align-items-center">
-                                    <div class="row">
-                                        @foreach ($product->featuresWithLimit as $feature)
-                                            <div class="col-md-12">
-                                                <div class="side-feature-list-item justify-content-center">
-                                                    <img src="img/features/feature-6.svg" class="check-mark-icon" alt="">
-                                                    <div class="foot-c-info">{{ $feature->title }}</div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                        <div class="col-md-12">
-                                            <div class="side-feature-list-item justify-content-center">
-                                                <img src="img/features/feature-6.svg" class="check-mark-icon" alt="">
-                                                <div class="foot-c-info">Hemen Teslim</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="side-feature-list-item justify-content-center">
-                                                <img src="img/features/feature-6.svg" class="check-mark-icon" alt="">
-                                                <div class="foot-c-info">7/24 Destek</div>
+                        <div class="col-sm-4 mg-bottom-30">
+                            <select class="select woocommerce-sorting-select float-sm-right">
+                                <option value="1">Default sorting</option>
+                                <option value="2">Sort by latest</option>
+                                <option value="3">Sort by rating</option>
+                            </select>
+                        </div>
+                        @foreach ($categoryProducts as $product)
+                            <div class="col-lg-4 col-sm-4 col-6">
+                                <div class="single-shop">
+                                    <div class="thumb">
+                                        {{-- <a class="product-badge btn-blue" href="#">New</a> --}}
+                                        <img src="/storage/{{ $product->image }}" alt="shop">
+                                        <div class="cart-btn">
+                                            <div class="cart-btn-wrap">
+                                                <a class="btn btn-red" onclick="addToCart({{ $product->id }}); return false" href="#">Sepete Ekle <i
+                                                        class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="content">
+                                        {{-- <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div> --}}
+                                        <a href="{{ route($company->slug . ".show", $product->slug) }}">{{ $product->title }}</a>
+                                        <div class="price">
+                                            <span>₺{{ $product->price }}</span><del>₺{{ $product->discount_price }}</del>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="price_table_text">
-                                    <h1 class="d-inline-block">{{ $product->price }} TL</h1>
-                                    <h5 class="d-inline-block">{{ $product->discount_price}} TL</h5>
-                                </div>
-                                <a class="btn info-btn mt-20 " data-wow-delay="0.6s"
-                                    href="{{ route('product.show.' . $product->slug) }}">
-                                    Görüntüle
-                                </a>
                             </div>
+                        @endforeach
+                        <div class="col-12">
+                            {{ $categoryProducts->links('vendor.pagination.default') }}
                         </div>
-                    </div>
-                @endforeach
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <x-shop.aside/>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
 @endsection

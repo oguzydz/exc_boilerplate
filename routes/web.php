@@ -56,7 +56,10 @@ foreach ($companies as $company) {
     Route::group(['slug' => $company->slug], function () use ($company) {
         Route::group(['prefix' => $company->slug, 'as' => "$company->slug."], function () {
             Route::get('/', [CompanyController::class, 'index'])->name('index');
-            Route::get('/urun/{slug}', [CompanyController::class, 'show'])->name('show');
+
+            Route::group(['prefix' => 'urun', 'as' => 'product.'], function () {
+                Route::get('{productSlug}', [CompanyController::class, 'show'])->name('show');
+            });
 
             Route::group(['prefix' => 'kategoriler', 'as' => 'category.'], function () {
                 Route::get('/', [CategoryController::class, 'index'])->name('index');

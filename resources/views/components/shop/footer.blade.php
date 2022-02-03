@@ -34,9 +34,9 @@
                     </div>
                     <div class="footer-widget widget widget_nav_menu text-center">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#">Service</a></li>
+                            <li><a href="{{ route($company->slug . '.index') }}">Anasayfa</a></li>
+                            <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>
+                            <li><a href="#">Sipariş Takibi</a></li>
                             <li><a href="#">Features</a></li>
                             <li><a href="pricing.html">Price</a></li>
                             <li><a href="blog.html">Blog</a></li>

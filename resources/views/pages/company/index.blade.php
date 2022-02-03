@@ -13,13 +13,13 @@
                 </h2>
                 </div> --}}
             <div class="col-lg-8">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-6">
-                            <div class="woocommerce-result-count">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-8">
+                            <div class="woocommerce-result-count mb-3">
                                 Toplam {{ $products->total() }} adet ürün bulundu ve {{ $products->currentPage() }}. sayfadasınız.
                             </div>
                         </div>
-                        <div class="col-sm-6 mg-bottom-30">
+                        <div class="col-sm-4 mg-bottom-30">
                             <select class="select woocommerce-sorting-select float-sm-right">
                                 <option value="1">Default sorting</option>
                                 <option value="2">Sort by latest</option>
@@ -47,7 +47,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div> --}}
-                                        <a href="{{ route($company->slug . ".show", $product->slug) }}">{{ $product->title }}</a>
+                                        <a href="{{ route($company->slug . '.product.show', $product->slug) }}">{{ $product->title }}</a>
                                         <div class="price">
                                             <span>₺{{ $product->price }}</span><del>₺{{ $product->discount_price }}</del>
                                         </div>

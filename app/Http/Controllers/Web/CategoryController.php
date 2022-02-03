@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\View\Components\Shop\Header;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CategoryController extends Controller
 {
@@ -26,7 +27,8 @@ class CategoryController extends Controller
         $categories = Category::where(['company_id' => $this->company->id, 'status' => Category::STATUS_ACTIVE])->paginate(20);
 
         return view('pages.company.category.index', [
-            'categories' => $categories
+            'categories' => $categories,
+            'company' => $this->company,
         ]);
     }
 
@@ -54,16 +56,19 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $categorySlug
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(string $categorySlug, Request $request)
     {
-        $categorySlug = $request->route()->action['categorySlug'];
-        $category = Category::where('slug', $categorySlug)->with('products')->firstOrFail();
+        dd(Cart::content());
+        $category = Category::where('slug', $categorySlug)->firstOrFail();
+        $categoryProducts = $category->products()->paginate(10);
 
-        return view('pages.category.show', [
+        return view('pages.company.category.show', [
             'category' => $category,
+            'categoryProducts' => $categoryProducts,
+            'company' => $this->company,
         ]);
     }
 

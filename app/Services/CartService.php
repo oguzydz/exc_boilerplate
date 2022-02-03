@@ -18,7 +18,10 @@ class CartService
     {
         try {
             $product = Product::findorFail($productId);
-            Cart::add($product, 1, ['image' => $product->image]);
+            Cart::add($product, 1, [
+                'image' => $product->image,
+                'slug' => $product->slug,
+            ]);
 
             return response()->json([
                 'message' => 'Ürün başarıyla sepetinize eklendi.',
