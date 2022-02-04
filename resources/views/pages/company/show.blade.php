@@ -4,8 +4,12 @@
 
 
 @section('content')
+<x-pageTitle parentTitle="Kategoriler" parentRoute="{{ route($companySlug . '.category.index') }}"
+             childTitle="{{ $product->category->title }}" childRoute="{{ route($companySlug . '.category.show', [$product->category->slug]) }}"
+             title="{{ $product->title }}"
+/>
 
-<div class="single-product-area pd-top-120">
+<div class="single-product-area pd-top-50">
     <div class="container">
        <div class="row">
             <div class="col-lg-7">
@@ -133,6 +137,40 @@
             </div>
        </div>
     </div>
+
+    @if (count($relatedProducts))
+        <div class="shop-page-area single-shop-related-product mg-top-105">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="title">Benzer Ürünler</h2>
+                </div>
+                <div class="row custom-gutters-16">
+                    @foreach ($relatedProducts as $relatedProduct)
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-shop">
+                            <div class="thumb">
+                                <img src="/storage/{{ $relatedProduct->image }}" alt="shop">
+                                <div class="cart-btn">
+                                    <div class="cart-btn-wrap">
+                                        <a class="btn btn-red" onclick="addToCart({{ $relatedProduct->id }}); return false" href="#">Sepete Ekle <i
+                                                class="fa fa-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <a href="{{ route($companySlug . '.product.show', $relatedProduct->slug) }}">{{ $relatedProduct->title }}</a>
+                                <div class="price">
+                                    <span>₺{{ $relatedProduct->price }}</span><del>₺{{ $relatedProduct->discount_price }}</del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+
 </div>
 
 @endsection

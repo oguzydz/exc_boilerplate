@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers\Web;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class StaticPageController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function startNow()
+    {
+        return view('pages.company.static-pages.start-now');
+    }
+
+}

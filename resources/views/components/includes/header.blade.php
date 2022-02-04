@@ -31,16 +31,16 @@
             </div>
             <ul class="navbar-nav">
                 <li>
-                    <a href="#">Anasayfa</a>
+                    <a href="{{ route('home') }}">Anasayfa</a>
                 </li>
                 <li>
-                    <a href="#">Hemen Başla</a>
+                    <a href="{{ route('startNow') }}">Hemen Başla</a>
                 </li>
                 <li>
                     <a href="#">Fiyatlandırma</a>
                 </li>
                 <li>
-                    <a href="#">Blog</a>
+                    <a href="#">İletişim</a>
                 </li>
             </ul>
         </div>

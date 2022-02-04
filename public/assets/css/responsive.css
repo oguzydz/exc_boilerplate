@@ -237,7 +237,6 @@
     }
     .single-service img {
         margin-bottom: 20px;
-        width: 300px !important;
     }
     .single-service h6 {
         margin-bottom: 15px;
@@ -631,7 +630,7 @@
         margin-bottom: 12px;
     }
     .breadcrumb-area .breadcrumb-inner .page-list li {
-        font-size: 14px;
+        font-size: 13px;
     }
     .single-blog-content .single-blog-details h5 {
         font-size: 30px;
@@ -2814,7 +2813,7 @@
 
     /****** blog responsive *******/
     .breadcrumb-area {
-        padding: 114px 0 34px;
+        padding: 124px 0 34px;
     }
     .breadcrumb-area .breadcrumb-inner .page-title {
         font-size: 35px;
@@ -2822,7 +2821,7 @@
         margin-bottom: 6px;
     }
     .breadcrumb-area .breadcrumb-inner .page-list li {
-        font-size: 13px;
+        font-size: 12px;
     }
     .sidebar-area .widget {
         margin-bottom: 50px;

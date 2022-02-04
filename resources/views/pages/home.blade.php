@@ -194,7 +194,7 @@
                             Mağazanızı özelleştirip, ürünlerinizi listeleyebilir ve dakikalar içerisinde satışa hazır
                             olabilirsiniz.
                         </p>
-                        <a class="btn btn-green text-white" href="http://127.0.0.1:5444/register" style="line-height: 52px;">Hemen Başla</a>
+                        <a class="btn btn-green text-white" href="{{ route('register') }}" style="line-height: 52px;">Hemen Başla</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 order-lg-1 wow animated fadeInLeft" data-wow-duration="1s"
@@ -236,7 +236,7 @@
                                 Sosyal medya takipçilerin artık müşterin olsun istiyorsan
                                 hemen ücretsiz kayıt ol!
                             </p>
-                            <a class="btn btn-green text-white" href="http://127.0.0.1:5444/register" style="line-height: 52px;">Hemen Kayıt Ol</a>
+                            <a class="btn btn-green text-white" href="{{ route('register') }}" style="line-height: 52px;">Hemen Kayıt Ol</a>
                         </div>
                     </div>
                 </div>

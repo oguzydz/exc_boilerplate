@@ -1022,7 +1022,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .breadcrumb-area {
   background-image: url(../img/bg/breadcrumb-bg.jpg);
   text-align: center;
-  padding: 114px 0 34px;
+  padding: 144px 0 64px;
   background-size: cover;
 }
 .breadcrumb-area .page-title {
@@ -6369,7 +6369,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 .single-service img {
   margin-bottom: 42px;
-  width: 300px !important;
 }
 .single-service h6 {
   margin-bottom: 26px;
@@ -7663,4 +7662,8 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     float: left;
     margin-right: 6px;
     margin-top: 1px;
+}
+
+.text-exxefy {
+    color: #01358D !important;
 }
