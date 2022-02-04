@@ -15,6 +15,7 @@ use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\Web\CargoTrackingController;
 use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\ContactController;
@@ -69,6 +70,17 @@ foreach ($companies as $company) {
             Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
                 Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');
             });
+
+            Route::group(['prefix' => 'siparis-takip', 'as' => 'cargoTracking.'], function () {
+                Route::get('/', [CargoTrackingController::class, 'index'])->name('index');
+                Route::get('{slug}', [CategoryController::class, 'show'])->name('show');
+            });
+
+            Route::group(['prefix' => 'iletisim', 'as' => 'contact.'], function () {
+                Route::get('/', [ContactController::class, 'index'])->name('index');
+                Route::get('{slug}', [ContactController::class, 'show'])->name('show');
+            });
+
         });
 
     });

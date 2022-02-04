@@ -168,28 +168,11 @@
                         @endforeach
                     </ul>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route($company->slug . '.cargoTracking.index') }}">Sipariş Takibi</a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">İletişim</a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="faq.html">Faq</a></li>
-                        <li><a href="offer.html">Offer</a></li>
-                        <li><a href="error.html">Error 404</a></li>
-                        <li><a href="comming-soon.html">Coming Soon</a></li>
-                        <li><a href="work-processing.html">Work Processing</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route($company->slug . '.contact.index') }}">İletişim</a>
                 </li>
             </ul>
         </div>

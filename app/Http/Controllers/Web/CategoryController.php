@@ -61,7 +61,6 @@ class CategoryController extends Controller
      */
     public function show(string $categorySlug, Request $request)
     {
-        dd(Cart::content());
         $category = Category::where('slug', $categorySlug)->firstOrFail();
         $categoryProducts = $category->products()->paginate(10);
 

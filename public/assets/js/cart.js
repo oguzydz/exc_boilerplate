@@ -114,7 +114,7 @@ function updateCart(cart, subTotal) {
                 "        <img src=\"/storage/" + val.options.image + "\" style='width: 90px' alt=\"img\">\n" +
                 "    </div>\n" +
                 "    <div class=\"media-body\">\n" +
-                "        <a class=\"title\" href=\"#\">" + val.name + "</a>\n" +
+                "        <a class=\"title\" href=" + '/' + val.options.company + '/urun/' + val.options.slug + ">" + val.name + "</a>\n" +
                 "        <p>Adet: " + val.qty + "</p>\n" +
                 "        <span class=\"price\">₺" + val.price * val.qty + "</span>\n" +
                 "    </div>\n" +
@@ -131,7 +131,7 @@ function updateCart(cart, subTotal) {
                 "                <img src=\"/storage/" + val.options.image + "\" style='width: 90px' alt=\"img\">" +
                 "            </div>" +
                 "            <div class=\"media-body\">" +
-                "                <span>" + val.name + "</span>" +
+                "               <a class=\"title\" href=" + '/' + val.options.company + '/urun/' + val.options.slug + "><span>" + val.name + "</span></a>\n" +
                 "            </div>" +
                 "        </div>" +
                 "    </td>" +

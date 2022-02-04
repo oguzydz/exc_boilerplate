@@ -21,6 +21,7 @@ class CartService
             Cart::add($product, 1, [
                 'image' => $product->image,
                 'slug' => $product->slug,
+                'company' => $product->company->slug,
             ]);
 
             return response()->json([

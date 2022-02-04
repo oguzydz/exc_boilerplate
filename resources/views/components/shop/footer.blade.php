@@ -36,12 +36,9 @@
                         <ul>
                             <li><a href="{{ route($company->slug . '.index') }}">Anasayfa</a></li>
                             <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>
-                            <li><a href="#">Sipariş Takibi</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="pricing.html">Price</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="#">Pages</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ route($company->slug . '.cargoTracking.index') }}">Sipariş Takibi</a></li>
+                            <li><a href="{{ route($company->slug . '.contact.index') }}">İletişim</a></li>
+                            <li><a href="#">KVKK</a></li>
                         </ul>
                     </div>
                     <div class="copyright-inner">

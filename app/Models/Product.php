@@ -68,6 +68,11 @@ class Product extends Model implements Buyable
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'id', 'company_id');
+    }
+
     public function gallery()
     {
         return $this->hasMany(ProductGallery::class);

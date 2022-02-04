@@ -21,9 +21,9 @@
                         </div>
                         <div class="col-sm-4 mg-bottom-30">
                             <select class="select woocommerce-sorting-select float-sm-right">
-                                <option value="1">Default sorting</option>
-                                <option value="2">Sort by latest</option>
-                                <option value="3">Sort by rating</option>
+                                <option value="1">Varsayılan</option>
+                                <option value="2">Fiyata Göre</option>
+                                <option value="3">Son Eklenen</option>
                             </select>
                         </div>
                         @foreach ($products as $product)

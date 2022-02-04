@@ -3082,7 +3082,12 @@
     .sb-pricing-tabs {
         margin-bottom: 60px;
     }
-
+    .woocommerce-result-count {
+        line-height: unset!important;
+    }
+    .woocommerce-sorting-select {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 575px){
