@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- <x-pageTitle title="Ödeme Ve Teslimat"  /> --}}
+<x-pageTitle title="Ödeme Ve Teslimat"  />
 
 
 <section class=" clearfix">

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- <x-pageTitle title="Garanti Ve İade Koşılları"  /> --}}
+    <x-pageTitle title="Garanti Ve İade Koşulları"  />
 
 
 

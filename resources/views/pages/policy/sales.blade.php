@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- <x-pageTitle title="Satış Sözleşmesi" /> --}}
+    <x-pageTitle title="Satış Sözleşmesi" />
 
 
     <section class=" clearfix">

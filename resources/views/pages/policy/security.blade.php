@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- <x-pageTitle title="Gizlilik Ve Güvenlik" /> --}}
+    <x-pageTitle title="Gizlilik Ve Güvenlik" />
 
     <section class=" clearfix">
 

@@ -4,6 +4,7 @@
 
 @section('content')
 
+<x-pageTitle title="KVKK"  />
 
     <section class=" clearfix">
 
