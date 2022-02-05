@@ -203,7 +203,7 @@
                         <div class="img-wrap">
                             <img src="assets\img\we-provide\01.png" alt="video">
                             <div class="hover">
-                                <a href="https://www.youtube.com/watch?v=c7XEhXZ_rsk" class="video-play-btn mfp-iframe"><img
+                                <a href="#" class="video-play-btn mfp-iframe"><img
                                         src="assets\img\we-provide\3.svg" alt="video"></a>
                             </div>
                         </div>
