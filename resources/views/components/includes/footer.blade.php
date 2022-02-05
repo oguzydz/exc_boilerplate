@@ -49,7 +49,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                Kesinlikle yok, exxefy'a ücretsiz kayıt olabilir ve dilediğiniz kadar ürün ekleyebilirsiniz. Ücretlendirme yalnızca başarılı satışlarınızdan
+                                Kesinlikle yok, exxefy'a ücretsiz kayıt olabilir ve dilediğiniz kadar ürün ekleyebilirsiniz. Fiyatlandırma yalnızca başarılı satışlarınızdan
                                 kesilen %2,95 değerindeki komisyondan alınmaktadır.
                             </div>
                         </div>

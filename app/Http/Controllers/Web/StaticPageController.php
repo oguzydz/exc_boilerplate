@@ -14,7 +14,17 @@ class StaticPageController extends Controller
      */
     public function startNow()
     {
-        return view('pages.company.static-pages.start-now');
+        return view('pages.static-pages.start-now');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pricing()
+    {
+        return view('pages.static-pages.pricing');
     }
 
 }

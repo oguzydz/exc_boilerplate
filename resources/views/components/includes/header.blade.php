@@ -37,7 +37,7 @@
                     <a href="{{ route('startNow') }}">Hemen Başla</a>
                 </li>
                 <li>
-                    <a href="#">Fiyatlandırma</a>
+                    <a href="{{ route('pricing') }}">Fiyatlandırma</a>
                 </li>
                 <li>
                     <a href="#">İletişim</a>

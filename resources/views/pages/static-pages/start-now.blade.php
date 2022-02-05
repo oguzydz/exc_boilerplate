@@ -74,7 +74,7 @@
                 <div class="work-processing-details">
                     <div class="section-title style-four">
                         <h1 class="counting-number">4</h1>
-                        <h2 class="title">Ürünlerini <span>tüm ödeme yöntemleri</span> ile satmaya ve paketlemeye hazırsın</h2>
+                        <h2 class="title">Ürünlerini <span>tüm ödeme yöntemleri</span> ile satmaya ve paketlemeye hazırsın!</h2>
                         <p>
                             Mağazan müşterilerinin rahatlıkla ürünlerini görüntülemesi ve satın alması için hazır! Bu aşamadan sonra
                             sipariş, kargo ve müşteri yönetimi kısmında da exxefy hazır!
@@ -93,7 +93,7 @@
                 <div class="work-processing-details">
                     <div class="section-title style-four">
                         <h1 class="counting-number">5</h1>
-                        <h2 class="title">Gelişmiş <span>Gösterge Paneli</span> ile siparişlerini kontrol et!</h2>
+                        <h2 class="title">Gelişmiş <span>Gösterge Paneli</span> ile siparişleri kontrol et!</h2>
                         <p>
                             Exxefy'da mağazanda olup biteni çevrimiçi kontrol edebilirsin. Anlık sipariş rakamları,
                             kullanıcı sayısı, tamamlanan siparişler, kargo durumları gibi aradığın tüm kontroller bu ekranlarda

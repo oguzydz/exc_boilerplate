@@ -1,27 +1,16 @@
 <?php
 
-/**
- * Route Helper
- */
-
-use App\Http\Controllers\Api\CartController;
 use Illuminate\Support\Facades\Route;
-
-/**
- * Pages Controllers
- */
-
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\BlogController;
-use App\Http\Controllers\Web\CargoTrackingController;
-use App\Http\Controllers\Web\CategoryController;
-use App\Http\Controllers\Web\CompanyController;
-use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Company\CargoTrackingController;
+use App\Http\Controllers\Company\CategoryController;
+use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\Company\ContactController;
+use App\Http\Controllers\Web\ContactController as WebContactController;
 use App\Http\Controllers\Web\PolicyController;
-use App\Http\Controllers\Web\ProductController;
-use App\Http\Controllers\Web\ShopController;
 use App\Http\Controllers\Web\StaticPageController;
 use App\Models\Company;
 
@@ -29,10 +18,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
 
-Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');
-Route::post('/iletisim/gonder', [ContactController::class, 'send'])->name('contact.send');
+Route::get('/iletisim', [WebContactController::class, 'index'])->name('contact');
+Route::post('/iletisim/gonder', [WebContactController::class, 'send'])->name('contact.send');
 
 Route::get('/hemen-basla', [StaticPageController::class, 'startNow'])->name('startNow');
+Route::get('/fiyatlandirma', [StaticPageController::class, 'pricing'])->name('pricing');
 
 Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
     Route::get('/garanti-iade', [PolicyController::class, 'index'])->name('index');

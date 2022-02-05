@@ -1,34 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
-use App\View\Components\Shop\Header;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class CargoTrackingController extends Controller
 {
-    public $company;
-
-    public function __construct(Header $header)
-    {
-        $this->company = $header->company;
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $products = Product::where(['company_id' => $this->company->id, 'status' => Product::STATUS_ACTIVE])->paginate(20);
-
-        return view('pages.company.index', [
-            'products' => $products,
-            'company' => $this->company,
+        return view('pages.company.cargo-tracking.index', [
+            //
         ]);
     }
 
@@ -37,11 +24,9 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function checkout()
+    public function create()
     {
-        return view('pages.company.payment.checkout', [
-            //
-        ]);
+        //
     }
 
     /**
@@ -58,19 +43,12 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug, Request $request)
+    public function show($id)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
-
-        return view('pages.company.show', [
-            'product' => $product,
-            'relatedProducts' => $relatedProducts,
-            'companySlug' => $request->route()->action['slug'],
-        ]);
+        //
     }
 
     /**

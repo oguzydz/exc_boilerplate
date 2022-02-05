@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\View\Components\Shop\Header;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CategoryController extends Controller
+class ContactController extends Controller
 {
     public $company;
 
@@ -24,12 +24,34 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where(['company_id' => $this->company->id, 'status' => Category::STATUS_ACTIVE])->paginate(20);
-
-        return view('pages.company.category.index', [
-            'categories' => $categories,
+        return view('pages.company.contact.index', [
             'company' => $this->company,
         ]);
+    }
+
+
+    public function send(Request $request)
+    {
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'text' => $request->text,
+            'message' => $request->message,
+        ];
+
+        try {
+            Contact::create($data);
+
+            $request->session()->flash('type', 'success');
+
+            return redirect()->back()->with('toast_success', __('Bilgi talebiniz başarıyla iletildi en kısa süre içinde iletişime geçmiş olacağız!'));
+        } catch (\Exception $e) {
+
+            $request->session()->flash('type', 'error');
+            return redirect()->back()->with('toast_error', __('Lütfen gerekli alanları istenilene göre doldurmayı unutmayınız!'));
+
+        }
+
     }
 
     /**
@@ -56,19 +78,12 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string $categorySlug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(string $categorySlug, Request $request)
+    public function show($id)
     {
-        $category = Category::where('slug', $categorySlug)->firstOrFail();
-        $categoryProducts = $category->products()->paginate(10);
-
-        return view('pages.company.category.show', [
-            'category' => $category,
-            'categoryProducts' => $categoryProducts,
-            'company' => $this->company,
-        ]);
+        //
     }
 
     /**
