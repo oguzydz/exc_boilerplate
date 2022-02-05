@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Garanti Ve İade Koşulları - Exxestock')
+@section('title', 'Garanti Ve İade Koşulları - Exxefy')
 
 
 @section('content')

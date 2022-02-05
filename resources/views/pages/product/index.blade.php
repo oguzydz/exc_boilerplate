@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Ürünler - Exxestock')
+@section('title', 'Ürünler - Exxefy')
 
 
 @section('content')

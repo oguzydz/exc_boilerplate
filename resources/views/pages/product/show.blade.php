@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', $product->title . ' - Exxestock')
+@section('title', $product->title . ' - Exxefy')
 @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri')
 
 

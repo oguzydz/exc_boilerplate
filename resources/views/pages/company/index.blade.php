@@ -1,5 +1,5 @@
 @extends('layouts.shop.light')
-@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxestock')
+@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxefy')
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 

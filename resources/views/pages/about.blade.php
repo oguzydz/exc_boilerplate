@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Hakkımızda - Exxestock')
+@section('title', 'Hakkımızda - Exxefy')
 
 
 @section('content')
@@ -21,7 +21,7 @@
                     <div class="sect-icon text-left fadeInUp" data-wow-delay="0.2s">
                         <img src="img\svg\section-icon-2.svg" alt="">
                     </div>
-                    <h4 class="fadeInUp" data-wow-delay="0.3s">Exxestock - Lisanslı Ürün Platormu</h4>
+                    <h4 class="fadeInUp" data-wow-delay="0.3s">Exxefy - Lisanslı Ürün Platormu</h4>
                     <p class="fadeInUp" data-wow-delay="0.4s">
                         exxefy.com, sağlamış olduğu sağlamış olduğu altyapı sayesinde Stok görsel, lisanslı hesaplar ve hayatı kolaylaştıran birçok dijital lisansı en uygun fiyata sağlamaktadır.
                     </p>

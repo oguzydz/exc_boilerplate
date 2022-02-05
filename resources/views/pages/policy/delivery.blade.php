@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Ödeme Ve Teslimat - Exxestock')
+@section('title', 'Ödeme Ve Teslimat - Exxefy')
 
 
 @section('content')
