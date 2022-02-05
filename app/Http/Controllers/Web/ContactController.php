@@ -6,17 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\View\Components\Shop\Header;
 
 class ContactController extends Controller
 {
-    public $company;
-
-    public function __construct(Header $header)
-    {
-        $this->company = $header->company;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +16,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('pages.company.contact.index', [
-            'company' => $this->company,
+        return view('pages.contact', [
+            //
         ]);
     }
 

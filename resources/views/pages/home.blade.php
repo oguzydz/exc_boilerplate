@@ -1,6 +1,6 @@
 @extends('layouts.web')
-@section('title', 'Kendi Özel Mağazanızı Açın ve Ürünlerinizi Kolayca Satın - Exxefy')
-@section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar.')
+@section('title', 'Kendi Özel Mağazanızı Açın ve Satış Yapın - Exxefy')
+@section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy ile hemen bir online mağaza açıp satış yapmaya başlayın!')
 
 @section('content')
     <!-- header area start -->
@@ -251,7 +251,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center ">
                     <div class="section-title style-two mb-0">
-                        <h2 class="title">Bizi Kullananlar <span>Ne Diyor?</span></h2>
+                        <h2 class="title">Kullanıcılarımız <span>Ne Diyor?</span></h2>
                         <p>
                             Exxefy sayesinde işini geliştiren, kullanıcılarımız bizim
                             hakkımızda ne anlatıyor? Sizlerde ücretsiz mağazanızı açarak hemen satış yapmaya başlayabilirsiniz.
@@ -265,10 +265,10 @@
                                 <ul id="testimonial-slider">
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\4.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Yunus Emre Öztürk</h6>
-                                                <p class="designation">Exxecode</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -278,15 +278,16 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\5.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Yunus Emre Öztürk</h6>
-                                                <p class="designation">Exxecode</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -296,15 +297,16 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\6.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>John Mojika</h6>
-                                                <p class="designation">CTO of Uxa</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -314,15 +316,16 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\4.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Refule Mia</h6>
-                                                <p class="designation">CEO at craft</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -332,15 +335,16 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\5.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Madeniko Mojika</h6>
-                                                <p class="designation">Branding Idendity</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -350,15 +354,16 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="assets\img\client\6.png" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Madeniko Mojika</h6>
-                                                <p class="designation">CTO of Uxa</p>
+                                                <h6>Müşteri Adı</h6>
+                                                <p class="designation">Müşteri Firması</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -368,8 +373,9 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Our support team will get assistance from AI-powered suggestions, making it
-                                            quicker than ever to handle support requests.</p>
+                                        <p>
+                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                        </p>
                                     </li>
                                 </ul>
                             </div>

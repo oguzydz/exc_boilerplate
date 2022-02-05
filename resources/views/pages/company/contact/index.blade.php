@@ -23,7 +23,7 @@
                 <img src="{{ asset('assets\img\others\21.png') }}" alt="blog">
             </div>
             <div class="col-lg-7 offset-xl-1">
-                <form class="riyaqas-form-wrap mt-5 mt-lg-0">
+                <form class="exxefy-form-wrap mt-5 mt-lg-0">
                     <div class="row custom-gutters-16">
                         <div class="col-md-6">
                             <div class="single-input-wrap">

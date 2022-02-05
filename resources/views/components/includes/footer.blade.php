@@ -143,11 +143,11 @@
                     <div class="footer-widget widget widget_nav_menu">
                         <h4 class="widget-title">Faydalı Linkler</h4>
                         <ul>
-                            <li><a href="#">Hemen Başla</a></li>
-                            <li><a href="#">Giriş Yap</a></li>
-                            <li><a href="#">Fiyatlandırma</a></li>
-                            <li><a href="#">Hakkımızda</a></li>
-                            <li><a href="#">İletişim</a></li>
+                            <li><a href="{{ route('startNow') }}">Hemen Başla</a></li>
+                            <li><a href="{{ route('pricing') }}">Fiyatlandırma</a></li>
+                            <li><a href="{{ route('contact') }}">İletişim</a></li>
+                            <li><a href="{{ route('login') }}">Giriş Yap</a></li>
+                            <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
                         </ul>
                     </div>
                 </div>
@@ -155,11 +155,11 @@
                     <div class="footer-widget widget widget_nav_menu">
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
-                            <li><a href="{{route('policy.delivery')}}">7/24 Destek</a></li>
-                            <li><a href="{{route('policy.index')}}">Kullanım Koşulları</a></li>
-                            <li><a href="{{route('policy.sales')}}">Kullanıcı Sözleşmesi</a></li>
-                            <li><a href="{{route('policy.security')}}">Gizlilik Politikası</a></li>
-                            <li><a href="{{route('policy.agreement')}}">KVKK</a></li>
+                            <li><a href="{{ route('contact') }}">7/24 Destek</a></li>
+                            <li><a href="{{ route('policy.index') }}">Kullanım Koşulları</a></li>
+                            <li><a href="{{ route('policy.sales') }}">Kullanıcı Sözleşmesi</a></li>
+                            <li><a href="{{ route('policy.security') }}">Gizlilik Politikası</a></li>
+                            <li><a href="{{ route('policy.agreement') }}">KVKK</a></li>
                         </ul>
                     </div>
                 </div>
@@ -167,11 +167,12 @@
                     <div class="footer-widget widget ">
                         <h4 class="widget-title">İletişim</h4>
                         <div class="contact_info_list">
-                            <p class="contact-content">
-                                1222. Sokak, Fatih Sultan Mehmet Mahallesi, Ümraniye İstanbul
-                            </p>
                             <p><span>Telefon:</span> 0 (850) 111 11 11</p>
                             <p><span>E-Posta:</span> info@exxefy.com</p>
+                            <p class="contact-content">
+                                <span>Adres:</span>
+                                1222. Sokak, Fatih Sultan Mehmet Mahallesi, Relux Plaza, Ümraniye/İstanbul
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -180,17 +181,10 @@
                         <h4 class="widget-title">Kullanıcı Rehberi</h4>
                         <div class="about_recent_post">
                             <div class="media">
-                                <img src="assets/img/blog/widget1.png" alt="post">
+                                <img src="{{ asset('assets/img/blog/widget1.png') }}" alt="post">
                                 <div class="media-body">
-                                    <h6><a href="#">New Feature Added</a></h6>
-                                    <span>21 August 2019</span>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <img src="assets/img/blog/widget2.png" alt="post">
-                                <div class="media-body">
-                                    <h6><a href="#">Business Development</a></h6>
-                                    <span>21 August 2019</span>
+                                    <h6><a href="#">Exxefy'da Satış Yapmak</a></h6>
+                                    <span>02 Ocak 2021</span>
                                 </div>
                             </div>
                        </div>

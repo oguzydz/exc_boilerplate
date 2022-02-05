@@ -40,7 +40,7 @@
                     <a href="{{ route('pricing') }}">Fiyatlandırma</a>
                 </li>
                 <li>
-                    <a href="#">İletişim</a>
+                    <a href="{{ route('contact') }}">İletişim</a>
                 </li>
             </ul>
         </div>
