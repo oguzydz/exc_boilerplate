@@ -1,6 +1,6 @@
 @extends('layouts.web')
-@section('title', 'Kendi Özel Mağazanızı Açın ve Ürünlerinizi Kolayca Satın - Exxefy')
-@section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar.')
+@section('title', 'Online Mağaza Fiyatlandırma - Exxefy')
+@section('description', 'En uygun komisyon fiyatı ile ürünlerini hemen online mağazanda satmaya başla.')
 
 @section('content')
 <x-pageTitle title="Fiyatlandırma" />

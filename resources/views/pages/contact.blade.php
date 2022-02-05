@@ -1,5 +1,6 @@
 @extends('layouts.web')
-@section('title', 'İletişim - Exxestock')
+@section('title', 'İletişim - Exxefy')
+@section('description', 'İletişim araçları yardımıyla 7/24 Exxefy teknik ekibinden yardım alabilirsiniz.')
 
 
 @section('content')

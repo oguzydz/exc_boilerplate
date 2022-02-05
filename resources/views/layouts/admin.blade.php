@@ -6,14 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- @if ($isAdmin)
-        <title>Stockburada - Admin Paneli</title>
-    @else
-        <title>Stockburada - Kullanıcı Paneli</title>
-    @endif --}}
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/img/core-img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets\img\exxefy-fav.png') }}" sizes="20x20" type="image/png">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -28,15 +22,6 @@
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2KRFXY0JBK"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-2KRFXY0JBK');
-    </script>
 </head>
 
 <body class="font-sans antialiased body-scrollbar">

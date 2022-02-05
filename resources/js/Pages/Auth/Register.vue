@@ -1,4 +1,5 @@
 <template>
+<inertia-head title="Ücretsiz Hesap Oluştur - Exxefy"></inertia-head>
     <div
         class="bg-light register min-vh-100 d-flex flex-row align-items-center"
         style="
