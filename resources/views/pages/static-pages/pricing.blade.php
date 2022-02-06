@@ -31,7 +31,7 @@
                     <a class="btn btn-white btn-rounded" href="{{ route('register') }}">Hemen Başla</a>
                 </div>
             </div>
-            <div class="col-xl-9 col-lg-4 col-sm-6">
+            <div class="col-xl-8 col-lg-4 col-sm-6 offset-md-1">
                 <div class="section-title style-two mb-0">
                     <h2 class="title">Hemen <span>En Uygun</span> fiyatlandırma ile satışa başla!</h2>
                     <p>

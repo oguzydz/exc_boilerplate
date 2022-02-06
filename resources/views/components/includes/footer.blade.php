@@ -156,8 +156,7 @@
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
                             <li><a href="{{ route('contact') }}">7/24 Destek</a></li>
-                            <li><a href="#">Kargo Takip</a></li>
-                            <li><a href="#">Sipariş Bul</a></li>
+                            <li><a href="#">Sipariş Takip</a></li>
                         </ul>
                     </div>
                 </div>
@@ -169,7 +168,7 @@
                             <p><span>E-Posta:</span> info@exxefy.com</p>
                             <p class="contact-content">
                                 <span>Adres:</span>
-                                1222. Sokak, Fatih Sultan Mehmet Mahallesi, Relux Plaza, Ümraniye/İstanbul
+                                Relux Plaza, Ümraniye/İstanbul
                             </p>
                         </div>
                     </div>

@@ -1085,6 +1085,12 @@
 /* Medium Layout: 1024px. */
 @media only screen and (max-width: 1198px){
     .navbar-area .nav-container .navbar-collapse .navbar-nav li {
+        font-size: 13px;
+    }
+    .navbar-area .nav-container .nav-right-content ul li a {
+        font-size: 11px;
+    }
+    .navbar-area .nav-container .navbar-collapse .navbar-nav li {
         margin: 0 15px;
     }
     .navbar-area .nav-container .nav-right-content ul li {
