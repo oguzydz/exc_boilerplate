@@ -3,7 +3,6 @@
 @section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy ile hemen bir online mağaza açıp satış yapmaya başlayın!')
 
 @section('content')
-    <!-- header area start -->
     <div class="header-area header-bg" style="background-image:url({{ asset('assets/img/bg/banner-bg.png') }});">
         <div class="container">
             <div class="banner-slider banner-slider-one">
@@ -105,9 +104,7 @@
             </div>
         </div>
     </div>
-    <!-- header area End -->
 
-    <!-- service area start -->
     <div class="service-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -179,8 +176,6 @@
             </div>
         </div>
     </div>
-    <!-- service area End -->
-
 
     <div class="sba-work-area img-with-video-area">
         <div class="container">
@@ -244,7 +239,6 @@
         </div>
     </div>
 
-    <!-- testimonial area Start -->
     <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120"
         style="background-image:url(assets/img/bg/1h3.png);">
         <div class="container">
@@ -253,7 +247,7 @@
                     <div class="section-title style-two mb-0">
                         <h2 class="title">Kullanıcılarımız <span>Ne Diyor?</span></h2>
                         <p>
-                            Exxefy sayesinde işini geliştiren, kullanıcılarımız bizim
+                            Exxefy sayesinde işini geliştiren kullanıcılarımız bizim
                             hakkımızda ne anlatıyor? Sizlerde ücretsiz mağazanızı açarak hemen satış yapmaya başlayabilirsiniz.
                         </p>
                     </div>
@@ -389,6 +383,4 @@
             </div>
         </div>
     </div>
-    <!-- testimonial area End -->
-
 @endsection
