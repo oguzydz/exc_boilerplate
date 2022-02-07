@@ -3,7 +3,6 @@
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 @section('content')
-
 <div class="job-listing-page pd-top-190">
     <div class="container">
         <div class="row justify-content-center">
@@ -12,7 +11,7 @@
                     <h2 class="title">Sipariş Takibi</h2>
                     <p>Aşağıya sipariş numaranızı girerek siparişinizin durumu hakkında tüm bilgilere ulaşabilirsiniz.</p>
                 </div>
-                <div class="job-apply-area">
+                <div class="category-apply-area">
                     <form class="exxefy-form-wrap">
                         <div class="row">
                             <div class="col-md-12">

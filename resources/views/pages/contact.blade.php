@@ -75,7 +75,7 @@
                                 <p class="sub-title">
                                     Aşağıda bizimle doğrudan iletişime geçebileceğin adresler ve şirket bilgileri yer almaktadır.
                                 </p>
-                                <p><span>Adres:</span> 1222. Sokak, Fatih Sultan Mehmet Mahallesi, Relux Plaza
+                                <p><span>Adres:</span> 1222. Sokak, Fatih Sultan Mehmet Mahallesi, Relux Plaza,
                                     <br> Ümraniye/İstanbul</p>
                                 <p><span>Telefon:</span> 0 (850) 111 11 11</p>
                                 <p><span>E-Posta:</span> info@exxefy.com</p>
