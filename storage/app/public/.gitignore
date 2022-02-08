@@ -1,2 +1,5 @@
 *
 !.gitignore
+!company-assets/
+!company-assets/example-bg.png
+!company-assets/example-logov.jpg

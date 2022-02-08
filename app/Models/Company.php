@@ -9,7 +9,7 @@ class Company extends Model
 {
     use HasFactory;
 
-    const EXAMPLE_LOGO_URL = 'company-assets/example-logo.png';
+    const EXAMPLE_LOGO_URL = 'company-assets/example-logov.jpg';
     const EXAMPLE_BG_URL = 'company-assets/example-bg.png';
 
     public $fillable = [
