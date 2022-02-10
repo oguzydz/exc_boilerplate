@@ -1,6 +1,6 @@
 <template>
-<inertia-head title="Kullanıcı Giriş - Exxefy"></inertia-head>
-<div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bg.jpg); background-size: cover; background-position: center;">
+<inertia-head title="Kullanıcı Girişi - Exxefy"></inertia-head>
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bgv.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 shadow-lg  ">
