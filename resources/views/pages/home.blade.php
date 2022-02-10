@@ -189,7 +189,7 @@
                             Mağazanızı özelleştirip, ürünlerinizi listeleyebilir ve dakikalar içerisinde satışa hazır
                             olabilirsiniz.
                         </p>
-                        <a class="btn btn-green text-white" href="{{ route('register') }}" style="line-height: 52px;">Hemen Başla</a>
+                        <a class="btn btn-green text-white" href="{{ route('startNow') }}" style="line-height: 52px;">Hemen Başla</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 order-lg-1 wow animated fadeInLeft" data-wow-duration="1s"
