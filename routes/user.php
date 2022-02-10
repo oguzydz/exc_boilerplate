@@ -58,14 +58,14 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/update', [ProductController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
 
-        Route::group(['prefix' => 'feature/{productId}', 'as' => 'feature.'], function () {
-            Route::get('/', [ProductFeatureController::class, 'index'])->name('index');
-            Route::get('/create', [ProductFeatureController::class, 'create'])->name('create');
-            Route::post('/store', [ProductFeatureController::class, 'store'])->name('store');
-            Route::get('/edit/{featureId}', [ProductFeatureController::class, 'edit'])->name('edit');
-            Route::post('/update', [ProductFeatureController::class, 'update'])->name('update');
-            Route::post('/destroy/{featureId}', [ProductFeatureController::class, 'destroy'])->name('destroy');
-        });
+        // Route::group(['prefix' => 'feature/{productId}', 'as' => 'feature.'], function () {
+        //     Route::get('/', [ProductFeatureController::class, 'index'])->name('index');
+        //     Route::get('/create', [ProductFeatureController::class, 'create'])->name('create');
+        //     Route::post('/store', [ProductFeatureController::class, 'store'])->name('store');
+        //     Route::get('/edit/{featureId}', [ProductFeatureController::class, 'edit'])->name('edit');
+        //     Route::post('/update', [ProductFeatureController::class, 'update'])->name('update');
+        //     Route::post('/destroy/{featureId}', [ProductFeatureController::class, 'destroy'])->name('destroy');
+        // });
 
         Route::group(['prefix' => 'gallery/{productId}', 'as' => 'gallery.'], function () {
             Route::get('/', [ProductGalleryController::class, 'index'])->name('index');

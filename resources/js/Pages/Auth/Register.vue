@@ -185,10 +185,9 @@
                                 justify-center
                             "
                         >
-                            <img
-                                class="img-login"
-                                src="/assets/img/exxefy-logo-white.png"
-                            />
+                            <a :href="route('home')">
+                                <img class="img-register" src="/assets/img/exxefy-logo-white.png" />
+                            </a>
                         </div>
                     </div>
                 </div>

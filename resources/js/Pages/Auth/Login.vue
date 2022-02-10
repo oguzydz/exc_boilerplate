@@ -1,5 +1,5 @@
 <template>
-<inertia-head title="Kullanıcı Girişi - Exxefy"></inertia-head>
+<inertia-head title="Giriş Yap - Exxefy"></inertia-head>
 <div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bgv.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container">
         <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                                     <span class="input-group-text">
                                         <i class="fad fa-user"></i>
                                     </span>
-                                    <input class="form-control" type="text" placeholder="E-Posta" v-model="form.email" required autofocus />
+                                    <input class="form-control" type="email" placeholder="E-Posta" v-model="form.email" required autofocus />
                                 </div>
                                 <div class="input-group mb-4">
                                     <span class="bg-red-500 input-group-text">
@@ -37,13 +37,20 @@
                                                 Hesabın yok mu? Hemen ücretsiz hesap oluştur!
                                             </a>
                                         </p>
+                                        <p class="text-medium-emphasis mt-1 mb-0">
+                                            <a href="#" @click="$inertia.get(route('password.request'))" class="font-semibold text-black">
+                                                Şifremi Unuttum?
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="bg-[#01358D] col-md-5 text-white rounded-r py-5 flex items-center justify-center" >
-                        <img class="img-register" src="/assets/img/exxefy-logo-white.png" />
+                        <a :href="route('home')">
+                            <img class="img-register" src="/assets/img/exxefy-logo-white.png" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -51,17 +58,6 @@
     </div>
 </div>
 </template>
-
-<style>
-@media screen and (max-width: 768px) {
-    .login {
-        min-width: unset;
-        background-image: unset !important;
-        background-color: white !important;
-        align-items: unset !important;
-    }
-}
-</style>
 
 <script>
 import JetButton from '@/Jetstream/Button'
@@ -98,6 +94,15 @@ export default {
 }
 </script>
 <style>
+@media screen and (max-width: 768px) {
+    .login {
+        min-width: unset;
+        background-image: unset !important;
+        background-color: white !important;
+        align-items: unset !important;
+    }
+}
+
 h1 {
   font-size: 24px;
   font-weight: bold;
