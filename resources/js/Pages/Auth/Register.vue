@@ -203,6 +203,7 @@
         min-width: unset;
         background-image: unset !important;
         background-color: white !important;
+        align-items: unset !important;
     }
 }
 </style>
