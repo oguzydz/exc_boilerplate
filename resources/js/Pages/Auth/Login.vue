@@ -1,6 +1,6 @@
 <template>
 <inertia-head title="Giriş Yap - Exxefy"></inertia-head>
-<div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bgfy.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center login" style="background-image: url(/assets/img/login-bgfy.jpeg); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 shadow-lg  ">
