@@ -45,8 +45,8 @@
                 <li class="d-lg-none">
                     <a href="{{ route('login') }}">Giriş Yap</a>
                 </li>
-                <li class="d-lg-none m-register-button">
-                    <a class="btn btn-green text-white" href="{{ route('register') }}">Ücretsiz Kayıt Ol</a>
+                <li class="d-lg-none">
+                    <a class="btn btn-green text-white m-register-button" href="{{ route('register') }}">Ücretsiz Kayıt Ol</a>
                 </li>
             </ul>
         </div>
