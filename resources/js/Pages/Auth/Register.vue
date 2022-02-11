@@ -3,7 +3,7 @@
     <div
         class="bg-light register min-vh-100 d-flex flex-row align-items-center"
         style="
-            background-image: url(/assets/img/register-bg.png);
+            background-image: url(/assets/img/register-bgfy.jpg);
             background-size: cover;
             background-position: center;
         "
