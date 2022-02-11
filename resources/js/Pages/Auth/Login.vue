@@ -115,6 +115,6 @@ input::-webkit-input-placeholder {
   font-size: 14px;
 }
 .img-register {
-    width: 175px;
+    width: 120px;
 }
 </style>

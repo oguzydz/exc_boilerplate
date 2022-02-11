@@ -263,6 +263,6 @@ input::-webkit-input-placeholder {
     font-size: 14px;
 }
 .img-login {
-    width: 175px;
+    width: 120px;
 }
 </style>
