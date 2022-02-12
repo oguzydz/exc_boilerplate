@@ -98,6 +98,7 @@ export default {
     .login {
         background-image: unset !important;
         background-color: white !important;
+        align-items: unset !important;
     }
 }
 

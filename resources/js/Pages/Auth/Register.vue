@@ -202,6 +202,7 @@
         min-width: unset;
         background-image: unset !important;
         background-color: white !important;
+        align-items: unset !important;
     }
 }
 </style>
@@ -261,7 +262,7 @@ input::-webkit-input-placeholder {
     font-weight: 500;
     font-size: 14px;
 }
-.img-login {
+.img-register {
     width: 120px;
 }
 </style>
