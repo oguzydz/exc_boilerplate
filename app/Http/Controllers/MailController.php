@@ -10,6 +10,7 @@ class MailController extends Controller
 {
    public function sendMail()
    {
+       dd("asd");
         Mail::to('noomercy81@gmail.com')->send(new OrderShipped());
    }
 }
