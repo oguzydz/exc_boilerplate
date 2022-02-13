@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Company\CargoTrackingController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\Web\ContactController as WebContactController;
 use App\Http\Controllers\Web\PolicyController;
 use App\Http\Controllers\Web\StaticPageController;
 use App\Models\Company;
+
+Route::get('/send-mail', [MailController::class, 'sendMail'])->name('send.mail');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');

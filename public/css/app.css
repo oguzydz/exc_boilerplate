@@ -1222,12 +1222,12 @@ video {
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }.bg-transparent{
 	background-color: transparent;
-}.bg-red-500{
-	--tw-bg-opacity: 1;
-	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }.bg-\[\#01358D\]{
 	--tw-bg-opacity: 1;
 	background-color: rgba(1, 53, 141, var(--tw-bg-opacity));
+}.bg-red-500{
+	--tw-bg-opacity: 1;
+	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }.bg-\[\#25D366\]{
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 211, 102, var(--tw-bg-opacity));
