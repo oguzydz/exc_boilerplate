@@ -1,6 +1,7 @@
 <head>
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
+    <meta name="yandex-verification" content="4a5766b4ec2b07fa" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
