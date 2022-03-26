@@ -126,7 +126,7 @@
                             <p>ALICI, sözleşme konusu mal/hizmetin kendisine veya gösterdiği adresteki
                                 kişi/kuruluşa tesliminden itibaren 7 (yedi) gün içinde cayma hakkını
                                 kullanabilir. Cayma hakkının kullanılması için aynı süre içinde SATICI’ya faks,
-                                e-posta (info@exxefy.com) veya +90 542 286 8415 nolu telefon ile bildirimde
+                                e-posta (info@exxefy.com) veya +90 537 496 50 01 nolu telefon ile bildirimde
                                 bulunulması ve mal/hizmetin 14. madde hükümleri çerçevesinde ve iş bu
                                 sözleşmenin ayrılmaz parçası olan ve ww www.exxefy.com web sitesinde
                                 yayınlanmış olan önbilgiler gereğince, ambalaj ve içeriğinin denenirken hasar
