@@ -34,11 +34,11 @@
                     </div>
                     <div class="footer-widget widget widget_nav_menu text-center">
                         <ul>
-                            <li><a href="{{ route('policy.index') }}">Teslimat ve İade</a></li>
-                            <li><a href="{{ route('policy.security') }}">Gizlilik Politikası</a></li>
-                            <li><a href="{{ route('policy.delivery') }}">Ödeme Teslimat</a></li>
-                            <li><a href="{{ route('policy.agreement') }}">Üyelik Sözleşmesi</a></li>
-                            <li><a href="{{ route('policy.sales') }}"> Satış Sözleşmesi</a></li>
+                            <li><a href="{{ route('policy.index') }}" target="blank">Teslimat ve İade</a></li>
+                            <li><a href="{{ route('policy.security') }}" target="blank">Gizlilik Politikası</a></li>
+                            <li><a href="{{ route('policy.delivery') }}" target="blank">Ödeme Teslimat</a></li>
+                            <li><a href="{{ route('policy.agreement') }}" target="blank">Üyelik Sözleşmesi</a></li>
+                            <li><a href="{{ route('policy.sales') }}" target="blank">Satış Sözleşmesi</a></li>
                         </ul>
                     </div>
                     <div class="container text-center mb-5 ">
