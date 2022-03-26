@@ -38,7 +38,7 @@
                             <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>
                             <li><a href="{{ route($company->slug . '.cargoTracking.index') }}">Sipariş Takibi</a></li>
                             <li><a href="{{ route($company->slug . '.contact.index') }}">İletişim</a></li>
-                            <li><a href="#">KVKK</a></li>
+                            <li><a href="{{ route('policy.security') }}">KVKK</a></li>
                         </ul>
                     </div>
                     <div class="container text-center mb-3">

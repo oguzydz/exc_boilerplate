@@ -145,10 +145,10 @@
                         <ul>
                             <li><a href="{{ route('startNow') }}">Hemen Başla</a></li>
                             <li><a href="{{ route('pricing') }}">Fiyatlandırma</a></li>
+                            <li><a href="{{ route('about') }}">Hakkımızda</a></li>
                             <li><a href="{{ route('contact') }}">İletişim</a></li>
                             <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                             <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
-                            <li><a href="{{ route('about') }}">Hakkımızda</a></li>
                         </ul>
                     </div>
                 </div>

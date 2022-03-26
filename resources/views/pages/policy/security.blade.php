@@ -13,7 +13,7 @@
                 <div class="row justify-content-center ">
                     <div class="col-xl-12 col-lg-10">
                         <div class="section-title ">
-                            <p> 1. Exxefy A.Ş. (“Exxefy” veya “Şirket”), Satıcılara kendi internet sitelerinden,
+                            <p> 1. Exxefy (“Exxefy” veya “Şirket”), Satıcılara kendi internet sitelerinden,
                                 sosyal medya hesapları ve blogları üzerinden satışa sundukları ürünlerin alıcılar tarafından
                                 satın alınmasına platform sağlayan bir elektronik ticaret çözümü olarak hizmet vermektedir.
                             </p>
@@ -186,8 +186,8 @@
                         </p>
                             KVKK’nın 11. maddesi kapsamındaki başvurular için:
                             <ul>
-                                <li>- Veri Sorumlusu: Exxe Code</li>
-                                <li>- Adres: Relux Plaza, Ümraniye/İstanbul</li>
+                                <li>Veri Sorumlusu: Exxecode</li>
+                                <li> Adres: Relux Plaza, Ümraniye/İstanbul</li>
                             </ul>
 
                         </div>
