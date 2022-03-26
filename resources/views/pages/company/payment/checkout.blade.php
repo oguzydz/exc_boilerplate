@@ -84,9 +84,7 @@
                                                     <input name="payment_type" type="radio" checked required
                                                         class="single-input">
                                                     Kredi Kartı ile Öde
-                                                    <a href="#"><img src="{{ asset('assets\img\checkout\2.svg') }}"
-                                                            alt="img"></a>
-                                                    <a href="#"><img src="{{ asset('assets\img\checkout\4.svg') }}"
+                                                    <a href="#"><img src="{{ asset('assets\img\footer/footer_logo-2.png') }}"
                                                             alt="img"></a>
                                                 </li>
                                                 <li>
