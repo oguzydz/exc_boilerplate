@@ -6,34 +6,34 @@
 
     <x-pageTitle title="Hakkımızda" />
 
- <section class="about-us-area section-padding-100 clearfix">
-
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 offset-lg-0 col-md-12 no-padding-left">
-                <div class="welcome-meter fadeInUp" data-wow-delay="0.7s">
-                    <img src="https://image.shutterstock.com/image-illustration/sisyphus-man-pushing-heavy-bolder-600w-123855541.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6 offset-lg-0 col-md-10 offset-md-1">
-                <div class="who-we-contant mt-s">
-                    <div class="sect-icon text-left fadeInUp" data-wow-delay="0.2s">
-                        <img src="img\svg\section-icon-2.svg" alt="">
+    <div class="about-provide-area pd-top-120 bg-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-6">
+                    <div class="img-with-video">
+                        <div class="img-wrap">
+                            <img src="assets/img/we-provide/1.png" alt="video">
+                            <div class="hover">
+                                <a href="https://www.youtube.com/watch?v=c7XEhXZ_rsk" class="video-play-btn mfp-iframe"><img src="assets/img/we-provide/3.svg" alt="video"></a>
+                            </div>
+                        </div>
                     </div>
-                    <h4 class="fadeInUp" data-wow-delay="0.3s">Exxefy - Lisanslı Ürün Platormu</h4>
-                    <p class="fadeInUp" data-wow-delay="0.4s">
-                        exxefy.com, sağlamış olduğu sağlamış olduğu altyapı sayesinde Stok görsel, lisanslı hesaplar ve hayatı kolaylaştıran birçok dijital lisansı en uygun fiyata sağlamaktadır.
-                    </p>
-                    <p class="fadeInUp" data-wow-delay="0.5s">
-                        Tüm ürünler kendi yasal, orijinal hesaplarımızdan hazırlanarak zaman ve mekan farketmeksizin anında gönderilmektedir.
-                    </p>
-                    <a class="btn info-btn mt-30 fadeInUp" data-wow-delay="0.6s" href="{{ route('product.index') }}">Ürünlerimiz</a>
+                </div>
+                <div class="col-xl-5 col-lg-6 desktop-center-item">
+                    <div>
+                        <div class="section-title style-two">
+                            <h2 class="title">Exxefy <span>Ne Yapar?</span></h2>
+                            <p>
+                                Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Gelişmiş ve kullanışlı altyapısı ile müşterilerinize yüksek seviye deneyim ve ödeme kolaylığı yaratır.
+                            </p>
+                            <p>
+                                Özelleştirilmiş mağazanız ve panel yönetimi ile kolay bir şekilde satış yapma imkanı sağlar. Birçok yeni ve gelişmiş özellikleriyle e-ticaret ve ödeme altyapıları sunmaktadır.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-</section>
 
 @endsection

@@ -148,6 +148,7 @@
                             <li><a href="{{ route('contact') }}">İletişim</a></li>
                             <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                             <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
+                            <li><a href="{{ route('about') }}">Hakkımızda</a></li>
                         </ul>
                     </div>
                 </div>
@@ -164,7 +165,7 @@
                     <div class="footer-widget widget ">
                         <h4 class="widget-title">İletişim</h4>
                         <div class="contact_info_list">
-                            <p><span>Telefon:</span> 0 (850) 111 11 11</p>
+                            <p><span>Telefon:</span> +(90) 537 496 50 01</p>
                             <p><span>E-Posta:</span> info@exxefy.com</p>
                             <p class="contact-content">
                                 <span>Adres:</span>

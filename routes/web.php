@@ -24,6 +24,8 @@ Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
 Route::get('/iletisim', [WebContactController::class, 'index'])->name('contact');
 Route::post('/iletisim/gonder', [WebContactController::class, 'send'])->name('contact.send');
 
+Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
+
 Route::get('/hemen-basla', [StaticPageController::class, 'startNow'])->name('startNow');
 Route::get('/fiyatlandirma', [StaticPageController::class, 'pricing'])->name('pricing');
 
