@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Üyelik Sözleşmesi - Exxefy')
+@section('title', 'Mesafeli Üyelik Sözleşmesi - Exxefy')
 
 
 @section('content')
@@ -15,9 +15,7 @@
                         <div class="section-title ">
                             <p><strong>1. Taraflar</strong></p>
 
-                            <p><strong>a)</strong>&nbsp;www.exxefy.com internet sitesinin faaliyetlerini yürüten Gökalp Mah.
-                                39. Sokak no:82 Zeytinburnu İstanbul/TÜRKİYE adresinde mukim Yazılım Store – Yazılımda
-                                Profesyonel Çözüm – Windows 10 Pro (Bundan böyle “SATICI” olarak anılacaktır).</p>
+
 
                             <p><strong>b)</strong>&nbsp; www.exxefy.com internet sitesine üye olan internet kullanıcısı
                                 bundan böyle (“ÜYE”) olarak anılacaktır.</p>
@@ -166,16 +164,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{-- <div class="container">
-        <div class="row align-items-center">
-
-
-        </div> --}}
-
-
-
 
         </div>
     </section>

@@ -157,8 +157,8 @@
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
                             <li><a href="{{ route('contact') }}">7/24 Destek</a></li>
-                            <li><a href="{{ route('policy.index') }}">Garanti İade</a></li>
-                            <li><a href="{{ route('policy.security') }}">Gizlilik Güvenlik</a></li>
+                            <li><a href="{{ route('policy.index') }}">Teslimat ve İade</a></li>
+                            <li><a href="{{ route('policy.security') }}">Gizlilik Politikası</a></li>
                             <li><a href="{{ route('policy.delivery') }}">Ödeme Teslimat</a></li>
                             <li><a href="{{ route('policy.agreement') }}">Üyelik Sözleşmesi</a></li>
                             <li><a href="{{ route('policy.sales') }}"> Satış Sözleşmesi</a></li>

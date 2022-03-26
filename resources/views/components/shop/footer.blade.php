@@ -34,17 +34,18 @@
                     </div>
                     <div class="footer-widget widget widget_nav_menu text-center">
                         <ul>
-                            <li><a href="{{ route($company->slug . '.index') }}">Anasayfa</a></li>
-                            <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>
-                            <li><a href="{{ route($company->slug . '.cargoTracking.index') }}">Sipariş Takibi</a></li>
-                            <li><a href="{{ route($company->slug . '.contact.index') }}">İletişim</a></li>
-                            <li><a href="{{ route('policy.security') }}">KVKK</a></li>
+                            <li><a href="{{ route('policy.index') }}">Teslimat ve İade</a></li>
+                            <li><a href="{{ route('policy.security') }}">Gizlilik Politikası</a></li>
+                            <li><a href="{{ route('policy.delivery') }}">Ödeme Teslimat</a></li>
+                            <li><a href="{{ route('policy.agreement') }}">Üyelik Sözleşmesi</a></li>
+                            <li><a href="{{ route('policy.sales') }}"> Satış Sözleşmesi</a></li>
                         </ul>
                     </div>
-                    <div class="container text-center mb-3">
+                    <div class="container text-center mb-5 ">
                         <img src="{{asset('assets/img/footer/footer_logo-2.png')}}" alt="Ödeme Yöntemlerimiz">
                     </div>
                     <div class="copyright-inner">
+
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
