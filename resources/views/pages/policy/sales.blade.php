@@ -12,14 +12,13 @@
         <div class="sbst-service-area pd-top-112">
             <div class="container">
                 <div class="row justify-content-center ">
-                    <div class="col-xl-6 col-lg-10">
+                    <div class="col-xl-12 col-lg-10">
                         <div class="section-title ">
-                            <h2 class="title">Satış <span>Sözleşmesi</span></h2>
 
                             <p><strong>MADDE 2 – SÖZLEŞMENİN KONUSU</strong></p>
 
                             <p>İş bu sözleşmenin konusu, ALICI’nın, SATICI’ya ait www.exxefy.com web
-                                sitesinden elektronik ortamda veya +90 542 286 8415 nolu telefondan sipariş
+                                sitesinden elektronik ortamda veya +90 537 496 50 01 nolu telefondan sipariş
                                 verdiği, sözleşmede bahsi geçen nitelikleri haiz ve yine sözleşmede satış fiyatı
                                 belirtilen mal/hizmetin satışı ve teslimi ile ilgili olarak 4077 sayılı
                                 Tüketicilerin Korunması Hakkındaki Kanun ve Mesafeli Sözleşmeler Uygulama Esas

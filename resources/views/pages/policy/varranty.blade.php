@@ -13,9 +13,8 @@
         <div class="sbst-service-area pd-top-112">
             <div class="container">
                 <div class="row justify-content-center ">
-                    <div class="col-xl-6 col-lg-10">
+                    <div class="col-xl-12 col-lg-10">
                         <div class="section-title ">
-                            <h2 class="title">Garanti Ve İade <span>Koşulları</span></h2>
                             <p class="fadeInUp" data-wow-delay="0.4s">GARANTİ KOŞULLARI :
 
                                 Tüm ürünler aksi belirtilmediği sürece, üretici firmaların garantisi altındadır. Garanti

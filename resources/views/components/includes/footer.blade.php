@@ -161,7 +161,7 @@
                             <li><a href="{{ route('policy.security') }}">Gizlilik Güvenlik</a></li>
                             <li><a href="{{ route('policy.delivery') }}">Ödeme Teslimat</a></li>
                             <li><a href="{{ route('policy.agreement') }}">Üyelik Sözleşmesi</a></li>
-                            <li><a href="{{ route('policy.sales') }}">Mesafeli Satış Sözleşmesi</a></li>
+                            <li><a href="{{ route('policy.sales') }}"> Satış Sözleşmesi</a></li>
                             <li><a href="#">Sipariş Takip</a></li>
                         </ul>
                     </div>

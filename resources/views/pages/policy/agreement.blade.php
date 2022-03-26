@@ -11,9 +11,8 @@
         <div class="sbst-service-area pd-top-112">
             <div class="container">
                 <div class="row justify-content-center ">
-                    <div class="col-xl-6 col-lg-10">
+                    <div class="col-xl-12 col-lg-10">
                         <div class="section-title ">
-                            <h2 class="title">Üyelik <span>Sözleşmesi</span></h2>
                             <p><strong>1. Taraflar</strong></p>
 
                             <p><strong>a)</strong>&nbsp;www.exxefy.com internet sitesinin faaliyetlerini yürüten Gökalp Mah.
