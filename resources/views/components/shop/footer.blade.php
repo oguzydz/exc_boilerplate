@@ -41,6 +41,9 @@
                             <li><a href="#">KVKK</a></li>
                         </ul>
                     </div>
+                    <div class="container text-center">
+                        <img src="{{asset('assets/img/footer/footer_logo-2.png')}}" alt="Ödeme Yöntemlerimiz">
+                    </div>
                     <div class="copyright-inner">
                         <div class="row custom-gutters-16">
                             <div class="col-lg-7">

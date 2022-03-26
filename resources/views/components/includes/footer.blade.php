@@ -188,6 +188,9 @@
                        </div>
                     </div>
                 </div>
+                <div class="container text-center">
+                    <img src="{{asset('assets/img/footer/footer_logo-2.png')}}" alt="Ödeme Yöntemlerimiz">
+                </div>
             </div>
         </div>
     </div>
