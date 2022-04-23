@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
-    class ConfirmationController extends Controller
+class ConfirmationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -109,19 +109,19 @@ use Illuminate\Support\Str;
             $userConfirm = UserConfirmData::where('user_id', $userId)->first();
             $company = Company::where('user_id', $userId)->first();
 
-            if($userIban) {
+            if ($userIban) {
                 $userIban->update($userIbanData);
             } else {
                 UserIban::create($userIbanData);
             }
 
-            if($userConfirm) {
+            if ($userConfirm) {
                 $userConfirm->update($userConfirmData);
             } else {
                 UserConfirmData::create($userConfirmData);
             }
 
-            if($company) {
+            if ($company) {
                 $company->update($companyData);
             } else {
                 Company::create($companyData);
