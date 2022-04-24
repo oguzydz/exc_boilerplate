@@ -27,6 +27,7 @@ class EditCategoryRequest extends FormRequest
             'title' => ['required', 'string'],
             'text' => ['required', 'string'],
             'order' => ['required', 'numeric'],
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

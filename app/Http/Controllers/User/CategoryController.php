@@ -32,8 +32,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::where([
-                'status' => Category::STATUS_ACTIVE,
-                'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id
+            'status'     => Category::STATUS_ACTIVE,
+            'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id
         ])->paginate(10);
 
         return Inertia::render('User/Category/Index', [
@@ -60,11 +60,11 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
-        $slug = Str::slug($request->title, '-');
-        $isImage = isset($request->file()['image']) ? $request->file()['image'] : false;
+        $slug          = Str::slug($request->title, '-');
+        $isImage       = isset($request->file()['image']) ? $request->file()['image'] : false;
 
-        if($isImage) {
-            $getFile = $request->file()['image'];
+        if ($isImage) {
+            $getFile  = $request->file()['image'];
             $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
             $filePath = $getFile->storeAs('category-images', $fileName, 'public');
         } else {
@@ -74,13 +74,13 @@ class CategoryController extends Controller
 
         $data = [
             'company_id' => $userCompanyId,
-            'title' => $request->title,
-            'text' => $request->text,
-            'slug' => $slug,
-            'image' => $filePath,
-            'image_seo' => $fileName,
-            'order' => $request->order,
-            'status' => 1
+            'title'      => $request->title,
+            'text'       => $request->text,
+            'slug'       => $slug,
+            'image'      => $filePath,
+            'image_seo'  => $fileName,
+            'order'      => $request->order,
+            'status'     => 1
         ];
 
         try {
@@ -90,17 +90,6 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
     }
 
     /**
@@ -115,9 +104,9 @@ class CategoryController extends Controller
         $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
 
         $data = [
-            'id' => $category->id,
+            'id'    => $category->id,
             'title' => $category->title,
-            'text' => $category->text,
+            'text'  => $category->text,
             'image' => $category->image,
             'order' => $category->order,
             'new_image',
@@ -138,19 +127,19 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::findorFail($request->id);
-            $slug = Str::slug($request->title, '-');
+            $slug     = Str::slug($request->title, '-');
             $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
 
             $data = [
-                'id' => $request->id,
-                'title' => $request->title,
-                'text' => $request->text,
-                'slug' => $slug,
-                'order' => $request->order,
+                'id'     => $request->id,
+                'title'  => $request->title,
+                'text'   => $request->text,
+                'slug'   => $slug,
+                'order'  => $request->order,
                 'status' => 1
             ];
 
-            if($newImage) {
+            if ($newImage) {
                 $newImageName = $slug . '-category-image-' . time() . '.' . $newImage->getClientOriginalExtension();
                 $filePath = $newImage->storeAs('category-images', $newImageName, 'public');
 

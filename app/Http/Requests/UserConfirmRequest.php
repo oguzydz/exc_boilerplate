@@ -37,7 +37,7 @@ class UserConfirmRequest extends FormRequest
             'county_id' => ['required', 'numeric'],
             'iban' => ['required', 'string'],
             'service_text' => ['required', 'string'],
-            'title' => ['required', 'string', "unique:companies,title,$userId"],
+            'title' => ['required', 'string', "unique:companies,title,$userId,user_id"],
             'text' => ['required', 'string'],
         ];
     }
