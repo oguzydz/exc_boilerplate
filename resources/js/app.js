@@ -107,6 +107,18 @@ const pluralText = (text) => {
     return text;
 };
 
+function isMobile() {
+    if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        )
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 createInertiaApp({
     resolve: (name) => require(`./Pages/${name}`),
     setup({ el, app, props, plugin }) {
@@ -120,6 +132,7 @@ createInertiaApp({
                     errorsToMessage,
                     imageUrlAlt,
                     pluralText,
+                    isMobile,
                     // moment: (value) => moment(value),
                     handlePagination(page, routeName) {
                         this.$inertia.get(route(routeName), {

@@ -26,7 +26,7 @@ class Aside extends Component
     public function render()
     {
         return view('components.shop.aside', [
-            'categories' => $this->company->categories
+            'categories' => $this->company->activeCategories
         ]);
     }
 }

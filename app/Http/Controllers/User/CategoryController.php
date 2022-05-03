@@ -59,13 +59,12 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
         $slug          = Str::slug($request->title, '-');
         $isImage       = isset($request->file()['image']) ? $request->file()['image'] : false;
 
         if ($isImage) {
             $getFile  = $request->file()['image'];
-            $fileName = $slug . '--' . $userCompanyId . '.' . $getFile->getClientOriginalExtension();
+            $fileName = $slug . '--' . Auth::user()->company->id . '.' . $getFile->getClientOriginalExtension();
             $filePath = $getFile->storeAs('category-images', $fileName, 'public');
         } else {
             $fileName = Category::DEFAULT_CATEGORY_PHOTO_PATH;
@@ -73,7 +72,7 @@ class CategoryController extends Controller
         }
 
         $data = [
-            'company_id' => $userCompanyId,
+            'company_id' => Auth::user()->company->id,
             'title'      => $request->title,
             'text'       => $request->text,
             'slug'       => $slug,
@@ -100,8 +99,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
-        $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
+        $category = Category::where([
+            'company_id' => Auth::user()->company->id,
+            'id'         => $id
+        ])->firstOrFail();
 
         $data = [
             'id'    => $category->id,
@@ -164,13 +165,20 @@ class CategoryController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
+    public function destroy(Request $request, $id)
     {
-        $userCompanyId = $this->userService->getUserCompany(Auth::user()->id)->id;
+        $category = Category::where([
+            'company_id' => Auth::user()->company->id,
+            'id' => $id
+        ])->firstOrFail();
+
         try {
-            $category = Category::where(['company_id' => $userCompanyId, 'id' => $id])->firstOrFail();
-            $category->update(['status' => Category::STATUS_PASIVE]);
-            $category->allProducts()->update(['status' => Product::STATUS_PASIVE]);
+            $category->update([
+                'status' => Category::STATUS_PASIVE
+            ]);
+            $category->allProducts()->update([
+                'status' => Product::STATUS_PASIVE
+            ]);
 
             return redirect()->back();
         } catch (\Exception $e) {

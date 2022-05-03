@@ -24,14 +24,15 @@ class EditProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => ['required', 'numeric'],
-            'title' => ['required', 'string'],
-            'text' => ['required', 'string'],
-            'price' => ['required', 'numeric'],
+            'category_id'    => ['required', 'numeric'],
+            'title'          => ['required', 'string'],
+            'text'           => ['required', 'string'],
+            'price'          => ['required', 'numeric'],
             'discount_price' => ['required', 'numeric'],
-            'stock' => ['required', 'numeric'],
-            'delivery_time' => ['required', 'numeric'],
-            'order' => ['required', 'numeric'],
+            'stock'          => ['required', 'numeric'],
+            'delivery_time'  => ['required', 'numeric'],
+            'order'          => ['required', 'numeric'],
+            'new_image'      => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
 }

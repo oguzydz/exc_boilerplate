@@ -24,10 +24,10 @@ class EditCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'text' => ['required', 'string'],
-            'order' => ['required', 'numeric'],
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'title'     => ['required', 'string'],
+            'text'      => ['required', 'string'],
+            'order'     => ['required', 'numeric'],
+            'new_image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
 }

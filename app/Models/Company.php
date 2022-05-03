@@ -23,8 +23,34 @@ class Company extends Model
         'slug',
     ];
 
+
     public function categories()
     {
+        return $this->hasMany(Category::class);
+    }
+
+    public function activeCategories()
+    {
         return $this->hasMany(Category::class)->where('status', Category::STATUS_ACTIVE);
+    }
+
+    public function pasiveCategories()
+    {
+        return $this->hasMany(Category::class)->where('status', Category::STATUS_PASIVE);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function activeProducts()
+    {
+        return $this->hasMany(Product::class)->where('status', Product::STATUS_ACTIVE);
+    }
+
+    public function pasiveProducts()
+    {
+        return $this->hasMany(Product::class)->where('status', Product::STATUS_PASIVE);
     }
 }

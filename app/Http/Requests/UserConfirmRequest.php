@@ -28,17 +28,17 @@ class UserConfirmRequest extends FormRequest
 
         return [
             'membership_type' => ['required', 'numeric'],
-            'name' => ['required', 'string'],
-            'tc' => ['required', 'string', "unique:users,tc,$userId"],
-            'born_date' => ['required', 'date'],
-            'phone' => ['required', 'string', "unique:users,phone,$userId"],
-            'address' => ['required', 'string'],
-            'city_id' => ['required', 'numeric'],
-            'county_id' => ['required', 'numeric'],
-            'iban' => ['required', 'string'],
-            'service_text' => ['required', 'string'],
-            'title' => ['required', 'string', "unique:companies,title,$userId,user_id"],
-            'text' => ['required', 'string'],
+            'name'            => ['required', 'string'],
+            'tc'              => ['required', 'string', "unique:users,tc,$userId"],
+            'born_date'       => ['required', 'date'],
+            'phone'           => ['required', 'string', "unique:users,phone,$userId"],
+            'address'         => ['required', 'string'],
+            'city_id'         => ['required', 'numeric'],
+            'county_id'       => ['required', 'numeric'],
+            'iban'            => ['required', 'string'],
+            'service_text'    => ['required', 'string'],
+            'title'           => ['required', 'string', "unique:companies,title,$userId,user_id"],
+            'text'            => ['required', 'string'],
         ];
     }
 }

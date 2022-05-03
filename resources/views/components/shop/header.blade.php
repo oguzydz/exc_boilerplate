@@ -161,7 +161,7 @@
                 <li class="menu-item-has-children">
                     <a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a>
                     <ul class="sub-menu">
-                        @foreach ($company->categories as $category)
+                        @foreach ($company->activeCategories as $category)
                         <li>
                             <a href="{{ route($company->slug . '.category.show', [$category->slug]) }}">{{ $category->title }}</a>
                         </li>

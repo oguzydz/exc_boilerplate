@@ -540,18 +540,6 @@ export default {
           this.counties = response.data;
         });
     },
-
-    isMobile() {
-      if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
   },
 };
 </script>

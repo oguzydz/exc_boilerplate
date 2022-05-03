@@ -74,7 +74,7 @@
                                             v-on:click="
                                                 confirmDelete(
                                                     scope.row.id,
-                                                    '',
+                                                    'user.product.destroy',
                                                     deleteMessage
                                                 )
                                             "
@@ -122,7 +122,7 @@ export default {
         return {
             routeName: "user.product.index",
             deleteMessage:
-                "Ürünü silerek silinmiş ürünler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
+                "Ürünü silerek pasife alınmış ürünler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
         };
     },
 };

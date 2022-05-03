@@ -24,9 +24,8 @@ class Product extends Model implements Buyable
     }
 
     const STATUS_LIST = [
-        'STATUS_PASIVE' => 2,
-        'STATUS_DELETED' => 0,
-        'STATUS_ACTIVE' => 1,
+        'Pasif' => self::STATUS_PASIVE,
+        'Aktif' => self::STATUS_ACTIVE,
     ];
 
     protected $fillable = [
@@ -65,12 +64,12 @@ class Product extends Model implements Buyable
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+        return $this->belongsTo(Category::class);
     }
 
     public function company()
     {
-        return $this->hasOne(Company::class, 'id', 'company_id');
+        return $this->belongsTo(Company::class);
     }
 
     public function gallery()
