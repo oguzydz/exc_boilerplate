@@ -62,8 +62,8 @@
                                             size="mini"
                                             v-on:click="
                                                 confirmDelete(
-                                                    scope.row.id,
-                                                    '',
+                                                    [product.id, scope.row.id],
+                                                    'user.product.gallery.destroy',
                                                     deleteMessage
                                                 )
                                             "
@@ -112,7 +112,7 @@ export default {
         return {
             routeName: "user.product.index",
             deleteMessage:
-                "Ürünü silerek silinmiş ürünler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
+                "Seçtiğiniz görsel silinecek. Devam etmek istiyor musunuz?",
         };
     },
 };

@@ -76,7 +76,7 @@ class ProductController extends Controller
             'slug'           => $slug,
             'image'          => $filePath,
             'order'          => $request->order,
-            'status'         => Product::STATUS_LIST['STATUS_ACTIVE']
+            'status'         => Product::STATUS_ACTIVE
         ];
 
         try {

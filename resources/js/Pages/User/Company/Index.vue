@@ -10,7 +10,14 @@
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
-                    <div class="card-header">Dükkan Yönetimi</div>
+                    <div class="card-header">
+                        Dükkan Yönetimi
+                        <el-button type="success" class="float-right" icon="el-icon-thumb" v-on:click="
+                                $inertia.get(route('user.category.create'))
+                            " size="mini">
+                            Dükkanı Görüntüle
+                        </el-button>
+                    </div>
                     <div class="card-body">
                         <el-form
                             :model="data"

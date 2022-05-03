@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateProductGalleryRequest;
+use App\Http\Requests\EditProductGalleryRequest;
 use App\Models\Product;
 use App\Models\ProductGallery;
 use App\Services\UserService;
@@ -28,11 +30,15 @@ class ProductGalleryController extends Controller
      */
     public function index(int $id)
     {
-        $product = Product::where(['id' => $id, 'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id])->first();
+        $product = Product::where([
+            'id' => $id,
+            'company_id' => Auth::user()->company->id
+        ])->firstOrFail();
+
         $galleries = $product->gallery()->paginate(10);
 
         return Inertia::render('User/Product/Gallery/Index', [
-            'data' => $galleries,
+            'data'    => $galleries,
             'product' => $product
         ]);
     }
@@ -44,7 +50,10 @@ class ProductGalleryController extends Controller
      */
     public function create(int $productId)
     {
-        Product::where(['id' => $productId, 'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id])->firstOrFail();
+        Product::where([
+            'id'         => $productId,
+            'company_id' => Auth::user()->company->id
+        ])->firstOrFail();
 
         return Inertia::render(
             'User/Product/Gallery/Create',
@@ -60,17 +69,17 @@ class ProductGalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, int $productId)
+    public function store(CreateProductGalleryRequest $request, int $productId)
     {
         try {
-            $getFile = $request->file()['image'];
+            $getFile  = $request->file()['image'];
             $fileName = $productId . '--' . time() . '.' . $getFile->getClientOriginalExtension();
             $filePath = $getFile->storeAs('product-gallery', $fileName, 'public');
 
             $data = [
                 'product_id' => $productId,
-                'image' => $filePath,
-                'order' => $request->order,
+                'image'      => $filePath,
+                'order'      => $request->order,
             ];
 
             ProductGallery::create($data);
@@ -85,45 +94,34 @@ class ProductGalleryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ProductGallery  $productGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ProductGallery $productGallery)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\ProductGallery  $productGallery
      * @return \Illuminate\Http\Response
      */
-    public function edit($productId, $galleryId)
+    public function edit(int $productId, int $galleryId)
     {
-        Product::where(['id' => $productId, 'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id])->firstOrFail();
+        Product::where([
+            'id'         => $productId,
+            'company_id' => Auth::user()->company->id
+        ])->firstOrFail();
 
-        try {
-            $productGallery = ProductGallery::findOrFail($galleryId);
-            $data = [
-                'id' => $productGallery->id,
-                'product_id' => $productGallery->product_id,
-                'image' => $productGallery->image,
-                'order' => $productGallery->order,
-                'new_image',
-            ];
+        $productGallery = ProductGallery::findOrFail($galleryId);
 
-            return Inertia::render(
-                'User/Product/Gallery/Edit',
-                [
-                    'data' => $data,
-                ]
-            );
-        } catch (\Exception $e) {
-            abort('404');
-        }
+        $data = [
+            'id'         => $productGallery->id,
+            'product_id' => $productGallery->product_id,
+            'image'      => $productGallery->image,
+            'order'      => $productGallery->order,
+            'new_image',
+        ];
+
+        return Inertia::render(
+            'User/Product/Gallery/Edit',
+            [
+                'data' => $data,
+            ]
+        );
     }
 
     /**
@@ -133,21 +131,19 @@ class ProductGalleryController extends Controller
      * @param  \App\Models\ProductGallery  $productGallery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(EditProductGalleryRequest $request)
     {
         try {
             $productGallery = ProductGallery::findorFail($request->id);
-            $newImage = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
-
+            $newImage       = isset($request->file()['new_image']) ? $request->file()['new_image'] : false;
 
             $data = [
                 'order' => $request->order,
             ];
 
-            if (isset($request->file()['new_image'])) {
-                $getFile = $request->file()['new_image'];
-                $fileName = $productGallery->id . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-                $filePath = $getFile->storeAs('product-gallery', $fileName, 'public');
+            if($newImage) {
+                $newImageName = $productGallery->id . '-product-image-' . time() . '.' . $newImage->getClientOriginalExtension();
+                $filePath     = $newImage->storeAs('product-images', $newImageName, 'public');
 
                 $data['image'] = $filePath;
             }
@@ -169,13 +165,13 @@ class ProductGalleryController extends Controller
      * @param  \App\Models\ProductGallery  $productGallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productId, $galleryID, Request $request)
+    public function destroy(Request $request, int $productId, int $galleryId)
     {
-        $getImage = ProductGallery::findOrFail($galleryID)->image;
+        $getImage = ProductGallery::findOrFail($galleryId)->image;
 
         try {
             Storage::disk('public')->delete($getImage);
-            ProductGallery::destroy($galleryID);
+            ProductGallery::destroy($galleryId);
 
             return redirect()->back();
         } catch (\Exception $e) {

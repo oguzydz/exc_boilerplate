@@ -29,14 +29,14 @@ class CompanyRequest extends FormRequest
 
         return [
             'user_id' => ['required', 'numeric'],
-            'title' => [
+            'title'   => [
                 'required',
                 'string',
                 Rule::unique('companies', 'title')->ignore($userId, 'user_id')
             ],
-            'text' => ['required', 'string'],
-            'email' => ['required', 'string'],
-            'phone' => ['required', 'string'],
+            'text'    => ['required', 'string'],
+            'email'   => ['required', 'string'],
+            'phone'   => ['required', 'string'],
         ];
     }
 }
