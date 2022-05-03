@@ -3225,7 +3225,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .single-shop .thumb img {
   transform: scale(1);
   transition: 0.8s;
-  width: 246px;
+  min-width: 325px;
 }
 .single-shop .thumb .cart-btn {
   position: absolute;
