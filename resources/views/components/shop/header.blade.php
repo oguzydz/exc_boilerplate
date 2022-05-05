@@ -243,8 +243,8 @@
                                 <div class="row cover-body justify-content-between align-items-center">
                                     <div class="col-md-8">
                                         <div class="row align-items-center">
-                                            <div class="col-md-2 col-3">
-                                                <img class="profile-pic" src="/storage/{{ $company->logo }}" alt="profile">
+                                            <div class="col-md-2 col-3 profile-pic" style="background-image: url('/storage/{{ $company->logo }}')">
+                                                {{-- <img class="profile-pic" src="/storage/{{ $company->logo }}" alt="profile"> --}}
                                             </div>
                                             <div class="col-md-10 col-9">
                                                 <span class="profile-name">

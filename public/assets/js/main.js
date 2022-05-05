@@ -332,17 +332,6 @@
             });
         }
 
-        /*--------------------------------------
-            world map
-        ---------------------------------------*/
-        var jMap = $(".world-map"),
-            height = jMap.height(),
-            width = jMap.width(),
-            mapJsonUrl = 'https://ucarecdn.com/8e1027ea-dafd-4d6c-bf1e-698d305d4760/world110m2.json',
-            svg = d3.select(".world-map").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
         var getProjection = function(worldJson) {
             // create a first guess for the projection
             var scale = 1,
