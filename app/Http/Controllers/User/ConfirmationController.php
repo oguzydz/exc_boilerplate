@@ -25,15 +25,14 @@ class ConfirmationController extends Controller
      */
     public function index()
     {
-        $userId     = Auth::user()->id;
         $userTypes  = UserType::all();
         $userStatus = Auth::user()->status;
         $cities     = City::all();
 
-        $userIban    = UserIban::where('user_id', $userId)->select(['iban'])->first() ?? (object) [];
-        $userConfirm = UserConfirmData::where('user_id', $userId)->select(['service_text'])->first() ?? (object) [];
-        $company     = Company::where('user_id', $userId)->select(['title', 'text'])->first() ?? (object) [];
-        $userCancel  = UserCancel::where('user_id', $userId)->first();
+        $userIban    = UserIban::where('user_id', Auth::user()->id)->select(['iban'])->first() ?? (object) [];
+        $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->select(['service_text'])->first() ?? (object) [];
+        $company     = Company::where('user_id', Auth::user()->id)->select(['title', 'text'])->first() ?? (object) [];
+        $userCancel  = UserCancel::where('user_id', Auth::user()->id)->first();
 
         return Inertia::render('User/Confirmation', [
             'userTypes'  => $userTypes,
@@ -88,6 +87,17 @@ class ConfirmationController extends Controller
             'slug'     => Str::slug($request->title, '-'),
         ];
 
+        if (
+            $request->membership_type    === Company::PRIVATE_SUB_MERCHANT_TYPE
+            || $request->membership_type === Company::LIMITED_COMPANY_SUB_MERCHANT_TYPE
+        ) {
+            $companyData += [
+                'corporate_name'                 => $request->corporate_name,
+                'tax_office'                     => $request->tax_office,
+                'taxpayer_identification_number' => $request->taxpayer_identification_number,
+            ];
+        }
+
         try {
             $user = User::findOrFail(Auth::user()->id);
             $user->update($userData);
@@ -96,9 +106,9 @@ class ConfirmationController extends Controller
             $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->first();
             $company     = Company::where('user_id', Auth::user()->id)->first();
 
-            $userIban    ? $userIban->update($userIbanData) : UserIban::create($userIbanData);
+            $userIban    ? $userIban->update($userIbanData)       : UserIban::create($userIbanData);
             $userConfirm ? $userConfirm->update($userConfirmData) : UserConfirmData::create($userConfirmData);
-            $company     ? $company->update($companyData) : Company::create($companyData);
+            $company     ? $company->update($companyData)         : Company::create($companyData);
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {

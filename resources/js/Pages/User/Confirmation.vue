@@ -80,6 +80,7 @@
                       type="date"
                       placeholder="Doğum tarihiniz."
                       v-model="firstForm.born_date"
+                      format="DD/MM/YYYY"
                       style="width: 100%"
                     ></el-date-picker>
                   </el-form-item>
@@ -182,6 +183,37 @@
                 :label-position="isMobile() ? 'left' : 'right'"
                 size="medium"
               >
+                <span
+                  v-if="
+                    firstForm.membership_type === 2 ||
+                    firstForm.membership_type === 3
+                  "
+                >
+                  <el-form-item label="Şirket Ünvanı:" prop="corporate_name">
+                    <el-input
+                      v-model="secondForm.corporate_name"
+                      placeholder="Şirket ünvanınız."
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item label="Vergi Dairesi:" prop="tax_office">
+                    <el-input
+                      v-model="secondForm.tax_office"
+                      placeholder="Vergi daireniz."
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item
+                    label="Vergi Kimlik No:"
+                    prop="taxpayer_identification_number"
+                  >
+                    <el-input
+                      v-model="secondForm.taxpayer_identification_number"
+                      type="number"
+                      maxlength="50"
+                      placeholder="Vergi kimlik numaranız (V.K.N.)."
+                    ></el-input>
+                  </el-form-item>
+                </span>
+
                 <el-form-item label="IBAN:" prop="iban">
                   <el-input
                     v-model="secondForm.iban"
@@ -281,7 +313,10 @@
               </el-form>
             </div>
           </div>
-          <div class="row" v-if="active === 3 || active === 4 || userStatus === 4">
+          <div
+            class="row"
+            v-if="active === 3 || active === 4 || userStatus === 4"
+          >
             <div class="col-md-6 text-center form-info-side">
               <div class="form-info">
                 <h3>BAŞVURUNUZ TAMAMLANDI!</h3>
@@ -444,6 +479,32 @@ export default {
             trigger: "blur",
           },
         ],
+        corporate_name: [
+          {
+            required: true,
+            message: "Lütfen adresinizi giriniz.",
+            trigger: "blur",
+          },
+        ],
+        tax_office: [
+          {
+            required: true,
+            message: "Lütfen adresinizi giriniz.",
+            trigger: "blur",
+          },
+        ],
+        taxpayer_identification_number: [
+          {
+            required: true,
+            message: "Lütfen vergi kimlik no giriniz.",
+            trigger: "blur",
+          },
+          {
+            max: 50,
+            message: "V.K.N. max 50 haneli olmalı",
+            trigger: "blur",
+          },
+        ],
       },
       thirdRules: {
         service_text: [
@@ -493,7 +554,7 @@ export default {
               this.firstForm,
               this.secondForm,
               this.thirdForm,
-              this.fourthForm,
+              this.fourthForm
             );
 
             this.$inertia.post(

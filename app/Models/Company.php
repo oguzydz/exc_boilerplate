@@ -10,7 +10,11 @@ class Company extends Model
     use HasFactory;
 
     const EXAMPLE_LOGO_URL = 'company-assets/example-logov.jpg';
-    const EXAMPLE_BG_URL = 'company-assets/example-bg.png';
+    const EXAMPLE_BG_URL   = 'company-assets/example-bg.png';
+
+    const PERSONAL_SUB_MERCHANT_TYPE        = 1;
+    const PRIVATE_SUB_MERCHANT_TYPE         = 2;
+    const LIMITED_COMPANY_SUB_MERCHANT_TYPE = 3;
 
     public $fillable = [
         'user_id',
@@ -21,8 +25,10 @@ class Company extends Model
         'email',
         'phone',
         'slug',
+        'corporate_name',
+        'tax_office',
+        'taxpayer_identification_number',
     ];
-
 
     public function categories()
     {
