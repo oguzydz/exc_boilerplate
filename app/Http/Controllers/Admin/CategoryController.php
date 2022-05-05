@@ -70,8 +70,6 @@ class CategoryController extends Controller
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Kategori eklenirken beklenmedik bir hata oldu'));
 
-            dd($e);
-
             return redirect()->back();
         }
     }
@@ -153,8 +151,6 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message',__('Kategori güncellenirken beklenmedik bir hata oldu'));
-
-            dd($e);
 
             return redirect()->back();
         }

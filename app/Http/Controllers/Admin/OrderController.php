@@ -153,7 +153,7 @@ class OrderController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
-            dd($e);
+
             return redirect()->back();
         }
     }

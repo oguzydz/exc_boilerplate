@@ -80,7 +80,6 @@ class ProductController extends Controller
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Ürün eklenirken beklenmedik bir hata oldu'));
 
-            dd($e);
             return redirect()->back();
         }
     }
@@ -172,7 +171,7 @@ class ProductController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
-            dd($e);
+
             return redirect()->back();
         }
     }
