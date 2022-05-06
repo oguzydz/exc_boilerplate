@@ -29,10 +29,20 @@ class ConfirmationController extends Controller
         $userStatus = Auth::user()->status;
         $cities     = City::all();
 
-        $userIban    = UserIban::where('user_id', Auth::user()->id)->select(['iban'])->first() ?? (object) [];
         $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->select(['service_text'])->first() ?? (object) [];
-        $company     = Company::where('user_id', Auth::user()->id)->select(['title', 'text'])->first() ?? (object) [];
         $userCancel  = UserCancel::where('user_id', Auth::user()->id)->first();
+        $userIban    = UserIban::where('user_id', Auth::user()->id)->select(['iban'])->first();
+        $company     = Company::where('user_id', Auth::user()->id)->select([
+            'title', 'text', 'corporate_name as cn', 'tax_office as to', 'taxpayer_identification_number as tin'
+        ])->first() ?? (object) [];
+
+        if ($userIban) {
+            $userIban->corporate_name                 = $company->cn;
+            $userIban->tax_office                     = $company->to;
+            $userIban->taxpayer_identification_number = $company->tin;
+        } else {
+            $userIban = (object) [];
+        }
 
         return Inertia::render('User/Confirmation', [
             'userTypes'  => $userTypes,

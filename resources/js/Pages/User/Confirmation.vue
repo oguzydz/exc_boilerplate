@@ -482,14 +482,14 @@ export default {
         corporate_name: [
           {
             required: true,
-            message: "Lütfen adresinizi giriniz.",
+            message: "Lütfen şirket ünvanı giriniz.",
             trigger: "blur",
           },
         ],
         tax_office: [
           {
             required: true,
-            message: "Lütfen adresinizi giriniz.",
+            message: "Lütfen vergi dairesi giriniz.",
             trigger: "blur",
           },
         ],
