@@ -151,7 +151,7 @@
         <div class="collapse navbar-collapse" id="exxefy_main_menu">
             <div class="logo-wrapper desktop-logo">
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="150px" alt="logo">
+                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="130px" alt="logo">
                 </a>
             </div>
             <ul class="navbar-nav">

@@ -12,11 +12,11 @@
                 <div class="card">
                     <div class="card-header">
                         Dükkan Yönetimi
-                        <el-button type="success" class="float-right" icon="el-icon-thumb" v-on:click="
-                                $inertia.get(route('user.category.create'))
-                            " size="mini">
-                            Dükkanı Görüntüle
-                        </el-button>
+                        <a :href="route(data.slug + '.index')" target="blank">
+                            <el-button type="success" class="float-right" icon="el-icon-thumb" size="mini">
+                                Dükkanı Görüntüle
+                            </el-button>
+                        </a>
                     </div>
                     <div class="card-body">
                         <el-form

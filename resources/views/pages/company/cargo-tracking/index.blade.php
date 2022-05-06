@@ -1,5 +1,5 @@
 @extends('layouts.shop.payment')
-@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxefy')
+@section('title', 'Sipariş Takibi - Exxefy')
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 @section('content')

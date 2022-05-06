@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\ProductFeatureController;
 
-Route::group(['prefix' => 'adminexxe', 'middleware'=> ['auth:sanctum', 'role:admin'], 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin'], 'as' => 'admin.'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
     Route::group(['prefix' => 'customers', 'as' => 'customer.'], function () {

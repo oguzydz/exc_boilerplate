@@ -357,18 +357,6 @@
 
            return [ xymin, xymax ];
         };
-        d3.json(mapJsonUrl, function (error, worldJson) {
-            if (error) throw error;
-
-            var projection = getProjection(),
-            path = d3.geoPath().projection( projection );
-
-            svg.selectAll( 'path.land' )
-            .data( topojson.feature( worldJson, worldJson.objects.countries ).features )
-            .enter().append( 'path' )
-            .attr( 'class', 'land' )
-            .attr( 'd', path );
-        });
 
         /*--------------------------------------
            form input Focus

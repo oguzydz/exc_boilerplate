@@ -81,7 +81,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.$moment(this.data.data[0].created_at).fromNow())
-  },
+
+},
 }
 </script>

@@ -1,7 +1,6 @@
 @extends('layouts.shop.light')
-@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxefy')
-{{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
-
+@section('title', $company->slug . ' - Exxefy')
+@section('description', $company->text)
 
 @section('content')
 <div class="shop-page-area pd-top-50">

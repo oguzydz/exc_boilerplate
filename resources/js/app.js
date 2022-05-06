@@ -88,7 +88,7 @@ const errorsToMessage = (errors) => {
 };
 
 const imageUrlAlt = (event) => {
-    event.target.src = "/img/placeholder.jpg";
+    event.target.src = "";
 };
 
 const pluralText = (text) => {
