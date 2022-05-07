@@ -5,10 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Traits\assign;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -46,4 +44,3 @@ class RolesAndPermissionsSeeder extends Seeder
         $admin->assignRole($role2);
     }
 }
-
