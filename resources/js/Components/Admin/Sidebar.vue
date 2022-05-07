@@ -59,31 +59,17 @@ export default {
       navs: [
         {
           tag: 'nav-item',
-          text: 'Panel',
+          text: 'Dashboard',
           url: 'admin.index',
           icon: 'fad fa-chart-line',
         },
         {
-          tag: 'nav-item',
-          text: 'Kategoriler',
-          url: 'admin.category.index',
-          icon: 'fad fa-clipboard-list',
+          tag: 'nav-title',
+          text: 'KULLANICI',
         },
         {
           tag: 'nav-item',
-          text: 'Ürünler',
-          url: 'admin.product.index',
-          icon: 'fad fa-clone',
-        },
-        {
-          tag: 'nav-item',
-          text: 'Blog',
-          url: 'admin.blog.index',
-          icon: 'fas fa-blog',
-        },
-        {
-          tag: 'nav-item',
-          text: 'Müşteriler',
+          text: 'Üyeler',
           url: 'admin.customer.index',
           icon: 'fad fa-child',
         },

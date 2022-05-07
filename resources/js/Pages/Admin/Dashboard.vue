@@ -17,15 +17,15 @@
             </div>
           </div>
         </div>
-        <!-- /.col-->
+
         <div class="col-sm-6 col-lg-3">
-          <div class="card mb-4 text-white bg-info pb-4">
+          <div class="card mb-4 text-white bg-success pb-4">
             <div
               class="card-body pb-0 d-flex justify-content-between align-items-start"
             >
               <div>
                 <div class="fs-4 fw-semibold">{{ userCount }}</div>
-                <div class="text-2xl" v-on:click="$inertia.get(route('admin.customer.index'))">Müşteriler</div>
+                <div class="text-2xl" v-on:click="$inertia.get(route('admin.customer.index'))">Aktif Üyeler</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
                 <i class="bx bxs-network-chart"></i>
@@ -33,23 +33,23 @@
             </div>
           </div>
         </div>
-        <!-- /.col-->
+
         <div class="col-sm-6 col-lg-3">
-          <div class="card mb-4 text-white bg-warning pb-4">
+          <div class="card mb-4 text-white bg-info pb-4">
             <div
               class="card-body pb-0 d-flex justify-content-between align-items-start"
             >
               <div>
-                <div class="fs-4 fw-semibold">{{ product }}</div>
-                <div class="text-2xl" v-on:click="$inertia.get(route('admin.product.index'))">Ürün Sayısı</div>
+                <div class="fs-4 fw-semibold">{{ userCount }}</div>
+                <div class="text-2xl" v-on:click="$inertia.get(route('admin.customer.index'))">Başvurular</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
-                <i class="bx bxl-youtube"></i>
+                <i class="bx bxs-network-chart"></i>
               </div>
             </div>
           </div>
         </div>
-        <!-- /.col-->
+
         <div class="col-sm-6 col-lg-3">
           <div class="card mb-4 text-white bg-danger pb-4">
             <div
@@ -65,14 +65,7 @@
             </div>
           </div>
         </div>
-        <!-- /.col-->
       </div>
-      <!-- /.row-->
-
-      <!-- /.card.mb-4-->
-
-
-
     </div>
   </app-admin-layout>
 </template>

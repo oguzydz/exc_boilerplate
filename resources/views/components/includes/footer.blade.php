@@ -7,7 +7,6 @@
                     <p class="sub-title"><span>Aradığın cevabı bulamadın mı?</span><br> Bize canlı destek veya yandaki numarayı arayak ulaşabilirsiniz. 0 (850) 111 11 11 veya destek@exxefy.com</p>
                 </div>
                 <div class="accordion style-two accordion-h-five" id="accordion">
-                    <!-- single accordion -->
                     <div class="single-accordion card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -23,7 +22,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single accordion -->
                     <div class="single-accordion card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -38,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single accordion -->
                     <div class="single-accordion card">
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
@@ -54,7 +51,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single accordion -->
                     <div class="single-accordion card">
                         <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
@@ -70,7 +66,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single accordion -->
                     <div class="single-accordion card">
                         <div class="card-header" id="headingFour">
                             <h2 class="mb-0">
@@ -86,7 +81,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single accordion end -->
                 </div>
             </div>
         </div>
@@ -149,6 +143,7 @@
                             <li><a href="{{ route('contact') }}">İletişim</a></li>
                             <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                             <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
+                            <li><a href="#">Sipariş Takip</a></li>
                         </ul>
                     </div>
                 </div>
@@ -162,7 +157,6 @@
                             <li><a href="{{ route('policy.delivery') }}">Ödeme Teslimat</a></li>
                             <li><a href="{{ route('policy.agreement') }}">Üyelik Sözleşmesi</a></li>
                             <li><a href="{{ route('policy.sales') }}"> Satış Sözleşmesi</a></li>
-                            <li><a href="#">Sipariş Takip</a></li>
                         </ul>
                     </div>
                 </div>
