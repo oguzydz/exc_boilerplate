@@ -21,11 +21,11 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    const STATUS_NEW = 0;
-    const STATUS_ACTIVE = 1;
-    const STATUS_PASIVE = 2;
-    const STATUS_DELETED = 3;
-    const STATUS_READY = 4;
+    const STATUS_NEW      = 0;
+    const STATUS_ACTIVE   = 1;
+    const STATUS_PASIVE   = 2;
+    const STATUS_DELETED  = 3;
+    const STATUS_READY    = 4;
     const STATUS_CANCELED = 5;
 
     /**

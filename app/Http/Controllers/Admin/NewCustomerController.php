@@ -9,7 +9,7 @@ use App\Models\UserConfirmData;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class NewCostumerController extends Controller
+class NewCustomerController extends Controller
 {
     /**
      * Display a listing of the resource.

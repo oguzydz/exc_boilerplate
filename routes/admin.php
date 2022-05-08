@@ -16,7 +16,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\NewCostumerController;
 use App\Http\Controllers\Admin\NewCustomerController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
@@ -36,16 +35,16 @@ Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin
     });
 
     Route::group(['prefix' => 'newcustomers', 'as' => 'newcustomer.'], function () {
-        Route::get('/', [NewCostumerController::class, 'index'])->name('index');
-        Route::get('/create', [NewCostumerController::class, 'create'])->name('create');
-        Route::post('/store', [NewCostumerController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [NewCostumerController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [NewCostumerController::class, 'show'])->name('show');
-        Route::get('/confirm/{id}', [NewCostumerController::class, 'confirm'])->name('confirm');
-        Route::get('/cancel/{id}', [NewCostumerController::class, 'cancelShow'])->name('cancelShow');
-        Route::post('/cancelStore/{id}', [NewCostumerController::class, 'cancelStore'])->name('cancelStore');
-        Route::post('/update', [NewCostumerController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [NewCostumerController::class, 'destroy'])->name('destroy');
+        Route::get('/', [NewCustomerController::class, 'index'])->name('index');
+        Route::get('/create', [NewCustomerController::class, 'create'])->name('create');
+        Route::post('/store', [NewCustomerController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [NewCustomerController::class, 'edit'])->name('edit');
+        Route::get('/show/{id}', [NewCustomerController::class, 'show'])->name('show');
+        Route::get('/confirm/{id}', [NewCustomerController::class, 'confirm'])->name('confirm');
+        Route::get('/cancel/{id}', [NewCustomerController::class, 'cancelShow'])->name('cancelShow');
+        Route::post('/cancelStore/{id}', [NewCustomerController::class, 'cancelStore'])->name('cancelStore');
+        Route::post('/update', [NewCustomerController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [NewCustomerController::class, 'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
