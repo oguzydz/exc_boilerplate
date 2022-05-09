@@ -54,7 +54,24 @@
                                     placeholder="Cep telefonu numaranız."
                                 ></el-input>
                             </el-form-item>
-
+                            <el-form-item label="İnstagram Link:" prop="instagram">
+                                <el-input
+                                    v-model="data.instagram"
+                                    placeholder="İnstagram linkinizi giriniz."
+                                ></el-input>
+                            </el-form-item>
+                            <el-form-item label="Facebook Link:" prop="facebook">
+                                <el-input
+                                    v-model="data.facebook"
+                                    placeholder="Facebook linkinizi giriniz."
+                                ></el-input>
+                            </el-form-item>
+                            <el-form-item label="Twitter Link:" prop="twitter">
+                                <el-input
+                                    v-model="data.twitter"
+                                    placeholder="Twitter linkinizi giriniz."
+                                ></el-input>
+                            </el-form-item>
                             <el-form-item label="Logo:" prop="logo">
                                 <file-pond
                                     v-model="data.logo"
@@ -175,20 +192,6 @@ export default {
                         trigger: ["blur", "change"],
                     },
                 ],
-                //logo: [
-                //    {
-                //        required: true,
-                //        message: "Lütfen logo giriniz.",
-                //        trigger: "blur",
-                //    },
-                //],
-                //bg_image: [
-                //    {
-                //        required: true,
-                //        message: "Lütfen bg görsel giriniz.",
-                //        trigger: "blur",
-                //    },
-                //],
             },
         };
     },

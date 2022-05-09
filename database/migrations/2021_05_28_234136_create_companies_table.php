@@ -22,6 +22,9 @@ class CreateCompaniesTable extends Migration
             $table->string('bg_image')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
