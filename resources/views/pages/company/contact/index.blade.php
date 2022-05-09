@@ -1,6 +1,6 @@
 @extends('layouts.shop.payment')
-@section('title', 'Dijital Lisans Ürünleri | Ucuz Stok Görsel - Exxefy')
-{{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
+@section('title', 'İletişim - ' . $company->title . ' - Exxefy')
+@section('description', $company->text)
 
 @section('content')
 <x-pageTitle title="İletişim" />

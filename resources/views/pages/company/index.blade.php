@@ -1,5 +1,5 @@
 @extends('layouts.shop.light')
-@section('title', $company->slug . ' - Exxefy')
+@section('title', $company->title . ' - Exxefy')
 @section('description', $company->text)
 
 @section('content')
