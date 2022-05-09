@@ -6,7 +6,6 @@
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div>
-
                     <div class="card">
                         <div class="card-header">Yeni Üye Listesi</div>
                         <div class="card-body">

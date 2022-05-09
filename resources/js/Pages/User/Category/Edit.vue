@@ -75,7 +75,6 @@
 <script>
 import AppLayout from "@/Layouts/AppUserLayout";
 import PageTitle from "@/Components/User/PageTitle";
-
 import vueFilePond from "vue-filepond";
 import "filepond/dist/filepond.min.css";
 import { VueEditor } from "vue3-editor";

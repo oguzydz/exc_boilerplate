@@ -37,9 +37,9 @@ class CompanyRequest extends FormRequest
             'text'      => ['required', 'string'],
             'email'     => ['required', 'string'],
             'phone'     => ['required', 'string'],
-            'instagram' => ['string'],
-            'facebook'  => ['string'],
-            'twitter'   => ['string'],
+            'instagram' => ['nullable', 'string'],
+            'facebook'  => ['nullable', 'string'],
+            'twitter'   => ['nullable', 'string'],
         ];
     }
 }

@@ -49,7 +49,6 @@
 
 <script>
 import AppLayout from '@/Layouts/AppAdminLayout'
-
 import vueFilePond from 'vue-filepond'
 import 'filepond/dist/filepond.min.css'
 import { VueEditor } from 'vue3-editor'

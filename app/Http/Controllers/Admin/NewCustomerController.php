@@ -27,35 +27,14 @@ class NewCustomerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $userId
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(int $userId)
     {
-        $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($id);
+        $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
 
         return Inertia::render('Admin/NewCustomer/Show', [
             'data' => $data
@@ -63,7 +42,7 @@ class NewCustomerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -82,6 +61,7 @@ class NewCustomerController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Ürün güncellenirken beklenmedik bir hata oldu'));
+
             return redirect()->back();
         }
     }
@@ -89,11 +69,12 @@ class NewCustomerController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $userId
      * @return \Illuminate\Http\Response
      */
-    public function cancelShow(Request $request, int $id)
+    public function cancel(int $userId)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($userId);
 
         return Inertia::render('Admin/NewCustomer/Cancel', [
             'data' => $user
@@ -104,16 +85,16 @@ class NewCustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $userId
      * @return \Illuminate\Http\Response
      */
-    public function cancelStore(Request $request, int $id)
+    public function cancelStore(Request $request, int $userId)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($userId);
 
         $data = [
-            'user_id' => $id,
-            'text' => $request->text,
+            'user_id' => $userId,
+            'text'    => $request->text,
         ];
 
         try {
@@ -127,41 +108,9 @@ class NewCustomerController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Kullanıcı güncellenirken beklenmedik bir hata oldu'));
+
             return redirect()->back();
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

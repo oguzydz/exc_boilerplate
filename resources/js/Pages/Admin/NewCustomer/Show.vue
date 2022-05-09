@@ -92,6 +92,16 @@
                     }}</el-descriptions-item>
                 </el-descriptions>
 
+                <el-row class="mt-4">
+                    <el-button type="success" icon="el-icon-check" @click="confirm()">Onayla</el-button>
+                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="
+                        $inertia.get(
+                            route('admin.newCustomer.cancel', {
+                                id: data.id,
+                            })
+                        )
+                    ">Reddet</el-button>
+                </el-row>
             </div>
         </div>
     </app-layout>
@@ -111,13 +121,36 @@ export default {
         markQuestions: {},
         errors: {},
     },
-
     data() {
         return {
             //
         };
     },
-
-    methods: {},
+    methods: {
+        confirm() {
+            this.$inertia.get(
+                route("admin.newCustomer.confirm", [this.data.id]),
+                this.data,
+                {
+                    onSuccess: (page) => {
+                        this.$message({
+                            type: "success",
+                            message: "İşlem başarıyla tamamlandı.",
+                        });
+                        location.reload();
+                    },
+                    onError: (errors) => {
+                        this.$message({
+                            type: "error",
+                            dangerouslyUseHTMLString: true,
+                            message:
+                                "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
+                                this.errorsToMessage(errors),
+                        });
+                    },
+                }
+            );
+        },
+    },
 };
 </script>
