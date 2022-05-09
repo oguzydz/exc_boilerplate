@@ -18,7 +18,7 @@
                                     <template #default="scope">
                                         <el-button icon="el-icon-right" size="mini" v-on:click="
                                             $inertia.get(
-                                                route('asd', {
+                                                route('admin.newCustomer.show', {
                                                     id: scope.row.id,
                                                 })
                                             )
