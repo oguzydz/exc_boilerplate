@@ -69,13 +69,17 @@
                         <div class="contact-info">
                             <h4 class="title">Mağaza Bilgileri:</h4>
                             <p class="sub-title">
-                                Aşağıda mağazanın gerçek, sisteme kayıtlı iletişim bilgileri yer almaktadır.
+                                Aşağıda mağazanın gerçek, sisteme kayıtlı ve onaylanmış iletişim bilgileri yer almaktadır.
                             </p>
                             <p><span>Mağaza:</span> {{ $company->title }}</p>
                             <p><span>Telefon:</span> {{ $company->phone }}</p>
                             <p><span>E-Posta:</span> {{ $company->email }}</p>
+                            @if ($company->corporate_name)
+                            <p><span>Şirket Ünvanı:</span> {{ $company->corporate_name }}</p>
+                            <p><span>Vergi No:</span> {{ $company->taxpayer_identification_number }}</p>
+                            @endif
                             <p><span>Logo:</span>
-                                <img class="img d-block" src="/storage/{{ $company->logo }}" style="width: 100px" alt="profile">
+                                <img class="img d-block mt-2" src="/storage/{{ $company->logo }}" style="max-width: 100px" alt="profile">
                             </p>
                         </div>
                     </div>
