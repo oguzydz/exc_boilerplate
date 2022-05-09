@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CancelRequest;
 use App\Models\User;
 use App\Models\UserCancel;
 use Illuminate\Http\Request;
@@ -88,7 +89,7 @@ class NewCustomerController extends Controller
      * @param  int  $userId
      * @return \Illuminate\Http\Response
      */
-    public function cancelStore(Request $request, int $userId)
+    public function cancelStore(CancelRequest $request, int $userId)
     {
         $user = User::findOrFail($userId);
 

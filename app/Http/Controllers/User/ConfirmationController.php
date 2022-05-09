@@ -30,7 +30,7 @@ class ConfirmationController extends Controller
         $cities     = City::all();
 
         $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->select(['service_text'])->first() ?? (object) [];
-        $userCancel  = UserCancel::where('user_id', Auth::user()->id)->first();
+        $userCancel  = UserCancel::where('user_id', Auth::user()->id)->latest()->first();
         $userIban    = UserIban::where('user_id', Auth::user()->id)->select(['iban'])->first();
         $company     = Company::where('user_id', Auth::user()->id)->select([
             'title', 'text', 'corporate_name as cn', 'tax_office as to', 'taxpayer_identification_number as tin'
