@@ -24,10 +24,10 @@ class CreateBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'text'  => ['required', 'string'],
-            'image_seo' => ['required', 'string'],
-            'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
+            'title'    => ['required', 'string'],
+            'text'     => ['required', 'string'],
+            'image_seo'=> ['required', 'string'],
+            'image'    => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
 }

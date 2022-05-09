@@ -26,7 +26,7 @@ class EditBlogRequest extends FormRequest
         return [
             'title'     => ['required', 'string'],
             'text'      => ['required', 'string'],
-            'image_seo'     => ['required', 'string'],
+            'image_seo' => ['required', 'string'],
             'new_image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }

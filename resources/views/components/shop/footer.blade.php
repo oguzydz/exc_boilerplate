@@ -55,13 +55,13 @@
                             <div class="col-lg-3">
                                 <ul class="social-icon text-right">
                                     <li>
-                                        <a class="facebook" href="#" target="_blank"><i class="fa fa-facebook  "></i></a>
+                                        <a class="facebook" href="{{ $company->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a class="twitter" href="#" target="_blank"><i class="fa fa-twitter  "></i></a>
+                                        <a class="twitter" href="{{ $company->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a class="pinterest" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                                        <a class="pinterest" href="{{ $company->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
                                     </li>
                                 </ul>
                             </div>

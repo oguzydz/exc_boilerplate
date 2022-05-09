@@ -28,15 +28,18 @@ class CompanyRequest extends FormRequest
         $userId = Auth::user()->id;
 
         return [
-            'user_id' => ['required', 'numeric'],
-            'title'   => [
+            'user_id'   => ['required', 'numeric'],
+            'title'     => [
                 'required',
                 'string',
                 Rule::unique('companies', 'title')->ignore($userId, 'user_id')
             ],
-            'text'    => ['required', 'string'],
-            'email'   => ['required', 'string'],
-            'phone'   => ['required', 'string'],
+            'text'      => ['required', 'string'],
+            'email'     => ['required', 'string'],
+            'phone'     => ['required', 'string'],
+            'instagram' => ['string'],
+            'facebook'  => ['string'],
+            'twitter'   => ['string'],
         ];
     }
 }

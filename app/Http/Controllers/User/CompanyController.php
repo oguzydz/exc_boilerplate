@@ -41,10 +41,13 @@ class CompanyController extends Controller
         $bgImage     = isset($request->file()['bg_image']) ? $request->file()['bg_image'] : false;
 
         $companyData = [
-            'title' => $request->title,
-            'text'  => $request->text,
-            'email' => $request->email,
-            'phone' => $request->phone,
+            'title'     => $request->title,
+            'text'      => $request->text,
+            'email'     => $request->email,
+            'phone'     => $request->phone,
+            'instagram' => $request->instagram,
+            'facebook'  => $request->facebook,
+            'twitter'   => $request->twitter,
             'slug'  => Str::slug($request->title, '-'),
         ];
 
