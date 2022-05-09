@@ -18,9 +18,8 @@ class Blog extends Model
     ];
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'created_at'        => 'date:d-m-Y H:i',
-        'updated_at'        => 'date:d-m-Y H:i',
+        'created_at' => 'date:d-m-Y',
+        'updated_at' => 'date:d-m-Y',
     ];
 
     public static function getNextId()
