@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -27,6 +25,15 @@ class User extends Authenticatable
     const STATUS_DELETED  = 3;
     const STATUS_READY    = 4;
     const STATUS_CANCELED = 5;
+
+    protected $statuses = array(
+        self::STATUS_NEW      => 'Yeni',
+        self::STATUS_ACTIVE   => 'Aktif',
+        self::STATUS_PASIVE   => 'Pasif',
+        self::STATUS_DELETED  => 'Silinmiş',
+        self::STATUS_READY    => 'Onay Bekliyor',
+        self::STATUS_CANCELED => 'Reddedildi',
+    );
 
     /**
      * The attributes that are mass assignable.
@@ -67,6 +74,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at'        => 'date:d-m-Y H:i',
+        'updated_at'        => 'date:d-m-Y H:i',
     ];
 
     /**
@@ -105,5 +114,10 @@ class User extends Authenticatable
     public function company()
     {
         return $this->hasOne(Company::class, 'user_id', 'id');
+    }
+
+    public function getStatusAttribute(int $value)
+    {
+        return $this->statuses[$value];
     }
 }

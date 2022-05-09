@@ -9,7 +9,7 @@
             >
               <div>
                 <div class="fs-4 fw-semibold">{{ order }}</div>
-                <div class="text-2xl" v-on:click="$inertia.get(route('admin.order.index'))">Siparişler</div>
+                <div class="text-2xl">Siparişler</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
                 <i class="bx bx-news"></i>
@@ -25,7 +25,7 @@
             >
               <div>
                 <div class="fs-4 fw-semibold">{{ userCount }}</div>
-                <div class="text-2xl" v-on:click="$inertia.get(route('admin.customer.index'))">Aktif Üyeler</div>
+                <div class="text-2xl">Aktif Üyeler</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
                 <i class="bx bxs-network-chart"></i>
@@ -41,7 +41,7 @@
             >
               <div>
                 <div class="fs-4 fw-semibold">{{ userCount }}</div>
-                <div class="text-2xl" v-on:click="$inertia.get(route('admin.customer.index'))">Başvurular</div>
+                <div class="text-2xl">Başvurular</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
                 <i class="bx bxs-network-chart"></i>

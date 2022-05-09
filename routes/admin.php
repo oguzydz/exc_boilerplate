@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\ProductFeatureController;
 
-Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin'], 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admin'], 'as' => 'admin.'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
     Route::group(['prefix' => 'customers', 'as' => 'customer.'], function () {
@@ -34,7 +34,7 @@ Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin
         Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
     });
 
-    Route::group(['prefix' => 'newcustomers', 'as' => 'newcustomer.'], function () {
+    Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
         Route::get('/', [NewCustomerController::class, 'index'])->name('index');
         Route::get('/create', [NewCustomerController::class, 'create'])->name('create');
         Route::post('/store', [NewCustomerController::class, 'store'])->name('store');
@@ -47,54 +47,6 @@ Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin
         Route::post('/destroy/{id}', [NewCustomerController::class, 'destroy'])->name('destroy');
     });
 
-    Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('create');
-        Route::post('/store', [CategoryController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [CategoryController::class, 'show'])->name('show');
-        Route::post('/update', [CategoryController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
-    });
-
-    Route::group(['prefix' => 'products', 'as' => 'product.'], function () {
-        Route::get('/', [ProductController::class, 'index'])->name('index');
-        Route::get('/create', [ProductController::class, 'create'])->name('create');
-        Route::post('/store', [ProductController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
-        Route::post('/update', [ProductController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
-
-        Route::group(['prefix' => 'feature/{productId}', 'as' => 'feature.'], function () {
-            Route::get('/', [ProductFeatureController::class, 'index'])->name('index');
-            Route::get('/create', [ProductFeatureController::class, 'create'])->name('create');
-            Route::post('/store', [ProductFeatureController::class, 'store'])->name('store');
-            Route::get('/edit/{featureId}', [ProductFeatureController::class, 'edit'])->name('edit');
-            Route::post('/update', [ProductFeatureController::class, 'update'])->name('update');
-            Route::post('/destroy/{featureId}', [ProductFeatureController::class, 'destroy'])->name('destroy');
-
-        });
-    });
-
-    Route::group(['prefix' => 'orders', 'as' => 'order.'], function () {
-        Route::get('/{status?}', [OrderController::class, 'index'])->name('index');
-        Route::get('/create', [OrderController::class, 'create'])->name('create');
-        Route::post('/store', [OrderController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [OrderController::class, 'show'])->name('show');
-        Route::post('/update', [OrderController::class, 'update'])->name('update');
-        Route::get('/completeView/{id}', [OrderController::class, 'completeView'])->name('completeView');
-        Route::post('/complete', [OrderController::class, 'complete'])->name('complete');
-        Route::post('/destroy/{id}', [OrderController::class, 'destroy'])->name('destroy');
-    });
-
-    Route::group(['prefix' => 'payment-settings', 'as' => 'payment-setting.'], function(){
-        Route::get('/', [PaymentSettingController::class, 'index'])->name('index');
-        Route::post('/update', [PaymentSettingController::class, 'update'])->name('update');
-    });
-
-
     Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
         Route::get('/create', [BlogController::class, 'create'])->name('create');
         Route::post('/store', [BlogController::class, 'store'])->name('store');
@@ -104,4 +56,3 @@ Route::group(['prefix' => 'adminfy', 'middleware'=> ['auth:sanctum', 'role:admin
         Route::get('/', [BlogController::class, 'index'])->name('index');
     });
 });
-

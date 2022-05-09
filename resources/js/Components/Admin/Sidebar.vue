@@ -70,13 +70,13 @@ export default {
         {
           tag: 'nav-item',
           text: 'Üyeler',
-          url: 'admin.customer.index',
+          url: 'admin.index',
           icon: 'fad fa-child',
         },
         {
           tag: 'nav-item',
           text: 'Yeni Üyeler',
-          url: 'admin.newcustomer.index',
+          url: 'admin.newCustomer.index',
           icon: 'fad fa-child',
         },
         {
@@ -86,13 +86,13 @@ export default {
         {
           tag: 'nav-item',
           text: 'Siparişler',
-          url: 'admin.order.index',
+          url: 'admin.index',
           icon: 'fad fa-shopping-cart',
         },
         {
           tag: 'nav-item',
           text: 'Ödeme Ayarları',
-          url: 'admin.payment-setting.index',
+          url: 'admin.index',
           icon: 'fad fa-money-bill-wave',
         },
         {

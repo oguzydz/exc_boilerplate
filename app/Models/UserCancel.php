@@ -18,4 +18,9 @@ class UserCancel extends Model
         'user_id',
         'text',
     ];
+
+    protected $casts = [
+        'created_at' => 'date:d-m-Y H:i',
+        'updated_at' => 'date:d-m-Y H:i',
+    ];
 }
