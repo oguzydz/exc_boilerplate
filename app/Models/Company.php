@@ -30,6 +30,16 @@ class Company extends Model
         'taxpayer_identification_number',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at'        => 'date:d-m-Y H:i',
+        'updated_at'        => 'date:d-m-Y H:i',
+    ];
+
     public function categories()
     {
         return $this->hasMany(Category::class);

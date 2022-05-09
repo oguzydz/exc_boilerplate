@@ -76,6 +76,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'created_at'        => 'date:d-m-Y H:i',
         'updated_at'        => 'date:d-m-Y H:i',
+        'born_date'         => 'date:d-m-Y H:i',
     ];
 
     /**
@@ -114,6 +115,16 @@ class User extends Authenticatable
     public function company()
     {
         return $this->hasOne(Company::class, 'user_id', 'id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function county()
+    {
+        return $this->belongsTo(County::class, 'county_id', 'id');
     }
 
     public function getStatusViewAttribute()
