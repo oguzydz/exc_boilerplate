@@ -116,8 +116,4 @@ class User extends Authenticatable
         return $this->hasOne(Company::class, 'user_id', 'id');
     }
 
-    public function getStatusAttribute(int $value)
-    {
-        return $this->statuses[$value];
-    }
 }
