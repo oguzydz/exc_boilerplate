@@ -18,6 +18,7 @@ class NewCustomerController extends Controller
     public function index()
     {
         $customers = User::where('status', User::STATUS_READY)
+            ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 
         return Inertia::render('Admin/NewCustomer/Index', [
@@ -52,9 +53,9 @@ class NewCustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        $data = User::where('id', $id)->with(['iban', 'confirmData', 'type'])->firstOrFail();
+        $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($id);
 
         return Inertia::render('Admin/NewCustomer/Show', [
             'data' => $data
