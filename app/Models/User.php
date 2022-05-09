@@ -83,7 +83,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['profile_photo_url'];
+    protected $appends = ['profile_photo_url', 'status_view'];
 
     /**
      * Prepare a date for array / JSON serialization.
@@ -116,4 +116,8 @@ class User extends Authenticatable
         return $this->hasOne(Company::class, 'user_id', 'id');
     }
 
+    public function getStatusViewAttribute()
+    {
+        return $this->statuses[$this->status];
+    }
 }

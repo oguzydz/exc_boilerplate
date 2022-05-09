@@ -12,7 +12,7 @@
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>
                                 <el-table-column prop="name" label="Kullanıcı Adı"></el-table-column>
-                                <el-table-column prop="status" label="Durum"></el-table-column>
+                                <el-table-column prop="status_view" label="Durum"></el-table-column>
                                 <el-table-column prop="created_at" label="Oluşturulma Tarihi"></el-table-column>
                                 <el-table-column label="İşlem" width="200">
                                     <template #default="scope">

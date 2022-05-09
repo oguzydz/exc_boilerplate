@@ -18,7 +18,6 @@ class NewCustomerController extends Controller
     public function index()
     {
         $customers = User::where('status', User::STATUS_READY)
-            ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 
         return Inertia::render('Admin/NewCustomer/Index', [
