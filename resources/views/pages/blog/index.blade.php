@@ -19,8 +19,8 @@
                         </div>
                         <div class="single-blog-details">
                             <ul class="post-meta">
-                                <li class="admin">Admin</li>
-                                <li>August 29, 2019 /</li>
+                                <li class="admin">Exxefy</li>
+                            <li>{{ $blog->created_at }}</li>
                             </ul>
                             <h5><a href=" {{ route('blog.show', $blog->slug )}} "> {{ $blog->title }} </a></h5>
                             <p> {{Str::limit(strip_tags($blog->text), 150 )}} </p>

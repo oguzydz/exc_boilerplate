@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\CreateBlogRequest;
+use App\Http\Requests\EditBlogRequest;
+use App\Http\Requests\EditCategoryRequest;
 use App\Models\BlogCategory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -50,9 +53,8 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlogRequest $request)
+    public function store(CreateBlogRequest $request)
     {
-
         try {
             $image_seo = Str::slug($request->image_seo, '-');
 
@@ -67,7 +69,7 @@ class BlogController extends Controller
                 'slug' => $slug,
                 'image' => $filePath,
                 'image_seo' => $image_seo,
-                'category_id' => $request->category_id
+                'category_id' => $request->category_id,
             ];
 
             Blog::create($data);
@@ -130,7 +132,7 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $customerComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(EditBlogRequest $request)
     {
 
         try {

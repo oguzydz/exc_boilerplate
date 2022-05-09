@@ -5,7 +5,7 @@
                 <el-page-header
                     @back="goBack"
                     title="Geri"
-                    content="Kategori Düzenleme"
+                    content="Blog Düzenleme"
                 >
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
