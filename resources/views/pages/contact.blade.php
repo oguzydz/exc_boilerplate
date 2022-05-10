@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="single-input-wrap">
-                                    <input type="text" name="text" id="subject" class="single-input">
+                                    <input type="text" name="text" id="subject" class="single-input" required>
                                     <label>Konu</label>
                                 </div>
                             </div>
