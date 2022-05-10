@@ -14,7 +14,8 @@
                     <div class="section-title text-center w-100">
                         <h2 class="title">Hemen <span>iletişim</span> kur</h2>
                         <p>
-                           Aşağıdaki formu doldurarak bize aklından geçen tüm soruları sorabilirsin. Geri dönüşler genellikle aynı gün yapılmaktadır.
+                            Aşağıdaki formu doldurarak bize aklından geçen tüm soruları sorabilirsin. Geri dönüşler
+                            genellikle aynı gün yapılmaktadır.
                         </p>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="single-input-wrap">
-                                    <input type="text" name="text" id="subject" required class="single-input">
+                                    <input type="text" name="text" id="subject" class="single-input">
                                     <label>Konu</label>
                                 </div>
                             </div>
@@ -54,6 +55,20 @@
                             <div class="col-12">
                                 <button class="btn btn-red mt-0" type="submit">Gönder</button>
                             </div>
+                            @if ($errors->any())
+                                <div class="col-md-12  mt-4">
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <p>
+                                            Lütfen yukarıda yazan hatalı düzeltiniz.
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -66,17 +81,21 @@
             <div class="map-area-wrap">
                 <div class="row no-gutters">
                     <div class="col-lg-8">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2531.0990092503257!2d29.120613929597177!3d41.025235147419984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac955bd6fedc5%3A0xf1c2bf8383ab3509!2sRelux%20plaza!5e0!3m2!1str!2str!4v1636994885267!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2531.0990092503257!2d29.120613929597177!3d41.025235147419984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac955bd6fedc5%3A0xf1c2bf8383ab3509!2sRelux%20plaza!5e0!3m2!1str!2str!4v1636994885267!5m2!1str!2str"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                     <div class="col-lg-4 desktop-center-item">
                         <div>
                             <div class="contact-info">
                                 <h4 class="title">İletişim bilgileri:</h4>
                                 <p class="sub-title">
-                                    Aşağıda bizimle doğrudan iletişime geçebileceğin adresler ve şirket bilgileri yer almaktadır.
+                                    Aşağıda bizimle doğrudan iletişime geçebileceğin adresler ve şirket bilgileri yer
+                                    almaktadır.
                                 </p>
                                 <p><span>Adres:</span> 1222. Sokak, Fatih Sultan Mehmet Mahallesi, Relux Plaza,
-                                    <br> Ümraniye/İstanbul</p>
+                                    <br> Ümraniye/İstanbul
+                                </p>
                                 <p><span>Telefon:</span> 0 (850) 111 11 11</p>
                                 <p><span>E-Posta:</span> info@exxefy.com</p>
                             </div>

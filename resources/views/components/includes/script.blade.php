@@ -1,7 +1,8 @@
 <div class="back-to-top">
     <span class="back-top"><i class="fa fa-angle-up"></i></span>
 </div>
-
+@include('sweetalert::alert')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets\js\jquery-2.2.4.min.js') }}"></script>
 <script src="{{ asset('assets\js\popper.min.js') }}"></script>
 <script src="{{ asset('assets\js\bootstrap.min.js') }}"></script>
@@ -18,5 +19,3 @@
 <script src="{{ asset('assets\js\worldmap-topojson.js') }}"></script>
 <script src="{{ asset('assets\js\mediaelement.min.js') }}"></script>
 <script src="{{ asset('assets\js\main.js') }}"></script>
-@include('sweetalert::alert')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

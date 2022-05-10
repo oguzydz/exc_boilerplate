@@ -1,12 +1,12 @@
-;(function($){
+; (function ($) {
     "use strict";
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
         /*-------------------------------------------------
             Navbar fix
         --------------------------------------------------*/
-        $(document).on('click','.navbar-area .navbar-nav li.menu-item-has-children>a',function(e){
+        $(document).on('click', '.navbar-area .navbar-nav li.menu-item-has-children>a', function (e) {
             e.preventDefault();
         })
 
@@ -18,7 +18,7 @@
         /*-------------------------------------------------
             select onput
         --------------------------------------------------*/
-        if ($('.select').length){
+        if ($('.select').length) {
             $('.select').niceSelect();
         }
 
@@ -34,7 +34,7 @@
         /*-------------------------------------------------
             popover
         --------------------------------------------------*/
-        if ($('[data-toggle="popover"]').length){
+        if ($('[data-toggle="popover"]').length) {
             $('[data-toggle="popover"]').popover();
         }
 
@@ -51,7 +51,7 @@
                 arrows: false,
                 fade: true,
                 asNavFor: '.product-thumbnail-carousel'
-              });
+            });
         }
         if (pThumbanilSlider.length) {
             pThumbanilSlider.slick({
@@ -62,46 +62,46 @@
                 centerMode: false,
                 focusOnSelect: true,
                 vertical: true,
-                arrows:false,
+                arrows: false,
                 prevArrow: '<div class="slick-prev"><i class="fa fa-angle-double-up"></i></div>',
                 nextArrow: '<div class="slick-next"><i class="fa fa-angle-double-down"></i></div>',
-              });
+            });
         }
 
 
         /* -----------------------------------------------------
             main slider
         ----------------------------------------------------- */
-        if ($('.banner-slider').length){
+        if ($('.banner-slider').length) {
             $('.banner-slider').owlCarousel({
                 items: 1,
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
-                smartSpeed:450,
+                smartSpeed: 450,
                 loop: true,
                 autoplay: true,
                 autoplayTimeout: 10000,
                 nav: true,
                 dots: true,
                 smartSpeed: 1500,
-                navText:['<i class="ti-angle-left" aria-hidden="true"></i>','<i class="ti-angle-right" aria-hidden="true"></i>'],
+                navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
             });
         }
 
         /* -----------------------------------------------------
             blog gallery slider
         ----------------------------------------------------- */
-        if ($('.blog-gallery-slider').length){
+        if ($('.blog-gallery-slider').length) {
             $('.blog-gallery-slider').owlCarousel({
                 items: 1,
-                smartSpeed:450,
+                smartSpeed: 450,
                 loop: true,
                 autoplay: true,
                 autoplayTimeout: 10000,
                 nav: true,
                 dots: false,
                 smartSpeed: 1500,
-                navText:['<i class="ti-angle-left" aria-hidden="true"></i>','<i class="ti-angle-right" aria-hidden="true"></i>'],
+                navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
             });
         }
 
@@ -125,7 +125,7 @@
         /*------------------------------
             counter section activation
         -------------------------------*/
-        if($('.count-num').length){
+        if ($('.count-num').length) {
             $('.count-num').counterUp({
                 delay: 10,
                 time: 5000
@@ -151,7 +151,7 @@
                     });
                 });
             });
-            $(document).on('click','.gallery-menu li' , function () {
+            $(document).on('click', '.gallery-menu li', function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
             });
@@ -219,13 +219,13 @@
         /*--------------------------------------
             testimonial-slider
         ---------------------------------------*/
-        $("#testimonial-slider").AnimatedSlider( {
+        $("#testimonial-slider").AnimatedSlider({
             prevButton: "#btn_prev",
             nextButton: "#btn_next",
             visibleItems: 5,
             infiniteScroll: true,
-            willChangeCallback: function(obj, item) { $("#statusText").text("Will change to " + item); },
-            changedCallback: function(obj, item) { $("#statusText").text("Changed to " + item); }
+            willChangeCallback: function (obj, item) { $("#statusText").text("Will change to " + item); },
+            changedCallback: function (obj, item) { $("#statusText").text("Changed to " + item); }
         });
 
         /*-------------------------------------
@@ -259,7 +259,7 @@
                 dots: false,
                 nav: true,
                 smartSpeed: 1000,
-                navText:['<img src="assets/img/startup/left.svg" alt="arrow">','<img src="assets/img/startup/right.svg" alt="arrow">'],
+                navText: ['<img src="assets/img/startup/left.svg" alt="arrow">', '<img src="assets/img/startup/right.svg" alt="arrow">'],
                 responsive: {
                     0: {
                         items: 1
@@ -293,7 +293,7 @@
                 smartSpeed: 1500,
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
-                navText:['<img src="assets/img/startup/left.svg" alt="arrow">','<img src="assets/img/startup/right.svg" alt="arrow">'],
+                navText: ['<img src="assets/img/startup/left.svg" alt="arrow">', '<img src="assets/img/startup/right.svg" alt="arrow">'],
             });
         }
 
@@ -310,7 +310,7 @@
                 margin: 16,
                 nav: true,
                 smartSpeed: 1500,
-                navText:['<img src="assets/img/startup/left.svg" alt="arrow">','<img src="assets/img/startup/right.svg" alt="arrow">'],
+                navText: ['<img src="assets/img/startup/left.svg" alt="arrow">', '<img src="assets/img/startup/right.svg" alt="arrow">'],
                 responsive: {
                     0: {
                         items: 1,
@@ -332,40 +332,40 @@
             });
         }
 
-        var getProjection = function(worldJson) {
+        var getProjection = function (worldJson) {
             // create a first guess for the projection
             var scale = 1,
-            offset = [ width / 2, height / 2 ],
-            projection = d3.geoEquirectangular().scale( scale ).rotate( [0,0] ).center([0,5]).translate( offset ),
-            bounds = mercatorBounds( projection ),
-            scaleExtent;
+                offset = [width / 2, height / 2],
+                projection = d3.geoEquirectangular().scale(scale).rotate([0, 0]).center([0, 5]).translate(offset),
+                bounds = mercatorBounds(projection),
+                scaleExtent;
 
-            scale = width / (bounds[ 1 ][ 0 ] - bounds[ 0 ][ 0 ]);
-            scaleExtent = [ scale, 10 * scale ];
+            scale = width / (bounds[1][0] - bounds[0][0]);
+            scaleExtent = [scale, 10 * scale];
 
             projection
-            .scale( scaleExtent[ 0 ] );
+                .scale(scaleExtent[0]);
 
-          return projection;
+            return projection;
         },
-        mercatorBounds = function(projection) {
-            // find the top left and bottom right of current projection
-            var maxlat = 83,
-            yaw = projection.rotate()[ 0 ],
-            xymax = projection( [ -yaw + 180 - 1e-6, -maxlat ] ),
-            xymin = projection( [ -yaw - 180 + 1e-6, maxlat ] );
+            mercatorBounds = function (projection) {
+                // find the top left and bottom right of current projection
+                var maxlat = 83,
+                    yaw = projection.rotate()[0],
+                    xymax = projection([-yaw + 180 - 1e-6, -maxlat]),
+                    xymin = projection([-yaw - 180 + 1e-6, maxlat]);
 
-           return [ xymin, xymax ];
-        };
+                return [xymin, xymax];
+            };
 
         /*--------------------------------------
            form input Focus
         ---------------------------------------*/
-        if($('.single-input').length){
-            $('.single-input').on('focusin', function() {
+        if ($('.single-input').length) {
+            $('.single-input').on('focusin', function () {
                 $(this).parent().find('label').addClass('active');
             });
-            $('.single-input').on('focusout', function() {
+            $('.single-input').on('focusout', function () {
                 if (!this.value) {
                     $(this).parent().find('label').removeClass('active');
                 }
@@ -376,7 +376,7 @@
         /*--------------------------------------
             pricing Active
         ---------------------------------------*/
-        $(document).on('mouseover','.single-pricing',function() {
+        $(document).on('mouseover', '.single-pricing', function () {
             $(this).addClass('single-pricing-active');
             $('.single-pricing').removeClass('single-pricing-active');
             $(this).addClass('single-pricing-active');
@@ -385,7 +385,7 @@
         /*--------------------------------------
             cart close
         ---------------------------------------*/
-        $('.cart-close span').on('click', function(){
+        $('.cart-close span').on('click', function () {
             $(this).parents('tr').fadeOut();
         });
         $('.remove-product').on('click', function (e) {
@@ -397,49 +397,49 @@
         /*--------------------------------------------
             Search Popup
         ---------------------------------------------*/
-        var bodyOvrelay =  $('#body-overlay');
+        var bodyOvrelay = $('#body-overlay');
         var searchPopup = $('#search-popup');
 
-        $(document).on('click','#body-overlay',function(e){
+        $(document).on('click', '#body-overlay', function (e) {
             e.preventDefault();
-        bodyOvrelay.removeClass('active');
+            bodyOvrelay.removeClass('active');
             searchPopup.removeClass('active');
         });
-        $(document).on('click','.search',function(e){
+        $(document).on('click', '.search', function (e) {
             e.preventDefault();
             searchPopup.addClass('active');
-        bodyOvrelay.addClass('active');
+            bodyOvrelay.addClass('active');
         });
 
         /*--------------------------------------------
             Cart Popup
         ---------------------------------------------*/
-        var bodyOvrelay =  $('#body-overlay');
+        var bodyOvrelay = $('#body-overlay');
         var cartPopup = $('#cart-popup');
 
-        $(document).on('click','#body-overlay',function(e){
+        $(document).on('click', '#body-overlay', function (e) {
             e.preventDefault();
-        bodyOvrelay.removeClass('active');
+            bodyOvrelay.removeClass('active');
             cartPopup.removeClass('active');
         });
-        $(document).on('click','#cart-btn',function(e){
+        $(document).on('click', '#cart-btn', function (e) {
             e.preventDefault();
             cartPopup.addClass('active');
-        bodyOvrelay.addClass('active');
+            bodyOvrelay.addClass('active');
         });
 
         /*--------------------------------------------
             Cart Popup
         ---------------------------------------------*/
-        var bodyOvrelay =  $('#body-overlay');
+        var bodyOvrelay = $('#body-overlay');
         var cartPopup = $('#cart-popup');
 
-        $(document).on('click','#body-overlay',function(e){
+        $(document).on('click', '#body-overlay', function (e) {
             e.preventDefault();
-        bodyOvrelay.removeClass('active');
+            bodyOvrelay.removeClass('active');
             cartPopup.removeClass('active');
         });
-        $(document).on('click','#cart-btn',function(e){
+        $(document).on('click', '#cart-btn', function (e) {
             e.preventDefault();
             cartPopup.addClass('active');
             bodyOvrelay.addClass('active');
@@ -448,15 +448,15 @@
         /*--------------------------------------------
             signIn Popup
         ---------------------------------------------*/
-        var bodyOvrelay =  $('#body-overlay');
+        var bodyOvrelay = $('#body-overlay');
         var signInPopup = $('#signIn-popup');
 
-        $(document).on('click','#body-overlay',function(e){
+        $(document).on('click', '#body-overlay', function (e) {
             e.preventDefault();
             bodyOvrelay.removeClass('active');
             signInPopup.removeClass('active');
         });
-        $(document).on('click','#signIn-btn',function(e){
+        $(document).on('click', '#signIn-btn', function (e) {
             e.preventDefault();
             signInPopup.addClass('active');
             bodyOvrelay.addClass('active');
@@ -465,15 +465,15 @@
         /*--------------------------------------------
             signUp Popup
         ---------------------------------------------*/
-        var bodyOvrelay =  $('#body-overlay');
+        var bodyOvrelay = $('#body-overlay');
         var singupPopup = $('#signUp-popup');
 
-        $(document).on('click','#body-overlay',function(e){
+        $(document).on('click', '#body-overlay', function (e) {
             e.preventDefault();
             bodyOvrelay.removeClass('active');
             singupPopup.removeClass('active');
         });
-        $(document).on('click','#signUp-btn',function(e){
+        $(document).on('click', '#signUp-btn', function (e) {
             e.preventDefault();
             singupPopup.addClass('active');
             bodyOvrelay.addClass('active');
@@ -483,22 +483,22 @@
         /**---------------------------------------
          *  Progress BAR
          * -------------------------------------*/
-        jQuery(window).on('scroll', function() {
+        jQuery(window).on('scroll', function () {
             var windowHeight = $(window).height();
             function kalProgress() {
-               var progress = $('.progress-rate');
-               var len = progress.length;
+                var progress = $('.progress-rate');
+                var len = progress.length;
                 for (var i = 0; i < len; i++) {
-                   var progressId = '#' + progress[i].id;
-                   var dataValue = $(progressId).attr('data-value');
-                   $(progressId).css({'width':dataValue+'%'});
+                    var progressId = '#' + progress[i].id;
+                    var dataValue = $(progressId).attr('data-value');
+                    $(progressId).css({ 'width': dataValue + '%' });
                 }
             }
             var progressRateClass = $('#progress-running');
-             if ((progressRateClass).length) {
-                 var progressOffset = $("#progress-running").offset().top - windowHeight;
-                 if ($(window).scrollTop() > progressOffset) {
-                     kalProgress();
+            if ((progressRateClass).length) {
+                var progressOffset = $("#progress-running").offset().top - windowHeight;
+                if ($(window).scrollTop() > progressOffset) {
+                    kalProgress();
                 }
             }
         });
@@ -506,9 +506,9 @@
         /**---------------------------------------
          *  type js
         * -------------------------------------*/
-        if($('.typed').length){
+        if ($('.typed').length) {
             var typed = $(".typed");
-            $(function() {
+            $(function () {
                 typed.typed({
                     strings: [" For Business."],
                     typeSpeed: 130,
@@ -520,10 +520,10 @@
         /**---------------------------------------
          *  file upload
         * -------------------------------------*/
-        if($('.exxefy-file-input').length){
-            $(".exxefy-file-input").on("change", function() {
-              var fileName = $(this).val().split("\\").pop();
-              $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        if ($('.exxefy-file-input').length) {
+            $(".exxefy-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             });
         }
 
@@ -555,20 +555,20 @@
         /**---------------------------------------
          *  QTY Inputs
         * -------------------------------------*/
-        if($('.slider-product-sorting').length){
-            $( function() {
-                $( ".slider-product-sorting" ).slider({
-                range: true,
-                min: 0,
-                max: 10000,
-                values: [ 0, 10000 ],
-                slide: function( event, ui ) {
-                $( "#amount" ).val( "₺" + ui.values[ 0 ] + " - ₺" + ui.values[ 1 ] );
-                }
+        if ($('.slider-product-sorting').length) {
+            $(function () {
+                $(".slider-product-sorting").slider({
+                    range: true,
+                    min: 0,
+                    max: 10000,
+                    values: [0, 10000],
+                    slide: function (event, ui) {
+                        $("#amount").val("₺" + ui.values[0] + " - ₺" + ui.values[1]);
+                    }
                 });
-                $( "#amount" ).val( "₺" + $( ".slider-product-sorting" ).slider( "values", 0 ) +
-                " - ₺" + $( ".slider-product-sorting" ).slider( "values", 1 ) );
-            } );
+                $("#amount").val("₺" + $(".slider-product-sorting").slider("values", 0) +
+                    " - ₺" + $(".slider-product-sorting").slider("values", 1));
+            });
         }
 
 
@@ -582,9 +582,9 @@
         //back to top show/hide
         var ScrollTop = $('.back-to-top');
         if ($(window).scrollTop() > 1000) {
-           ScrollTop.fadeIn(1000);
+            ScrollTop.fadeIn(1000);
         } else {
-           ScrollTop.fadeOut(1000);
+            ScrollTop.fadeOut(1000);
         }
 
         /*--------------------------
@@ -600,7 +600,7 @@
     });
 
 
-    $(window).on('load',function(){
+    $(window).on('load', function () {
 
         /*-----------------
             preloader
@@ -617,7 +617,7 @@
         /*---------------------
             Cancel Preloader
         ----------------------*/
-        $(document).on('click','.cancel-preloader a',function(e){
+        $(document).on('click', '.cancel-preloader a', function (e) {
             e.preventDefault();
             $("#preloader").fadeOut(2000);
         });
@@ -628,15 +628,15 @@
     /* -------------------------------------------------------------
             Image Gallery Popup
     ------------------------------------------------------------- */
-    function exxefy_image_popup(selector){
-        if ($(selector).length){
+    function exxefy_image_popup(selector) {
+        if ($(selector).length) {
             $(selector).magnificPopup({
                 delegate: 'a',
                 type: 'image',
                 gallery: { enabled: true },
                 removalDelay: 500,
                 callbacks: {
-                    beforeOpen: function() {
+                    beforeOpen: function () {
                         this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
                         this.st.mainClass = this.st.el.attr('data-effect');
                     }
@@ -656,14 +656,14 @@
     var
         sourcesSelector = document.body.querySelectorAll('select'),
         sourcesTotal = sourcesSelector.length
-    ;
+        ;
 
     for (var i = 0; i < sourcesTotal; i++) {
         sourcesSelector[i].addEventListener('change', function (e) {
             var
                 media = e.target.closest('.media-container').querySelector('.mejs__container').id,
                 player = mejs.players[media]
-            ;
+                ;
 
             player.setSrc(e.target.value.replace('&amp;', '&'));
             player.setPoster('');
@@ -691,7 +691,7 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
 
         for (var i = 0; i < total; i++) {
