@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="single-input-wrap">
-                                    <input type="text" name="email" id="email" required class="single-input">
+                                    <input type="email" name="email" id="email" required class="single-input">
                                     <label>E-Posta</label>
                                 </div>
                             </div>
