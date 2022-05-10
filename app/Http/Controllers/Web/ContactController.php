@@ -16,18 +16,16 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('pages.contact', [
-            //
-        ]);
+        return view('pages.contact');
     }
 
 
-    public function send(Request $request)
+    public function send(ContactRequest $request)
     {
         $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'text' => $request->text,
+            'name'    => $request->name,
+            'email'   => $request->email,
+            'text'    => $request->text,
             'message' => $request->message,
         ];
 
@@ -35,7 +33,6 @@ class ContactController extends Controller
             Contact::create($data);
 
             $request->session()->flash('type', 'success');
-
             return redirect()->back()->with('toast_success', __('Bilgi talebiniz başarıyla iletildi en kısa süre içinde iletişime geçmiş olacağız!'));
         } catch (\Exception $e) {
 
@@ -43,72 +40,5 @@ class ContactController extends Controller
             return redirect()->back()->with('toast_error', __('Lütfen gerekli alanları istenilene göre doldurmayı unutmayınız!'));
 
         }
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
