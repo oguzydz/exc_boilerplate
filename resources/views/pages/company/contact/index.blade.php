@@ -23,34 +23,35 @@
                 <img src="{{ asset('assets\img\others\21.png') }}" alt="blog">
             </div>
             <div class="col-lg-7 offset-xl-1">
-                <form class="exxefy-form-wrap mt-5 mt-lg-0">
+                <form action="{{ route('contact.send') }}" method="POST">
+                    {{ csrf_field() }}
                     <div class="row custom-gutters-16">
                         <div class="col-md-6">
                             <div class="single-input-wrap">
-                                <input type="text" class="single-input">
+                                <input type="text" name="name" id="name" required class="single-input">
                                 <label>Ad-Soyad</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="single-input-wrap">
-                                <input type="text" class="single-input">
+                                <input type="text" name="email" id="email" required class="single-input">
                                 <label>E-Posta</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="single-input-wrap">
-                                <input type="text" class="single-input">
+                                <input type="text" name="text" id="subject" required class="single-input">
                                 <label>Konu</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="single-input-wrap">
-                                <textarea class="single-input textarea" cols="20"></textarea>
+                                <textarea class="single-input textarea" name="message" id="message" cols="20"></textarea>
                                 <label class="single-input-label">Mesaj</label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <a class="btn btn-red mt-0" href="#">Gönder</a>
+                            <button class="btn btn-red mt-0" type="submit">Gönder</button>
                         </div>
                     </div>
                 </form>
