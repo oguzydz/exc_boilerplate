@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="single-input-wrap">
-                                    <textarea class="single-input textarea" name="message" id="message" cols="20"></textarea>
+                                    <textarea class="single-input textarea" name="message" id="message" cols="20" required></textarea>
                                     <label class="single-input-label">Mesaj</label>
                                 </div>
                             </div>
