@@ -8,6 +8,7 @@
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\CompanyController;
 use App\Http\Controllers\User\ConfirmationController;
+use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,6 +100,12 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
     Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.'], function() {
         Route::get('/', [ConfirmationController::class, 'index'])->name('index');
         Route::post('/store', [ConfirmationController::class, 'store'])->name('store');
+    });
+
+    Route::group(['prefix' => 'contacts', 'as' => 'contact.'], function() {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/show/{contactId}', [ContactController::class, 'show'])->name('show');
+        Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
     });
 
 });

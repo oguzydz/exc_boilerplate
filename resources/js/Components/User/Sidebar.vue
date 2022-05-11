@@ -103,6 +103,13 @@ export default {
           icon: "fas fa-undo-alt",
         },
         {
+
+          tag: "nav-item",
+          text: "İletişim Mesajları",
+          url: "user.contact.index",
+          icon: "fad fa-envelope",
+        },
+        {
           tag: "nav-item",
           text: "Ödeme Ayarları",
           url: "user.category.index",

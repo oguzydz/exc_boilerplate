@@ -10,6 +10,8 @@ use App\Http\Controllers\Company\CargoTrackingController;
 use App\Http\Controllers\Company\CategoryController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\ContactController;
+use App\Http\Controllers\User\ContactController as UserContactController;
+use App\Http\Controllers\User\UserContactController as UserUserContactController;
 use App\Http\Controllers\Web\ContactController as WebContactController;
 use App\Http\Controllers\Web\PolicyController;
 use App\Http\Controllers\Web\StaticPageController;
@@ -73,6 +75,7 @@ foreach ($companies as $company) {
             Route::group(['prefix' => 'iletisim', 'as' => 'contact.'], function () {
                 Route::get('/', [ContactController::class, 'index'])->name('index');
                 Route::get('{slug}', [ContactController::class, 'show'])->name('show');
+                Route::post('/gonder', [ContactController::class, 'send'])->name('send');
             });
 
         });

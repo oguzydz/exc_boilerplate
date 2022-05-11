@@ -23,11 +23,12 @@
                 <img src="{{ asset('assets\img\others\21.png') }}" alt="blog">
             </div>
             <div class="col-lg-7 offset-xl-1">
-                <form action="{{ route('contact.send') }}" method="POST">
+                <form action="{{ route($company->slug . '.contact.send',) }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row custom-gutters-16">
                         <div class="col-md-6">
                             <div class="single-input-wrap">
+                                <input type="hidden" name='company_id' value="{{ $company->id }}">
                                 <input type="text" name="name" id="name" required class="single-input">
                                 <label>Ad-Soyad</label>
                             </div>
