@@ -6,11 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CancelRequest;
 use App\Models\User;
 use App\Models\UserCancel;
+use App\Services\IyzicoService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class NewCustomerController extends Controller
 {
+    protected $iyzicoService;
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct(IyzicoService $iyzicoService)
+    {
+        $this->iyzicoService = $iyzicoService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,6 +64,7 @@ class NewCustomerController extends Controller
      */
     public function confirm(Request $request, int $id)
     {
+        $this->iyzicoService->createPersonelSubMerchant();
         $user = User::findOrFail($id);
 
         try {
@@ -113,5 +127,4 @@ class NewCustomerController extends Controller
             return redirect()->back();
         }
     }
-
 }
