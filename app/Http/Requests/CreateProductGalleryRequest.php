@@ -25,7 +25,7 @@ class CreateProductGalleryRequest extends FormRequest
     {
         return [
             'order'      => ['required', 'numeric'],
-            'image'      => ['required', 'mimes:jpeg,png,jpg,gif,svg'],
+            'image'      => ['required', 'mimes:jpeg,png,jpg,gif,svg, webp'],
         ];
     }
 }
