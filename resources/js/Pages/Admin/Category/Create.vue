@@ -79,14 +79,7 @@ export default {
 
     data() {
         return {
-            form: {
-                title: null,
-                text: null,
-                image: null,
-                image_seo: null,
-                category_id: null,
-                order: null,
-            },
+            form: {},
             status: true
         }
     },
