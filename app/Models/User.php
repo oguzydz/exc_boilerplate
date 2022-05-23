@@ -26,7 +26,7 @@ class User extends Authenticatable
     const STATUS_READY    = 4;
     const STATUS_CANCELED = 5;
 
-    protected $statuses = array(
+    public static $statuses = array(
         self::STATUS_NEW      => 'Yeni',
         self::STATUS_ACTIVE   => 'Aktif',
         self::STATUS_PASIVE   => 'Pasif',
@@ -129,7 +129,7 @@ class User extends Authenticatable
 
     public function getStatusViewAttribute()
     {
-        return $this->statuses[$this->status];
+        return self::$statuses[$this->status];
     }
 
     public function getFirstAndLastName()

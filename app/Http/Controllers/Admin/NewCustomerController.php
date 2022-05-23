@@ -7,23 +7,23 @@ use App\Http\Requests\CancelRequest;
 use App\Models\SubMerchant;
 use App\Models\User;
 use App\Models\UserCancel;
-use App\Services\IyzicoService;
+// use App\Services\IyzicoService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class NewCustomerController extends Controller
 {
-    protected $iyzicoService;
+    // protected $iyzicoService;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(IyzicoService $iyzicoService)
-    {
-        $this->iyzicoService = $iyzicoService;
-    }
+    // /**
+    //  * Create a new component instance.
+    //  *
+    //  * @return void
+    //  */
+    // public function __construct(IyzicoService $iyzicoService)
+    // {
+    //     $this->iyzicoService = $iyzicoService;
+    // }
 
     /**
      * Display a listing of the resource.

@@ -17,13 +17,29 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $admins = Admin::select('id');
-        $customers = User::whereNotIn('id', $admins)->select(['id', 'name', 'email', 'created_at', 'updated_at'])->paginate(5);
-
         return Inertia::render('Admin/Customer/Index', [
-            'data' => $customers
+            'statuses' => User::$statuses
         ]);
     }
+
+
+    /**
+     * List the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list(int $statusId)
+    {
+        $customersList = User::where('status', User::$statuses)->findOrFail($statusId)
+            ->select(['id', 'name', 'email', 'status', 'created_at'])
+            ->paginate(10);
+
+        return Inertia::render('Admin/Customer/List/Index', [
+            'data' => $customersList
+        ]);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -52,9 +68,13 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $userId)
     {
-        //
+        $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
+
+        return Inertia::render('Admin/NewCustomer/Show', [
+            'data' => $data
+        ]);
     }
 
     /**

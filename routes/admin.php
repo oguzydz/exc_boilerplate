@@ -17,6 +17,8 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::get('/show/{id}', [CustomerController::class, 'show'])->name('show');
         Route::post('/update', [CustomerController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
+        Route::get('/list/{statusId}', [CustomerController::class, 'list'])->name('list');
+
     });
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
