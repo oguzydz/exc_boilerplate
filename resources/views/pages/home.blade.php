@@ -1,4 +1,4 @@
 <h1>
-Bu siteyi yapan seni seviyoo
+Sude bu siteyi yapan seni seviyoo < 3
 
 </h1>
