@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
@@ -20,16 +16,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $userCount = User::role('user')->count();
-        $order = Order::count();
-        $product = Product::count();
+        $activeUserCount = User::role('user')->where('status', User::STATUS_ACTIVE)->count();
+        $readyUserCount  = User::role('user')->where('status', User::STATUS_READY)->count();
 
         return Inertia::render(
             'Admin/Dashboard',
             [
-                'userCount' => $userCount,
-                'order' => $order,
-                'product' => $product
+                'activeUserCount' => $activeUserCount,
+                'readyUserCount'  => $readyUserCount,
             ]
         );
     }

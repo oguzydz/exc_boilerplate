@@ -2,11 +2,7 @@
     <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header
-                    @back="goBack"
-                    title="Geri"
-                    content="Dükkan Yönetimi"
-                >
+                <el-page-header @back="goBack" title="Geri" content="Dükkan Yönetimi">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
@@ -19,96 +15,49 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <el-form
-                            :model="data"
-                            :rules="rules"
-                            ref="data"
-                            label-width="130px"
-                            :label-position="isMobile() ? 'left' : 'right'"
-                            size="medium"
-                        >
+                        <el-form :model="data" :rules="rules" ref="data" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Dükkan Adı:" prop="title">
-                                <el-input
-                                    v-model="data.title"
-                                    placeholder="Dükkan adı giriniz."
-                                ></el-input>
+                                <el-input v-model="data.title" placeholder="Dükkan adı giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Açıklaması:" prop="text">
-                                <el-input
-                                    type="textarea"
-                                    v-model="data.text"
-                                    placeholder="Dükkan açıklaması giriniz."
-                                ></el-input>
+                                <el-input type="textarea" v-model="data.text" placeholder="Dükkan açıklaması giriniz.">
+                                </el-input>
                             </el-form-item>
                             <el-form-item label="E-Posta:" prop="email">
-                                <el-input
-                                    v-model="data.email"
-                                    placeholder="Dükkan e-postası giriniz."
-                                ></el-input>
+                                <el-input v-model="data.email" placeholder="Dükkan e-postası giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Telefon:" prop="phone">
-                                <el-input
-                                    v-model="data.phone"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Cep telefonu numaranız."
-                                ></el-input>
+                                <el-input v-model="data.phone" type="number" maxlength="11"
+                                    placeholder="Cep telefonu numaranız."></el-input>
                             </el-form-item>
                             <el-form-item label="İnstagram Link:" prop="instagram">
-                                <el-input
-                                    v-model="data.instagram"
-                                    placeholder="İnstagram linkinizi giriniz."
-                                ></el-input>
+                                <el-input v-model="data.instagram" placeholder="İnstagram linkinizi giriniz.">
+                                </el-input>
                             </el-form-item>
                             <el-form-item label="Facebook Link:" prop="facebook">
-                                <el-input
-                                    v-model="data.facebook"
-                                    placeholder="Facebook linkinizi giriniz."
-                                ></el-input>
+                                <el-input v-model="data.facebook" placeholder="Facebook linkinizi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Twitter Link:" prop="twitter">
-                                <el-input
-                                    v-model="data.twitter"
-                                    placeholder="Twitter linkinizi giriniz."
-                                ></el-input>
+                                <el-input v-model="data.twitter" placeholder="Twitter linkinizi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Logo:" prop="logo">
-                                <file-pond
-                                    v-model="data.logo"
-                                    ref="pond"
+                                <file-pond v-model="data.logo" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile"
-                                />
-                                <img
-                                    :src="'/storage/' + logo"
-                                    class="img"
-                                    style="width: 100px"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
+                                <img :src="'/storage/' + logo" class="img" style="width: 100px" />
                             </el-form-item>
                             <el-form-item label="Arka Plan:" prop="bg_image">
-                                <file-pond
-                                    v-model="data.bg_image"
-                                    ref="pond"
+                                <file-pond v-model="data.bg_image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFileBg"
-                                />
-                                <img
-                                    :src="'/storage/' + bg_image"
-                                    class="img"
-                                    style="width: 400px"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFileBg" />
+                                <img :src="'/storage/' + bg_image" class="img" style="width: 400px" />
                             </el-form-item>
                             <div class="float-right">
-                                <el-button
-                                    type="success"
-                                    icon="el-icon-check"
-                                    @click="submitForm('data')"
-                                    >GÖNDER</el-button
-                                >
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('data')">GÖNDER
+                                </el-button>
                             </div>
                         </el-form>
                     </div>

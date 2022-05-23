@@ -24,7 +24,7 @@
               class="card-body pb-0 d-flex justify-content-between align-items-start"
             >
               <div>
-                <div class="fs-4 fw-semibold">{{ userCount }}</div>
+                <div class="fs-4 fw-semibold">{{ activeUserCount }}</div>
                 <div class="text-2xl">Aktif Üyeler</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
@@ -40,8 +40,8 @@
               class="card-body pb-0 d-flex justify-content-between align-items-start"
             >
               <div>
-                <div class="fs-4 fw-semibold">{{ userCount }}</div>
-                <div class="text-2xl">Başvurular</div>
+                <div class="fs-4 fw-semibold">{{ readyUserCount }}</div>
+                <div class="text-2xl">Yeni Başvurular</div>
               </div>
               <div class="dropdown text-2xl" style="font-size: 50px;">
                 <i class="bx bxs-network-chart"></i>
@@ -78,9 +78,8 @@ export default {
     AppAdminLayout,
   },
   props: {
-    userCount: Number,
-    order : Number,
-    product : Number
+    activeUserCount: Number,
+    readyUserCount: Number,
   },
 }
 </script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CancelRequest;
+use App\Models\SubMerchant;
 use App\Models\User;
 use App\Models\UserCancel;
 use App\Services\IyzicoService;
@@ -62,23 +63,24 @@ class NewCustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function confirm(Request $request, int $id)
+    public function confirm(Request $request, int $userId)
     {
-        $this->iyzicoService->createPersonelSubMerchant();
-        $user = User::findOrFail($id);
+        $user              = User::findOrFail($userId);
+        $createSubMerchant = $this->iyzicoService->createPersonelSubMerchant($user);
 
-        try {
-            $user->update([
-                'status' => User::STATUS_ACTIVE
+        if ($createSubMerchant->getStatus() == 'success') {
+            SubMerchant::create([
+                'company_id'      => $user->company->id,
+                'sub_merchant_id' => $createSubMerchant->getSubMerchantKey(),
             ]);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Ürün güncellenirken beklenmedik bir hata oldu'));
+            $user->update(['status' => User::STATUS_ACTIVE]);
 
             return redirect()->back();
         }
+
+        return redirect()->back()->withErrors([
+            'message' => $createSubMerchant->getErrorMessage()
+        ]);
     }
 
     /**

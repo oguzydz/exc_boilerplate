@@ -39,8 +39,8 @@ class Company extends Model
      * @var array
      */
     protected $casts = [
-        'created_at'        => 'date:d-m-Y H:i',
-        'updated_at'        => 'date:d-m-Y H:i',
+        'created_at' => 'date:d-m-Y H:i',
+        'updated_at' => 'date:d-m-Y H:i',
     ];
 
     public function categories()

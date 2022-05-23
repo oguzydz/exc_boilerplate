@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
@@ -28,34 +29,30 @@ class IyzicoService
         self::$options = $options;
     }
 
-    function createPersonelSubMerchant()
+    function createPersonelSubMerchant(User $user)
     {
         $request = new CreateSubMerchantRequest();
         $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
+        $request->setSubMerchantExternalId($user->company->id);
         $request->setSubMerchantType(SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $request->setContactName("John");
-        $request->setContactSurname("Doe");
-        $request->setEmail("email@submerchantemail.com");
-        $request->setGsmNumber("+905350000000");
-        $request->setName("John's market");
-        $request->setIban("TR180006200119000006672315");
-        $request->setIdentityNumber("31300864726");
+        $request->setAddress($user->address);
+        $request->setContactName($user->getFirstAndLastName()['firstName']);
+        $request->setContactSurname($user->getFirstAndLastName()['lastName']);
+        $request->setEmail($user->email);
+        $request->setGsmNumber($user->phone);
+        $request->setName($user->company->title);
+        $request->setIban($user->iban->iban);
+        $request->setIdentityNumber($user->tc);
         $request->setCurrency(Currency::TL);
 
-        $subMerchant = SubMerchant::create($request, self::options());
-
-        # print result
-        dd($subMerchant);
+        return SubMerchant::create($request, self::options());
     }
 
     public static function options()
     {
-        self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
-        self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
-        self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
+        self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');
+        self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
+        self::$options->setBaseUrl('https://api.iyzipay.com');
 
         return self::$options;
     }

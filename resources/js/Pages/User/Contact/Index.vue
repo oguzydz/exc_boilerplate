@@ -2,12 +2,12 @@
     <app-layout title="Ürünler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header @back="goBack" title="Geri" content=" İletişim Talepleri">
+                <el-page-header @back="goBack" title="Geri" content="İletişim Mesajları">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div>
                     <div class="card">
-                        <div class="card-header">İletişim Talepleri</div>
+                        <div class="card-header">İletişim Mesajları</div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>

@@ -130,7 +130,6 @@ export default {
         confirm() {
             this.$inertia.get(
                 route("admin.newCustomer.confirm", [this.data.id]),
-                this.data,
                 {
                     onSuccess: (page) => {
                         this.$message({

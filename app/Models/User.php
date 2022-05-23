@@ -131,4 +131,14 @@ class User extends Authenticatable
     {
         return $this->statuses[$this->status];
     }
+
+    public function getFirstAndLastName()
+    {
+        $nameArr = explode(" ", $this->name);
+
+        return [
+            'lastName'  => array_pop($nameArr),
+            'firstName' => implode(" ", $nameArr)
+        ];
+    }
 }
