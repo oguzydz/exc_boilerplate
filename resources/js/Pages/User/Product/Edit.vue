@@ -2,136 +2,67 @@
     <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header
-                    @back="goBack"
-                    title="Geri"
-                    content="Ürün Düzenleme"
-                >
+                <el-page-header @back="goBack" title="Geri" content="Ürün Düzenleme">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
                     <div class="card-header">{{ data.title }} - Düzenle</div>
                     <div class="card-body">
-                        <el-form
-                            :model="data"
-                            :rules="rules"
-                            ref="data"
-                            label-width="130px"
-                            :label-position="isMobile() ? 'left' : 'right'"
-                            size="medium"
-                        >
+                        <el-form :model="data" :rules="rules" ref="data" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Kategori:" prop="category_id">
-                                <el-select
-                                    v-model="data.category_id"
-                                    placeholder="Kategori seçiniz."
-                                >
-                                    <el-option
-                                        v-for="(category, index) in categories"
-                                        :label="category.title"
-                                        :value="category.id"
-                                        :key="index"
-                                    ></el-option>
+                                <el-select v-model="data.category_id" placeholder="Kategori seçiniz.">
+                                    <el-option v-for="(category, index) in categories" :label="category.title"
+                                        :value="category.id" :key="index"></el-option>
                                 </el-select>
                             </el-form-item>
 
                             <el-form-item label="Adı:" prop="title">
-                                <el-input
-                                    v-model="data.title"
-                                    placeholder="Ürün adı giriniz."
-                                ></el-input>
+                                <el-input v-model="data.title" placeholder="Ürün adı giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Açıklaması:" prop="text">
-                                <el-input
-                                    type="textarea"
-                                    rows="5"
-                                    v-model="data.text"
-                                    placeholder="Ürün açıklaması giriniz."
-                                ></el-input>
+                                <el-input type="textarea" rows="5" v-model="data.text"
+                                    placeholder="Ürün açıklaması giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Fiyat:" prop="price">
-                                <el-input
-                                    v-model="data.price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün fiyatı giriniz."
-                                ></el-input>
+                                <el-input v-model="data.price" type="number" maxlength="11"
+                                    placeholder="Ürün fiyatı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item
-                                label="İndirimsiz Fiyat:"
-                                prop="discount_price"
-                            >
-                                <el-input
-                                    v-model="data.discount_price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün indirimsiz fiyatı giriniz."
-                                ></el-input>
+                            <el-form-item label="İndirimsiz Fiyat:" prop="discount_price">
+                                <el-input v-model="data.discount_price" type="number" maxlength="11"
+                                    placeholder="Ürün indirimsiz fiyatı giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Stok Sayısı:" prop="stock">
-                                <el-input
-                                    v-model="data.stock"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün stok sayısı giriniz."
-                                ></el-input>
+                                <el-input v-model="data.stock" type="number" maxlength="11"
+                                    placeholder="Ürün stok sayısı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item
-                                label="Kargo Süresi:"
-                                prop="delivery_time"
-                            >
-                                <el-input
-                                    v-model="data.delivery_time"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün kargo süresi giriniz."
-                                ></el-input>
+                            <el-form-item label="Kargo Süresi:" prop="delivery_time">
+                                <el-input v-model="data.delivery_time" type="number" maxlength="11"
+                                    placeholder="Ürün kargo süresi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
-                                <el-input
-                                    v-model="data.order"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün sırası giriniz."
-                                ></el-input>
+                                <el-input v-model="data.order" type="number" maxlength="11"
+                                    placeholder="Ürün sırası giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Durum:" prop="status">
-                                <el-select
-                                    v-model="data.status"
-                                    placeholder="Durum Seçiniz."
-                                >
-                                    <el-option
-                                        v-for="(
+                                <el-select v-model="data.status" placeholder="Durum Seçiniz.">
+                                    <el-option v-for="(
                                             status, statusIndex
-                                        ) in statusList"
-                                        :key="status"
-                                        :label="statusIndex"
-                                        :value="status"
-                                    ></el-option>
+                                        ) in statusList" :key="status" :label="statusIndex" :value="status">
+                                    </el-option>
                                 </el-select>
                             </el-form-item>
 
                             <el-form-item label="Görsel(394x394):" prop="image">
-                                <file-pond
-                                    v-model="data.image"
-                                    ref="pond"
+                                <file-pond v-model="data.image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile"
-                                />
-                                <img
-                                    :src="'/storage/' + image"
-                                    class="img"
-                                    style="width: 100px"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
+                                <img :src="'/storage/' + image" class="img" style="width: 100px" />
                             </el-form-item>
                             <div class="float-right">
-                                <el-button
-                                    type="success"
-                                    icon="el-icon-check"
-                                    @click="submitForm('data')"
-                                    >KAYDET</el-button
-                                >
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('data')">KAYDET
+                                </el-button>
                             </div>
                         </el-form>
                     </div>

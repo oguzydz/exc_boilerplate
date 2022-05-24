@@ -104,7 +104,6 @@
             </div>
         </div>
     </div>
-
     <div class="service-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -207,7 +206,6 @@
             </div>
         </div>
     </div>
-
     <div class="business-time pd-top-120">
         <div class="container">
             <div class="row">
@@ -238,7 +236,6 @@
             </div>
         </div>
     </div>
-
     <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120"
         style="background-image:url(assets/img/bg/1h3.png);">
         <div class="container">

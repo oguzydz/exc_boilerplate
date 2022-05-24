@@ -80,7 +80,8 @@
                       type="date"
                       placeholder="Doğum tarihiniz."
                       v-model="firstForm.born_date"
-                      format="DD/MM/YYYY"
+                      format="DD-MM-YYYY"
+                      value-format="DD-MM-YYYY"
                       style="width: 100%"
                     ></el-date-picker>
                   </el-form-item>
@@ -424,7 +425,6 @@ export default {
         ],
         born_date: [
           {
-            type: "date",
             required: true,
             message: "Lütfen doğum tarihi giriniz.",
             trigger: "change",
