@@ -128,15 +128,15 @@ export default {
     },
     methods: {
         confirm() {
-            this.$inertia.get(
+            this.$inertia.post(
                 route("admin.newCustomer.confirm", [this.data.id]),
+                {},
                 {
                     onSuccess: (page) => {
                         this.$message({
                             type: "success",
                             message: "İşlem başarıyla tamamlandı.",
                         });
-                        location.reload();
                     },
                     onError: (errors) => {
                         this.$message({

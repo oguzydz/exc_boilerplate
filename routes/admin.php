@@ -24,7 +24,7 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
         Route::get('/', [NewCustomerController::class, 'index'])->name('index');
         Route::get('/show/{userId}', [NewCustomerController::class, 'show'])->name('show');
-        Route::get('/confirm/{userId}', [NewCustomerController::class, 'confirm'])->name('confirm');
+        Route::post('/confirm/{userId}', [NewCustomerController::class, 'confirm'])->name('confirm');
         Route::get('/cancel/{userId}', [NewCustomerController::class, 'cancel'])->name('cancel');
         Route::post('/cancel-store/{userId}', [NewCustomerController::class, 'cancelStore'])->name('cancelStore');
     });

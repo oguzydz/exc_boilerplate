@@ -30,7 +30,7 @@ class UserConfirmRequest extends FormRequest
             'membership_type'                => ['required', 'numeric'],
             'name'                           => ['required', 'string'],
             'tc'                             => ['required', 'string', "unique:users,tc,$userId"],
-            'born_date'                      => ['required', 'date'],
+            'born_date'                      => ['required', 'date_format:d-m-Y'],
             'phone'                          => ['required', 'string', "unique:users,phone,$userId"],
             'address'                        => ['required', 'string'],
             'city_id'                        => ['required', 'numeric'],
@@ -39,9 +39,9 @@ class UserConfirmRequest extends FormRequest
             'service_text'                   => ['required', 'string'],
             'title'                          => ['required', 'string', "unique:companies,title,$userId,user_id"],
             'text'                           => ['required', 'string'],
-            'corporate_name'                 => ['required_if:membership_type,2,3', 'string'],
-            'tax_office'                     => ['required_if:membership_type,2,3', 'string'],
-            'taxpayer_identification_number' => ['required_if:membership_type,2,3', 'numeric'],
+            'corporate_name'                 => ['required_if:membership_type,2,3', 'string', 'nullable'],
+            'tax_office'                     => ['required_if:membership_type,2,3', 'string', 'nullable'],
+            'taxpayer_identification_number' => ['required_if:membership_type,2,3', 'numeric', 'nullable'],
         ];
     }
 }

@@ -2,7 +2,7 @@
   <header class="header header-sticky mb-4 bg-[#6610f]">
     <div class="container-fluid">
       <a class="header-brand d-lg-none" href="#" v>
-        <img src="/img/core-img/exxestock-logo.png" style="width: 40%;" />
+        <img src="/assets/img/exxefy-logo-white.png" style="width: 40%;" />
       </a>
       <button
         class="header-toggler order-sm-first px-md-0 me-md-3"
