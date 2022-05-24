@@ -1,13 +1,13 @@
 <template>
-    <app-layout title="Yeni Üyeler">
+    <app-layout :title="status">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header @back="goBack" title="Geri" content="Yeni Üyeler">
+                <el-page-header @back="goBack" title="Geri" :content="status + ' Üyeler'">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div>
                     <div class="card">
-                        <div class="card-header">Yeni Üye Listesi</div>
+                        <div class="card-header">{{ status }} Üyeler</div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>
@@ -18,8 +18,8 @@
                                     <template #default="scope">
                                         <el-button icon="el-icon-right" size="mini" v-on:click="
                                             $inertia.get(
-                                                route('admin.customer.newShow', {
-                                                    id: scope.row.id,
+                                                route('admin.customer.show', {
+                                                    userId: scope.row.id,
                                                 })
                                             )
                                         ">Görüntüle</el-button>
@@ -46,6 +46,7 @@ export default {
     },
     props: {
         data: Object,
+        status: String
     },
     methods: {
         goBack() {

@@ -59,7 +59,7 @@ export default {
                 {
                     tag: 'nav-item',
                     text: 'Üyeler',
-                    url: 'admin.index',
+                    url: 'admin.customer.index',
                     icon: 'fad fa-child',
                 },
                 {

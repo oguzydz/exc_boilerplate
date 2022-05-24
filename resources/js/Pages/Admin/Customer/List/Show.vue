@@ -2,7 +2,7 @@
     <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header @back="goBack" title="Geri" content="Yeni Üye Bilgileri">
+                <el-page-header @back="goBack" title="Geri" :content="data.name">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <el-descriptions title="Kişisel Bilgiler" direction="vertical" :column="4" border>
@@ -112,7 +112,7 @@ export default {
     },
     data() {
         return {
-            //
+            name: 'Üyeler',
         };
     },
     methods: {

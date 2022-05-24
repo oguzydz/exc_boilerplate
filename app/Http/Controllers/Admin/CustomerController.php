@@ -30,12 +30,13 @@ class CustomerController extends Controller
      */
     public function list(int $statusId)
     {
-        $customersList = User::where('status', User::$statuses)->findOrFail($statusId)
+        $customersList = User::where('status', $statusId)
             ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 
         return Inertia::render('Admin/Customer/List/Index', [
-            'data' => $customersList
+            'data'     => $customersList,
+            'status'   => User::$statuses[$statusId]
         ]);
     }
 
@@ -72,7 +73,7 @@ class CustomerController extends Controller
     {
         $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
 
-        return Inertia::render('Admin/NewCustomer/Show', [
+        return Inertia::render('Admin/Customer/List/Show', [
             'data' => $data
         ]);
     }
