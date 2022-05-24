@@ -31,6 +31,7 @@ class CustomerController extends Controller
     public function list(int $statusId)
     {
         $customersList = User::where('status', $statusId)
+            ->whereHas("roles", function($role) { $role->where("name", "user"); })
             ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 
@@ -38,29 +39,6 @@ class CustomerController extends Controller
             'data'     => $customersList,
             'status'   => User::$statuses[$statusId]
         ]);
-    }
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
