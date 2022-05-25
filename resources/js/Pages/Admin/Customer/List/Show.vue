@@ -2,7 +2,9 @@
     <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header @back="goBack" title="Geri" :content="data.name">
+                <el-page-header v-on:click="
+                    $inertia.get(route('admin.customer.list', { statusId: data.status }))
+                " title="Geri" :content="data.name">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <el-descriptions title="Kişisel Bilgiler" direction="vertical" :column="4" border>
@@ -47,7 +49,8 @@
                     }}</el-descriptions-item>
                 </el-descriptions>
 
-                <el-descriptions title="Hesap/Şirket Bilgileri" direction="vertical" :column="4" class="mt-4" border>
+                <el-descriptions title="Hesap/Şirket Bilgileri" v-if="data.status !== 0" direction="vertical"
+                    :column="4" class="mt-4" border>
                     <el-descriptions-item label="#Iban">{{
                             data.iban.iban
                     }}</el-descriptions-item>
@@ -62,7 +65,8 @@
                     }}</el-descriptions-item>
                 </el-descriptions>
 
-                <el-descriptions title="Mağaza Bilgileri" direction="vertical" :column="4" class="mt-4" border>
+                <el-descriptions title="Mağaza Bilgileri" v-if="data.status !== 0" direction="vertical" :column="4"
+                    class="mt-4" border>
                     <el-descriptions-item label="Mağaza Adı">{{
                             data.company.title
                     }}</el-descriptions-item>
@@ -91,6 +95,15 @@
                             data.company.updated_at
                     }}</el-descriptions-item>
                 </el-descriptions>
+
+                <div class="row mt-2" v-if="data.status === 5">
+                    <div class="col-md-6 form-info-side">
+                        <el-alert v-if="data.status === 5" title="Reddedilme Sebebi:" type="error" show-icon
+                            class="mb-4 mt-xs-3">
+                            <span v-html="userCancel.text"></span>
+                        </el-alert>
+                    </div>
+                </div>
             </div>
         </div>
     </app-layout>
@@ -109,6 +122,7 @@ export default {
         data: {},
         markQuestions: {},
         errors: {},
+        userCancel: {},
     },
     data() {
         return {

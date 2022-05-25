@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\UserCancel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CustomerController extends Controller
@@ -35,7 +37,7 @@ class CustomerController extends Controller
             ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 
-        return Inertia::render('Admin/Customer/List/Index', [
+            return Inertia::render('Admin/Customer/List/Index', [
             'data'     => $customersList,
             'status'   => User::$statuses[$statusId]
         ]);
@@ -49,11 +51,12 @@ class CustomerController extends Controller
      */
     public function show(int $userId)
     {
-        $data = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
-
+        $data        = User::with(['iban','confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
+        $userCancel  = UserCancel::where('user_id', $userId)->first();
         return Inertia::render('Admin/Customer/List/Show', [
-            'data' => $data
-        ]);
+            'data'        => $data,
+            'userCancel'  => $userCancel,
+         ]);
     }
 
     /**
