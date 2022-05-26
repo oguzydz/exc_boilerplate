@@ -20,4 +20,14 @@ class ContactRequest extends FormRequest
             'message' => ['required', 'string', 'max:255'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required'    => 'Lütfen ad-soyad giriniz.',
+            'email.required'   => 'Lütfen mail adresinizi giriniz.',
+            'text.required'    => 'Lütfen konu başlığı giriniz.',
+            'message.required' => 'Lütfen mesajınızı  giriniz.',
+        ];
+    }
 }

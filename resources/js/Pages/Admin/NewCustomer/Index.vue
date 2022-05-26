@@ -2,7 +2,9 @@
     <app-layout title="Yeni Üyeler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header @back="goBack" title="Geri" content="Yeni Üyeler">
+                 <el-page-header v-on:click="
+                    $inertia.get(route('admin.index'))
+                " title="Geri" content="Yeni Üyeler">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div>

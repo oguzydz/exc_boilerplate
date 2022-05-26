@@ -44,4 +44,24 @@ class UserConfirmRequest extends FormRequest
             'taxpayer_identification_number' => ['required_if:membership_type,2,3', 'numeric', 'nullable'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'membership_type.required'                => 'Lütfen üyelik tipini giriniz.',
+            'name.required'                           => 'Lütfen adınızı ve soyadınızı giriniz.',
+            'tc.required'                             => 'Lütfen TC kimlik bilgilerinizi giriniz.',
+            'born_date.required'                      => 'Lütfen doğum tarihinizi giriniz.',
+            'phone.required'                          => 'Lütfen telefon numaranızı giriniz.',
+            'address.required'                        => 'Lütfen adres bilgilerinizi giriniz.',
+            'city_id.required'                        => 'Lütfen İl giriniz.',
+            'county_id.required'                      => 'Lütfen İlçe giriniz.',
+            'iban.required'                           => 'Lütfen iban giriniz.',
+            'service_text.required'                   => 'Lütfen mağaza açıklaması giriniz.',
+            'title.required'                          => 'Lütfen mağaza adı giriniz.',
+            'corporate_name.required'                 => 'Lütfen şirket ismi giriniz.',
+            'tax_office.required'                     => 'Lütfen vergi dairesi bilgileriniz giriniz.',
+            'taxpayer_identification_number.required' => 'Lütfen vergi kimlik numaranızı giriniz.',
+        ];
+    }
 }

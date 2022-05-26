@@ -2,11 +2,9 @@
     <app-layout title="Ürün Oluştur">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header
-                    @back="goBack"
-                    title="Geri"
-                    content="Ürün Oluştur"
-                >
+                <el-page-header v-on:click="
+                    $inertia.get(route('user.product.index'))
+                " title="Geri" content="Ürün Oluştur">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">

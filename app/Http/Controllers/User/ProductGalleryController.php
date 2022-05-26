@@ -33,8 +33,8 @@ class ProductGalleryController extends Controller
         $product = Product::where([
             'id' => $id,
             'company_id' => Auth::user()->company->id
-        ])->firstOrFail();
 
+        ])->firstOrFail();
         $galleries = $product->gallery()->paginate(10);
 
         return Inertia::render('User/Product/Gallery/Index', [
@@ -107,7 +107,6 @@ class ProductGalleryController extends Controller
         ])->firstOrFail();
 
         $productGallery = ProductGallery::findOrFail($galleryId);
-
         $data = [
             'id'         => $productGallery->id,
             'product_id' => $productGallery->product_id,
@@ -119,7 +118,8 @@ class ProductGalleryController extends Controller
         return Inertia::render(
             'User/Product/Gallery/Edit',
             [
-                'data' => $data,
+                'data'       => $data,
+                'productId'  => $productId,
             ]
         );
     }

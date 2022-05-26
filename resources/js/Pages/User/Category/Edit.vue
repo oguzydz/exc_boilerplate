@@ -2,67 +2,37 @@
     <app-layout :title="title">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header
-                    @back="goBack"
-                    title="Geri"
-                    content="Blog Düzenleme"
-                >
+                <el-page-header v-on:click="
+                    $inertia.get(route('user.category.index'))
+                " title="Geri" :content="data.title">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
                     <div class="card-header">{{ data.title }} - Düzenle</div>
                     <div class="card-body">
-                        <el-form
-                            :model="data"
-                            :rules="rules"
-                            ref="data"
-                            label-width="130px"
-                            :label-position="isMobile() ? 'left' : 'right'"
-                            size="medium"
-                        >
+                        <el-form :model="data" :rules="rules" ref="data" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Kategori Adı:" prop="title">
-                                <el-input
-                                    v-model="data.title"
-                                    placeholder="Kategori adı giriniz."
-                                ></el-input>
+                                <el-input v-model="data.title" placeholder="Kategori adı giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Açıklaması:" prop="text">
-                                <el-input
-                                    type="textarea"
-                                    v-model="data.text"
-                                    placeholder="Dükkan açıklaması giriniz."
-                                ></el-input>
+                                <el-input type="textarea" v-model="data.text" placeholder="Dükkan açıklaması giriniz.">
+                                </el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
-                                <el-input
-                                    v-model="data.order"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Kategori sırası giriniz."
-                                ></el-input>
+                                <el-input v-model="data.order" type="number" maxlength="11"
+                                    placeholder="Kategori sırası giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Görsel:" prop="logo">
-                                <file-pond
-                                    v-model="data.image"
-                                    ref="pond"
+                                <file-pond v-model="data.image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile"
-                                />
-                                <img
-                                    :src="'/storage/' + image"
-                                    class="img"
-                                    style="width: 100px"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
+                                <img :src="'/storage/' + image" class="img" style="width: 100px" />
                             </el-form-item>
                             <div class="float-right">
-                                <el-button
-                                    type="success"
-                                    icon="el-icon-check"
-                                    @click="submitForm('data')"
-                                    >KAYDET</el-button
-                                >
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('data')">KAYDET
+                                </el-button>
                             </div>
                         </el-form>
                     </div>

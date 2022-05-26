@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <el-page-header v-on:click="
-                    $inertia.get(route('admin.customer.index'))
+                    $inertia.get(route('admin.index'))
                 " title="Geri" content="Üye Tipleri">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>

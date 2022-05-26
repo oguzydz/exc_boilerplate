@@ -2,49 +2,29 @@
     <app-layout title="Resim Ekle">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header
-                    @back="goBack"
-                    title="Geri"
-                    content="Resim Ekle"
-                >
+                <el-page-header v-on:click="
+                    $inertia.get(route('user.product.gallery.index', productId))
+                " title="Geri" content="Resim Ekle">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
                     <div class="card-header">Galeriye Resim Ekle</div>
                     <div class="card-body">
-                        <el-form
-                            :model="form"
-                            :rules="rules"
-                            ref="form"
-                            label-width="130px"
-                            :label-position="isMobile() ? 'left' : 'right'"
-                            size="medium"
-                        >
+                        <el-form :model="form" :rules="rules" ref="form" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Sıra:" prop="order">
-                                <el-input
-                                    v-model="form.order"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Resim sırası giriniz."
-                                ></el-input>
+                                <el-input v-model="form.order" type="number" maxlength="11"
+                                    placeholder="Resim sırası giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Görsel:" prop="image">
-                                <file-pond
-                                    v-model="form.image"
-                                    ref="pond"
+                                <file-pond v-model="form.image" ref="pond"
                                     label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
                             </el-form-item>
                             <div class="float-right">
-                                <el-button
-                                    type="success"
-                                    icon="el-icon-check"
-                                    @click="submitForm('form')"
-                                    >GÖNDER</el-button
-                                >
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('form')">GÖNDER
+                                </el-button>
                             </div>
                         </el-form>
                     </div>
@@ -133,7 +113,7 @@ export default {
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
                                     this.$inertia.get(
-                                        route("user.product.index")
+                                        route('user.product.gallery.index', {productId : this.productId})
                                     );
                                 },
                                 onError: (errors) => {
