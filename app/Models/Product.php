@@ -51,6 +51,21 @@ class Product extends Model implements Buyable
         'product_id'
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at'  => 'date:d-m-Y H:i',
+        'updated_at'  => 'date:d-m-Y H:i',
+    ];
+
     public static function getNextId()
     {
         if(Product::all()->last() !== null) {

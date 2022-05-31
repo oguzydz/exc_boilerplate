@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\EditProductRequest;
+use App\Http\Requests\ProductSearchRequest;
 use App\Models\Product;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -26,12 +27,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProductSearchRequest $request)
     {
         $products = Product::where([
             'company_id' => Auth::user()->company->id,
             'status'     => Product::STATUS_ACTIVE
-        ])->paginate(10);
+        ])
+            ->where(function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%");
+            })
+            ->paginate(10);
 
         return Inertia::render('User/Product/Index', [
             'data' => $products,
@@ -148,7 +153,7 @@ class ProductController extends Controller
                 'status'         => $request->status
             ];
 
-            if($newImage) {
+            if ($newImage) {
                 $newImageName = $slug . '-product-image-' . time() . '.' . $newImage->getClientOriginalExtension();
                 $filePath     = $newImage->storeAs('product-images', $newImageName, 'public');
 

@@ -195,7 +195,7 @@
     </div>
     <div class="copyright-inner">
         <div class="copyright-text">
-            © Copyright <i class="bx bx-copyright"></i> 2021 All right reserved! exxefy.com is the product of
+            © Copyright <i class="bx bx-copyright"></i> 2022 All right reserved! exxefy.com is the product of
             <a href="https://exxecode.com">
                 Exxecode
             </a>

@@ -119,6 +119,24 @@ function isMobile() {
     }
 }
 
+function elemeSearch(route = '', searchText = '') {
+    this.$inertia.get(this.route(route,
+        {
+            search: searchText,
+        },
+        {
+            preserveState: true
+        }
+    ));
+}
+
+function getUrlQuery(paramater) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    return urlParams.get(paramater);
+}
+
 createInertiaApp({
     resolve: (name) => require(`./Pages/${name}`),
     setup({ el, app, props, plugin }) {
@@ -133,6 +151,8 @@ createInertiaApp({
                     imageUrlAlt,
                     pluralText,
                     isMobile,
+                    elemeSearch,
+                    getUrlQuery,
                     // moment: (value) => moment(value),
                     handlePagination(page, routeName) {
                         this.$inertia.get(route(routeName), {
@@ -149,7 +169,7 @@ createInertiaApp({
                                 type: "warning",
                             }
                         )
-                        .then(() => {
+                            .then(() => {
                                 this.$inertia.post(
                                     route(routeName, id),
                                     this.data,
@@ -177,8 +197,8 @@ createInertiaApp({
                                 this.$message({
                                     type: "info",
                                     message: "Silme İptal Edildi!",
+                                });
                             });
-                        });
                     },
                 },
             })
@@ -190,9 +210,9 @@ createInertiaApp({
             .component('CIcon', CIcon)
             .use(Link);
 
-            vueapp.config.globalProperties.$moment=moment;
+        vueapp.config.globalProperties.$moment = moment;
 
-            vueapp.mount(el)
+        vueapp.mount(el)
 
     },
 });
