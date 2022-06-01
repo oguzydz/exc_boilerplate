@@ -71,8 +71,8 @@ class NewCustomerController extends Controller
 
         if ($createSubMerchant->getStatus() == 'success') {
             SubMerchant::create([
-                'company_id'      => $user->company->id,
-                'sub_merchant_id' => $createSubMerchant->getSubMerchantKey(),
+                'company_id'       => $user->company->id,
+                'sub_merchant_key' => $createSubMerchant->getSubMerchantKey(),
             ]);
             $user->update(['status' => User::STATUS_ACTIVE]);
 
