@@ -18,6 +18,9 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::post('/update', [CustomerController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
         Route::get('/list/{statusId}', [CustomerController::class, 'list'])->name('list');
+        Route::post('/active/{userId}', [CustomerController::class, 'active'])->name('active');
+        Route::get('/pasive/{userId}', [CustomerController::class, 'pasive'])->name('pasive');
+        Route::post('/pasive-store/{userId}', [CustomerController::class, 'pasiveStore'])->name('pasiveStore');
 
     });
 

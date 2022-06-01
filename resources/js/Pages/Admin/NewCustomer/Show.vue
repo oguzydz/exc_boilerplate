@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
-                    $inertia.get(route('admin.newcostumer.index'))
+                    $inertia.get(route('admin.newCustomer.index'))
                 " title="Geri" content=" Yeni Üyeler">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
@@ -95,14 +95,16 @@
                 </el-descriptions>
 
                 <el-row class="mt-4">
-                    <el-button type="success" icon="el-icon-check" @click="confirm()">Onayla</el-button>
-                    <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="
-                        $inertia.get(
-                            route('admin.newCustomer.cancel', {
-                                id: data.id,
-                            })
-                        )
-                    ">Reddet</el-button>
+                    <el-button type="success" v-if="data.status === 4" icon="el-icon-check" @click="confirm()">Onayla
+                    </el-button>
+                    <el-button type="danger" v-if="data.status === 1 || data.status === 4" icon="el-icon-delete"
+                        size="mini" v-on:click="
+                            $inertia.get(
+                                route('admin.newCustomer.cancel', {
+                                    id: data.id,
+                                })
+                            )
+                        ">Reddet</el-button>
                 </el-row>
             </div>
         </div>

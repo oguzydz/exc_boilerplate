@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserContactSearchRequest;
 use App\Models\UserContact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +16,15 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserContactSearchRequest $request)
     {
         $userContacts = UserContact::where([
             'company_id' => Auth::user()->company->id,
-        ])->paginate(10);
+        ])
+            ->where(function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->paginate(10);
 
         return Inertia::render('User/Contact/Index', [
             'data' => $userContacts,
@@ -56,11 +62,9 @@ class ContactController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('İletişim mesajını silerken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('İletişim mesajını silerken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
     }
-
-
 }

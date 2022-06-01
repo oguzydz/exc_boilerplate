@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CancelRequest;
+use App\Http\Requests\NewCustomerSearchRequest;
 use App\Models\SubMerchant;
 use App\Models\User;
 use App\Models\UserCancel;
@@ -30,10 +31,15 @@ class NewCustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(NewCustomerSearchRequest $request)
     {
         $customers = User::where('status', User::STATUS_READY)
-            ->whereHas("roles", function($role) { $role->where("name", "user"); })
+            ->whereHas("roles", function ($role) {
+                $role->where("name", "user");
+            })
+            ->where(function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
             ->select(['id', 'name', 'email', 'status', 'created_at'])
             ->paginate(10);
 

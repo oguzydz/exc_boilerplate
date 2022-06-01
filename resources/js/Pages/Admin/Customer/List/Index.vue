@@ -9,7 +9,13 @@
                 <div class="header-divider mb-4"></div>
                 <div>
                     <div class="card">
-                        <div class="card-header">{{ status }} Üyeler</div>
+                        <div class="card-header">
+                            {{ status }} Üyeler
+                            <el-input v-model="searchText"
+                                @change="this.elemeSearch(routeName, searchText, { 'statusId': statusId })" size="mini"
+                                class="float-right" style="width:180px;margin-right:10px"
+                                placeholder="Kullanıcı adı ile ara!" />
+                        </div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>
@@ -48,7 +54,8 @@ export default {
     },
     props: {
         data: Object,
-        status: String
+        status: String,
+        statusId: Number
     },
     methods: {
         goBack() {
@@ -57,7 +64,8 @@ export default {
     },
     data() {
         return {
-            //
+            searchText: this.getUrlQuery('search'),
+            routeName: "admin.customer.list",
         };
     },
 };

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategorySearchRequest;
 use Inertia\Inertia;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
@@ -29,12 +30,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategorySearchRequest $request)
     {
         $categories = Category::where([
             'status'     => Category::STATUS_ACTIVE,
             'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id
-        ])->paginate(10);
+        ])
+            ->where(function ($query) use ($request) {
+            $query->where('title', 'like', "%$request->search%");
+            })
+            ->paginate(10);
 
         return Inertia::render('User/Category/Index', [
             'data' => $categories,

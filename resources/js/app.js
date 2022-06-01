@@ -119,9 +119,10 @@ function isMobile() {
     }
 }
 
-function elemeSearch(route = '', searchText = '') {
+function elemeSearch(route = '', searchText = '', paramater = {}) {
     this.$inertia.get(this.route(route,
         {
+            ...paramater,
             search: searchText,
         },
         {

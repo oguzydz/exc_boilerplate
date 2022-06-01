@@ -9,7 +9,12 @@
                 <div class="header-divider mb-4"></div>
                 <div>
                     <div class="card">
-                        <div class="card-header">İletişim Mesajları</div>
+                        <div class="card-header">
+                            İletişim Mesajları
+                            <el-input v-model="searchText" @change="this.elemeSearch(routeName, searchText)" size="mini"
+                                class="float-right" style="width:180px;margin-right:10px"
+                                placeholder="Ad-soyad ile ara!" />
+                        </div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>
@@ -67,6 +72,7 @@ export default {
     },
     data() {
         return {
+            searchText: this.getUrlQuery('search'),
             routeName: "user.contact.index",
             deleteMessage: "İletişim mesajını silmek istiyor musunuz?",
         };

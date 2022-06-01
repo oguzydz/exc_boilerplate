@@ -96,11 +96,31 @@
                     }}</el-descriptions-item>
                 </el-descriptions>
 
+                <el-row class="mt-4">
+                    <el-button type="success" v-if="data.status === 2" icon="el-icon-check"
+                        @click="confirm()">Aktif Et
+                    </el-button>
+                    <el-button type="danger" v-if="data.status === 1" icon="el-icon-delete"  v-on:click="
+                        $inertia.get(
+                            route('admin.customer.pasive', {
+                                id: data.id,
+                            })
+                        )
+                    ">Pasife Al</el-button>
+                </el-row>
                 <div class="row mt-2" v-if="data.status === 5">
                     <div class="col-md-6 form-info-side">
                         <el-alert v-if="data.status === 5" title="Reddedilme Sebebi:" type="error" show-icon
                             class="mb-4 mt-xs-3">
                             <span v-html="userCancel.text"></span>
+                        </el-alert>
+                    </div>
+                </div>
+                <div class="row mt-2" v-if="data.status === 2">
+                    <div class="col-md-6 form-info-side">
+                        <el-alert v-if="data.status === 2" title="Pasife Alınma Sebebi:" type="error" show-icon
+                            class="mb-4 mt-xs-3">
+                            <span v-html="userPasive.text"></span>
                         </el-alert>
                     </div>
                 </div>
@@ -123,6 +143,7 @@ export default {
         markQuestions: {},
         errors: {},
         userCancel: {},
+        userPasive: {},
     },
     data() {
         return {
@@ -131,16 +152,15 @@ export default {
     },
     methods: {
         confirm() {
-            this.$inertia.get(
-                route("admin.customer.new.confirm", [this.data.id]),
-                this.data,
+            this.$inertia.post(
+                route("admin.customer.active", [this.data.id]),
+                {},
                 {
                     onSuccess: (page) => {
                         this.$message({
                             type: "success",
                             message: "İşlem başarıyla tamamlandı.",
                         });
-                        location.reload();
                     },
                     onError: (errors) => {
                         this.$message({

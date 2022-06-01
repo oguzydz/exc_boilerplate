@@ -2,14 +2,19 @@
     <app-layout title="Yeni Üyeler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                 <el-page-header v-on:click="
+                <el-page-header v-on:click="
                     $inertia.get(route('admin.index'))
                 " title="Geri" content="Yeni Üyeler">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div>
                     <div class="card">
-                        <div class="card-header">Yeni Üye Listesi</div>
+                        <div class="card-header">
+                            Yeni Üye Listesi
+                            <el-input v-model="searchText" @change="this.elemeSearch(routeName, searchText)" size="mini"
+                                class="float-right" style="width:180px;margin-right:10px"
+                                placeholder="Kullanıcı adı ile ara!" />
+                        </div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
                                 <el-table-column prop="id" label="#" width="45"></el-table-column>
@@ -56,7 +61,8 @@ export default {
     },
     data() {
         return {
-            //
+            searchText: this.getUrlQuery('search'),
+            routeName: "admin.newCustomer.index",
         };
     },
 };

@@ -16,6 +16,9 @@
                             " size="mini">
                                 Kategori Oluştur
                             </el-button>
+                            <el-input v-model="searchText" @change="this.elemeSearch(routeName, searchText)" size="mini"
+                                class="float-right" style="width:180px;margin-right:10px"
+                                placeholder="Kategori adı ile ara!" />
                         </div>
                         <div class="card-body">
                             <el-table :data="data.data" style="width: 100%">
@@ -70,6 +73,8 @@ export default {
     },
     data() {
         return {
+            searchText: this.getUrlQuery('search'),
+            routeName: "user.category.index",
             deleteMessage: "Kategoriyi silerek bağlı olduğu tüm ürünleri pasife almış olacaksınız. Devam etmek istiyor musunuz?",
         };
     },
