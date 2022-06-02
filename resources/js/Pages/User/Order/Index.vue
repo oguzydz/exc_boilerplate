@@ -91,7 +91,7 @@
                         <el-pagination
                             background
                             class="float-right my-6"
-                            layout="prev, pager, next"
+                            layout="total, prev, pager, next"
                             @current-change="
                                 (page) =>
                                     handlePagination(page, `${routeName}.index`)

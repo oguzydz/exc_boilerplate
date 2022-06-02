@@ -45,7 +45,7 @@
                                     </template>
                                 </el-table-column>
                             </el-table>
-                            <el-pagination background class="float-right my-6" layout="prev, pager, next"
+                            <el-pagination background class="float-right my-6" layout="total, prev, pager, next"
                                 @current-change="handlePagination" :current-page="data.current_page"
                                 :page-size="data.per_page" :total="data.total"></el-pagination>
                         </div>
