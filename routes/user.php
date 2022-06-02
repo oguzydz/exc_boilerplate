@@ -1,16 +1,11 @@
 <?php
 
-
-/**
- * Route Helper
- */
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\CompanyController;
 use App\Http\Controllers\User\ConfirmationController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\DashboardController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ProductController;
 use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\User\OrderController;
