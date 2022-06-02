@@ -99,6 +99,7 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
 
     Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.'], function() {
         Route::get('/', [ConfirmationController::class, 'index'])->name('index');
+        Route::get('/other', [ConfirmationController::class, 'other'])->name('other');
         Route::post('/store', [ConfirmationController::class, 'store'])->name('store');
     });
 

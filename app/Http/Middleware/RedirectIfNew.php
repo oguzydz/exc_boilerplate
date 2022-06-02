@@ -21,16 +21,19 @@ class RedirectIfNew
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->status != User::STATUS_ACTIVE AND Route::currentRouteName() != RouteServiceProvider::USER_STATUS_CONFIRMATION AND Route::currentRouteName() != RouteServiceProvider::USER_STATUS_CONFIRMATION_STORE) {
+        if (Auth::user()->status != User::STATUS_ACTIVE and Route::currentRouteName() != RouteServiceProvider::USER_STATUS_CONFIRMATION and Route::currentRouteName() != RouteServiceProvider::USER_STATUS_OTHER and Route::currentRouteName() != RouteServiceProvider::USER_STATUS_CONFIRMATION_STORE) {
             switch (Auth::user()->status) {
                 case (User::STATUS_READY):
                     return redirect(route(RouteServiceProvider::USER_STATUS_CONFIRMATION));
+                    break;
+                case (User::STATUS_PASIVE):
+                    return redirect(route(RouteServiceProvider::USER_STATUS_OTHER));
                     break;
                 default:
                     return redirect(route(RouteServiceProvider::USER_STATUS_CONFIRMATION));
                     break;
             }
-        } else if (Auth::user()->status == User::STATUS_ACTIVE AND Route::currentRouteName() == RouteServiceProvider::USER_STATUS_CONFIRMATION) {
+        } else if (Auth::user()->status == User::STATUS_ACTIVE and Route::currentRouteName() == RouteServiceProvider::USER_STATUS_CONFIRMATION) {
             return redirect(route(RouteServiceProvider::USER_STATUS_ACTIVE));
         }
 

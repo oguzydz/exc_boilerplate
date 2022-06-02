@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\UserCancel;
 use App\Models\UserConfirmData;
 use App\Models\UserIban;
+use App\Models\UserPasive;
 use App\Models\UserType;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,15 @@ class ConfirmationController extends Controller
             'thirdForm'  => $userConfirm,
             'fourthForm' => $company,
             'userCancel' => $userCancel,
+        ]);
+    }
+
+    public function other()
+    {
+        $userPasive  = UserPasive::where('user_id', Auth::user()->id)->first();
+
+        return Inertia::render('User/Other', [
+            'userPasive' => $userPasive,
         ]);
     }
 
