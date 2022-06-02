@@ -38,7 +38,7 @@ class RedirectIfNew
             }
         } else if (Auth::user()->status === User::STATUS_ACTIVE) {
             if (
-                Route::getCurrentRoute()->getName() === RouteServiceProvider::USER_STATUS_CONFIRMATION or
+                Route::getCurrentRoute()->getName() === RouteServiceProvider::USER_STATUS_CONFIRMATION OR
                 Route::getCurrentRoute()->getName() === RouteServiceProvider::USER_STATUS_OTHER
             )
                 return redirect(route(RouteServiceProvider::USER_STATUS_ACTIVE));
