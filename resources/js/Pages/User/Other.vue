@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-md-12 form-info-side text-center">
                             <div class="form-info">
-                                <h3>Hesabınız Askıya Alındı</h3>
+                                <h3>Hesabınız Askıya Alındı!</h3>
                                 <p class="text-information">
                                     {{ userPasive.text }}
                                 </p>

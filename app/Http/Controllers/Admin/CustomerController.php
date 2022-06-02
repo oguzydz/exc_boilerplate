@@ -21,7 +21,7 @@ class CustomerController extends Controller
     public function index()
     {
         return Inertia::render('Admin/Customer/Index', [
-            'statuses' => User::$statuses
+            'statuses' => collect(User::$statuses)->slice(1),
         ]);
     }
 
