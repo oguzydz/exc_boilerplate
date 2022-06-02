@@ -6,7 +6,6 @@
         </div>
     </div>
 </div>
-
 <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
     <div class="container nav-container">
         <div class="responsive-mobile-menu">
@@ -65,8 +64,8 @@
         </div>
         <div class="nav-right-content">
             <ul>
-                <li>
-                    @auth
+                @auth
+                    <li>
                         @hasrole('admin')
                             <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin
                             </a>
@@ -85,8 +84,6 @@
                             Kayıt Ol</a>
                     </li>
                 @endauth
-
-
             </ul>
         </div>
     </div>
