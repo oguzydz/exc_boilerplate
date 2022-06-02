@@ -31,20 +31,20 @@
                 </a>
             </div>
             <ul class="navbar-nav">
-                <li >
+                <li>
                     <a href="{{ route('home') }}">Anasayfa</a>
                 </li>
-                <li >
+                <li>
                     <a href="{{ route('startNow') }}">Hemen Başla</a>
                 </li>
-                <li >
+                <li>
                     <a href="{{ route('pricing') }}">Fiyatlandırma</a>
                 </li>
-                <li >
+                <li>
                     <a href="{{ route('contact') }}">İletişim</a>
                 </li>
-                <li class="d-lg-none">
-                    @auth
+                @auth
+                    <li class="d-lg-none">
                         @hasrole('admin')
                             <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin </a>
                         @endhasrole
@@ -68,10 +68,12 @@
                 <li>
                     @auth
                         @hasrole('admin')
-                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin </a>
+                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin
+                            </a>
                         @endhasrole
                         @hasrole('user')
-                            <a href="{{ route('user.index') }}" class="btn btn-green text-white m-register-button">Hesabım</a>
+                            <a href="{{ route('user.index') }}"
+                                class="btn btn-green text-white m-register-button">Hesabım</a>
                         @endhasrole
                     </li>
                 @else
