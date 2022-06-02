@@ -46,7 +46,7 @@
                 @auth
                     <li class="d-lg-none">
                         @hasrole('admin')
-                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin </a>
+                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin</a>
                         @endhasrole
                         @hasrole('user')
                             <a href="{{ route('user.index') }}" class="btn btn-green text-white m-register-button">Hesabım</a>
