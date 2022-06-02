@@ -15,7 +15,8 @@
                     <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="130px" alt="logo">
                 </a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exxefy_main_menu" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exxefy_main_menu"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggle-icon">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -30,34 +31,60 @@
                 </a>
             </div>
             <ul class="navbar-nav">
-                <li>
+                <li >
                     <a href="{{ route('home') }}">Anasayfa</a>
                 </li>
-                <li>
+                <li >
                     <a href="{{ route('startNow') }}">Hemen Başla</a>
                 </li>
-                <li>
+                <li >
                     <a href="{{ route('pricing') }}">Fiyatlandırma</a>
                 </li>
-                <li>
+                <li >
                     <a href="{{ route('contact') }}">İletişim</a>
                 </li>
                 <li class="d-lg-none">
-                    <a href="{{ route('login') }}">Giriş Yap</a>
-                </li>
-                <li class="d-lg-none">
-                    <a class="btn btn-green text-white m-register-button" href="{{ route('register') }}">Ücretsiz Kayıt Ol</a>
-                </li>
+                    @auth
+                        @hasrole('admin')
+                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin </a>
+                        @endhasrole
+                        @hasrole('user')
+                            <a href="{{ route('user.index') }}" class="btn btn-green text-white m-register-button">Hesabım</a>
+                        @endhasrole
+                    </li>
+                @else
+                    <li class="d-lg-none">
+                        <a href="{{ route('login') }}">Giriş Yap</a>
+                    </li>
+                    <li class="d-lg-none">
+                        <a class="btn btn-green text-white m-register-button" href="{{ route('register') }}">Ücretsiz
+                            Kayıt Ol</a>
+                    </li>
+                @endauth
             </ul>
         </div>
         <div class="nav-right-content">
             <ul>
                 <li>
-                    <a href="{{ route('login') }}">Giriş Yap</a>
-                </li>
-                <li>
-                    <a class="btn btn-green text-white" href="{{ route('register') }}">Ücretsiz Kayıt Ol</a>
-                </li>
+                    @auth
+                        @hasrole('admin')
+                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin </a>
+                        @endhasrole
+                        @hasrole('user')
+                            <a href="{{ route('user.index') }}" class="btn btn-green text-white m-register-button">Hesabım</a>
+                        @endhasrole
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ route('login') }}">Giriş Yap</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-green text-white" href="{{ route('register') }}">Ücretsiz
+                            Kayıt Ol</a>
+                    </li>
+                @endauth
+
+
             </ul>
         </div>
     </div>
