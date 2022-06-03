@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserPasive extends Model
+class CompanyCargoSetting extends Model
 {
     use HasFactory;
+
+    const DEFAULT_PRICE            = 15;
+    const DEFAULT_AFTER_FREE_PRICE = 100;
 
     /**
      * The attributes that are mass assignable.
@@ -15,8 +18,9 @@ class UserPasive extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'text',
+        'company_id',
+        'price',
+        'after_free_price',
     ];
 
     protected $dates = [
@@ -24,6 +28,11 @@ class UserPasive extends Model
         'updated_at',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
         'created_at' => 'date:d-m-Y H:i',
         'updated_at' => 'date:d-m-Y H:i',

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserConfirmRequest;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\CompanyCargoSetting;
 use App\Models\User;
 use App\Models\UserCancel;
 use App\Models\UserConfirmData;
@@ -122,13 +123,25 @@ class ConfirmationController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             $user->update($userData);
 
-            $userIban    = UserIban::where('user_id', Auth::user()->id)->first();
-            $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->first();
-            $company     = Company::where('user_id', Auth::user()->id)->first();
+            $userIban         = UserIban::where('user_id', Auth::user()->id)->first();
+            $userConfirm      = UserConfirmData::where('user_id', Auth::user()->id)->first();
+            $company          = Company::where('user_id', Auth::user()->id)->first();
 
             $userIban    ? $userIban->update($userIbanData)       : UserIban::create($userIbanData);
             $userConfirm ? $userConfirm->update($userConfirmData) : UserConfirmData::create($userConfirmData);
             $company     ? $company->update($companyData)         : Company::create($companyData);
+
+            $userCargoSetting = CompanyCargoSetting::where('company_id', $company->id)->exists();
+
+            if (!$userCargoSetting) {
+                CompanyCargoSetting::create(
+                    [
+                        'company_id'       => $company->id,
+                        'price'            => CompanyCargoSetting::DEFAULT_PRICE,
+                        'after_free_price' => CompanyCargoSetting::DEFAULT_AFTER_FREE_PRICE,
+                    ]
+                );
+            }
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {

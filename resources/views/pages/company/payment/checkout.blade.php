@@ -84,13 +84,14 @@
                                                     <input name="payment_type" type="radio" checked required
                                                         class="single-input">
                                                     Kredi Kartı ile Öde
-                                                    <a href="#"><img src="{{ asset('assets\img\footer/footer_logo-2.png') }}"
-                                                            alt="img"></a>
+                                                    <img src="{{ asset('assets\img\footer/footer_logo-2.png') }}"
+                                                        alt="img">
+
                                                 </li>
-                                                <li>
+                                                {{-- <li>
                                                     <input name="payment_type" type="radio" required class="single-input">
                                                     Havale/Eft
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -121,7 +122,8 @@
                                                 <td>
                                                     <div class="media single-cart-product">
                                                         <div class="media-left">
-                                                            <img src="/storage/{{ $cart->options->image }}" style="width: 90px;" alt="img">
+                                                            <img src="/storage/{{ $cart->options->image }}"
+                                                                style="width: 90px;" alt="img">
                                                         </div>
                                                         <div class="media-body">
                                                             <span>{{ $cart->name }}</span>
