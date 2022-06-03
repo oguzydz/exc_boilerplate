@@ -123,9 +123,9 @@ class ConfirmationController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             $user->update($userData);
 
-            $userIban         = UserIban::where('user_id', Auth::user()->id)->first();
-            $userConfirm      = UserConfirmData::where('user_id', Auth::user()->id)->first();
-            $company          = Company::where('user_id', Auth::user()->id)->first();
+            $userIban    = UserIban::where('user_id', Auth::user()->id)->first();
+            $userConfirm = UserConfirmData::where('user_id', Auth::user()->id)->first();
+            $company     = Company::where('user_id', Auth::user()->id)->first();
 
             $userIban    ? $userIban->update($userIbanData)       : UserIban::create($userIbanData);
             $userConfirm ? $userConfirm->update($userConfirmData) : UserConfirmData::create($userConfirmData);
