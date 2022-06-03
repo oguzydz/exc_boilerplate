@@ -30,4 +30,14 @@ class EditCategoryRequest extends FormRequest
             'new_image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'image.required'  => 'Lütfen kategori başlığı giriniz',
+            'text.required'   => 'Lütfen kategori açıklaması giriniz.',
+            'order.required'  => 'Lütfen kategori sırası giriniz.',
+            'new_image.mimes' => 'Lütfen resmi jpeg, png, jpg, gif,svg formatında giriniz.',
+        ];
+    }
 }

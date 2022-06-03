@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyCargoSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\CompanyController;
@@ -28,6 +29,11 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
     Route::group(['prefix' => 'company', 'as' => 'company.'], function () {
         Route::get('/', [CompanyController::class, 'index'])->name('index');
         Route::post('/update', [CompanyController::class, 'update'])->name('update');
+    });
+
+    Route::group(['prefix' => 'cargo', 'as' => 'cargo.'], function () {
+        Route::get('/', [CompanyCargoSettingController::class, 'index'])->name('index');
+        Route::post('/update', [CompanyCargoSettingController::class, 'update'])->name('update');
     });
 
     Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyCargoRequest;
+use App\Models\Company;
 use App\Models\CompanyCargoSetting;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class CompanyCargoSettingController extends Controller
 {
@@ -14,72 +17,38 @@ class CompanyCargoSettingController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $company      = Company::where('user_id', Auth::user()->id)->first();
+        $cargoSetting = CompanyCargoSetting::where('company_id', $company->id)->first();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CompanyCargoSetting  $companyCargoSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CompanyCargoSetting $companyCargoSetting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\CompanyCargoSetting  $companyCargoSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CompanyCargoSetting $companyCargoSetting)
-    {
-        //
+        return Inertia::render('User/Cargo/Index', [
+            'data' => $cargoSetting,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CompanyCargoSetting  $companyCargoSetting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyCargoSetting $companyCargoSetting)
+    public function update(CompanyCargoRequest $request)
     {
-        //
-    }
+        try {
+            $cargoSetting = CompanyCargoSetting::find($request->id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CompanyCargoSetting  $companyCargoSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CompanyCargoSetting $companyCargoSetting)
-    {
-        //
+            $data = [
+                'price'            => $request->price,
+                'after_free_price' => $request->after_free_price,
+            ];
+
+            $update = $cargoSetting->update($data);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message', __('Kargo ayarları güncellenirken beklenmedik bir hata oldu'));
+
+            return redirect()->back();
+        }
     }
 }
