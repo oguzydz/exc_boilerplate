@@ -129,7 +129,7 @@ class ConfirmationController extends Controller
 
             $userIban    ? $userIban->update($userIbanData)       : UserIban::create($userIbanData);
             $userConfirm ? $userConfirm->update($userConfirmData) : UserConfirmData::create($userConfirmData);
-            $company     ? $company->update($companyData)         : Company::create($companyData);
+            $company     ? $company->update($companyData)         : $company = Company::create($companyData);
 
             $userCargoSetting = CompanyCargoSetting::where('company_id', $company->id)->exists();
 
