@@ -10,108 +10,51 @@
                 <div class="card">
                     <div class="card-header">Yeni Ürün Oluştur</div>
                     <div class="card-body">
-                        <el-form
-                            :model="form"
-                            :rules="rules"
-                            ref="form"
-                            label-width="130px"
-                            :label-position="isMobile() ? 'left' : 'right'"
-                            size="medium"
-                        >
+                        <el-form :model="form" :rules="rules" ref="form" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Kategori:" prop="category_id">
-                                <el-select
-                                    v-model="form.category_id"
-                                    placeholder="Kategori seçiniz."
-                                >
-                                    <el-option
-                                        v-for="(category, index) in categories"
-                                        :label="category.title"
-                                        :value="category.id"
-                                        :key="index"
-                                    ></el-option>
+                                <el-select v-model="form.category_id" placeholder="Kategori seçiniz.">
+                                    <el-option v-for="(category, index) in categories" :label="category.title"
+                                        :value="category.id" :key="index"></el-option>
                                 </el-select>
                             </el-form-item>
 
                             <el-form-item label="Adı:" prop="title">
-                                <el-input
-                                    v-model="form.title"
-                                    placeholder="Ürün adı giriniz."
-                                ></el-input>
+                                <el-input v-model="form.title" placeholder="Ürün adı giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Açıklaması:" prop="text">
-                                <el-input
-                                    type="textarea"
-                                    rows="5"
-                                    v-model="form.text"
-                                    placeholder="Ürün açıklaması giriniz."
-                                ></el-input>
+                                <el-input type="textarea" rows="5" v-model="form.text"
+                                    placeholder="Ürün açıklaması giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Fiyat:" prop="price">
-                                <el-input
-                                    v-model="form.price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün fiyatı giriniz."
-                                ></el-input>
+                                <el-input v-model="form.price" type="number" maxlength="11"
+                                    placeholder="Ürün fiyatı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item
-                                label="İndirimsiz Fiyat:"
-                                prop="discount_price"
-                            >
-                                <el-input
-                                    v-model="form.discount_price"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün indirimsiz fiyatı giriniz."
-                                ></el-input>
+                            <el-form-item label="İndirimsiz Fiyat:" prop="discount_price">
+                                <el-input v-model="form.discount_price" type="number" maxlength="11"
+                                    placeholder="Ürün indirimsiz fiyatı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item
-                                label="Stok Sayısı:"
-                                prop="stock"
-                            >
-                                <el-input
-                                    v-model="form.stock"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün stok sayısı giriniz."
-                                ></el-input>
+                            <el-form-item label="Stok Sayısı:" prop="stock">
+                                <el-input v-model="form.stock" type="number" maxlength="11"
+                                    placeholder="Ürün stok sayısı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item
-                                label="Kargo Süresi:"
-                                prop="delivery_time"
-                            >
-                                <el-input
-                                    v-model="form.delivery_time"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün kargo süresi giriniz."
-                                ></el-input>
+                            <el-form-item label="Kargo Süresi:" prop="delivery_time">
+                                <el-input v-model="form.delivery_time" type="number" maxlength="11"
+                                    placeholder="Ürün kargo süresi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
-                                <el-input
-                                    v-model="form.order"
-                                    type="number"
-                                    maxlength="11"
-                                    placeholder="Ürün sırası giriniz."
-                                ></el-input>
+                                <el-input v-model="form.order" type="number" maxlength="11"
+                                    placeholder="Ürün sırası giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item label="Görsel(394x394):" prop="image">
-                                <file-pond
-                                    v-model="form.image"
-                                    ref="pond"
+                            <el-form-item label="Görsel:" prop="image">
+                                <file-pond v-model="form.image" ref="pond"
                                     label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false"
-                                    accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile"
-                                />
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
                             </el-form-item>
                             <div class="float-right">
-                                <el-button
-                                    type="success"
-                                    icon="el-icon-check"
-                                    @click="submitForm('form')"
-                                    >GÖNDER</el-button
-                                >
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('form')">GÖNDER
+                                </el-button>
                             </div>
                         </el-form>
                     </div>

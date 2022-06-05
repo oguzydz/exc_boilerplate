@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CompanyCargoSettingController;
+use App\Http\Controllers\User\CompanyCargoSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\CompanyController;
@@ -15,11 +15,11 @@ use App\Http\Controllers\User\ProductGalleryController;
 use App\Http\Middleware\CheckConfirmationStore;
 use App\Http\Middleware\RedirectIfNew;
 
-Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', 'user.status'], 'as' => 'user.'], function() {
+Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 'user.status'], 'as' => 'user.'], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-    Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
+    Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
         Route::post('/store', [DashboardController::class, 'store'])->name('store');
     });
@@ -31,7 +31,7 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/update', [CompanyController::class, 'update'])->name('update');
     });
 
-    Route::group(['prefix' => 'cargo', 'as' => 'cargo.'], function () {
+    Route::group(['prefix' => 'cargo-settings', 'as' => 'cargoSetting.'], function () {
         Route::get('/', [CompanyCargoSettingController::class, 'index'])->name('index');
         Route::post('/update', [CompanyCargoSettingController::class, 'update'])->name('update');
     });
@@ -46,7 +46,7 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
     });
 
-    Route::group(['prefix' => 'products', 'as' => 'product.'], function() {
+    Route::group(['prefix' => 'products', 'as' => 'product.'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
         Route::post('/store', [ProductController::class, 'store'])->name('store');
@@ -74,8 +74,7 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         });
     });
 
-
-    Route::group(['prefix' => 'orders', 'as' => 'order.'], function() {
+    Route::group(['prefix' => 'orders', 'as' => 'order.'], function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
         Route::get('/show/{order}', [OrderController::class, 'show'])->name('show');
         Route::get('/create', [OrderController::class, 'create'])->name('create');
@@ -85,7 +84,7 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/cancel-order/{order}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
     });
 
-    Route::group(['prefix' => 'payments', 'as' => 'payment.'], function() {
+    Route::group(['prefix' => 'payments', 'as' => 'payment.'], function () {
         Route::get('/', [PaymentController::class, 'index'])->name('index');
         Route::get('/show/{payment}', [PaymentController::class, 'show'])->name('show');
         Route::get('/create', [OrderController::class, 'create'])->name('create');
@@ -93,19 +92,18 @@ Route::group(['prefix' => 'user', 'middleware'=> ['auth:sanctum', 'role:user', '
         Route::post('/update/{payment}', [PaymentController::class, 'update'])->name('update');
     });
 
-    Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.'], function() {
+    Route::group(['prefix' => 'confirmation', 'as' => 'confirmation.'], function () {
         Route::get('/', [ConfirmationController::class, 'index'])->name('index');
         Route::get('/other', [ConfirmationController::class, 'other'])->name('other');
         Route::post('/store', [ConfirmationController::class, 'store'])->name('store')
             ->withoutMiddleware(['user.status'])->middleware(['user.check.confirmation.store']);
     });
 
-    Route::group(['prefix' => 'contacts', 'as' => 'contact.'], function() {
+    Route::group(['prefix' => 'contacts', 'as' => 'contact.'], function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
         Route::get('/show/{contactId}', [ContactController::class, 'show'])->name('show');
         Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
     });
-
 });
 
 

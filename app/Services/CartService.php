@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Models\Product;
@@ -19,21 +20,21 @@ class CartService
         try {
             $product = Product::findorFail($productId);
             Cart::add($product, 1, [
-                'image' => $product->image,
-                'slug' => $product->slug,
+                'image'   => $product->image,
+                'slug'    => $product->slug,
                 'company' => $product->company->slug,
             ]);
 
             return response()->json([
-                'message' => 'Ürün başarıyla sepetinize eklendi.',
-                'cart' => Cart::content(),
-                'cartSubTotal' => Cart::total(),
-                'status' => true,
+                'message'      => 'Ürün başarıyla sepetinize eklendi.',
+                'cart'         => Cart::content(),
+                'cartSubTotal' => Cart::subTotal(),
+                'status'       => true,
             ], 200);
         } catch (Throwable $e) {
             return response()->json([
                 'message' => 'Ürün sepete eklenemedi, lütfen tekrar deneyiniz.',
-                'status' => false,
+                'status'  => false,
             ], 200);
         }
     }
@@ -49,9 +50,9 @@ class CartService
             Cart::update($rowId, $qty);
 
             return response()->json([
-                'message' => 'Ürün adedi başarıyla güncellendi.',
-                'cart' => Cart::content(),
-                'cartSubTotal' => Cart::total(),
+                'message'      => 'Ürün adedi başarıyla güncellendi.',
+                'cart'         => Cart::content(),
+                'cartSubTotal' => Cart::subTotal(),
                 'status' => true,
             ], 200);
         } catch (Throwable $e) {
@@ -74,9 +75,9 @@ class CartService
             );
 
             return response()->json([
-                'message' => 'Ürün başarıyla sepetinizden çıkarıldı.',
-                'cart' => Cart::content(),
-                'cartSubTotal' => Cart::total(),
+                'message'      => 'Ürün başarıyla sepetinizden çıkarıldı.',
+                'cart'         => Cart::content(),
+                'cartSubTotal' => Cart::subTotal(),
                 'status' => true,
             ], 200);
         } catch (Throwable $e) {

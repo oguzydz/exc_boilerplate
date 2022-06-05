@@ -9,6 +9,8 @@ class City extends Model
 {
     use HasFactory;
 
+    const DEFAULT_COUNTRY = 'Turkey';
+
     public function counties()
     {
         return $this->hasMany(County::class);

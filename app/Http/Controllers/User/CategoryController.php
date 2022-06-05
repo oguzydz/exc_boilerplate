@@ -17,14 +17,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-
-    public $userService;
-
-    public function __construct(UserService $userService)
-    {
-        $this->userService = $userService;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -34,10 +26,10 @@ class CategoryController extends Controller
     {
         $categories = Category::where([
             'status'     => Category::STATUS_ACTIVE,
-            'company_id' => $this->userService->getUserCompany(Auth::user()->id)->id
+            'company_id' => Auth::user()->company->id
         ])
             ->where(function ($query) use ($request) {
-            $query->where('title', 'like', "%$request->search%");
+                $query->where('title', 'like', "%$request->search%");
             })
             ->paginate(10);
 

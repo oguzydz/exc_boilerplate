@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -63,6 +64,11 @@ class Company extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function product(string $productSlug)
+    {
+        return $this->hasOne(Product::class)->where('slug', $productSlug);
+    }
+
     public function activeProducts()
     {
         return $this->hasMany(Product::class)->where('status', Product::STATUS_ACTIVE);
@@ -71,5 +77,20 @@ class Company extends Model
     public function pasiveProducts()
     {
         return $this->hasMany(Product::class)->where('status', Product::STATUS_PASIVE);
+    }
+
+    public function subMerchant()
+    {
+        return $this->hasOne(SubMerchant::class);
+    }
+
+    public function cargoSetting()
+    {
+        return $this->hasOne(CompanyCargoSetting::class);
+    }
+
+    public function cargoPrice()
+    {
+        return $this->cargoSetting->after_free_price > Cart::subtotal() ? $this->cargoSetting->price : 0;
     }
 }

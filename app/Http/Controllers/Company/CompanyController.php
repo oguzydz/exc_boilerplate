@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PaymentRequest;
 use App\Models\City;
 use App\Models\Product;
+use App\Services\IyzicoService;
 use App\View\Components\Shop\Header;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -12,10 +14,12 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
     public $company;
+    protected $iyzicoService;
 
-    public function __construct(Header $header)
+    public function __construct(Header $header, IyzicoService $iyzicoService)
     {
         $this->company = $header->company;
+        $this->iyzicoService = $iyzicoService;
     }
 
     /**
@@ -29,7 +33,7 @@ class CompanyController extends Controller
 
         return view('pages.company.index', [
             'products' => $products,
-            'company' => $this->company,
+            'company'  => $this->company,
         ]);
     }
 
@@ -38,12 +42,11 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function checkout()
+    public function checkout(Request $request)
     {
-        $cities = City::all();
-
         return view('pages.company.payment.checkout', [
-            'cities' => $cities,
+            'company' => $this->company,
+            'cities'  => City::all(),
         ]);
     }
 
@@ -53,9 +56,30 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function threedsInitialize(PaymentRequest $request)
     {
-        //
+        $threedsInitialize = $this->iyzicoService->payment($request, $this->company);
+
+        if ($threedsInitialize->getStatus() == 'success') {
+            return $this->iyzicoService->payment($request, $this->company)->getHtmlContent();
+        }
+
+        return redirect()->back()->withErrors([
+            'message' => $threedsInitialize->getErrorMessage()
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function paymentResult(Request $request)
+    {
+        dd($request->all());
+        return view('pages.company.payment.result', [
+            'company' => $this->company,
+        ]);
     }
 
     /**
@@ -64,15 +88,15 @@ class CompanyController extends Controller
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($slug, Request $request)
+    public function show(Request $request, string $slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product         = $this->company->product($slug)->firstOrFail();
         $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
 
         return view('pages.company.show', [
-            'product' => $product,
+            'product'         => $product,
             'relatedProducts' => $relatedProducts,
-            'companySlug' => $request->route()->action['slug'],
+            'companySlug'     => $request->route()->action['slug'],
         ]);
     }
 

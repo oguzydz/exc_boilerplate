@@ -71,6 +71,12 @@ export default {
                 },
                 {
                     tag: "nav-item",
+                    text: "Kargo Ayarları",
+                    url: "user.cargoSetting.index",
+                    icon: "fad fa-truck",
+                },
+                {
+                    tag: "nav-item",
                     text: "Siparişler",
                     url: "user.category.index",
                     icon: "fad fa-clipboard-check",
