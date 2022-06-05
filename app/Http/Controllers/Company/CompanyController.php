@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\Product;
 use App\View\Components\Shop\Header;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -39,8 +40,10 @@ class CompanyController extends Controller
      */
     public function checkout()
     {
+        $cities = City::all();
+
         return view('pages.company.payment.checkout', [
-            //
+            'cities' => $cities,
         ]);
     }
 

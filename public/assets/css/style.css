@@ -7696,3 +7696,23 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     line-height: 35px !important;
     padding: 0 16px !important;
 }
+
+.bootstrap-select .btn {
+    width: 100% !important;
+    height: 52px !important;
+    background: transparent;
+    border: 1px solid #D9DDE4;
+    border-radius: 4px;
+    padding: 16px 18px !important;
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+    color: #97A1B2;
+    margin-top: unset!important;
+    margin-bottom: 20px!important;
+}
+
+.filter-option-inner-inner {
+    font-size: var(--body-font-size);
+}

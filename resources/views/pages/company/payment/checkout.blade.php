@@ -26,51 +26,54 @@
                                 <div class="row custom-gutters-20">
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="email" type="email" required class="single-input">
-                                            <label class="">E-Posta</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-input-wrap">
-                                            <input name="phone" type="number" required class="single-input">
-                                            <label>Telefon</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-input-wrap">
-                                            <input name="name" type="text" required class="single-input">
+                                            <input name="name" type="text" class="single-input" required>
                                             <label>Adınız</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="surname" type="text" required class="single-input">
+                                            <input name="surname" type="text" class="single-input" required>
                                             <label>Soyadınız</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-input-wrap">
+                                            <input name="email" type="email" class="single-input" required>
+                                            <label class="">E-Posta</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-input-wrap">
+                                            <input name="phone" type="number" class="single-input" required>
+                                            <label>Telefon</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
-                                            <input name="address" type="text" required class="single-input">
+                                            <input name="address" type="text" class="single-input" required>
                                             <label>Adres</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <select name="city" required class="select single-select">
-                                                <option value="1">Şehir</option>
+                                            <select id="city" name="city" class="single-select" required>
+                                                <option value="">Şehir Seçiniz</option>
+                                                @foreach ($cities as $city)
+                                                    <option value="{{ $city->id }}">{{ $city->city }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <select name="county" required class="select single-select">
-                                                <option value="1">İlçe</option>
+                                            <select id="county" name="county" class="single-select" required>
+                                                <option value="">İlçe Seçiniz</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="zip_code" type="text" required class="single-input">
+                                            <input name="zip_code" type="text" class="single-input" required>
                                             <label>Posta Kodu</label>
                                         </div>
                                     </div>
@@ -104,7 +107,7 @@
                                         </span>
                                     </div>
                                     <div class="col-12 text-right">
-                                        <a class="btn btn-green" href="#">Ödemeye Geç</a>
+                                        <button type="submit" class="btn btn-green">Şimdi Öde</a>
                                     </div>
                                 </div>
                             </form>
@@ -137,7 +140,6 @@
                                         @endforeach
                                     @else
                                         <tr>
-
                                             <td>
                                                 Sepetinizde henüz ürün bulunamadı.
                                             </td>
@@ -171,4 +173,46 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets\js\jquery-2.2.4.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#city").change(function() {
+                event.preventDefault();
+
+                var cityId = $("#city").val();
+                var _token = $('meta[name="csrf-token"]').attr('content');
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': CSRF_TOKEN
+                    },
+                    url: "/api/city-counties/" + cityId,
+                    data: {
+                        _token: _token
+                    },
+                    type: "GET",
+                    success: function(response) {
+                        var options = '';
+
+                        $.each(response, function(key, value) {
+                            options += '<option value="' + value.id +
+                                '">' + value.county + '</option>';
+                        });
+
+                        $("#county").empty().append(options).niceSelect('update');
+                    },
+                    error: function(err) {
+                        Swal.fire({
+                            title: 'Ajax error',
+                            html: `Ajax servisi yanıt veremedi, lütfen tekrar deneyiniz.`,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                });
+            });
+
+        });
+    </script>
 @endsection

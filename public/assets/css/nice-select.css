@@ -30,7 +30,7 @@
     border-color: #dbdbdb; }
   .nice-select:active, .nice-select.open, .nice-select:focus {
     border-color: #999; }
-  .nice-select:after {
+  .single-select:after {
     border-bottom: 2px solid #999;
     border-right: 2px solid #999;
     content: '';
