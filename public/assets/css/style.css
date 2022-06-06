@@ -1664,6 +1664,15 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-bottom: 0;
 }
 
+.payment-result h2{
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    color: #01358D;
+    margin-bottom: 10px;
+}
+
 .widget_tag_cloud .tagcloud a {
   font-size: var(--body-font-size);
   font-style: italic;
@@ -1728,6 +1737,11 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-bottom: 5px;
   margin-right: 5px;
   border-radius: 3px;
+}
+
+.successPhoto{
+    display: block;
+    margin: auto;
 }
 
 /*----------------------------------------------
