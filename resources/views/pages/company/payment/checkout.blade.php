@@ -230,13 +230,9 @@
         </div>
     </div>
     <script src="{{ asset('assets\js\jquery-2.2.4.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
     <script>
         $(document).ready(function($) {
-
-            $('#cardNumber').mask('9999 9999 9999 9999');
-            $('#cardExpires').mask('99/99');
 
             $("#city").change(function() {
                 event.preventDefault();

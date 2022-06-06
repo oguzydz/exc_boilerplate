@@ -58,6 +58,7 @@ class CompanyController extends Controller
      */
     public function threedsInitialize(PaymentRequest $request)
     {
+
         $threedsInitialize = $this->iyzicoService->payment($request, $this->company);
 
         if ($threedsInitialize->getStatus() == 'success') {

@@ -23,3 +23,4 @@
 <script src="{{ asset('assets\js\cart.js') }}"></script>
 <script src="{{ asset('assets\js\jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('assets\js\jquery-ui.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>

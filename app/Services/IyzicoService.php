@@ -7,7 +7,7 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
@@ -80,16 +80,11 @@ class IyzicoService
          * Card Informations
          */
         $paymentCard = new PaymentCard();
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("5528790000000008");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        // $paymentCard->setCardHolderName($paymentRequest->cardName);
-        // $paymentCard->setCardNumber($paymentRequest->cardNumber);
-        // $paymentCard->setExpireMonth($paymentRequest->cardExpires);
-        // $paymentCard->setExpireYear($paymentRequest->cardExpires);
-        // $paymentCard->setCvc($paymentRequest->cardSecurityCode);
+        $paymentCard->setCardHolderName($paymentRequest->cardName);
+        $paymentCard->setCardNumber(preg_replace('/\s+/', '', $paymentRequest->cardNumber));
+        $paymentCard->setExpireMonth(explode('/', $paymentRequest->cardExpires)[0]);
+        $paymentCard->setExpireYear(explode('/', $paymentRequest->cardExpires)[1]);
+        $paymentCard->setCvc($paymentRequest->cardSecurityCode);
         $request->setPaymentCard($paymentCard);
 
         /**
