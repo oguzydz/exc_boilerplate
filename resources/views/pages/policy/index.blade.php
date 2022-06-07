@@ -7,13 +7,6 @@
     <x-pageTitle title="Gizlilik Ve Koşullar" />
     <div class="service-area pd-top-112">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-10">
-                    <div class="section-title text-center margin-bottom-90">
-                        <h2 class="title">Gizlilik Ve <span>Koşul</span> Şartlarımız</h2>
-                    </div>
-                </div>
-            </div>
             <div class="row custom-gutters-16">
                 <div class="col-xl-3 col-md-6 col-sm-6">
                     <div class="single-service">

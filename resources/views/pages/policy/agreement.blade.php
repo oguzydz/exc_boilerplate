@@ -4,10 +4,9 @@
 
 @section('content')
 
-    <x-pageTitle title="KVKK" />
+    <x-pageTitle parentTitle="Politikalar" parentRoute="{{ route('policy.index') }}" title="KVKK" />
 
-    <section class=" clearfix">
-
+    <section class="clearfix">
         <div class="sbst-service-area pd-top-112">
             <div class="container">
                 <div class="row justify-content-center ">
@@ -162,7 +161,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
 @endsection
