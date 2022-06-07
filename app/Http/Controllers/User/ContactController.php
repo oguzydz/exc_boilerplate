@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
 use App\Http\Requests\UserContactSearchRequest;
 use App\Models\UserContact;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserContactSearchRequest $request)
+    public function index(SearchRequest $request)
     {
         $userContacts = UserContact::where([
             'company_id' => Auth::user()->company->id,

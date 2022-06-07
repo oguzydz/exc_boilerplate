@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerSearchRequest;
 use App\Http\Requests\PasiveRequest;
+use App\Http\Requests\SearchRequest;
 use App\Models\User;
 use App\Models\UserCancel;
 use App\Models\UserPasive;
@@ -30,7 +30,7 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list(int $statusId, CustomerSearchRequest $request)
+    public function list(int $statusId, SearchRequest $request)
     {
         $customersList = User::where('status', $statusId)
             ->whereHas("roles", function ($role) {

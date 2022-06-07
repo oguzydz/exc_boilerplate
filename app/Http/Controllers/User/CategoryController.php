@@ -5,10 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategorySearchRequest;
 use Inertia\Inertia;
-use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\EditCategoryRequest;
+use App\Http\Requests\SearchRequest;
 use App\Models\Product;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +21,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategorySearchRequest $request)
+    public function index(SearchRequest $request)
     {
         $categories = Category::where([
             'status'     => Category::STATUS_ACTIVE,
@@ -54,7 +53,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCategoryRequest $request)
+    public function store(SearchRequest $request)
     {
         $slug          = Str::slug($request->title, '-');
         $isImage       = isset($request->file()['image']) ? $request->file()['image'] : false;

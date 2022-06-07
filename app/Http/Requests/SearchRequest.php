@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserContactSearchRequest extends FormRequest
+class SearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UserContactSearchRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['string'],
+            'name' => ['string'] ,
+            'title' => ['string'] ,
         ];
     }
 }
