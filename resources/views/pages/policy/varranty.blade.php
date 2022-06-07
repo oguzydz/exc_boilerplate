@@ -8,7 +8,7 @@
 
 
 
-    <section class=" clearfix">
+    <section class="clearfix">
 
         <div class="sbst-service-area pd-top-112">
             <div class="container">

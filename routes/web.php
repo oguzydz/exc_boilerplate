@@ -32,7 +32,8 @@ Route::get('/hemen-basla', [StaticPageController::class, 'startNow'])->name('sta
 Route::get('/fiyatlandirma', [StaticPageController::class, 'pricing'])->name('pricing');
 
 Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
-    Route::get('/garanti-iade', [PolicyController::class, 'index'])->name('index');
+    Route::get('/', [PolicyController::class, 'index'])->name('index');
+    Route::get('/garanti-iade', [PolicyController::class, 'varranty'])->name('varranty');
     Route::get('/gizlilik-guvenlik', [PolicyController::class, 'security'])->name('security');
     Route::get('/odeme-teslimat', [PolicyController::class, 'delivery'])->name('delivery');
     Route::get('/uyelik-sozlesmesi', [PolicyController::class, 'agreement'])->name('agreement');

@@ -102,6 +102,12 @@ export default {
                 },
                 {
                     tag: 'nav-item',
+                    text: 'İletişim Mesajları',
+                    url: 'admin.contact.index',
+                    icon: 'fad fa-envelope',
+                },
+                {
+                    tag: 'nav-item',
                     text: 'Çıkış Yap',
                     url: 'logout',
                     icon: 'fad fa-sign-out',

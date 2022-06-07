@@ -15,6 +15,16 @@ class PolicyController extends Controller
      */
     public function index()
     {
+        return view('pages.policy.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function varranty()
+    {
         return view('pages.policy.varranty');
     }
 

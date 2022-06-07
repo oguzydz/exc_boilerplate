@@ -4,7 +4,7 @@
 
 @section('content')
 
-<x-pageTitle title="KVKK"  />
+    <x-pageTitle title="KVKK" />
 
     <section class=" clearfix">
 
@@ -14,8 +14,6 @@
                     <div class="col-xl-12 col-lg-10">
                         <div class="section-title ">
                             <p><strong>1. Taraflar</strong></p>
-
-
 
                             <p><strong>b)</strong>&nbsp; www.exxefy.com internet sitesine üye olan internet kullanıcısı
                                 bundan böyle (“ÜYE”) olarak anılacaktır.</p>
@@ -165,7 +163,6 @@
             </div>
         </div>
 
-        </div>
     </section>
 
 @endsection

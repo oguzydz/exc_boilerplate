@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
@@ -24,6 +25,10 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
 
     });
 
+    Route::group(['prefix' => 'contacts', 'as' => 'contact.'], function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+    });
+
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
         Route::get('/', [NewCustomerController::class, 'index'])->name('index');
         Route::get('/show/{userId}', [NewCustomerController::class, 'show'])->name('show');
@@ -40,4 +45,5 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::post('/update', [BlogController::class, 'update'])->name('update');
         Route::post('/destroy/{blogId}', [BlogController::class, 'destroy'])->name('destroy');
     });
+
 });
