@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\EditProductRequest;
-use App\Http\Requests\ProductSearchRequest;
+use App\Http\Requests\SearchRequest;
 use App\Models\Product;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProductSearchRequest $request)
+    public function index(SearchRequest $request)
     {
         $products = Product::where([
             'company_id' => Auth::user()->company->id,

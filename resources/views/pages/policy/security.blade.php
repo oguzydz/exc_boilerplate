@@ -4,10 +4,9 @@
 
 @section('content')
 
-    <x-pageTitle title="Gizlilik Ve Güvenlik" />
+    <x-pageTitle parentTitle="Politikalar" parentRoute="{{ route('policy.index') }}" title="Gizlilik Ve Güvenlik" />
 
     <section class=" clearfix">
-
         <div class="sbst-service-area pd-top-112">
             <div class="container">
                 <div class="row justify-content-center ">
@@ -194,18 +193,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        {{-- <div class="container">
-        <div class="row align-items-center">
-
-
-        </div> --}}
-
-
-
-
         </div>
     </section>
 

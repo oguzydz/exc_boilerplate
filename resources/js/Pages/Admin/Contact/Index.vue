@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppUserLayout";
+import AppLayout from "@/Layouts/AppAdminLayout";
 
 export default {
     components: {

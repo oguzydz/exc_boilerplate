@@ -4,11 +4,9 @@
 
 @section('content')
 
-<x-pageTitle title="Ödeme Ve Teslimat"  />
-
+<x-pageTitle parentTitle="Politikalar" parentRoute="{{ route('policy.index') }}" title="Ödeme Ve Teslimat"  />
 
 <section class=" clearfix">
-
     <div class="sbst-service-area pd-top-112">
         <div class="container">
             <div class="row justify-content-center ">
@@ -35,18 +33,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-    {{-- <div class="container">
-        <div class="row align-items-center">
-
-
-        </div> --}}
-
-
-
-
     </div>
 </section>
 

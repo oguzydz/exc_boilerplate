@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
-                    $inertia.get(route('user.contact.index'))
+                    $inertia.get(route('admin.contact.index'))
                 " title="Geri" content="İletişim Detayları">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
@@ -13,7 +13,7 @@
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Ad-Soyad">{{
                             data.name
-                    }}</el-descriptions-item>
+                    }}</el-descriptions-item>s
                     <el-descriptions-item label="E-Posta">{{
                             data.email
                     }}</el-descriptions-item>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppUserLayout";
+import AppLayout from "@/Layouts/AppAdminLayout";
 import PageTitle from "@/Components/User/PageTitle";
 
 export default {
@@ -51,7 +51,7 @@ export default {
     methods: {
         confirm() {
             this.$inertia.get(
-                route("user.contact.confirm", [this.data.id]),
+                route("admin.contact.confirm", [this.data.id]),
                 this.data,
                 {
                     onSuccess: (page) => {

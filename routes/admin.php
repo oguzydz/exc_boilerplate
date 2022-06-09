@@ -27,6 +27,9 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
 
     Route::group(['prefix' => 'contacts', 'as' => 'contact.'], function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/show/{contactId}', [ContactController::class, 'show'])->name('show');
+        Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
+
     });
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AdminContactRequest;
+use App\Http\Requests\SearchRequest;
 use Inertia\Inertia;
 use App\Models\Contact;
 use Illuminate\Support\Str;
@@ -17,9 +17,8 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(AdminContactRequest $request)
+    public function index(SearchRequest $request)
     {
-        dd('asd');
         $contacts = Contact::where(function ($query) use ($request) {
             $query->where('name', 'like', "%$request->search%");
         })
@@ -30,152 +29,41 @@ class ContactController extends Controller
         ]);
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Display the specified resource.
      *
+     * @param  int  $contactId
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show(int $contactId)
     {
-        $blog = Blog::all();
+        $contact = Contact::findOrFail($contactId);
 
-        return Inertia::render('Admin/Blog/Create', [
-            'blog' => $blog
+        return Inertia::render('Admin/Contact/Show', [
+            'data' => $contact,
         ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateBlogRequest $request)
-    {
-        try {
-            $image_seo = Str::slug($request->image_seo, '-');
-
-            $getFile  = $request->file()['image'];
-            $fileName = $image_seo . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-            $slug     = Str::slug($request->title, '-') . '--' . Blog::getNextId();
-            $filePath = $getFile->storeAs('blog', $fileName, 'public');
-
-            $data = [
-                'title'       => $request->title,
-                'text'        => $request->text,
-                'slug'        => $slug,
-                'image'       => $filePath,
-                'image_seo'   => $image_seo,
-                'category_id' => $request->category_id,
-            ];
-
-            Blog::create($data);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Veri eklenirken beklenmedik bir hata oldu'));
-
-            return redirect()->back();
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $blogId
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(int $blogId)
-    {
-        try {
-            $blog = Blog::findOrFail($blogId);
-
-            $data = [
-                'id'        => $blog->id,
-                'title'     => $blog->title,
-                'text'      => $blog->text,
-                'image'     => $blog->image,
-                'image_seo' => $blog->image_seo,
-                'new_image',
-            ];
-
-            return Inertia::render(
-                'Admin/Blog/Edit',
-                [
-                    'data' => $data,
-                ]
-            );
-        } catch (\Exception $e) {
-            abort('404');
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $customerComment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(EditBlogRequest $request)
-    {
-        $blog = Blog::findOrFail($request->id);
-
-        $data = [
-            'title'     => $request->title,
-            'text'      => $request->text,
-            'image'     => $request->image,
-            'image_seo' => $request->image_seo,
-        ];
-
-        if (isset($request->file()['new_image'])) {
-            $image_seo = Str::slug($request->image_seo, '-');
-
-            $getFile  = $request->file()['new_image'];
-            $fileName = $image_seo . '--' . time() . '.' . $getFile->getClientOriginalExtension();
-            $filePath = $getFile->storeAs('blog', $fileName, 'public');
-
-            $data['image'] = $filePath;
-        }
-
-        try {
-            $blog->update($data);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Blog güncellenirken beklenmedik bir hata oldu'));
-
-            return redirect()->back();
-        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $customerComment
+     * @param  \App\Models\UserContact  $contactId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, int $blogId)
+    public function destroy($contactId, Request $request)
     {
-        $getImage = Blog::find($blogId)->image;
 
         try {
-            Storage::disk('public')->delete($getImage);
-            Blog::destroy($blogId);
+            Contact::destroy($contactId);
 
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request
-                ->session()
-                ->flash(
-                    'message',
-                    __('Blog silinirken beklenmedik bir hata oldu!')
-                );
+            $request->session()->flash('message', __('İletişim mesajını silerken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
     }
+
 }
