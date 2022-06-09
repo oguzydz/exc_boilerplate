@@ -3628,6 +3628,21 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   font-weight: 500;
 }
 
+.checkout-error {
+    background-color: #f5f8fe;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 20px;
+}
+
+.checkout-error ul {
+    margin: 0;
+}
+
+.checkout-error img {
+    float: right;
+    width: 30px;
+}
+
 .payment-method ul li {
   font-size: var(--body-font-size);
   line-height: 18px;

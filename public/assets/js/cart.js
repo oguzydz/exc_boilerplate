@@ -176,3 +176,41 @@ function toastFire(icon, title, html = null) {
         confirmButtonText: 'OK'
     })
 }
+
+function getCounties(countyId = 0) {
+    event.preventDefault();
+
+    var _token = $('meta[name="csrf-token"]').attr('content');
+    var cityId = $("#city").val()
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': CSRF_TOKEN
+        },
+        url: "/api/city-counties/" + cityId,
+        data: {
+            _token: _token
+        },
+        type: "GET",
+        success: function(response) {
+            var options = '';
+
+            $.each(response, function(key, value) {
+                var selected = countyId == value.id ? "selected" : '';
+
+                options += '<option value="' + value.id +
+                    '"' + selected + '>' + value.county + '</option>';
+            });
+
+            $("#county").empty().append(options);
+        },
+        error: function(err) {
+            Swal.fire({
+                title: 'Ajax error',
+                html: `Ajax servisi yanıt veremedi, lütfen tekrar deneyiniz.`,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+        }
+    });
+}

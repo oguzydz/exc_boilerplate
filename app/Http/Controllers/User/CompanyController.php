@@ -48,7 +48,7 @@ class CompanyController extends Controller
             'instagram' => $request->instagram,
             'facebook'  => $request->facebook,
             'twitter'   => $request->twitter,
-            'slug'  => Str::slug($request->title, '-'),
+            'slug'      => Str::slug($request->title, '-'),
         ];
 
         if($logo) {

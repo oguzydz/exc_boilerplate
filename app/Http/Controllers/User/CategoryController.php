@@ -56,8 +56,8 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $slug          = Str::slug($request->title, '-');
-        $isImage       = isset($request->file()['image']) ? $request->file()['image'] : false;
+        $slug    = Str::slug($request->title, '-');
+        $isImage = isset($request->file()['image']) ? $request->file()['image'] : false;
 
         if ($isImage) {
             $getFile  = $request->file()['image'];

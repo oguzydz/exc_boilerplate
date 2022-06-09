@@ -142,6 +142,11 @@ return [
         ],
     ],
 
+    'credit_card' => [
+        'card_invalid'     => 'Tanımsız kart girişi, lütfen kart numaranızı kontrol ediniz.',
+        'card_cvc_invalid' => 'Hatalı kart güvenlik kodu, lütfen kart güvenlik kodunuzu kontrol ediniz.',
+     ],
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

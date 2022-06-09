@@ -8,12 +8,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <p class="description text-danger">{{ $error }}</p>
-                        @endforeach
-                    @endif
                     <div class="checkout-form-wrap">
+                        @if ($errors->any())
+                            <div class="checkout-error">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <p class="description text-danger">
+                                            Siparişinizi tamamlamak için lütfen aşağıdaki hataları düzeltiniz.
+                                        </p>
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li class="description text-danger">{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 m-auto">
+                                        <img src="{{ asset('assets/img/icons/cross.svg') }}" class="img">
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <div class="checkout-title">
                             <div class="row">
                                 <div class="col-xl-5 col-lg-12 col-md-6">
@@ -33,40 +47,48 @@
                                 <div class="row custom-gutters-20">
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="name" type="text" class="single-input" required>
-                                            <label>Adınız</label>
+                                            <input name="name" type="text" value="{{ old('name') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('name') ? 'active' : '' }}">Adınız</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="surname" type="text" class="single-input" required>
-                                            <label>Soyadınız</label>
+                                            <input name="surname" type="text" value="{{ old('surname') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('surname') ? 'active' : '' }}">Soyadınız</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="email" type="email" class="single-input" required>
-                                            <label class="">E-Posta</label>
+                                            <input name="email" type="email" value="{{ old('email') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('email') ? 'active' : '' }}">E-Posta</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="phone" type="number" class="single-input" required>
-                                            <label>Telefon</label>
+                                            <input name="phone" type="number" value="{{ old('phone') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('phone') ? 'active' : '' }}">Telefon</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
-                                            <input name="address" type="text" class="single-input" required>
-                                            <label>Adres</label>
+                                            <input name="address" type="text" value="{{ old('address') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('address') ? 'active' : '' }}">Adres</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <select id="city" name="city" class="single-select" required>
+                                            <select id="city" name="city" onchange="getCounties()" class="single-select"
+                                                required>
                                                 <option value="">İl Seçiniz</option>
                                                 @foreach ($cities as $city)
-                                                    <option value="{{ $city->id }}">{{ $city->city }}</option>
+                                                    <option value="{{ $city->id }}"
+                                                        {{ old('city') == $city->id ? 'selected' : '' }}>
+                                                        {{ $city->city }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -80,20 +102,25 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="zipCode" type="text" class="single-input" required>
-                                            <label>Posta Kodu</label>
+                                            <input name="zipCode" type="number" value="{{ old('zipCode') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('zipCode') ? 'active' : '' }}">Posta Kodu</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="identityNumber" type="number" class="single-input">
-                                            <label>Tc Kimlik No (Zorunlu değil)</label>
+                                            <input name="identityNumber" type="number"
+                                                value="{{ old('identityNumber') }}" maxlength="11" class="single-input" required>
+                                            <label class="{{ old('identityNumber') ? 'active' : '' }}">Tc Kimlik
+                                                No</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
-                                            <input name="note" type="text" class="single-input" required>
-                                            <label>Satıcıya Not (Zorunlu değil)</label>
+                                            <input name="note" type="text" value="{{ old('note') }}"
+                                                class="single-input" required>
+                                            <label class="{{ old('note') ? 'active' : '' }}">Satıcıya Not (Zorunlu
+                                                değil)</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12 padding-top-50">
@@ -103,30 +130,37 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
-                                            <input name="cardNumber" id="cardNumber" type="tel" class="single-input"
+                                            <input name="cardNumber" id="cardNumber" type="tel"
+                                                value="{{ old('cardNumber') }}" class="single-input"
                                                 autocomplete="cc-number" required>
-                                            <label>16 Haneli Kart Numarası</label>
+                                            <label class="{{ old('cardNumber') ? 'active' : '' }}">16 Haneli Kart
+                                                Numarası</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="cardName" type="text" class="single-input" autocomplete="cc-name"
-                                                required>
-                                            <label>Kart Üzerindeki Ad-Soyad</label>
+                                            <input name="cardName" type="text" value="{{ old('cardName') }}"
+                                                class="single-input" autocomplete="cc-name" required>
+                                            <label class="{{ old('cardName') ? 'active' : '' }}">Kart Üzerindeki
+                                                Ad-Soyad</label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="single-input-wrap">
-                                            <input name="cardExpires" id="cardExpires" type="tel" class="single-input"
+                                            <input name="cardExpires" id="cardExpires" type="tel"
+                                                value="{{ old('cardExpires') }}" class="single-input"
                                                 autocomplete="cc-exp" required>
-                                            <label>Son Kullanma Tarihi</label>
+                                            <label class="{{ old('cardExpires') ? 'active' : '' }}">Son Kul.
+                                                Tarihi</label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="single-input-wrap">
                                             <input name="cardSecurityCode" id="cardSecurityCode" type="number"
-                                                class="single-input" autocomplete="cc-csc" maxlength="4" required>
-                                            <label>Güvenlik Kodu</label>
+                                                value="{{ old('cardSecurityCode') }}" class="single-input"
+                                                autocomplete="cc-csc" maxlength="4" required>
+                                            <label class="{{ old('cardSecurityCode') ? 'active' : '' }}">Güvenlik
+                                                Kodu</label>
                                         </div>
                                     </div>
 
@@ -233,43 +267,7 @@
 
     <script>
         $(document).ready(function($) {
-
-            $("#city").change(function() {
-                event.preventDefault();
-
-                var cityId = $("#city").val();
-                var _token = $('meta[name="csrf-token"]').attr('content');
-
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': CSRF_TOKEN
-                    },
-                    url: "/api/city-counties/" + cityId,
-                    data: {
-                        _token: _token
-                    },
-                    type: "GET",
-                    success: function(response) {
-                        var options = '';
-
-                        $.each(response, function(key, value) {
-                            options += '<option value="' + value.id +
-                                '">' + value.county + '</option>';
-                        });
-
-                        $("#county").empty().append(options);
-                    },
-                    error: function(err) {
-                        Swal.fire({
-                            title: 'Ajax error',
-                            html: `Ajax servisi yanıt veremedi, lütfen tekrar deneyiniz.`,
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        })
-                    }
-                });
-            });
-
+            {{ old('county') }} ? getCounties({{ old('county') }}) : '';
         });
     </script>
 @endsection

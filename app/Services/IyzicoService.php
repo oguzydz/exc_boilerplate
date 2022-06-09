@@ -61,7 +61,7 @@ class IyzicoService
         return SubMerchant::create($request, self::options());
     }
 
-    public function payment(PaymentRequest $paymentRequest, Company $company)
+    public function threedsInitialize(PaymentRequest $paymentRequest, Company $company)
     {
         /**
          * Price Informations
@@ -136,7 +136,7 @@ class IyzicoService
         $firstBasketItem->setCategory1("Collectibles");
         $firstBasketItem->setCategory2("Accessories");
         $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("272.30");
+        $firstBasketItem->setPrice("200");
         $firstBasketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
         $firstBasketItem->setSubMerchantPrice(200);
         $basketItems[0] = $firstBasketItem;
