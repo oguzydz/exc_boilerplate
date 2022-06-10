@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
+use App\Http\Requests\ThreedsPaymentRequest;
 use App\Models\City;
 use App\Models\Order;
 use App\Models\Product;
@@ -57,7 +58,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function threedsInitialize(PaymentRequest $request)
+    public function payment(PaymentRequest $request)
     {
         $data = [
             'company_id'      => $this->company->id,
@@ -65,27 +66,32 @@ class CompanyController extends Controller
             'surname'         => $request->surname,
             'email'           => $request->email,
             'phone'           => $request->phone,
-            'city_id'         => $request->city_id,
-            'county_id'       => $request->county_id,
-            'zip_code'        => $request->zip_code,
-            'identity_number' => $request->identity_number,
+            'address'         => $request->address,
+            'city_id'         => $request->city,
+            'county_id'       => $request->county,
+            'zip_code'        => $request->zipCode,
+            'identity_number' => $request->identityNumber,
             'note'            => $request->note,
-            'cargo_price'     => $request->cargo_price,
-            'sub_total_price' => $request->sub_total_price,
+            'cargo_price'     => $this->company->cargoPrice(),
+            'sub_total_price' => Cart::subtotal(),
+            'total_price'     => Cart::total() + $this->company->cargoPrice(),
             'ip_address'      => $request->ip(),
-            'status'          => $request->status,
         ];
 
         try {
             $order             = Order::create($data);
-            $threedsInitialize = $this->iyzicoService->threedsInitialize($request, $this->company);
+            $threedsInitialize = $this->iyzicoService->threedsInitialize($request, $this->company, $order);
 
             if ($threedsInitialize->getStatus() !== 'success') {
-                return $this->iyzicoService->threedsInitialize($request, $this->company)->getHtmlContent();
+                throw new \Exception($threedsInitialize->getErrorMessage());
             }
+
+            Cart::store($order->id);
+
+            return $threedsInitialize->getHtmlContent();
         } catch (\Exception $e) {
             return redirect()->back()->withErrors([
-                'message' => $threedsInitialize->getErrorMessage()
+                'message' => $e->getMessage()
             ])->withInput();
         }
     }
@@ -95,12 +101,19 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function paymentResult(Request $request)
+    public function threedsPayment(Request $request)
     {
-        dd($request->all());
-        return view('pages.company.payment.result', [
-            'company' => $this->company,
-        ]);
+        try {
+            if ($request->status !== 'success') {
+                throw new \Exception($request->mdStatus);
+            }
+
+            dd($this->iyzicoService->threedsPayment($request, $request->conversationId));
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors([
+                'message' => $e->getMessage()
+            ])->withInput();
+        }
     }
 
     /**

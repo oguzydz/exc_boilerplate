@@ -3,10 +3,13 @@
 namespace App\Services;
 
 use App\Http\Requests\PaymentRequest;
+use App\Http\Requests\ThreedsPaymentRequest;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\Order;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
@@ -20,9 +23,11 @@ use Iyzipay\Model\PaymentGroup;
 use Iyzipay\Model\SubMerchant;
 use Iyzipay\Model\SubMerchantType;
 use Iyzipay\Model\ThreedsInitialize;
+use Iyzipay\Model\ThreedsPayment;
 use Iyzipay\Options;
 use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Request\CreateSubMerchantRequest;
+use Iyzipay\Request\CreateThreedsPaymentRequest;
 use Throwable;
 
 class IyzicoService
@@ -61,20 +66,21 @@ class IyzicoService
         return SubMerchant::create($request, self::options());
     }
 
-    public function threedsInitialize(PaymentRequest $paymentRequest, Company $company)
+    public function threedsInitialize(PaymentRequest $paymentRequest, Company $company, Order $order)
     {
         /**
          * Price Informations
          */
         $request = new CreatePaymentRequest();
         $request->setLocale(Locale::TR);
+        $request->setConversationId($order->id);
         $request->setPrice(Cart::subTotal());
         $request->setPaidPrice(Cart::total() + $company->cargoPrice());
         $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
-        $request->setCallbackUrl(route($company->slug . '.payment.result'));
+        $request->setCallbackUrl(route($company->slug . '.payment.threedsPayment'));
 
         /**
          * Card Informations
@@ -130,19 +136,35 @@ class IyzicoService
          * Basket Informations
          */
         $basketItems = [];
-        $firstBasketItem = new BasketItem();
-        $firstBasketItem->setId("BI101");
-        $firstBasketItem->setName("Binocular");
-        $firstBasketItem->setCategory1("Collectibles");
-        $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("200");
-        $firstBasketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
-        $firstBasketItem->setSubMerchantPrice(200);
-        $basketItems[0] = $firstBasketItem;
+
+        foreach (Cart::content() as $cart) {
+            $basketItem = new BasketItem();
+            $basketItem->setId($cart->rowId);
+            $basketItem->setName($cart->name);
+            $basketItem->setCategory1($cart->options->category);
+            $basketItem->setItemType(BasketItemType::PHYSICAL);
+            $basketItem->setPrice($cart->price);
+            $basketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
+            $basketItem->setSubMerchantPrice($cart->price / 2);
+            $basketItems[] = $basketItem;
+        }
+
         $request->setBasketItems($basketItems);
 
         return ThreedsInitialize::create($request, self::options());
+    }
+
+    public function threedsPayment(Request $threedsPaymentRequest)
+    {
+        /**
+         * Threeds Payment Informations
+         */
+        $request = new CreateThreedsPaymentRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId($threedsPaymentRequest->conversationId);
+        $request->setPaymentId($threedsPaymentRequest->paymentId);
+
+        return ThreedsPayment::create($request, self::options());
     }
 
     public static function options()

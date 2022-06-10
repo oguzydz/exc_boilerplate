@@ -27,7 +27,7 @@ return [
     'database' => [
 
         'connection' => null,
-        'table' => 'exxefy',
+        'table' => 'shopping_carts',
 
     ],
 

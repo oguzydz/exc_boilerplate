@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -30,7 +31,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('sub_total_price', 10, 2);
             $table->decimal('total_price', 10, 2);
             $table->string('ip_address', 45)->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(Order::STATUS_GIVEN);
             $table->timestamps();
         });
     }

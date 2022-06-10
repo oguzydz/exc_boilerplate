@@ -42,7 +42,7 @@
                         </div>
                         <div class="checkout-form">
                             <form class="exxefy-form-wrap" method="POST"
-                                action="{{ route($company->slug . '.payment.threedsInitialize') }}">
+                                action="{{ route($company->slug . '.payment.payment') }}">
                                 @csrf
                                 <div class="row custom-gutters-20">
                                     <div class="col-md-6">
@@ -110,7 +110,8 @@
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
                                             <input name="identityNumber" type="number"
-                                                value="{{ old('identityNumber') }}" maxlength="11" class="single-input" required>
+                                                value="{{ old('identityNumber') }}" maxlength="11" class="single-input"
+                                                required>
                                             <label class="{{ old('identityNumber') ? 'active' : '' }}">Tc Kimlik
                                                 No</label>
                                         </div>
@@ -118,7 +119,7 @@
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
                                             <input name="note" type="text" value="{{ old('note') }}"
-                                                class="single-input" required>
+                                                class="single-input">
                                             <label class="{{ old('note') ? 'active' : '' }}">Satıcıya Not (Zorunlu
                                                 değil)</label>
                                         </div>

@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/*/payment/payment-result'
+        '/*/payment/threeds-payment'
     ];
 }

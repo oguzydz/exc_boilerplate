@@ -24,6 +24,6 @@ class CreateShoppingcartTable extends Migration
      */
     public function down()
     {
-        Schema::drop(config('cart.database.table'));
+        Schema::drop('exxefy');
     }
 }
