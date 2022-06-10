@@ -78,7 +78,7 @@ export default {
                 {
                     tag: "nav-item",
                     text: "Siparişler",
-                    url: "user.category.index",
+                    url: "user.order.index",
                     icon: "fad fa-clipboard-check",
                 },
                 {

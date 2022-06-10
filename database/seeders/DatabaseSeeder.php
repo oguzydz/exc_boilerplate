@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             RolesAndPermissionsSeeder::class,
             CitySeeder::class,
             CountiesSeeder::class,
-            UserTypeSeeder::class
+            UserTypeSeeder::class,
+            CommissionFeeSeeder::class
         ]);
     }
 }

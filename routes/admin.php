@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CommissionController;
 use App\Http\Controllers\Admin\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
@@ -31,6 +32,16 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
 
     });
+
+
+    Route::group(['prefix' => 'commission', 'as' => 'commission.'], function () {
+        Route::get('/', [CommissionController::class, 'index'])->name('index');
+        Route::get('/create', [CommissionController::class, 'create'])->name('create');
+        Route::post('/store', [CommissionController::class, 'store'])->name('store');
+        Route::get('/edit/{commissionId}', [CommissionController::class, 'edit'])->name('edit');
+        Route::post('/update', [CommissionController::class, 'update'])->name('update');
+    });
+
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
         Route::get('/', [NewCustomerController::class, 'index'])->name('index');

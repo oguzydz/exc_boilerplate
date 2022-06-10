@@ -80,8 +80,8 @@ export default {
                 },
                 {
                     tag: 'nav-item',
-                    text: 'Ödeme Ayarları',
-                    url: 'admin.index',
+                    text: 'Komisyon Ayarları',
+                    url: 'admin.commission.index',
                     icon: 'fad fa-money-bill-wave',
                 },
                 {

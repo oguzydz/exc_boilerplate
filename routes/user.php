@@ -3,6 +3,7 @@
 use App\Http\Controllers\User\CompanyCargoSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\CommissionController;
 use App\Http\Controllers\User\CompanyController;
 use App\Http\Controllers\User\ConfirmationController;
 use App\Http\Controllers\User\ContactController;
@@ -104,6 +105,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 
         Route::get('/show/{contactId}', [ContactController::class, 'show'])->name('show');
         Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
     });
+
+    Route::group(['prefix' => 'commission', 'as' => 'commission.'], function () {
+        Route::get('/', [CommissionController::class, 'index'])->name('index');
+        Route::get('/show/{commissionId}', [CommissionController::class, 'show'])->name('show');
+        Route::post('/destroy/{contactId}', [CommissionController::class, 'destroy'])->name('destroy');
+    });
+
 });
 
 

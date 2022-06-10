@@ -25,6 +25,8 @@
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="title" label="Başlık"></el-table-column>
+                                <el-table-column prop="price" label="Fiyat"></el-table-column>
+                                <el-table-column prop="stock" label="Stok"></el-table-column>
                                 <el-table-column label="İşlem" width="300">
                                     <template #default="scope">
                                         <el-button icon="el-icon-camera" size="mini" v-on:click="
