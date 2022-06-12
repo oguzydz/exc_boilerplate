@@ -14,23 +14,23 @@
                             :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Aylık Toplam Satış:" prop="price">
                                 <el-input v-model="form.price" type="number" maxlength="11"
-                                    placeholder="Komisyon sırası giriniz."></el-input>
+                                    placeholder="Lütfen aylık toplam satış giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="En Yüksek Aylık Toplam Satış:" prop="finish_price">
                                 <el-input v-model="form.finish_price" type="number" maxlength="11"
-                                    placeholder="Komisyon sırası giriniz."></el-input>
+                                    placeholder="Lütfen en yüksek aylık toplam satış giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Yüzdelik Kesinti:" prop="percent">
                                 <el-input v-model="form.percent" type="number" maxlength="11"
-                                    placeholder="Komisyon sırası giriniz."></el-input>
+                                    placeholder="Lütfen yüzdelik kesinti giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="İşlem Ücreti:" prop="local_processing_fee">
                                 <el-input v-model="form.local_processing_fee" type="number" maxlength="11"
-                                    placeholder="Komisyon sırası giriniz."></el-input>
+                                    placeholder="Lütfen işlem ücreti giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Yurt Dışı İşlem Ücreti:" prop="foreign_proccessing_fee">
                                 <el-input v-model="form.foreign_proccessing_fee" type="number" maxlength="11"
-                                    placeholder="Komisyon sırası giriniz."></el-input>
+                                    placeholder="Lütfen yurt dışı işlem ücreti giriniz."></el-input>
                             </el-form-item>
 
                             <div class="float-right">

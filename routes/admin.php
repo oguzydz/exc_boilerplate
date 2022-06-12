@@ -40,6 +40,8 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::post('/store', [CommissionController::class, 'store'])->name('store');
         Route::get('/edit/{commissionId}', [CommissionController::class, 'edit'])->name('edit');
         Route::post('/update', [CommissionController::class, 'update'])->name('update');
+        Route::post('/destroy/{commissionId}', [CommissionController::class, 'destroy'])->name('destroy');
+
     });
 
 

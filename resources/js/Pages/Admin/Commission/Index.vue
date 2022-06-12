@@ -72,7 +72,7 @@ export default {
         return {
             searchText: this.getUrlQuery('search'),
             routeName: "admin.commission.index",
-            deleteMessage: "Komisyonu silerek bağlı olduğu tüm ürünleri pasife almış olacaksınız. Devam etmek istiyor musunuz?",
+            deleteMessage: "Komisyonu silmek üzeresiniz, Devam etmek istiyor musunuz?",
         };
     },
 };
