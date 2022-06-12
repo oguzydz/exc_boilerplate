@@ -51,16 +51,16 @@ class CommissionController extends Controller
      * @param  \App\Models\UserContact  $contactId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($contactId, Request $request)
+    public function destroy($commissionId, Request $request)
     {
 
         try {
-            UserContact::destroy($contactId);
+            CommissionFee::destroy($commissionId);
 
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('İletişim mesajını silerken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Komisyon silerken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }

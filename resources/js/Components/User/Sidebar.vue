@@ -87,6 +87,12 @@ export default {
                     url: "user.category.index",
                     icon: "fad fa-briefcase",
                 },
+                                {
+                    tag: "nav-item",
+                    text: "Komisyonlar",
+                    url: "user.commission.index",
+                    icon: "fad fa-briefcase",
+                },
                 {
                     tag: "nav-item",
                     text: "İadeler",

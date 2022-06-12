@@ -7,6 +7,8 @@ use App\Http\Requests\CommissionRequest;
 use App\Http\Requests\SearchRequest;
 use App\Models\CommissionFee;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+
 
 class CommissionController extends Controller
 {
@@ -111,6 +113,27 @@ class CommissionController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Komisyon ayarları güncellenirken beklenmedik bir hata oldu'));
+
+            return redirect()->back();
+        }
+    }
+
+   /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\UserContact  $contactId
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($commissionId, Request $request)
+    {
+
+        try {
+            CommissionFee::destroy($commissionId);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message', __('Komisyon silerken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
