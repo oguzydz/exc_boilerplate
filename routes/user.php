@@ -106,12 +106,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 
         Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
     });
 
-    Route::group(['prefix' => 'commission', 'as' => 'commission.'], function () {
+    Route::group(['prefix' => 'commissions', 'as' => 'commission.'], function () {
         Route::get('/', [CommissionController::class, 'index'])->name('index');
         Route::get('/show/{commissionId}', [CommissionController::class, 'show'])->name('show');
         Route::post('/destroy/{contactId}', [CommissionController::class, 'destroy'])->name('destroy');
     });
-
 });
 
 

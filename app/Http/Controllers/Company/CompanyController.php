@@ -7,6 +7,7 @@ use App\Http\Requests\PaymentRequest;
 use App\Http\Requests\ThreedsPaymentRequest;
 use App\Models\City;
 use App\Models\Order;
+use App\Models\OrderPayment;
 use App\Models\Product;
 use App\Services\IyzicoService;
 use App\View\Components\Shop\Header;
@@ -20,7 +21,7 @@ class CompanyController extends Controller
 
     public function __construct(Header $header, IyzicoService $iyzicoService)
     {
-        $this->company = $header->company;
+        $this->company       = $header->company;
         $this->iyzicoService = $iyzicoService;
     }
 
@@ -60,26 +61,8 @@ class CompanyController extends Controller
      */
     public function payment(PaymentRequest $request)
     {
-        $data = [
-            'company_id'      => $this->company->id,
-            'name'            => $request->name,
-            'surname'         => $request->surname,
-            'email'           => $request->email,
-            'phone'           => $request->phone,
-            'address'         => $request->address,
-            'city_id'         => $request->city,
-            'county_id'       => $request->county,
-            'zip_code'        => $request->zipCode,
-            'identity_number' => $request->identityNumber,
-            'note'            => $request->note,
-            'cargo_price'     => $this->company->cargoPrice(),
-            'sub_total_price' => Cart::subtotal(),
-            'total_price'     => Cart::total() + $this->company->cargoPrice(),
-            'ip_address'      => $request->ip(),
-        ];
-
         try {
-            $order             = Order::create($data);
+            $order             = $this->iyzicoService->createOrder($request, $this->company);
             $threedsInitialize = $this->iyzicoService->threedsInitialize($request, $this->company, $order);
 
             if ($threedsInitialize->getStatus() !== 'success') {
@@ -103,14 +86,28 @@ class CompanyController extends Controller
      */
     public function threedsPayment(Request $request)
     {
+        $order = Order::findOrFail($request->conversationId);
+
         try {
             if ($request->status !== 'success') {
                 throw new \Exception($request->mdStatus);
             }
 
-            dd($this->iyzicoService->threedsPayment($request, $request->conversationId));
+            $threedsPayment = $this->iyzicoService->threedsPayment($request, $request->conversationId);
+
+            $this->iyzicoService->createOrderPayment($threedsPayment);
+
+            if ($threedsPayment->getStatus() !== 'success') {
+                $order->update(['status' => Order::STATUS_ERROR]);
+
+                throw new \Exception($threedsPayment->getErrorMessage());
+            }
+
+            $order->update(['status' => Order::STATUS_PAID]);
+
+            return redirect()->route('home');
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors([
+            return redirect()->route($this->company->slug . '.payment.checkout')->withErrors([
                 'message' => $e->getMessage()
             ])->withInput();
         }

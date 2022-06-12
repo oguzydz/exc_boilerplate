@@ -3,14 +3,14 @@
 namespace App\Services;
 
 use App\Http\Requests\PaymentRequest;
-use App\Http\Requests\ThreedsPaymentRequest;
 use App\Models\City;
+use App\Models\CommissionFee;
 use App\Models\Company;
 use App\Models\Order;
+use App\Models\OrderPayment;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
@@ -28,7 +28,6 @@ use Iyzipay\Options;
 use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Request\CreateSubMerchantRequest;
 use Iyzipay\Request\CreateThreedsPaymentRequest;
-use Throwable;
 
 class IyzicoService
 {
@@ -38,15 +37,26 @@ class IyzicoService
     static $options;
 
     /**
+     * CommissionFee Service
+     */
+    public $commissionFeeService;
+
+    /**
      * Create a new component instance.
-     *
+     * @param  \Iyzipay\Options  $options
+     * @param  \App\Services\ComissionFeeService  $comissionFeeService
      * @return void
      */
-    public function __construct(Options $options)
+    public function __construct(Options $options, CommissionFeeService $commissionFeeService)
     {
-        self::$options = $options;
+        $this->commissionFeeService = $commissionFeeService;
+        self::$options              = $options;
     }
 
+    /**
+     * Create Personel SubMerchant
+     * @param  \App\Models\User  $user
+     */
     public function createPersonelSubMerchant(User $user)
     {
         $request = new CreateSubMerchantRequest();
@@ -66,8 +76,16 @@ class IyzicoService
         return SubMerchant::create($request, self::options());
     }
 
+    /**
+     * Threeds Initialize
+     * @param  \App\Http\Requests\PaymentRequest  $paymentRequest
+     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Order  $order
+     */
     public function threedsInitialize(PaymentRequest $paymentRequest, Company $company, Order $order)
     {
+        $cardExpire = explode('/', $paymentRequest->cardExpires);
+
         /**
          * Price Informations
          */
@@ -88,8 +106,8 @@ class IyzicoService
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName($paymentRequest->cardName);
         $paymentCard->setCardNumber(preg_replace('/\s+/', '', $paymentRequest->cardNumber));
-        $paymentCard->setExpireMonth(explode('/', $paymentRequest->cardExpires)[0]);
-        $paymentCard->setExpireYear(explode('/', $paymentRequest->cardExpires)[1]);
+        $paymentCard->setExpireMonth($cardExpire[0]);
+        $paymentCard->setExpireYear($cardExpire[1]);
         $paymentCard->setCvc($paymentRequest->cardSecurityCode);
         $request->setPaymentCard($paymentCard);
 
@@ -143,9 +161,9 @@ class IyzicoService
             $basketItem->setName($cart->name);
             $basketItem->setCategory1($cart->options->category);
             $basketItem->setItemType(BasketItemType::PHYSICAL);
-            $basketItem->setPrice($cart->price);
+            $basketItem->setPrice($cart->price * $cart->qty);
             $basketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
-            $basketItem->setSubMerchantPrice($cart->price / 2);
+            $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, Cart::count()));
             $basketItems[] = $basketItem;
         }
 
@@ -154,6 +172,11 @@ class IyzicoService
         return ThreedsInitialize::create($request, self::options());
     }
 
+
+    /**
+     * Threeds Payment
+     * @param  \Illuminate\Http\Request  $request
+     */
     public function threedsPayment(Request $threedsPaymentRequest)
     {
         /**
@@ -167,6 +190,84 @@ class IyzicoService
         return ThreedsPayment::create($request, self::options());
     }
 
+    /**
+     * Create Order & Order Products
+     * @param  \App\Http\Requests\PaymentRequest  $request
+     * @param  \App\Models\Company  $company
+     */
+    public function createOrder(PaymentRequest $request, Company $company)
+    {
+        /**
+         * Order Data
+         */
+        $orderData = [
+            'company_id'      => $company->id,
+            'name'            => $request->name,
+            'surname'         => $request->surname,
+            'email'           => $request->email,
+            'phone'           => $request->phone,
+            'address'         => $request->address,
+            'city_id'         => $request->city,
+            'county_id'       => $request->county,
+            'zip_code'        => $request->zipCode,
+            'identity_number' => $request->identityNumber,
+            'note'            => $request->note,
+            'cargo_price'     => $company->cargoPrice(),
+            'sub_total_price' => Cart::subtotal(),
+            'total_price'     => Cart::total() + $company->cargoPrice(),
+            'ip_address'      => $request->ip(),
+        ];
+
+        return Order::create($orderData);
+    }
+
+    /**
+     * Create Order Payment
+     * @param  \Iyzipay\Model\ThreedsPayment  $request
+     */
+    public function createOrderPayment(ThreedsPayment $threedsPayment)
+    {
+        /**
+         * Threeds Payment Response
+         */
+        $paymentData = [
+            'order_id'                        => $threedsPayment->getConversationId(),
+            'sub_total_price'                 => $threedsPayment->getPrice(),
+            'total_price'                     => $threedsPayment->getPaidPrice(),
+            'currency'                        => $threedsPayment->getCurrency(),
+            'payment_id'                      => $threedsPayment->getPaymentId(),
+            'payment_status'                  => $threedsPayment->getPaymentStatus(),
+            'fraud_status'                    => $threedsPayment->getFraudStatus(),
+            'merchant_commission_rate'        => $threedsPayment->getMerchantCommissionRate(),
+            'merchant_commission_rate_amount' => $threedsPayment->getMerchantCommissionRateAmount(),
+            'iyzi_commission_rate_amount'     => $threedsPayment->getIyziCommissionRateAmount(),
+            'iyzi_commission_fee'             => $threedsPayment->getIyziCommissionFee(),
+            'card_type'                       => $threedsPayment->getCardType(),
+            'card_association'                => $threedsPayment->getCardAssociation(),
+            'card_family'                     => $threedsPayment->getCardFamily(),
+            'card_token'                      => $threedsPayment->getCardToken(),
+            'card_user_key'                   => $threedsPayment->getCardUserKey(),
+            'bin_number'                      => $threedsPayment->getBinNumber(),
+            'basket_id'                       => $threedsPayment->getBasketId(),
+            'connector_name'                  => $threedsPayment->getConnectorName(),
+            'auth_code'                       => $threedsPayment->getAuthCode(),
+            'phase'                           => $threedsPayment->getPhase(),
+            'last_four_digits'                => $threedsPayment->getLastFourDigits(),
+            'pos_order_id'                    => $threedsPayment->getPosOrderId(),
+            'status'                          => $threedsPayment->getStatus(),
+            'error_code'                      => $threedsPayment->getErrorCode(),
+            'error_message'                   => $threedsPayment->getErrorMessage(),
+            'error_group'                     => $threedsPayment->getErrorGroup(),
+            'locale'                          => $threedsPayment->getLocale(),
+            'systemTime'                      => $threedsPayment->getSystemTime()
+        ];
+
+        return OrderPayment::create($paymentData);
+    }
+
+    /**
+     * Iyzico options
+     */
     public static function options()
     {
         // self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');

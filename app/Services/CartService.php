@@ -4,9 +4,6 @@ namespace App\Services;
 
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Jenssegers\Agent\Agent;
-use Spatie\Permission\Models\Role;
 use Throwable;
 
 class CartService
@@ -42,8 +39,8 @@ class CartService
 
     /**
      * Remove product from cart
-     * @param string $rowId;
-     * @param string $type;
+     * @param  string  $rowId;
+     * @param  string  $type;
      */
     public function updateQty(string $rowId, int $qty)
     {
@@ -54,19 +51,19 @@ class CartService
                 'message'      => 'Ürün adedi başarıyla güncellendi.',
                 'cart'         => Cart::content(),
                 'cartSubTotal' => Cart::subTotal(),
-                'status' => true,
+                'status'       => true,
             ], 200);
         } catch (Throwable $e) {
             return response()->json([
                 'message' => 'Ürün adedi güncellenemedi, lütfen tekrar deneyiniz.',
-                'status' => false,
+                'status'  => false,
             ], 200);
         }
     }
 
     /**
      * Remove product from cart
-     * @param string $rowId;
+     * @param  string  $rowId;
      */
     public function removeFromCart(string $rowId)
     {
@@ -84,18 +81,23 @@ class CartService
         } catch (Throwable $e) {
             return response()->json([
                 'message' => 'Ürün sepetten çıkarılamadı, lütfen tekrar deneyiniz.',
-                'status' => false,
+                'status'  => false,
             ], 200);
         }
     }
 
+    /**
+     * Product For Cart
+     * @param  integer  $productId;
+     */
     public function productForCart(int $productId)
     {
         $product = Product::findorFail($productId);
+
         return [
-            'id' => $product->id,
-            'name' => $product->title,
-            'qty' => 1,
+            'id'    => $product->id,
+            'name'  => $product->title,
+            'qty'   => 1,
             'price' => $product->price
         ];
     }
