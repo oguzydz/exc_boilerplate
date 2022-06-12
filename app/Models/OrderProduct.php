@@ -15,9 +15,11 @@ class OrderProduct extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
+        'order_id',
         'product_id',
-        'product_id',
+        'price',
+        'total_price',
+        'quantity',
     ];
 
     protected $dates = [

@@ -35,25 +35,15 @@ class Order extends Model
         'status',
     ];
 
-    public function product()
-    {
-        return $this->hasOne(Product::class, 'id', 'product_id');
-    }
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 
-    public function payment(int $userId)
-    {
-        return $this->hasOne(Payment::class, 'order_id', 'id')->where('payments.user_id', $userId);
-    }
-
-    public function result()
-    {
-        return $this->hasOne(OrderResult::class, 'order_id', 'id');
-    }
-
-    public function user()
-    {
-        return $this->hasOne(User::class, 'id', 'user_id');
-    }
+    protected $casts = [
+        'created_at' => 'date:d-m-Y H:i',
+        'updated_at' => 'date:d-m-Y H:i',
+    ];
 
     public function statusList()
     {
@@ -68,16 +58,5 @@ class Order extends Model
         ];
 
         return $statusList;
-    }
-
-    /**
-     * Prepare a date for array / JSON serialization.
-     *
-     * @param  \DateTimeInterface  $date
-     * @return string
-     */
-    protected function serializeDate(\DateTimeInterface $date)
-    {
-        return $date->format('Ymd His');
     }
 }

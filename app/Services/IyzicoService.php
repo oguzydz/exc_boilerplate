@@ -8,6 +8,7 @@ use App\Models\CommissionFee;
 use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
+use App\Models\OrderProduct;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -218,7 +219,21 @@ class IyzicoService
             'ip_address'      => $request->ip(),
         ];
 
-        return Order::create($orderData);
+        $order = Order::create($orderData);
+
+        foreach (Cart::content() as $cart) {
+            $cartData = [
+                'order_id'    => $order->id,
+                'product_id'  => $cart->id,
+                'price'       => $cart->price,
+                'total_price' => $cart->price * $cart->qty,
+                'quantity'    => $cart->qty
+            ];
+
+            OrderProduct::create($cartData);
+        }
+
+        return $order;
     }
 
     /**

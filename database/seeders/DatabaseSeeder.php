@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             CountiesSeeder::class,
             UserTypeSeeder::class,
-            CommissionFeeSeeder::class
         ]);
     }
 }

@@ -41,6 +41,24 @@ class CompanyController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, string $slug)
+    {
+        $product         = $this->company->product($slug)->firstOrFail();
+        $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
+
+        return view('pages.company.show', [
+            'product'         => $product,
+            'relatedProducts' => $relatedProducts,
+            'companySlug'     => $request->route()->action['slug'],
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -114,12 +132,12 @@ class CompanyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the payment result page.
      *
-     * @param  string  $slug
+     * @param  integer  $orderId
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, string $slug)
+    public function paymentResult(int $orderId)
     {
         $product         = $this->company->product($slug)->firstOrFail();
         $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
@@ -129,39 +147,5 @@ class CompanyController extends Controller
             'relatedProducts' => $relatedProducts,
             'companySlug'     => $request->route()->action['slug'],
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
