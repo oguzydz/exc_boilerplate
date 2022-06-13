@@ -13,11 +13,11 @@
                         <el-form :model="data" :rules="rules" ref="data" label-width="130px"
                             :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Aylık Toplam Satış:" prop="price">
-                                <el-input v-model="data.price" type="number" maxlength="11"
+                                <el-input v-model="data.price" type="number" maxlength="25"
                                     placeholder="Aylık Toplam Satış giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="En Yüksek Aylık Toplam Satış:" prop="finish_price">
-                                <el-input v-model="data.finish_price" type="number" maxlength="11"
+                                <el-input v-model="data.finish_price" type="number" maxlength="25"
                                     placeholder="En yüksek aylık toplam satış giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Yüzdelik Kesinti:" prop="percent">
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppUserLayout";
+import AppLayout from "@/Layouts/AppAdminLayout";
 import PageTitle from "@/Components/User/PageTitle";
 import vueFilePond from "vue-filepond";
 import "filepond/dist/filepond.min.css";
@@ -64,6 +64,7 @@ export default {
     props: {
         data: {},
         errors: {},
+        commissionId: Number,
     },
 
     data() {
@@ -115,7 +116,7 @@ export default {
                 if (valid) {
                     if (formName == "data") {
                         this.$inertia.post(
-                            route("admin.commission.update"),
+                            route("admin.commission.update", { commissionId: this.commissionId }),
                             this.data,
                             {
                                 onSuccess: (page) => {
@@ -123,7 +124,7 @@ export default {
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
-                                    location.reload()
+                                    location.reload();
                                 },
                                 onError: (errors) => {
                                     this.$message({
@@ -145,6 +146,7 @@ export default {
                 }
             });
         },
+
     },
 };
 </script>

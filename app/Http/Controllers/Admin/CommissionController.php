@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CommissionRequest;
+use App\Http\Requests\EditCommissionRequest;
 use App\Http\Requests\SearchRequest;
 use App\Models\CommissionFee;
 use Inertia\Inertia;
@@ -68,7 +68,7 @@ class CommissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Product  $product / $comissionId
      * @return \Illuminate\Http\Response
      */
     public function edit(int $commissionId)
@@ -84,20 +84,21 @@ class CommissionController extends Controller
         ];
 
         return Inertia::render('Admin/Commission/Edit', [
-            'data' => $data,
+            'data'         => $data,
+            'commissionId' => $commissionId
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request , $comissonId
      * @return \Illuminate\Http\Response
      */
-    public function update(CommissionRequest $request)
+    public function update(int $commissionId, EditCommissionRequest $request)
     {
         try {
-            $commissionUpdate = CommissionFee::firstOrFail();
+            $commissionUpdate = CommissionFee::findOrFail($commissionId);
 
             $data = [
                 'price'                   => $request->price,
@@ -121,10 +122,10 @@ class CommissionController extends Controller
    /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserContact  $contactId
+     * @param  \App\Models\ComissionFee  $contactId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($commissionId, Request $request)
+    public function destroy(int $commissionId, Request $request)
     {
 
         try {
