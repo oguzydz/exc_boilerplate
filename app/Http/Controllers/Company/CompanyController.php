@@ -123,7 +123,7 @@ class CompanyController extends Controller
 
             $order->update(['status' => Order::STATUS_PAID]);
 
-            return redirect()->route('home');
+            return redirect()->route($this->company->slug . '.payment.result', [$order->id]);
         } catch (\Exception $e) {
             return redirect()->route($this->company->slug . '.payment.checkout')->withErrors([
                 'message' => $e->getMessage()
@@ -137,15 +137,13 @@ class CompanyController extends Controller
      * @param  integer  $orderId
      * @return \Illuminate\Http\Response
      */
-    public function paymentResult(int $orderId)
+    public function result(int $orderId)
     {
-        $product         = $this->company->product($slug)->firstOrFail();
-        $relatedProducts = $product->category->relatedProducts($product->id)->limit(3)->get();
+        $order = Order::findOrFail($orderId);
 
-        return view('pages.company.show', [
-            'product'         => $product,
-            'relatedProducts' => $relatedProducts,
-            'companySlug'     => $request->route()->action['slug'],
+        return view('pages.company.payment.result', [
+            'order'     => $order,
+            'company'   => $this->company,
         ]);
     }
 }

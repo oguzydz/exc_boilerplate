@@ -68,7 +68,7 @@ foreach ($companies as $company) {
                 Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');
                 Route::post('/threeds-initialize', [CompanyController::class, 'payment'])->name('payment');
                 Route::post('/threeds-payment', [CompanyController::class, 'threedsPayment'])->name('threedsPayment');
-                Route::get('/payment-result/{orderId}', [CompanyController::class, 'paymentResult'])->name('paymentResult');
+                Route::get('/result/{orderId}', [CompanyController::class, 'result'])->name('result');
             });
 
             Route::group(['prefix' => 'siparis-takip', 'as' => 'cargoTracking.'], function () {
