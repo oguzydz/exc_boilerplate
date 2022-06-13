@@ -87,6 +87,7 @@ class CompanyController extends Controller
                 throw new \Exception($threedsInitialize->getErrorMessage());
             }
 
+            $order->update(['status' => Order::STATUS_THREEDS]);
             Cart::store($order->id);
 
             return $threedsInitialize->getHtmlContent();

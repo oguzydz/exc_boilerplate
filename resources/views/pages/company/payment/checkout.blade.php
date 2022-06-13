@@ -268,7 +268,9 @@
 
     <script>
         $(document).ready(function($) {
-            {{ old('county') }} ? getCounties({{ old('county') }}) : '';
+            if ($("#city").val()) {
+                getCounties({{ old('county') }})
+            }
         });
     </script>
 @endsection

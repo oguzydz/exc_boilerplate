@@ -15,6 +15,7 @@ class Order extends Model
     const STATUS_COMPLETED = 4;
     const STATUS_CANCELED  = 5;
     const STATUS_ERROR     = 6;
+    const STATUS_THREEDS   = 7;
 
     protected $fillable = [
         'company_id',
@@ -55,6 +56,7 @@ class Order extends Model
             self::STATUS_COMPLETED => 'TAMAMLANDI',
             self::STATUS_CANCELED  => 'İPTAL EDİLDİ',
             self::STATUS_ERROR     => 'HATALI İŞLEM',
+            self::STATUS_THREEDS   => '3D AŞAMASI',
         ];
 
         return $statusList;
