@@ -16,8 +16,8 @@ class CreateCompanyCargoSettingsTable extends Migration
         Schema::create('company_cargo_settings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->references('id')->on('companies');
-            $table->integer('price');
-            $table->integer('after_free_price');
+            $table->decimal('price', 10, 2);
+            $table->decimal('after_free_price', 10, 2);
             $table->timestamps();
         });
     }

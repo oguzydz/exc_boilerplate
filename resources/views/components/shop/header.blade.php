@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart-product-price text-center">₺{{ $cart->price }}</td>
+                            <td class="cart-product-price text-center">{{ $cart->price }} TL</td>
                             <td class="text-center">
                                 <div class="quantity-wrap">
                                     <div class="quantity">
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart-product-price text-center">₺{{ $cart->price * $cart->qty }}</td>
+                            <td class="cart-product-price text-center">{{ $cart->price * $cart->qty }} TL</td>
                             <td class="text-center">
                                 <div class="cart-close">
                                     <span onclick="removeFromCart('{{ $cart->rowId }}'); return false"
@@ -75,8 +75,8 @@
                 <div class="total-amount">
                     <span>Ara Toplam:</span>
                     <span class="amount float-right">
-                        <span class="woocommerce-Price-currencySymbol">₺</span>
                         <span id="cart-modal-sub-total">{{ Cart::SubTotal() }}</span>
+                        <span class="woocommerce-Price-currencySymbol"> TL</span>
                     </span>
                 </div>
             </div>
@@ -117,8 +117,8 @@
                                                     <a class="title"
                                                         href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                                     <p>Adet: {{ $cart->qty }}</p>
-                                                    <span
-                                                        class="price">₺{{ $cart->price * $cart->qty }}</span>
+                                                    <span class="price">{{ $cart->price * $cart->qty }}
+                                                        TL</span>
                                                 </div>
                                             </div>
                                             <a class="remove-product"
@@ -135,8 +135,8 @@
                             <p class="total">
                                 <strong>Ara Toplam:</strong>
                                 <span class="amount">
-                                    <span class="woocommerce-Price-currencySymbol">₺</span><span
-                                        id="cart-sub-total">{{ Cart::subTotal() }}</span>
+                                    <span id="cart-sub-total">{{ Cart::subTotal() }}</span>
+                                    <span class="woocommerce-Price-currencySymbol"> TL</span>
                                 </span>
                             </p>
                             <p class="buttons">
@@ -214,7 +214,8 @@
                                                 <a class="title"
                                                     href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                                 <p>Adet: {{ $cart->qty }}</p>
-                                                <span class="price">₺{{ $cart->price * $cart->qty }}</span>
+                                                <span class="price">{{ $cart->price * $cart->qty }}
+                                                    TL</span>
                                             </div>
                                         </div>
                                         <a class="remove-product"
@@ -231,8 +232,8 @@
                         <p class="total">
                             <strong>Ara Toplam:</strong>
                             <span class="amount">
-                                <span class="woocommerce-Price-currencySymbol">₺</span><span
-                                    id="cart-sub-total">{{ Cart::subTotal() }}</span>
+                                <span id="cart-sub-total">{{ Cart::subTotal() }}</span>
+                                <span class="woocommerce-Price-currencySymbol"> TL</span>
                             </span>
                         </p>
                         <p class="buttons">

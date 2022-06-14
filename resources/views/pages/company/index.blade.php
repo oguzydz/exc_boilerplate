@@ -48,7 +48,7 @@
                                             </div> --}}
                                         <a href="{{ route($company->slug . '.product.show', $product->slug) }}">{{ $product->title }}</a>
                                         <div class="price">
-                                            <span>₺{{ $product->price }}</span><del>₺{{ $product->discount_price }}</del>
+                                            <span>{{ $product->price }} TL</span><del>{{ $product->discount_price }} TL</del>
                                         </div>
                                     </div>
                                 </div>

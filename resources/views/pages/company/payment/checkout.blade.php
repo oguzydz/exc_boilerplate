@@ -194,7 +194,7 @@
                                         <span class="d-block check-box-area mt-3">
                                             <input id="1checkbox" type="checkbox" name="kvkk" required>
                                             <label for="1checkbox">
-                                                KVKK İlişkin Aydınlatma Metni’ni okudum.
+                                                Ön Bilgilendirme Formu'nu ve Mesafeli Satış Sözleşmesi'ni onaylıyorum.
                                             </label>
                                         </span>
                                     </div>
@@ -227,7 +227,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="cart-product-price text-center">
-                                                    ₺{{ $cart->price * $cart->qty }}</td>
+                                                    {{ $cart->price * $cart->qty }} TL</td>
                                             </tr>
                                         @endforeach
                                     @else
@@ -244,17 +244,20 @@
                                     <div class="charge">
                                         <span>Ara Toplam:</span>
                                         <span class="amount float-right"><span
-                                                class="woocommerce-Price-currencySymbol">₺</span>{{ Cart::subtotal() }}</span>
+                                                class="woocommerce-Price-currencySymbol"></span>{{ Cart::subtotal() }}
+                                            TL</span>
                                     </div>
                                     <div class="charge pt-0">
                                         <span>Kargo Ücreti:</span>
                                         <span class="amount float-right"><span
-                                                class="woocommerce-Price-currencySymbol">₺</span>{{ $company->cargoPrice() }}</span>
+                                                class="woocommerce-Price-currencySymbol"></span>{{ $company->cargoPrice() }}
+                                            TL</span>
                                     </div>
                                     <div class="total-amount">
                                         <span>Genel Toplam:</span>
-                                        <span class="amount float-right font-weight-bold"><span
-                                                class="woocommerce-Price-currencySymbol font-weight-bold">₺</span>{{ Cart::total() + $company->cargoPrice() }}</span>
+                                        <span
+                                            class="amount float-right font-weight-bold">{{ Cart::total() + $company->cargoPrice() }}
+                                            <span class="woocommerce-Price-currencySymbol font-weight-bold">TL</span></span>
                                     </div>
                                 </div>
                             </div>

@@ -29,6 +29,7 @@ use Iyzipay\Options;
 use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Request\CreateSubMerchantRequest;
 use Iyzipay\Request\CreateThreedsPaymentRequest;
+use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 
 class IyzicoService
 {
@@ -187,6 +188,30 @@ class IyzicoService
         $request->setLocale(Locale::TR);
         $request->setConversationId($threedsPaymentRequest->conversationId);
         $request->setPaymentId($threedsPaymentRequest->paymentId);
+
+        return ThreedsPayment::create($request, self::options());
+    }
+
+    /**
+     * Threeds Payment
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function retrieveInstallmentInfo(Request $threedsPaymentRequest)
+    {
+        /**
+         * Threeds Payment Informations
+         */
+        $request = new CreateThreedsPaymentRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId($threedsPaymentRequest->conversationId);
+        $request->setPaymentId($threedsPaymentRequest->paymentId);
+
+        $request = new RetrieveInstallmentInfoRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setBinNumber("554960");
+        $request->setPrice("100");
+
 
         return ThreedsPayment::create($request, self::options());
     }

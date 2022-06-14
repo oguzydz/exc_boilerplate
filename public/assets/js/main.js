@@ -563,11 +563,11 @@
                     max: 10000,
                     values: [0, 10000],
                     slide: function (event, ui) {
-                        $("#amount").val("₺" + ui.values[0] + " - ₺" + ui.values[1]);
+                        $("#amount").val(ui.values[0] + " TL - " + ui.values[1] + " TL");
                     }
                 });
-                $("#amount").val("₺" + $(".slider-product-sorting").slider("values", 0) +
-                    " - ₺" + $(".slider-product-sorting").slider("values", 1));
+                $("#amount").val($(".slider-product-sorting").slider("values", 0) + " TL" +
+                    " - " + $(".slider-product-sorting").slider("values", 1)) + " TL";
             });
         }
 

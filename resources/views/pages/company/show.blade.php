@@ -47,8 +47,8 @@
                                 girilmemiş)</span></span>
                         <h4 class="title">{{ $product->title }}</h4>
                         <div class="price">
-                            <span>₺{{ $product->price }}</span>
-                            <del>₺{{ $product->discount_price }}</del>
+                            <span>{{ $product->price }} TL</span>
+                            <del>{{ $product->discount_price }} TL</del>
                         </div>
                         <p class="content">
                             {{ Str::substr($product->text, 0, 100) }}, <ins class="">Detaylı açıklama için
@@ -169,7 +169,7 @@
                                         <a
                                             href="{{ route($companySlug . '.product.show', $relatedProduct->slug) }}">{{ $relatedProduct->title }}</a>
                                         <div class="price">
-                                            <span>₺{{ $relatedProduct->price }}</span><del>₺{{ $relatedProduct->discount_price }}</del>
+                                            <span>{{ $relatedProduct->price }} TL</span><del>{{ $relatedProduct->discount_price }} TL</del>
                                         </div>
                                     </div>
                                 </div>

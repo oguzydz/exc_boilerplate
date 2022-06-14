@@ -2,7 +2,6 @@
 @section('title', 'İşlem Başarılı | Exxefy')
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
-
 @section('content')
     <x-pageTitle title="Ödeme Başarılı" />
     <div class="map-area pd-top-120">
@@ -32,9 +31,9 @@
                                     iletilmiştir. Exxefy ile hızlı ve güvenilir alışverişi tercih ettiğiniz için
                                     teşekkür ederiz.</p>
                                 <p><span>Sipariş Numarası:</span> #{{ $order->id }}</p>
-                                <p><span>Ara Toplam:</span> ₺{{ $order->sub_total_price }}</p>
-                                <p><span>Kargo Ücreti:</span> ₺{{ $order->cargo_price }}</p>
-                                <p><span>Genel Toplam:</span> ₺{{ $order->total_price }}</p>
+                                <p><span>Ara Toplam:</span> {{ $order->sub_total_price }} TL</p>
+                                <p><span>Kargo Ücreti:</span> {{ $order->cargo_price }} TL</p>
+                                <p><span>Genel Toplam:</span> {{ $order->total_price }} TL</p>
                                 <p><span>Satıcı:</span> {{ $company->title }}</p>
                             </div>
                         </div>
@@ -70,6 +69,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

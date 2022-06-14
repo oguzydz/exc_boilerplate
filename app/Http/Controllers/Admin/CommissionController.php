@@ -38,7 +38,6 @@ class CommissionController extends Controller
         return Inertia::render('Admin/Commission/Create');
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +46,6 @@ class CommissionController extends Controller
      */
     public function store(SearchRequest $request)
     {
-
         $data = [
             'price'                         => $request->price,
             'finish_price'                  => $request->finish_price,

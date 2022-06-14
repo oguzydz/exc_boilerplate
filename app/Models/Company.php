@@ -91,6 +91,7 @@ class Company extends Model
 
     public function cargoPrice()
     {
+        dd($this->cargoSetting->after_free_price . '---' . Cart::subtotal());
         return $this->cargoSetting->after_free_price > Cart::subtotal() ? $this->cargoSetting->price : 0;
     }
 }
