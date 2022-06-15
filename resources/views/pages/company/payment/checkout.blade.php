@@ -256,8 +256,9 @@
                                     <div class="total-amount">
                                         <span>Genel Toplam:</span>
                                         <span
-                                            class="amount float-right font-weight-bold">{{ Cart::total() + $company->cargoPrice() }}
-                                            <span class="woocommerce-Price-currencySymbol font-weight-bold">TL</span></span>
+                                            class="amount float-right font-weight-bold">{{ Cart::total() + $company->cargoPrice() }}</span>
+                                        <span class="woocommerce-Price-currencySymbol font-weight-bold">
+                                            TL</span>
                                     </div>
                                 </div>
                             </div>

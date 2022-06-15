@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->longText('text');
             $table->string('slug');
-            $table->float('price');
-            $table->float('discount_price');
+            $table->decimal('price', 10, 2);
+            $table->decimal('discount_price', 10, 2);
             $table->string('image');
             $table->integer('stock');
             $table->integer('delivery_time');
