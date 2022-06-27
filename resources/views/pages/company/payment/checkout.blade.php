@@ -227,7 +227,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="cart-product-price text-center">
-                                                    {{ $cart->price * $cart->qty }} TL</td>
+                                                    {{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR')}} TL</td>
                                             </tr>
                                         @endforeach
                                     @else
@@ -250,14 +250,13 @@
                                     <div class="charge pt-0">
                                         <span>Kargo Ücreti:</span>
                                         <span class="amount float-right"><span
-                                                class="woocommerce-Price-currencySymbol"></span>{{ $company->cargoPrice() }}
+                                                class="woocommerce-Price-currencySymbol"></span>{{ $company->cargoPrice(true) }}
                                             TL</span>
                                     </div>
                                     <div class="total-amount">
                                         <span>Genel Toplam:</span>
                                         <span
-                                            class="amount float-right font-weight-bold">{{ Cart::total() + $company->cargoPrice() }}</span>
-                                        <span class="woocommerce-Price-currencySymbol font-weight-bold">
+                                            class="amount float-right font-weight-bold">{{ $company::getFormattedNumber(Cart::total(null, '.', '') + $company->cargoPrice(), 'pt_BR') }}
                                             TL</span>
                                     </div>
                                 </div>

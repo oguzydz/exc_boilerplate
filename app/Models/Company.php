@@ -5,6 +5,7 @@ namespace App\Models;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use NumberFormatter;
 
 class Company extends Model
 {
@@ -89,8 +90,28 @@ class Company extends Model
         return $this->hasOne(CompanyCargoSetting::class);
     }
 
-    public function cargoPrice()
+    public function cargoPrice(bool $formatted = false)
     {
-        return $this->cargoSetting->after_free_price > Cart::subtotal() ? $this->cargoSetting->price : 0;
+        return $this->cargoSetting->after_free_price > Cart::subtotal(null, '.', '')
+            ? ($formatted ? $this->getFormattedNumber($this->cargoSetting->price, 'pt_BR')
+                : $this->cargoSetting->price) : 0;
+    }
+
+    public static function getFormattedNumber(
+        $value,
+        $locale = 'en_US',
+        $style = NumberFormatter::DECIMAL,
+        $precision = 2,
+        $groupingUsed = true,
+        $currencyCode = 'USD'
+    ) {
+        $formatter = new NumberFormatter($locale, $style);
+        $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $precision);
+        $formatter->setAttribute(NumberFormatter::GROUPING_USED, $groupingUsed);
+        if ($style == NumberFormatter::CURRENCY) {
+            $formatter->setTextAttribute(NumberFormatter::CURRENCY_CODE, $currencyCode);
+        }
+
+        return $formatter->format($value);
     }
 }

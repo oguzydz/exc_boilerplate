@@ -58,6 +58,11 @@ export default {
                     icon: "fas fa-store-alt",
                 },
                 {
+                    tag: "nav-title",
+                    text: "ÜRÜN YÖNETİMİ",
+                },
+
+                {
                     tag: "nav-item",
                     text: "Kategoriler",
                     url: "user.category.index",
@@ -70,10 +75,8 @@ export default {
                     icon: "fad fa-shopping-cart",
                 },
                 {
-                    tag: "nav-item",
-                    text: "Kargo Ayarları",
-                    url: "user.cargoSetting.index",
-                    icon: "fad fa-truck",
+                    tag: "nav-title",
+                    text: "SİPARİŞ YÖNETİMİ",
                 },
                 {
                     tag: "nav-item",
@@ -83,21 +86,31 @@ export default {
                 },
                 {
                     tag: "nav-item",
+                    text: "İadeler",
+                    url: "user.category.index",
+                    icon: "fas fa-undo-alt",
+                },
+                {
+                    tag: "nav-title",
+                    text: "FİNANS YÖNETİMİ",
+                },
+                {
+                    tag: "nav-item",
+                    text: "Kargo Ayarları",
+                    url: "user.cargoSetting.index",
+                    icon: "fad fa-truck",
+                },
+                {
+                    tag: "nav-item",
                     text: "Tahsilatlar",
                     url: "user.category.index",
                     icon: "fad fa-briefcase",
                 },
-                                {
+                {
                     tag: "nav-item",
                     text: "Komisyonlar",
                     url: "user.commission.index",
                     icon: "fad fa-briefcase",
-                },
-                {
-                    tag: "nav-item",
-                    text: "İadeler",
-                    url: "user.category.index",
-                    icon: "fas fa-undo-alt",
                 },
                 {
                     tag: "nav-item",

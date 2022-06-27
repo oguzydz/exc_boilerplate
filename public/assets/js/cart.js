@@ -67,8 +67,6 @@ function removeFromCart(rowId) {
 }
 
 function updateCartQuantity(rowId, type, qty) {
-    console.log(type)
-
     switch(type)
     {
         case 'plus':
@@ -89,7 +87,7 @@ function updateCartQuantity(rowId, type, qty) {
         },
         type: "POST",
         success: function(response) {
-            if(response.status) {
+            if (response.status) {
                 updateCart(response.cart, response.cartSubTotal);
                 toastFire('success', 'Ürün adedi başarıyla güncellendi!')
 
@@ -116,7 +114,7 @@ function updateCart(cart, subTotal) {
                 "    <div class=\"media-body\">\n" +
                 "        <a class=\"title\" href=" + '/' + val.options.company + '/urun/' + val.options.slug + ">" + val.name + "</a>\n" +
                 "        <p>Adet: " + val.qty + "</p>\n" +
-                "        <span class=\"price\">" + val.price * val.qty + " TL</span>\n" +
+                "        <span class=\"price\">" + priceFormat(val.price * val.qty) + " TL</span>\n" +
                 "    </div>\n" +
                 "</div>\n" +
                 "<a class=\"remove-product\" onclick=\"removeFromCart('" + val.rowId + "'); return false\" href=\"#\"><span class=\"ti-close\"></span></a>\n" +
@@ -135,7 +133,7 @@ function updateCart(cart, subTotal) {
                 "            </div>" +
                 "        </div>" +
                 "    </td>" +
-                "    <td class=\"cart-product-price text-center\">" + val.price + " TL</td>" +
+                "    <td class=\"cart-product-price text-center\">" + priceFormat(val.price) + " TL</td>" +
                 "    <td class=\"text-center\">" +
                 "        <div class=\"quantity-wrap\">" +
                 "            <div class=\"quantity\">" +
@@ -145,7 +143,7 @@ function updateCart(cart, subTotal) {
                 "            </div>" +
                 "        </div>" +
                 "    </td>" +
-                "    <td class=\"cart-product-price text-center\">" + val.price * val.qty + " TL</td>" +
+                "    <td class=\"cart-product-price text-center\">" + priceFormat(val.price * val.qty) + " TL</td>" +
                 "    <td class=\"text-center\">" +
                 "        <div class=\"cart-close\">" +
                 "            <span class=\"ti-close\" onclick=\"removeFromCart('" + val.rowId + "'); return false\"></span>" +
@@ -213,4 +211,8 @@ function getCounties(countyId = 0) {
             })
         }
     });
+}
+
+function priceFormat(price) {
+    return new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 2}).format(price);
 }
