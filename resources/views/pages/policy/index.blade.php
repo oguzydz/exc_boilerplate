@@ -1,10 +1,9 @@
 @extends('layouts.web')
 @section('title', 'Mesafeli Üyelik Sözleşmesi - Exxefy')
 
-
 @section('content')
-
     <x-pageTitle title="Gizlilik Ve Koşullar" />
+
     <div class="service-area pd-top-112">
         <div class="container">
             <div class="row custom-gutters-16">

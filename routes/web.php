@@ -65,7 +65,7 @@ foreach ($companies as $company) {
             });
 
             Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout');
+                Route::get('/checkout', [CompanyController::class, 'checkout'])->name('checkout')->middleware(['check.checkout']);
                 Route::post('/threeds-initialize', [CompanyController::class, 'payment'])->name('payment');
                 Route::post('/threeds-payment', [CompanyController::class, 'threedsPayment'])->name('threedsPayment');
                 Route::get('/result/{orderId}', [CompanyController::class, 'result'])->name('result');

@@ -71,5 +71,6 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'user.status' => \App\Http\Middleware\RedirectIfNew::class,
         'user.check.confirmation.store' => \App\Http\Middleware\CheckConfirmationStore::class,
+        'check.checkout' => \App\Http\Middleware\CheckCheckout::class,
     ];
 }
