@@ -216,3 +216,7 @@ function getCounties(countyId = 0) {
 function priceFormat(price) {
     return new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 2}).format(price);
 }
+
+function decimalPriceFormat(price) {
+    return new Intl.NumberFormat().format(price);
+}

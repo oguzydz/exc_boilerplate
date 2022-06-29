@@ -178,7 +178,7 @@
                     <a href="{{ route($company->slug . '.index') }}">Anasayfa</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="{{ route($company->slug . '.category.index') }}" onclick="">Kategoriler</a>
+                    <a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a>
                     <ul class="sub-menu">
                         @foreach ($company->activeCategories as $category)
                             <li>

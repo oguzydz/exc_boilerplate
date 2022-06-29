@@ -557,23 +557,37 @@
         * -------------------------------------*/
         if ($('.slider-product-sorting').length) {
             $(function () {
+                let searchParams = new URLSearchParams(window.location.search);
+                let minAmount = searchParams.get('minAmount');
+                let maxAmount = searchParams.get('maxAmount');
+
                 $(".slider-product-sorting").slider({
                     range: true,
                     min: 0,
                     max: 10000,
-                    values: [0, 10000],
+                    values: [minAmount ? minAmount : 0, maxAmount ? maxAmount : 10000],
                     slide: function (event, ui) {
-                        $("#amount").val(ui.values[0] + " TL - " + ui.values[1] + " TL");
+                        $("#amount").val(priceFormat(ui.values[0]) + " TL - " + priceFormat(ui.values[1]) + " TL");
+                        $("#minAmount").val(ui.values[0]);
+                        $("#maxAmount").val(ui.values[1]);
                     }
                 });
-                $("#amount").val($(".slider-product-sorting").slider("values", 0) + " TL" +
-                    " - " + $(".slider-product-sorting").slider("values", 1)) + " TL";
+
+                if (minAmount && maxAmount) {
+                    $("#amount").val(priceFormat(minAmount) + " TL" +
+                        " - " + priceFormat(maxAmount) + " TL");
+
+                    $("#minAmount").val(minAmount);
+                    $("#maxAmount").val(maxAmount);
+                } else {
+                    $("#amount").val(priceFormat($(".slider-product-sorting").slider("values", 0)) + " TL" +
+                        " - " + priceFormat($(".slider-product-sorting").slider("values", 1)) + " TL");
+                }
             });
         }
 
         $('#cardNumber').mask('9999 9999 9999 9999');
         $('#cardExpires').mask('02/9999');
-
     });
 
 
@@ -624,7 +638,6 @@
         });
 
     });
-
 
     /* -------------------------------------------------------------
             Image Gallery Popup

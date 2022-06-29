@@ -24,8 +24,8 @@ class SearchRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => ['string'] ,
-            'title' => ['string'] ,
+            'name'  => ['string'],
+            'title' => ['string'],
             'price' => ['numeric'],
         ];
     }

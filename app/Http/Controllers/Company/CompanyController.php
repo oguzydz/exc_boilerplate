@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
+use App\Http\Requests\ShopFilterRequest;
 use App\Http\Requests\ThreedsPaymentRequest;
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
 use App\Models\Product;
@@ -30,9 +32,19 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(ShopFilterRequest $request)
     {
-        $products = Product::where(['company_id' => $this->company->id, 'status' => Product::STATUS_ACTIVE])->paginate(20);
+        $products = Product::where(['company_id' => $this->company->id, 'status' => Product::STATUS_ACTIVE])
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%");
+            })
+            ->when($request->minAmount || $request->maxAmount, function ($query) use ($request) {
+                $query->whereBetween('price', [$request->minAmount, $request->maxAmount]);
+            })
+            ->when(array_key_exists($request->orderBy, Product::FILTER_ORDER_BY_LIST), function ($query) use ($request) {
+                $query->orderBy(Product::FILTER_ORDER_BY_LIST[$request->orderBy][0], Product::FILTER_ORDER_BY_LIST[$request->orderBy][1]);
+            })
+            ->paginate(20);
 
         return view('pages.company.index', [
             'products' => $products,

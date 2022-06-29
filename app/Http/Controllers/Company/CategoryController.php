@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShopFilterRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\View\Components\Shop\Header;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -59,15 +61,31 @@ class CategoryController extends Controller
      * @param  string $categorySlug
      * @return \Illuminate\Http\Response
      */
-    public function show(string $categorySlug, Request $request)
+    public function show(string $categorySlug, ShopFilterRequest $request)
     {
         $category = Category::where('slug', $categorySlug)->firstOrFail();
-        $categoryProducts = $category->products()->paginate(10);
+
+        $products = Product::where([
+            'company_id'  => $this->company->id,
+            'category_id' => $category->id,
+            'status'      => Product::STATUS_ACTIVE
+        ])
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%");
+            })
+            ->when($request->minAmount || $request->maxAmount, function ($query) use ($request) {
+                $query->whereBetween('price', [$request->minAmount, $request->maxAmount]);
+            })
+            ->when(array_key_exists($request->orderBy, Product::FILTER_ORDER_BY_LIST), function ($query) use ($request) {
+                $query->orderBy(Product::FILTER_ORDER_BY_LIST[$request->orderBy][0], Product::FILTER_ORDER_BY_LIST[$request->orderBy][1]);
+            })
+            ->paginate(20);
+
 
         return view('pages.company.category.show', [
-            'category' => $category,
-            'categoryProducts' => $categoryProducts,
-            'company' => $this->company,
+            'category'         => $category,
+            'categoryProducts' => $products,
+            'company'          => $this->company,
         ]);
     }
 

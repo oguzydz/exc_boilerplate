@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 
@@ -10,6 +9,12 @@ class Product extends Model implements Buyable
 {
     const STATUS_PASIVE = 0;
     const STATUS_ACTIVE = 1;
+
+    const FILTER_ORDER_BY_LIST = [
+        ['id', 'asc'],
+        ['price', 'asc'],
+        ['created_at', 'desc'],
+    ];
 
     public function getBuyableIdentifier($options = null)
     {
