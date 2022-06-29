@@ -63,11 +63,16 @@
                         </div>
                         <div class="category">
                             <span>Ürün Kategorisi: </span>
-                            <a href="#">Watch</a>
+                            <a
+                                href="{{ route($companySlug . '.category.show', [$product->category->slug]) }}">{{ $product->category->title }}</a>
                         </div>
                         <div class="tags">
-                            <span>Stok: </span>
-                            <a href="#">11</a>
+                            <span>Kargo Süresi (Gün): </span>
+                            {{ $product->delivery_time }}
+                        </div>
+                        <div class="tags">
+                            <span>Stok (Adet): </span>
+                            {{ $product->stock }}
                         </div>
                     </div>
                 </div>
@@ -169,7 +174,8 @@
                                         <a
                                             href="{{ route($companySlug . '.product.show', $relatedProduct->slug) }}">{{ $relatedProduct->title }}</a>
                                         <div class="price">
-                                            <span>{{ $relatedProduct->price }} TL</span><del>{{ $relatedProduct->discount_price }} TL</del>
+                                            <span>{{ $relatedProduct->price }}
+                                                TL</span><del>{{ $relatedProduct->discount_price }} TL</del>
                                         </div>
                                     </div>
                                 </div>

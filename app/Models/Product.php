@@ -11,15 +11,18 @@ class Product extends Model implements Buyable
     const STATUS_PASIVE = 0;
     const STATUS_ACTIVE = 1;
 
-    public function getBuyableIdentifier($options = null) {
+    public function getBuyableIdentifier($options = null)
+    {
         return $this->id;
     }
 
-    public function getBuyableDescription($options = null) {
+    public function getBuyableDescription($options = null)
+    {
         return $this->title;
     }
 
-    public function getBuyablePrice($options = null) {
+    public function getBuyablePrice($options = null)
+    {
         return $this->price;
     }
 
@@ -57,6 +60,13 @@ class Product extends Model implements Buyable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['category_view'];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -66,9 +76,14 @@ class Product extends Model implements Buyable
         'updated_at'  => 'date:d-m-Y H:i',
     ];
 
+    public function getCategoryViewAttribute()
+    {
+        return $this->category->title;
+    }
+
     public static function getNextId()
     {
-        if(Product::all()->last() !== null) {
+        if (Product::all()->last() !== null) {
             $lastId = Product::all()->last()->id + 1;
         } else {
             $lastId = 1;

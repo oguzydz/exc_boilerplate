@@ -41,7 +41,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart-product-price text-center">{{ $company::getFormattedNumber($cart->price, 'pt_BR')}} TL</td>
+                            <td class="cart-product-price text-center">
+                                {{ $company::getFormattedNumber($cart->price, 'pt_BR') }} TL</td>
                             <td class="text-center">
                                 <div class="quantity-wrap">
                                     <div class="quantity">
@@ -54,7 +55,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="cart-product-price text-center">{{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR')}} TL</td>
+                            <td class="cart-product-price text-center">
+                                {{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR') }} TL</td>
                             <td class="text-center">
                                 <div class="cart-close">
                                     <span onclick="removeFromCart('{{ $cart->rowId }}'); return false"
@@ -117,7 +119,8 @@
                                                     <a class="title"
                                                         href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                                     <p>Adet: {{ $cart->qty }}</p>
-                                                    <span class="price">{{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR')}}
+                                                    <span
+                                                        class="price">{{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR') }}
                                                         TL</span>
                                                 </div>
                                             </div>
@@ -214,7 +217,8 @@
                                                 <a class="title"
                                                     href="{{ route($company->slug . '.product.show', [$cart->options->slug]) }}">{{ $cart->name }}</a>
                                                 <p>Adet: {{ $cart->qty }}</p>
-                                                <span class="price">{{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR')}}
+                                                <span
+                                                    class="price">{{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR') }}
                                                     TL</span>
                                             </div>
                                         </div>

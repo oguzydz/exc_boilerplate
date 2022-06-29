@@ -94,8 +94,8 @@ class IyzicoService
         $request = new CreatePaymentRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId($order->id);
-        $request->setPrice(Cart::subTotal());
-        $request->setPaidPrice(Cart::total() + $company->cargoPrice());
+        $request->setPrice(Cart::subTotal(null, '.', ''));
+        $request->setPaidPrice(Cart::total(null, '.', '') + $company->cargoPrice());
         $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -239,8 +239,8 @@ class IyzicoService
             'identity_number' => $request->identityNumber,
             'note'            => $request->note,
             'cargo_price'     => $company->cargoPrice(),
-            'sub_total_price' => Cart::subtotal(),
-            'total_price'     => Cart::total() + $company->cargoPrice(),
+            'sub_total_price' => Cart::subtotal(null, '.', ''),
+            'total_price'     => Cart::total(null, '.', '') + $company->cargoPrice(),
             'ip_address'      => $request->ip(),
         ];
 

@@ -1,5 +1,5 @@
 @extends('layouts.shop.payment')
-@section('title', 'İşlem Başarılı | Exxefy')
+@section('title', 'Ödeme Sonucu | Exxefy')
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 @section('content')
@@ -31,9 +31,12 @@
                                     iletilmiştir. Exxefy ile hızlı ve güvenilir alışverişi tercih ettiğiniz için
                                     teşekkür ederiz.</p>
                                 <p><span>Sipariş Numarası:</span> #{{ $order->id }}</p>
-                                <p><span>Ara Toplam:</span> {{ $order->sub_total_price }} TL</p>
-                                <p><span>Kargo Ücreti:</span> {{ $order->cargo_price }} TL</p>
-                                <p><span>Genel Toplam:</span> {{ $order->total_price }} TL</p>
+                                <p><span>Ara Toplam:</span>
+                                    {{ $company::getFormattedNumber($order->sub_total_price, 'pt_BR') }} TL</p>
+                                <p><span>Kargo Ücreti:</span>
+                                    {{ $company::getFormattedNumber($order->cargo_price, 'pt_BR') }} TL</p>
+                                <p><span>Genel Toplam:</span>
+                                    {{ $company::getFormattedNumber($order->total_price, 'pt_BR') }} TL</p>
                                 <p><span>Satıcı:</span> {{ $company->title }}</p>
                             </div>
                         </div>

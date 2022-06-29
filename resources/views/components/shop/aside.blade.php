@@ -20,8 +20,11 @@
         <h2 class="widget-title">Kategoriler</h2>
         <ul>
             @foreach ($categories as $category)
-                <li><a href="#">{{ $category->title }}</a></li>
+                <li><a
+                        href="{{ route($company->slug . '.category.show', [$category->slug]) }}">{{ $category->title }}</a>
+                </li>
             @endforeach
+            <li><a href="{{ route($company->slug . '.category.index') }}">Tümünü Görüntüle</a></li>
         </ul>
     </div>
 </aside>
