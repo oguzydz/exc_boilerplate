@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Ürünler">
+    <app-layout title="İletişim Mesajları">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="

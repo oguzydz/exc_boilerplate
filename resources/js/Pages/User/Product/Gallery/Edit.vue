@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
-                    $inertia.get(route('user.product.gallery.index', productId ))
+                    $inertia.get(route('user.product.gallery.index', productId))
                 " title="Geri" content="Ürün Resim Düzenleme">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
@@ -57,12 +57,12 @@ export default {
         errors: {},
         categories: {},
         statusList: Array,
-        productId : Number
+        productId: Number
     },
 
     data() {
         return {
-            title: "Ürün Resim Düzenleme",
+            title: "Ürün Galeri Resmi Düzenleme",
             image: this.data.image,
             rules: {
                 order: [

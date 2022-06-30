@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Ürünler">
+    <app-layout title="Komisyon Ücretlendirmeleri">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
@@ -26,7 +26,8 @@
                                 </el-table-column>
                                 <el-table-column label="Döviz İşlem Ücreti">
                                     <template #default="scope">
-                                        {{ ' %' + scope.row.foreign_proccessing_fee + ' + ' + scope.row.percent + ' TL' }}
+                                        {{ ' %' + scope.row.foreign_proccessing_fee + ' + ' + scope.row.percent + ' TL'
+                                        }}
                                     </template>
                                 </el-table-column>
 

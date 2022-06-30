@@ -1,5 +1,5 @@
 <template>
-    <app-layout :title="title">
+    <app-layout title="İletişim Detayları">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
@@ -7,7 +7,7 @@
                 " title="Geri" content="İletişim Detayları">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
-                <el-descriptions :title="'Mesaj Numarası: ' + data.id " direction="vertical" :column="4" border>
+                <el-descriptions :title="'Mesaj Numarası: ' + data.id" direction="vertical" :column="4" border>
                     <el-descriptions-item label="#ID">{{
                             data.id
                     }}</el-descriptions-item>

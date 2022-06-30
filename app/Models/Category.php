@@ -31,7 +31,7 @@ class Category extends Model
 
     public static function getNextId()
     {
-        if(Category::all()->last() !== null) {
+        if (Category::all()->last() !== null) {
             $lastId = Category::all()->last()->id + 1;
         } else {
             $lastId = 1;
@@ -57,7 +57,6 @@ class Category extends Model
 
     public function relatedProducts(int $productId)
     {
-        return $this->hasMany(Product::class, 'category_id', 'id')->whereNotIn('id', [$productId]);
+        return $this->hasMany(Product::class, 'category_id', 'id')->where('status', Product::STATUS_ACTIVE)->whereNotIn('id', [$productId]);
     }
-
 }

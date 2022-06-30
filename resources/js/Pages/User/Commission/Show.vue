@@ -1,5 +1,5 @@
 <template>
-    <app-layout :title="title">
+    <app-layout title="Komisyon Detayları">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
@@ -7,21 +7,21 @@
                 " title="Geri" content="Komisyon Detayları">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
-                <el-descriptions  direction="vertical" :column="4" border>
+                <el-descriptions direction="vertical" :column="4" border>
                     <el-descriptions-item label="Aylık Toplam Ücret">{{
-                    data.price
+                            data.price
                     }}</el-descriptions-item>
                     <el-descriptions-item label="En Yüksek Aylık Toplam Ücret">{{
-                    data.finish_price
+                            data.finish_price
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Yüzdelik Kesinti">{{
-                    data.percent
+                            data.percent
                     }}</el-descriptions-item>
                     <el-descriptions-item label="İşlem Ücreti">{{
-                    data.local_processing_fee
+                            data.local_processing_fee
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Yurt Dışı İşlem Ücreti">{{
-                    data.foreign_proccessing_fee
+                            data.foreign_proccessing_fee
                     }}</el-descriptions-item>
 
                 </el-descriptions>
