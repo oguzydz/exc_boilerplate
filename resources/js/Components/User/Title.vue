@@ -1,13 +1,13 @@
 <template>
-  <inertia-head :title="title ? `${title} - Exxefy` : 'Exxefy - Kullanıcı Paneli'">
-    <slot />
-  </inertia-head>
+    <inertia-head :title="title ? `${title} - Exxefy` : 'Kullanıcı Paneli - Exxefy'">
+        <slot />
+    </inertia-head>
 </template>
 
 <script>
 export default {
-  props: {
-    title: String,
-  },
+    props: {
+        title: String,
+    },
 }
 </script>

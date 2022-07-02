@@ -1,10 +1,10 @@
 <template>
-    <app-layout title="Resim Ekle">
+    <app-layout title="Ürün Galerisine Resim Ekle">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
                     $inertia.get(route('user.product.gallery.index', productId))
-                " title="Geri" content="Resim Ekle">
+                " title="Geri" content="Ürün Galerisine Resim Ekle">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="card">
@@ -113,7 +113,7 @@ export default {
                                         message: "İşlem başarıyla tamamlandı.",
                                     });
                                     this.$inertia.get(
-                                        route('user.product.gallery.index', {productId : this.productId})
+                                        route('user.product.gallery.index', { productId: this.productId })
                                     );
                                 },
                                 onError: (errors) => {
