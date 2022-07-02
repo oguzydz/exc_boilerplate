@@ -13,7 +13,7 @@
                         <el-form :model="data" :rules="rules" ref="data" label-width="130px"
                             :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Kategori:" prop="category_id">
-                                <el-select v-model="data.category_id" placeholder="Kategori seçiniz.">
+                                <el-select filterable v-model="data.category_id" placeholder="Kategori seçiniz.">
                                     <el-option v-for="(category, index) in categories" :label="category.title"
                                         :value="category.id" :key="index"></el-option>
                                 </el-select>
@@ -47,7 +47,7 @@
                                     placeholder="Ürün sırası giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Durum:" prop="status">
-                                <el-select v-model="data.status" placeholder="Durum Seçiniz.">
+                                <el-select filterable v-model="data.status" placeholder="Durum Seçiniz.">
                                     <el-option v-for="(
                                             status, statusIndex
                                         ) in statusList" :key="status" :label="statusIndex" :value="status">

@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 desktop-center-item">
-                    <div class="wow  fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInLeft;">
+                    <div class="wow fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInLeft;">
                         <div class="section-title style-two">
                             <h2 class="title">{{ $category->title }}</h2>
                             <p>{{ $category->text }}</p>

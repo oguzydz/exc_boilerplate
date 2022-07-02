@@ -13,7 +13,7 @@
                         <el-form :model="form" :rules="rules" ref="form" label-width="130px"
                             :label-position="isMobile() ? 'left' : 'right'" size="medium">
                             <el-form-item label="Kategori:" prop="category_id">
-                                <el-select v-model="form.category_id" placeholder="Kategori seçiniz.">
+                                <el-select filterable v-model="form.category_id" placeholder="Kategori seçiniz.">
                                     <el-option v-for="(category, index) in categories" :label="category.title"
                                         :value="category.id" :key="index"></el-option>
                                 </el-select>

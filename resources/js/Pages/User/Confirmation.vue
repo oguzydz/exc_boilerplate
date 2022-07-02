@@ -32,7 +32,7 @@
                             <el-form :model="firstForm" :rules="rules" ref="firstForm" label-width="130px"
                                 :label-position="isMobile() ? 'left' : 'right'" size="medium">
                                 <el-form-item label="Üyelik Tipi:" prop="membership_type">
-                                    <el-select v-model="firstForm.membership_type" placeholder="Üyelik tipiniz.">
+                                    <el-select filterable v-model="firstForm.membership_type" placeholder="Üyelik tipiniz.">
                                         <el-option v-for="(userType, index) in userTypes" :label="userType.name"
                                             :value="userType.id" :key="index"></el-option>
                                     </el-select>
@@ -62,7 +62,7 @@
                                 <el-form-item label="İl - İlçe:" required>
                                     <el-col :span="11">
                                         <el-form-item prop="city_id">
-                                            <el-select v-model="firstForm.city_id" placeholder="İl seçiniz."
+                                            <el-select filterable v-model="firstForm.city_id" placeholder="İl seçiniz."
                                                 @change="getCounties">
                                                 <el-option v-for="(city, index) in cities" :label="city.city"
                                                     :value="city.id" :key="index"></el-option>
@@ -74,7 +74,7 @@
                                     </el-col>
                                     <el-col :span="11">
                                         <el-form-item prop="county_id">
-                                            <el-select v-model="firstForm.county_id" placeholder="İlçe seçiniz.">
+                                            <el-select filterable v-model="firstForm.county_id" placeholder="İlçe seçiniz.">
                                                 <el-option v-for="(county, index) in counties" :label="county.county"
                                                     :value="county.id" :key="index"></el-option>
                                             </el-select>
