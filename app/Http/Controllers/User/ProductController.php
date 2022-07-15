@@ -44,6 +44,27 @@ class ProductController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pasive(SearchRequest $request)
+    {
+        $products = Product::where([
+            'company_id' => Auth::user()->company->id,
+            'status'     => Product::STATUS_PASIVE
+        ])
+            ->where(function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%");
+            })
+            ->paginate(10);
+
+        return Inertia::render('User/Product/Pasive', [
+            'data' => $products,
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -96,12 +117,12 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $productId)
     {
-        $product = Product::where(['company_id' => Auth::user()->company->id, 'id' => $id])->firstOrFail();
+        $product = Product::where(['company_id' => Auth::user()->company->id, 'id' => $productId])->firstOrFail();
 
         $data = [
             'id'             => $product->id,
@@ -174,14 +195,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, int $productId)
     {
         $product = Product::where([
             'company_id' => Auth::user()->company->id,
-            'id'         => $id
+            'id'         => $productId
         ])->firstOrFail();
 
         try {
@@ -193,6 +214,32 @@ class ProductController extends Controller
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
             $request->session()->flash('message', __('Ürün pasife alınırken beklenmedik bir hata oldu'));
+
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Retrieve the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function retrieve(Request $request, int $productId)
+    {
+        $product = Product::where([
+            'company_id' => Auth::user()->company->id,
+            'id'         => $productId
+        ])->firstOrFail();
+
+        try {
+            $product->update([
+                'status' => Product::STATUS_ACTIVE
+            ]);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message', __('Ürün aktife alınırken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }

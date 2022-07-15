@@ -39,22 +39,26 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 
 
     Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/pasive', [CategoryController::class, 'pasive'])->name('pasive');
         Route::get('/create', [CategoryController::class, 'create'])->name('create');
         Route::post('/store', [CategoryController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [CategoryController::class, 'show'])->name('show');
+        Route::get('/edit/{categoryId}', [CategoryController::class, 'edit'])->name('edit');
+        Route::get('/show/{categoryId}', [CategoryController::class, 'show'])->name('show');
         Route::post('/update', [CategoryController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+        Route::post('/destroy/{categoryId}', [CategoryController::class, 'destroy'])->name('destroy');
+        Route::post('/retrieve/{categoryId}', [CategoryController::class, 'retrieve'])->name('retrieve');
     });
 
     Route::group(['prefix' => 'products', 'as' => 'product.'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
+        Route::get('/pasive', [ProductController::class, 'pasive'])->name('pasive');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
         Route::post('/store', [ProductController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
+        Route::get('/edit/{productId}', [ProductController::class, 'edit'])->name('edit');
+        Route::get('/show/{productId}', [ProductController::class, 'show'])->name('show');
         Route::post('/update', [ProductController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('/destroy/{productId}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('/retrieve/{categoryId}', [ProductController::class, 'retrieve'])->name('retrieve');
 
         // Route::group(['prefix' => 'feature/{productId}', 'as' => 'feature.'], function () {
         //     Route::get('/', [ProductFeatureController::class, 'index'])->name('index');

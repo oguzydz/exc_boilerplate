@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Ürünler">
+    <app-layout title="Pasif Ürünler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="$inertia.get(route('user.index'))" title="Geri" content="Ürünler">
@@ -7,10 +7,11 @@
                 <div class="header-divider mb-4"></div>
                 <div class="col-sm-12 col-lg-12 col-md-12">
                     <el-tabs v-model="activeTabName" @tab-click="tabClick">
-                        <el-tab-pane label="Aktif" name="index">
+                        <el-tab-pane label="Aktif" name="index"></el-tab-pane>
+                        <el-tab-pane label="Pasif" name="pasive">
                             <div class="card">
                                 <div class="card-header">
-                                    Ürün Listesi
+                                    Pasif Ürün Listesi
                                     <el-button type="success" class="float-right" icon="el-icon-plus"
                                         v-on:click="$inertia.get(route('user.product.create'))" size="mini">
                                         Ürün Oluştur
@@ -31,7 +32,7 @@
                                         <el-table-column prop="title" label="Başlık"></el-table-column>
                                         <el-table-column prop="price" label="Fiyat"></el-table-column>
                                         <el-table-column prop="stock" label="Stok"></el-table-column>
-                                        <el-table-column label="İşlem" width="300">
+                                        <el-table-column label="İşlem" width="320">
                                             <template #default="scope">
                                                 <el-button icon="el-icon-camera" size="mini" v-on:click="
                                                     $inertia.get(
@@ -47,14 +48,9 @@
                                                         })
                                                     )
                                                 ">Düzenle</el-button>
-                                                <el-button type="danger" icon="el-icon-delete" size="mini" v-on:click="
-                                                    confirmDelete(
-                                                        scope.row.id,
-                                                        'user.product.destroy',
-                                                        deleteMessage
-                                                    )
-                                                ">
-                                                    Sil
+                                                <el-button type="success" icon="el-icon-finished" size="mini"
+                                                    v-on:click="confirmActive(scope.row.id, 'user.product.retrieve', deleteMessage)">
+                                                    Aktif Et
                                                 </el-button>
                                             </template>
                                         </el-table-column>
@@ -68,7 +64,6 @@
                                 </div>
                             </div>
                         </el-tab-pane>
-                        <el-tab-pane label="Pasif" name="pasive"></el-tab-pane>
                     </el-tabs>
                 </div>
             </div>
@@ -93,11 +88,11 @@ export default {
     },
     data() {
         return {
-            activeTabName: 'index',
+            activeTabName: 'pasive',
             searchText: this.getUrlQuery('search'),
-            routeName: "user.product.index",
+            routeName: "user.product.pasive",
             deleteMessage:
-                "Ürünü silerek pasife alınmış ürünler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
+                "Ürünü aktif durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
         };
     },
 };

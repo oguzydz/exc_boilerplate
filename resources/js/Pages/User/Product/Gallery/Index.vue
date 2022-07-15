@@ -7,7 +7,7 @@
                 " title="Geri" :content="product.title + ' Galeri'">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
-                <div>
+                <div class="col-sm-12 col-lg-12 col-md-12">
                     <div class="card">
                         <div class="card-header">
                             Ürün Galerisi

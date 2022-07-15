@@ -155,12 +155,53 @@ createInertiaApp({
                     elemeSearch,
                     getUrlQuery,
                     // moment: (value) => moment(value),
-                    handlePagination(page, routeName) {
-                        this.$inertia.get(route(routeName), {
+                    handlePagination(page, routeName, values = {}) {
+                        this.$inertia.get(route(routeName, values), {
                             page: page,
                         });
                     },
                     confirmDelete(id, routeName, title = 'Bu öğeyi silmek üzeresiniz, devam edecek misiniz?') {
+                        this.$confirm(
+                            title,
+                            "UYARI!",
+                            {
+                                confirmButtonText: "OK",
+                                cancelButtonText: "İptal",
+                                type: "warning",
+                            }
+                        )
+                            .then(() => {
+                                this.$inertia.post(
+                                    route(routeName, id),
+                                    this.data,
+                                    {
+                                        onSuccess: (page) => {
+                                            this.$message({
+                                                type: "success",
+                                                message: "İşlem başarıyla tamamlandı.",
+                                            });
+                                        },
+                                        onError: (errors) => {
+                                            this.$message({
+                                                type: "error",
+                                                dangerouslyUseHTMLString: true,
+                                                message:
+                                                    "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
+                                                    this.errorsToMessage(errors),
+                                            });
+                                        },
+                                    }
+                                );
+                            })
+                            .catch((e) => {
+                                console.log(e);
+                                this.$message({
+                                    type: "info",
+                                    message: "Silme İptal Edildi!",
+                                });
+                            });
+                    },
+                    confirmActive(id, routeName, title = 'Bu öğeyi aktif etmek üzeresiniz, devam edecek misiniz?') {
                         this.$confirm(
                             title,
                             "UYARI!",

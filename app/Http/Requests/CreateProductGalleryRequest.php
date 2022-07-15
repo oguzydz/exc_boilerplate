@@ -24,8 +24,8 @@ class CreateProductGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            'order'      => ['required', 'numeric'],
-            'image'      => ['required', 'mimes:jpeg,png,jpg,gif,svg, webp'],
+            'order' => ['required', 'numeric'],
+            'image' => ['required', 'mimes:jpeg,png,jpg,gif,svg,webp'],
         ];
     }
 }

@@ -162,7 +162,7 @@ class OrderController extends Controller
                 ->back()
                 ->withErrors([
                     'product' =>
-                        'Sipariş güncellenirken beklenmedik bir hata oldu',
+                    'Sipariş güncellenirken beklenmedik bir hata oldu',
                 ]);
         }
     }
@@ -197,7 +197,7 @@ class OrderController extends Controller
                 ->back()
                 ->withErrors([
                     'product' =>
-                        'Sipariş güncellenirken beklenmedik bir hata oldu',
+                    'Sipariş güncellenirken beklenmedik bir hata oldu',
                 ]);
         }
     }
@@ -221,10 +221,8 @@ class OrderController extends Controller
             ];
 
             if (count($request->cancelOrderStatusMessages) > 0) {
-                foreach (
-                    $request->cancelOrderStatusMessages
-                    as $index => $status
-                ) {
+                foreach ($request->cancelOrderStatusMessages
+                    as $index => $status) {
                     if ($status['checked'] === true) {
                         if (
                             count($request->cancelOrderStatusMessages) !==
@@ -254,7 +252,7 @@ class OrderController extends Controller
                 ->back()
                 ->withErrors([
                     'order' =>
-                        'Sipariş iptal edilirken beklenmedik bir hata oldu',
+                    'Sipariş iptal edilirken beklenmedik bir hata oldu',
                 ]);
         }
     }

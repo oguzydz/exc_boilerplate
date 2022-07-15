@@ -35,10 +35,9 @@ class ProductGalleryController extends Controller
             'company_id' => Auth::user()->company->id
 
         ])->firstOrFail();
-        $galleries = $product->gallery()->paginate(10);
 
         return Inertia::render('User/Product/Gallery/Index', [
-            'data'    => $galleries,
+            'data'    => $product->gallery()->paginate(10),
             'product' => $product
         ]);
     }
@@ -141,7 +140,7 @@ class ProductGalleryController extends Controller
                 'order' => $request->order,
             ];
 
-            if($newImage) {
+            if ($newImage) {
                 $newImageName = $productGallery->id . '-product-image-' . time() . '.' . $newImage->getClientOriginalExtension();
                 $filePath     = $newImage->storeAs('product-images', $newImageName, 'public');
 

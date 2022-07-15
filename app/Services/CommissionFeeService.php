@@ -6,8 +6,9 @@ use App\Models\CommissionFee;
 
 class CommissionFeeService
 {
-    const TAX     = 18;
-    const PERCENT = 100;
+    const TAX      = 18;
+    const PERCENT  = 100;
+    const CARGO_ID = 999999999;
 
     public $commissionFee;
 
@@ -20,10 +21,12 @@ class CommissionFeeService
      * Get Commissioned Price
      * @param  integer  $price;
      * @param  integer  $quantity;
+     * @param  integer  $total;
+     * @param  integer  $hasCargo;
      *
      * @return  integer
      */
-    public function getCommissionedPrice(int $price, int $quantity, $total)
+    public function getCommissionedPrice(int $price, int $quantity, $total, $hasCargo = 0)
     {
         $totalPrice         = $price * $quantity;
         $comissionPercent   = ($totalPrice * $this->commissionFee->percent) / self::PERCENT;
@@ -31,5 +34,15 @@ class CommissionFeeService
         $comissionFee       = (($comissionPercent + $localProcessingFee) * self::TAX) / self::PERCENT;
 
         return $totalPrice - $comissionPercent - $localProcessingFee - $comissionFee;
+    }
+
+    public function getCargoProduct()
+    {
+        return [
+            'id'       => self::CARGO_ID,
+            'name'     => 'Kargo Ücreti',
+            'category' => 'Kargo',
+            'qty'      => 1,
+        ];
     }
 }

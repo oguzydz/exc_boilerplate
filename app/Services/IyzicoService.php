@@ -87,6 +87,7 @@ class IyzicoService
     public function threedsInitialize(PaymentRequest $paymentRequest, Company $company, Order $order)
     {
         $cardExpire = explode('/', $paymentRequest->cardExpires);
+        $totalCount = Cart::count() + ($company->cargoPrice() ? 1 : 0);
 
         /**
          * Price Informations
@@ -94,7 +95,7 @@ class IyzicoService
         $request = new CreatePaymentRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId($order->id);
-        $request->setPrice(Cart::subTotal(null, '.', ''));
+        $request->setPrice(Cart::total(null, '.', '') + $company->cargoPrice());
         $request->setPaidPrice(Cart::total(null, '.', '') + $company->cargoPrice());
         $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
@@ -158,14 +159,26 @@ class IyzicoService
         $basketItems = [];
 
         foreach (Cart::content() as $cart) {
-            $basketItem = new BasketItem();
+            $basketItem  = new BasketItem();
             $basketItem->setId($cart->rowId);
             $basketItem->setName($cart->name);
             $basketItem->setCategory1($cart->options->category);
             $basketItem->setItemType(BasketItemType::PHYSICAL);
             $basketItem->setPrice($cart->price * $cart->qty);
             $basketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
-            $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, Cart::count()));
+            $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, $totalCount));
+            $basketItems[] = $basketItem;
+        }
+
+        if ($company->cargoPrice()) {
+            $basketItem  = new BasketItem();
+            $basketItem->setId($this->commissionFeeService->getCargoProduct()['id']);
+            $basketItem->setName($this->commissionFeeService->getCargoProduct()['name']);
+            $basketItem->setCategory1($this->commissionFeeService->getCargoProduct()['category']);
+            $basketItem->setItemType(BasketItemType::PHYSICAL);
+            $basketItem->setPrice($company->cargoPrice());
+            $basketItem->setSubMerchantKey($company->subMerchant->sub_merchant_key);
+            $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($company->cargoPrice(), $this->commissionFeeService->getCargoProduct()['qty'], $totalCount));
             $basketItems[] = $basketItem;
         }
 
@@ -198,22 +211,11 @@ class IyzicoService
      */
     public function retrieveInstallmentInfo(Request $threedsPaymentRequest)
     {
-        /**
-         * Threeds Payment Informations
-         */
-        $request = new CreateThreedsPaymentRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId($threedsPaymentRequest->conversationId);
-        $request->setPaymentId($threedsPaymentRequest->paymentId);
-
         $request = new RetrieveInstallmentInfoRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setBinNumber("554960");
         $request->setPrice("100");
-
-
-        return ThreedsPayment::create($request, self::options());
     }
 
     /**

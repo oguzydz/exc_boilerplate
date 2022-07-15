@@ -38,6 +38,27 @@ class CategoryController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pasive(SearchRequest $request)
+    {
+        $categories = Category::where([
+            'status'     => Category::STATUS_PASIVE,
+            'company_id' => Auth::user()->company->id
+        ])
+            ->where(function ($query) use ($request) {
+                $query->where('title', 'like', "%$request->search%");
+            })
+            ->paginate(10);
+
+        return Inertia::render('User/Category/Pasive', [
+            'data' => $categories,
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -90,14 +111,14 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $categoryId)
     {
         $category = Category::where([
             'company_id' => Auth::user()->company->id,
-            'id'         => $id
+            'id'         => $categoryId
         ])->firstOrFail();
 
         $data = [
@@ -158,20 +179,21 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $categoryId)
     {
         $category = Category::where([
             'company_id' => Auth::user()->company->id,
-            'id' => $id
+            'id'         => $categoryId
         ])->firstOrFail();
 
         try {
             $category->update([
                 'status' => Category::STATUS_PASIVE
             ]);
+
             $category->allProducts()->update([
                 'status' => Product::STATUS_PASIVE
             ]);
@@ -179,7 +201,38 @@ class CategoryController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message', __('Kategori silinirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Kategori pasife alınırken beklenmedik bir hata oldu'));
+
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * Retrieve the specified resource from storage.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function retrieve(Request $request, int $categoryId)
+    {
+        $category = Category::where([
+            'company_id' => Auth::user()->company->id,
+            'id'         => $categoryId
+        ])->firstOrFail();
+
+        try {
+            $category->update([
+                'status' => Category::STATUS_ACTIVE
+            ]);
+
+            $category->allProducts()->update([
+                'status' => Product::STATUS_ACTIVE
+            ]);
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            $request->session()->flash('type', 'error');
+            $request->session()->flash('message', __('Kategori aktife alınırken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }

@@ -18,7 +18,7 @@ class CheckCheckout
     public function handle(Request $request, Closure $next)
     {
         if (Cart::subtotal(null, '.', '') <= 0) {
-            return redirect()->back()->with('toast_error', 'Ödeme yapmanız için sepetiniz dolu olması gerekir.');
+            return redirect()->back()->with('toast_error', 'Hata!!!');
         }
 
         return $next($request);
