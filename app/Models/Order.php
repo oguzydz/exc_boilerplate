@@ -61,4 +61,9 @@ class Order extends Model
 
         return $statusList;
     }
+
+    public function products()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }

@@ -217,8 +217,7 @@
                                                 <td>
                                                     <div class="media single-cart-product">
                                                         <div class="media-left">
-                                                            <img src="/storage/{{ $cart->options->image }}"
-                                                                style="width: 90px;" alt="img">
+                                                            <img src="/storage/{{ $cart->options->image }}" alt="img">
                                                         </div>
                                                         <div class="media-body">
                                                             <span>{{ $cart->name }}</span>

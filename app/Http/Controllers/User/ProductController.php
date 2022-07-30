@@ -72,7 +72,8 @@ class ProductController extends Controller
     public function create()
     {
         return Inertia::render('User/Product/Create', [
-            'categories' => Auth::user()->company->activeCategories
+            'categories' => Auth::user()->company->activeCategories,
+            'typeList'   => Product::TYPE_LIST,
         ]);
     }
 
@@ -93,6 +94,7 @@ class ProductController extends Controller
         $data = [
             'company_id'     => Auth::user()->company->id,
             'category_id'    => $request->category_id,
+            'type'           => $request->type,
             'title'          => $request->title,
             'text'           => $request->text,
             'price'          => $request->price,
@@ -127,6 +129,7 @@ class ProductController extends Controller
         $data = [
             'id'             => $product->id,
             'category_id'    => $product->category_id,
+            'type'           => $product->type,
             'title'          => $product->title,
             'text'           => $product->text,
             'price'          => $product->price,
@@ -143,6 +146,7 @@ class ProductController extends Controller
             'data'       => $data,
             'categories' => Auth::user()->company->activeCategories,
             'statusList' => Product::STATUS_LIST,
+            'typeList'   => Product::TYPE_LIST,
         ]);
     }
 
@@ -163,6 +167,7 @@ class ProductController extends Controller
             $data = [
                 'id'             => $request->id,
                 'category_id'    => $request->category_id,
+                'type'           => $request->type,
                 'title'          => $request->title,
                 'text'           => $request->text,
                 'price'          => $request->price,

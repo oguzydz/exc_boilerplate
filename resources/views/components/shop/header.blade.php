@@ -15,7 +15,6 @@
         <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
     </form>
 </div>
-
 <!-- //. cart Popup -->
 <div class="cart-popup" id="cart-popup">
     <div class="order-table table-responsive">

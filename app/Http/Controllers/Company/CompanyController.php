@@ -136,6 +136,12 @@ class CompanyController extends Controller
 
             $order->update(['status' => Order::STATUS_PAID]);
 
+            foreach ($order->products as $orderProduct) {
+                $orderProduct->product->update([
+                    'stock' => $orderProduct->product->stock - $orderProduct->quantity
+                ]);
+            }
+
             return redirect()->route($this->company->slug . '.payment.result', [$order->id]);
         } catch (\Exception $e) {
             return redirect()->route($this->company->slug . '.payment.checkout')->withErrors([

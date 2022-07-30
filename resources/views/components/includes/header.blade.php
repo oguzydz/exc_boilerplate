@@ -67,12 +67,10 @@
                 @auth
                     <li>
                         @hasrole('admin')
-                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white m-register-button">Admin
-                            </a>
+                            <a href="{{ route('admin.index') }}" class="btn btn-green text-white">Admin</a>
                         @endhasrole
                         @hasrole('user')
-                            <a href="{{ route('user.index') }}"
-                                class="btn btn-green text-white m-register-button">Hesabım</a>
+                            <a href="{{ route('user.index') }}" class="btn btn-green text-white">Hesabım</a>
                         @endhasrole
                     </li>
                 @else

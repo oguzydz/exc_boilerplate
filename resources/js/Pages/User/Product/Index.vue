@@ -28,6 +28,7 @@
                                                     @error="imageUrlAlt" />
                                             </template>
                                         </el-table-column>
+                                        <el-table-column prop="type_view" label="Tür"></el-table-column>
                                         <el-table-column prop="title" label="Başlık"></el-table-column>
                                         <el-table-column prop="price" label="Fiyat"></el-table-column>
                                         <el-table-column prop="stock" label="Stok"></el-table-column>

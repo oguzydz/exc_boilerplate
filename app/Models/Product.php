@@ -9,11 +9,23 @@ class Product extends Model implements Buyable
 {
     const STATUS_PASIVE = 0;
     const STATUS_ACTIVE = 1;
+    const TYPE_DEFAULT  = 0;
+    const TYPE_DIGITAL  = 1;
 
     const FILTER_ORDER_BY_LIST = [
         ['id', 'asc'],
         ['price', 'asc'],
         ['created_at', 'desc'],
+    ];
+
+    const STATUS_LIST = [
+        'Pasif' => self::STATUS_PASIVE,
+        'Aktif' => self::STATUS_ACTIVE,
+    ];
+
+    const TYPE_LIST = [
+          self::TYPE_DEFAULT => 'Fiziksel',
+          self::TYPE_DIGITAL => 'Dijital' ,
     ];
 
     public function getBuyableIdentifier($options = null)
@@ -31,11 +43,6 @@ class Product extends Model implements Buyable
         return $this->price;
     }
 
-    const STATUS_LIST = [
-        'Pasif' => self::STATUS_PASIVE,
-        'Aktif' => self::STATUS_ACTIVE,
-    ];
-
     protected $fillable = [
         'title',
         'text',
@@ -49,6 +56,7 @@ class Product extends Model implements Buyable
         'delivery_time',
         'stock',
         'status',
+        'type',
     ];
 
     protected $hidden = [
@@ -69,7 +77,7 @@ class Product extends Model implements Buyable
      *
      * @var array
      */
-    protected $appends = ['category_view'];
+    protected $appends = ['category_view', 'type_view'];
 
     /**
      * The attributes that should be cast to native types.
@@ -84,6 +92,11 @@ class Product extends Model implements Buyable
     public function getCategoryViewAttribute()
     {
         return $this->category->title;
+    }
+
+    public function getTypeViewAttribute()
+    {
+        return self::TYPE_LIST[$this->type];
     }
 
     public static function getNextId()

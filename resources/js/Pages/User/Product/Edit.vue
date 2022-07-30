@@ -18,7 +18,14 @@
                                         :value="category.id" :key="index"></el-option>
                                 </el-select>
                             </el-form-item>
-
+                            <el-form-item label="Tür:" prop="type">
+                                <el-select filterable v-model="data.type" placeholder="Tür Seçiniz.">
+                                    <el-option v-for="(
+                                            type, typeIndex
+                                        ) in typeList" :key="typeIndex" :label="type" :value="typeIndex">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
                             <el-form-item label="Adı:" prop="title">
                                 <el-input v-model="data.title" placeholder="Ürün adı giriniz."></el-input>
                             </el-form-item>
@@ -38,9 +45,9 @@
                                 <el-input v-model="data.stock" type="number" maxlength="11"
                                     placeholder="Ürün stok sayısı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item label="Kargo Süresi:" prop="delivery_time">
+                            <el-form-item label="Teslim Süresi:" prop="delivery_time">
                                 <el-input v-model="data.delivery_time" type="number" maxlength="11"
-                                    placeholder="Ürün kargo süresi giriniz."></el-input>
+                                    placeholder="Ürün teslim süresi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
                                 <el-input v-model="data.order" type="number" maxlength="11"
@@ -54,7 +61,6 @@
                                     </el-option>
                                 </el-select>
                             </el-form-item>
-
                             <el-form-item label="Görsel(394x394):" prop="image">
                                 <file-pond v-model="data.image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
@@ -96,8 +102,8 @@ export default {
         errors: {},
         categories: Object,
         statusList: Array,
+        typeList: Array,
     },
-
     data() {
         return {
             title: "Ürün Düzenleme",
@@ -147,7 +153,7 @@ export default {
                 delivery_time: [
                     {
                         required: true,
-                        message: "Lütfen ürün kargo süresi giriniz.",
+                        message: "Lütfen ürün teslim süresi giriniz.",
                         trigger: "blur",
                     },
                 ],
@@ -165,10 +171,16 @@ export default {
                         trigger: "change",
                     },
                 ],
+                type: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün türü seçiniz.",
+                        trigger: "change",
+                    },
+                ],
             },
         };
     },
-
     methods: {
         onAddFile(error, file) {
             if (error) {

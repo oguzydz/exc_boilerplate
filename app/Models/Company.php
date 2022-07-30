@@ -67,7 +67,7 @@ class Company extends Model
 
     public function product(string $productSlug)
     {
-        return $this->hasOne(Product::class)->where('slug', $productSlug);
+        return $this->belongsTo(Product::class)->where('slug', $productSlug);
     }
 
     public function activeProducts()
@@ -92,6 +92,12 @@ class Company extends Model
 
     public function cargoPrice(bool $formatted = false)
     {
+        if (!count(Cart::search(function ($cartItem) {
+            return $cartItem->options->type === Product::TYPE_DEFAULT;
+        }))) {
+            return 0;
+        }
+
         return $this->cargoSetting->after_free_price > Cart::subtotal(null, '.', '')
             ? ($formatted ? $this->getFormattedNumber($this->cargoSetting->price, 'pt_BR')
                 : $this->cargoSetting->price) : 0;

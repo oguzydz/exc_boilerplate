@@ -16,11 +16,13 @@ class CartService
     {
         try {
             $product = Product::findorFail($productId);
+
             Cart::add($product, 1, [
                 'image'    => $product->image,
                 'slug'     => $product->slug,
                 'company'  => $product->company->slug,
                 'category' => $product->category->title,
+                'type'     => $product->type,
             ]);
 
             return response()->json([

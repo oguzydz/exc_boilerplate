@@ -18,7 +18,14 @@
                                         :value="category.id" :key="index"></el-option>
                                 </el-select>
                             </el-form-item>
-
+                            <el-form-item label="Tür:" prop="type">
+                                <el-select filterable v-model="form.type" placeholder="Tür Seçiniz.">
+                                    <el-option v-for="(
+                                            type, typeIndex
+                                        ) in typeList" :key="typeIndex" :label="type" :value="typeIndex">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
                             <el-form-item label="Adı:" prop="title">
                                 <el-input v-model="form.title" placeholder="Ürün adı giriniz."></el-input>
                             </el-form-item>
@@ -38,9 +45,9 @@
                                 <el-input v-model="form.stock" type="number" maxlength="11"
                                     placeholder="Ürün stok sayısı giriniz."></el-input>
                             </el-form-item>
-                            <el-form-item label="Kargo Süresi:" prop="delivery_time">
+                            <el-form-item label="Teslim Süresi:" prop="delivery_time">
                                 <el-input v-model="form.delivery_time" type="number" maxlength="11"
-                                    placeholder="Ürün kargo süresi giriniz."></el-input>
+                                    placeholder="Ürün teslim süresi giriniz."></el-input>
                             </el-form-item>
                             <el-form-item label="Sıra:" prop="order">
                                 <el-input v-model="form.order" type="number" maxlength="11"
@@ -84,8 +91,8 @@ export default {
     props: {
         errors: {},
         categories: Object,
+        typeList: Array,
     },
-
     data() {
         return {
             title: "ÜCRETSİZ HESAP OLUŞTURUN",
@@ -156,7 +163,7 @@ export default {
                 delivery_time: [
                     {
                         required: true,
-                        message: "Lütfen ürün kargo süresi giriniz.",
+                        message: "Lütfen ürün teslim süresi giriniz.",
                         trigger: "blur",
                     },
                     {
@@ -184,31 +191,18 @@ export default {
                         trigger: "change",
                     },
                 ],
+                type: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün türü seçiniz.",
+                        trigger: "change",
+                    },
+                ],
             },
-            form: {
-                title: null,
-                text: null,
-                price: null,
-                discount_price: null,
-                delivery_time: null,
-                stock: null,
-                image: null,
-                order: null,
-            },
+            form: {},
         };
     },
-
-    watch: {
-        status: function (val) {
-            this.setStatus(val);
-        },
-    },
-
     methods: {
-        setStatus(status) {
-            this.status = status;
-        },
-
         onAddFile(error, file) {
             if (error) {
                 this.$message({
