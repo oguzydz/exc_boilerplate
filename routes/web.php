@@ -30,6 +30,8 @@ Route::get('/hakkimizda', [AboutController::class, 'index'])->name('about');
 
 Route::get('/hemen-basla', [StaticPageController::class, 'startNow'])->name('startNow');
 Route::get('/fiyatlandirma', [StaticPageController::class, 'pricing'])->name('pricing');
+Route::get('/magazalar', [StaticPageController::class, 'store'])->name('store');
+
 
 Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
     Route::get('/', [PolicyController::class, 'index'])->name('index');

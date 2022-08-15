@@ -27,4 +27,14 @@ class StaticPageController extends Controller
         return view('pages.static-pages.pricing');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store()
+    {
+        return view('pages.static-pages.store');
+    }
+
 }
