@@ -1,210 +1,256 @@
 <template>
-  <app-layout title="Sipariş Oluşturma">
-    <div class="row">
-      <div class="col-sm-12 col-lg-8 col-md-8">
-        <div class="card">
-          <div class="card-header font-bold">
-            Sipariş Oluştur
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="form-group mb-2">
-                <label class="text-xl">Sipariş Notu:</label>
-                <div class="pb-2" v-if="errors.text">
-                  <el-alert :title="errors.text" type="error"></el-alert>
+    <app-layout title="Siparişi Tamamla">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 col-md-12">
+                <el-page-header v-on:click="
+                    $inertia.get(route('user.order.show', {orderId: data.id}))
+                " title="Geri" content="Sipariş Tamamlama Formu">
+                </el-page-header>
+                <div class="header-divider mb-4"></div>
+                <div class="card">
+                    <div class="card-header">#{{ data.id }} Siparişi Tamamla</div>
+                    <div class="card-body">
+                        <el-form :model="form" :rules="rules" ref="form" label-width="130px"
+                            :label-position="isMobile() ? 'left' : 'right'" size="medium">
+                            <el-form-item label="Kategori:" prop="category_id">
+                                <el-select filterable v-model="form.category_id" placeholder="Kategori seçiniz.">
+                                    <el-option v-for="(category, index) in categories" :label="category.title"
+                                        :value="category.id" :key="index"></el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="Tür:" prop="type">
+                                <el-select filterable v-model="form.type" placeholder="Tür Seçiniz.">
+                                    <el-option v-for="(
+                                            type, typeIndex
+                                        ) in typeList" :key="typeIndex" :label="type" :value="typeIndex">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="Adı:" prop="title">
+                                <el-input v-model="form.title" placeholder="Ürün adı giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Açıklaması:" prop="text">
+                                <el-input type="textarea" rows="5" v-model="form.text"
+                                    placeholder="Ürün açıklaması giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Fiyat:" prop="price">
+                                <el-input v-model="form.price" type="number" maxlength="11"
+                                    placeholder="Ürün fiyatı giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="İndirimsiz Fiyat:" prop="discount_price">
+                                <el-input v-model="form.discount_price" type="number" maxlength="11"
+                                    placeholder="Ürün indirimsiz fiyatı giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Stok Sayısı:" prop="stock">
+                                <el-input v-model="form.stock" type="number" maxlength="11"
+                                    placeholder="Ürün stok sayısı giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Teslim Süresi:" prop="delivery_time">
+                                <el-input v-model="form.delivery_time" type="number" maxlength="11"
+                                    placeholder="Ürün teslim süresi giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Sıra:" prop="order">
+                                <el-input v-model="form.order" type="number" maxlength="11"
+                                    placeholder="Ürün sırası giriniz."></el-input>
+                            </el-form-item>
+                            <el-form-item label="Görsel:" prop="image">
+                                <file-pond v-model="form.image" ref="pond"
+                                    label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
+                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
+                                    @addfile="onAddFile" />
+                            </el-form-item>
+                            <div class="float-right">
+                                <el-button type="success" icon="el-icon-check" @click="submitForm('form')">GÖNDER
+                                </el-button>
+                            </div>
+                        </el-form>
+                    </div>
                 </div>
-                <vue-editor
-                  v-model="form.text"
-                  class="rounded"
-                  :placeholder="placeholder"
-                ></vue-editor>
-              </div>
-              <el-button
-                class="float-right mt-3"
-                icon="el-icon-s-order"
-                type="success"
-                @click="create()"
-                :loading="loading"
-              >
-                <span v-if="loading">Sipariş Oluşturuluyor</span>
-                <span v-else>Sipariş Oluştur</span>
-              </el-button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-lg-4 col-md-4">
-        <div class="card mt-xs-2">
-          <div class="card-header font-bold">
-            Ürün
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-4">
-                <img class="rounded" :src="`/storage/${product.image}`" />
-              </div>
-              <div class="col-md-8">
-                <h4 class="mt-2 mt-md-0">
-                  {{ product.title }}
-                </h4>
-                <div
-                  class="py-1 text-[#564fd0] font-bold text-2xl border-white"
-                >
-                  <sup class="line-through text-sm">{{ product.discount_price }} TL</sup>
-                  {{
-                      product.price
-                  }}
-                  TL
-                </div>
-                <p class="text-sm mt-2" v-html="product.text"></p>
-              </div>
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div
-                      class="flex items-start py-2 text-base space-x-4 border-bottom border-gray-300"
-                    >
-                      <div class="text-[#564fd0]">
-                        <i class="fad fa-shipping-timed"></i>
-                      </div>
-                      <div class="font-bold">
-                        Teslimat Süresi:
-                      </div>
-                      <div>
-                        {{ product.delivery_time }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div
-                      class="flex items-start py-2 text-base space-x-4 border-bottom border-gray-300"
-                    >
-                      <div class="text-[#564fd0]">
-                        <i class="fad fa-credit-card-front"></i>
-                      </div>
-                      <div class="font-bold">
-                        Ödeme Seçenekleri:
-                      </div>
-                      <div>
-                        Papara, Havale ve EFT
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div
-                      class="flex items-start py-2 text-base space-x-4 border-bottom border-gray-300"
-                    >
-                      <div class="text-[#564fd0]">
-                        <i class="fad fa-user-headset"></i>
-                      </div>
-                      <div class="font-bold">
-                        Satış Sonrası Destek:
-                      </div>
-                      <div>
-                        Aktif
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mt-2">
-                    <div class="flex items-start py-2 text-base space-x-4">
-                      <div>
-                        <button
-                          @click="whatsappOrder"
-                          class="btn btn-success shadow bg-[#25D366] border-[#075E54] text-white text-base py-2"
-                        >
-                          <i class="fab fa-whatsapp pr-1"></i>
-                          Whatsapp Sipariş Hattı
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </app-layout>
+    </app-layout>
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppUserLayout'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import SwiperCore, { Navigation, Thumbs } from 'swiper/core'
-import { VueEditor } from 'vue3-editor'
+import AppLayout from "@/Layouts/AppUserLayout";
+import PageTitle from "@/Components/User/PageTitle";
 
-import '@/Styles/swiper.css'
-import 'swiper/swiper-bundle.css'
-import 'swiper/components/navigation/navigation.min.css'
-import 'swiper/components/thumbs/thumbs.min.css'
+import vueFilePond from "vue-filepond";
+import "filepond/dist/filepond.min.css";
+import { VueEditor } from "vue3-editor";
 
-SwiperCore.use([Navigation, Thumbs])
+const FilePond = vueFilePond();
 
 export default {
-  components: {
-    AppLayout,
-    Swiper,
-    SwiperSlide,
-    VueEditor,
-  },
-  props: {
-    product: Object,
-    jetstream: Object,
-  },
-  data() {
-    return {
-      form: {
-        text: null,
-      },
-      errors: {
-        text: null,
-      },
-      loading: false,
-      thumbsSwiper: null,
-      placeholder:
-        'Hesap gerektiren lisans üyeliklerinde hesap için istediğiniz mail adresinizi, \n \n Görsel için ise görsel linklerini paylaşmalısınız. \n ...',
-    }
-  },
-
-  methods: {
-    create() {
-      if (this.form.text !== null) {
-        this.$inertia.post(
-          route('user.order.store'),
-          {
-            ...this.form,
-            product: this.product.id,
-          },
-          {
-            onStart: () => {
-              this.loading = true
-              this.errors.text = null
-            },
-            onSuccess: (page) => {
-              this.$notify({
-                title: 'Sipariş',
-                message: this.jetstream.flash.message,
-                type: 'success',
-              })
-              this.$inertia.get(
-                route('user.order.show', [this.jetstream.flash.order]),
-              )
-              this.loading = false
-            },
-            onError: (errors) => {
-              this.errors = errors
-              this.loading = false
-            },
-          },
-        )
-      } else {
-        this.errors.text = 'Sipariş oluşturmanız için açıklama girmelisiniz!'
-      }
+    components: {
+        AppLayout,
+        FilePond,
+        VueEditor,
+        PageTitle,
     },
-    setThumbsSwiper(swiper) {
-      this.thumbsSwiper = swiper
+    props: {
+        errors: {},
+        data: Object,
     },
-  },
-}
+    data() {
+        return {
+            title: "ÜCRETSİZ HESAP OLUŞTURUN",
+            rules: {
+                title: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün adı alanını doldurunuz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 3,
+                        max: 40,
+                        message: "En küçük 3, en fazla 40 karakter olabilir.",
+                        trigger: "blur",
+                    },
+                ],
+                text: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün açıklaması giriniz.",
+                        trigger: "blur",
+                    },
+                ],
+                image: [
+                    {
+                        required: true,
+                        message: "Lütfen görsel giriniz.",
+                        trigger: "blur",
+                    },
+                ],
+                order: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün sırası giriniz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 1,
+                        max: 1000,
+                        trigger: "blur",
+                    },
+                ],
+                price: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün fiyatı giriniz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 1,
+                        max: 100000,
+                        trigger: "blur",
+                    },
+                ],
+                discount_price: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün indirimsiz fiyatı giriniz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 1,
+                        max: 100000,
+                        trigger: "blur",
+                    },
+                ],
+                delivery_time: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün teslim süresi giriniz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 1,
+                        max: 60,
+                        trigger: "blur",
+                    },
+                ],
+                stock: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün stok sayısı giriniz.",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 1,
+                        max: 100000,
+                        trigger: "blur",
+                    },
+                ],
+                category_id: [
+                    {
+                        required: true,
+                        message: "Lütfen kategori seçiniz.",
+                        trigger: "change",
+                    },
+                ],
+                type: [
+                    {
+                        required: true,
+                        message: "Lütfen ürün türü seçiniz.",
+                        trigger: "change",
+                    },
+                ],
+            },
+            form: {},
+        };
+    },
+    methods: {
+        onAddFile(error, file) {
+            if (error) {
+                this.$message({
+                    type: "error",
+                    dangerouslyUseHTMLString: true,
+                    message:
+                        "Görsel Eklenirken bir hata ile karşılaşıldı. Tekrar Deneyiniz!",
+                });
+            }
+            this.form.image = file.source;
+        },
+        submitForm(formName) {
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    if (formName == "form") {
+                        this.$inertia.post(
+                            route("user.product.store"),
+                            this.form,
+                            {
+                                onSuccess: (page) => {
+                                    console.log(page);
+                                    this.$message({
+                                        type: "success",
+                                        message: "İşlem başarıyla tamamlandı.",
+                                    });
+                                    this.$inertia.get(
+                                        route("user.product.index")
+                                    );
+                                },
+                                onError: (errors) => {
+                                    this.$message({
+                                        type: "error",
+                                        dangerouslyUseHTMLString: true,
+                                        message:
+                                            "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
+                                            this.errorsToMessage(errors),
+                                    });
+                                },
+                            }
+                        );
+                    } else {
+                        //if (this.active++ > 2) this.active = 0;
+                    }
+                } else {
+                    console.log("error submit!!");
+                    return false;
+                }
+            });
+        },
+    },
+};
 </script>

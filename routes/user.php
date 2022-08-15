@@ -72,8 +72,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 
 
     Route::group(['prefix' => 'orders', 'as' => 'order.'], function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
-        Route::get('/show/{order}', [OrderController::class, 'show'])->name('show');
-        Route::get('/create', [OrderController::class, 'create'])->name('create');
+        Route::get('/show/{orderId}', [OrderController::class, 'show'])->name('show');
+        Route::get('/create/{orderId}', [OrderController::class, 'create'])->name('create');
         Route::post('/store', [OrderController::class, 'store'])->name('store');
         Route::post('/update/{order}', [OrderController::class, 'update'])->name('update');
         Route::post('/sent-payment/{order}', [OrderController::class, 'sentPayment'])->name('sent-payment');

@@ -30,8 +30,7 @@
                                         }}
                                     </template>
                                 </el-table-column>
-
-                                <el-table-column label="İşlem" width="300">
+                                <el-table-column label="İşlem" width="130">
                                     <template #default="scope">
                                         <el-button icon="el-icon-right" size="mini" v-on:click="
                                             $inertia.get(

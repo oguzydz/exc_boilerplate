@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
 class Order extends Model
 {
@@ -34,6 +32,7 @@ class Order extends Model
         'total_price',
         'ip_address',
         'status',
+        'type',
     ];
 
     protected $dates = [
@@ -45,6 +44,13 @@ class Order extends Model
         'created_at' => 'date:d-m-Y H:i',
         'updated_at' => 'date:d-m-Y H:i',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['city_view', 'county_view', 'status_view'];
 
     public function statusList()
     {
@@ -62,8 +68,38 @@ class Order extends Model
         return $statusList;
     }
 
+    public function getCityViewAttribute()
+    {
+        return $this->city->city;
+    }
+
+    public function getCountyViewAttribute()
+    {
+        return $this->county->county;
+    }
+
+    public function getStatusViewAttribute()
+    {
+        return $this->statusList()[$this->status];
+    }
+
     public function products()
     {
         return $this->hasMany(OrderProduct::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(OrderPayment::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function county()
+    {
+        return $this->belongsTo(County::class);
     }
 }

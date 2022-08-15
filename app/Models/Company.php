@@ -67,7 +67,7 @@ class Company extends Model
 
     public function product(string $productSlug)
     {
-        return $this->belongsTo(Product::class)->where('slug', $productSlug);
+        return $this->hasOne(Product::class)->where('slug', $productSlug);
     }
 
     public function activeProducts()

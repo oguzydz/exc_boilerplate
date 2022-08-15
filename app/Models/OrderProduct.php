@@ -32,6 +32,18 @@ class OrderProduct extends Model
         'updated_at' => 'date:d-m-Y H:i',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['product_view'];
+
+    public function getProductViewAttribute()
+    {
+        return $this->product->title;
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOrderRequest;
+use App\Http\Requests\SearchRequest;
 use App\Models\Order;
 use App\Models\OrderCancel;
 use App\Models\Payment;
@@ -11,7 +12,6 @@ use App\Models\PaymentSetting;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -21,11 +21,14 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SearchRequest $request)
     {
-        $orders = Order::with('product')
-            ->where('user_id', auth()->user()->id)
-            ->paginate(5);
+        $orders = Order::where('company_id', Auth::user()->company->id)
+            ->where('status', Order::STATUS_PAID)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->orderBy('id', 'desc')->paginate(10);
 
         return Inertia::render('User/Order/Index', [
             'data' => $orders,
@@ -37,83 +40,27 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(int $orderId)
     {
-        $product = Product::where('slug', $request->product)
-            ->with('category')
-            ->firstOrFail();
+        $order = Order::where('company_id', Auth::user()->company->id)->findOrFail($orderId);
 
         return Inertia::render('User/Order/Create', [
-            'product' => $product,
+            'data' => $order
         ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateOrderRequest $request)
-    {
-        try {
-            $product = Product::findOrFail($request->product);
-
-            $data = [
-                'text' => $request->text,
-                'product_id' => $product->id,
-                'user_id' => auth()->user()->id,
-                'status' => Order::STATUS_GIVEN,
-            ];
-
-            $order = Order::create($data);
-
-            $request->session()->put('flash', [
-                'message' => 'Sipariş eklendi!',
-                'order' => $order->id,
-            ]);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->withErrors([
-                    'product' => 'Sipariş eklenirken beklenmedik bir hata oldu',
-                ]);
-        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $orderId
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $order)
+    public function show(int $orderId)
     {
-        $order = Order::with('product')->where('user_id', Auth::user()->id)->findOrFail($order);
-        $paymentSettings = PaymentSetting::first();
-        $payment = [];
-        $orderResult = [];
-
-        if ($order->status === Order::STATUS_PAID) {
-            $payment = Payment::where([
-                'order_id' => $order->id,
-                'user_id' => auth()->user()->id,
-            ])->first();
-        }
-
-        if ($order->status === Order::STATUS_COMPLETED) {
-            $orderResult = $order->result;
-        }
+        $order = Order::with('products', 'payment')->where('company_id', Auth::user()->company->id)->findOrFail($orderId);
 
         return Inertia::render('User/Order/Show', [
-            'order' => $order,
-            'user' => auth()->user(),
-            'paymentSettings' => $paymentSettings,
-            'payment' => $payment,
-            'orderResult' => $orderResult,
-            'role' => $request->role ?? null,
+            'data' => $order,
         ]);
     }
 
@@ -137,69 +84,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
-            $order = Order::findOrFail($id);
-
-            if ($request->role === 'restart') {
-                $data = [
-                    'status' => Order::STATUS_GIVEN,
-                ];
-            } else {
-                $data = [
-                    'text' => $request->text,
-                ];
-            }
-
-            $order->update($data);
-
-            $request->session()->put('flash', [
-                'message' => 'Sipariş Güncellendi!',
-            ]);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->withErrors([
-                    'product' =>
-                    'Sipariş güncellenirken beklenmedik bir hata oldu',
-                ]);
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function sentPayment(Request $request, $id)
-    {
-        $order = Order::findOrFail($id);
-
-        try {
-            $order = Order::findOrFail($id);
-
-            $data = [
-                'text' => $request->text,
-            ];
-
-            $order->update($data);
-
-            $request->session()->put('flash', [
-                'message' => 'Sipariş Güncellendi!',
-            ]);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->withErrors([
-                    'product' =>
-                    'Sipariş güncellenirken beklenmedik bir hata oldu',
-                ]);
-        }
+        //
     }
 
     /**
@@ -211,50 +96,7 @@ class OrderController extends Controller
      */
     public function cancelOrder(Request $request, $id)
     {
-        try {
-            $order = Order::findOrFail($id);
-
-            $data = [
-                'order_id' => $order->id,
-                'message' => $request->orderCancelMessage,
-                'status' => '',
-            ];
-
-            if (count($request->cancelOrderStatusMessages) > 0) {
-                foreach ($request->cancelOrderStatusMessages
-                    as $index => $status) {
-                    if ($status['checked'] === true) {
-                        if (
-                            count($request->cancelOrderStatusMessages) !==
-                            $index + 1
-                        ) {
-                            $data['status'] .= $status['message'] . ',';
-                        } else {
-                            $data['status'] .= $status['message'];
-                        }
-                    }
-                }
-            }
-            $orderCancel = OrderCancel::create($data);
-
-            if ($orderCancel) {
-                $order->status = Order::STATUS_CANCELED;
-                $order->save();
-            }
-
-            $request->session()->put('flash', [
-                'message' => 'Sipariş İptal Edildi!',
-            ]);
-
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->withErrors([
-                    'order' =>
-                    'Sipariş iptal edilirken beklenmedik bir hata oldu',
-                ]);
-        }
+        //
     }
 
     /**

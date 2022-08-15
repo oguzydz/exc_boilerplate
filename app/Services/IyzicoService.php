@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
 use App\Models\OrderProduct;
+use App\Models\Product;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -225,6 +226,10 @@ class IyzicoService
      */
     public function createOrder(PaymentRequest $request, Company $company)
     {
+        !count(Cart::search(function ($cartItem) {
+            return $cartItem->options->type === Product::TYPE_DEFAULT;
+        })) ? $type = 1 : $type = 0;
+
         /**
          * Order Data
          */
@@ -244,6 +249,7 @@ class IyzicoService
             'sub_total_price' => Cart::subtotal(null, '.', ''),
             'total_price'     => Cart::total(null, '.', '') + $company->cargoPrice(),
             'ip_address'      => $request->ip(),
+            'type'            => $type,
         ];
 
         $order = Order::create($orderData);
