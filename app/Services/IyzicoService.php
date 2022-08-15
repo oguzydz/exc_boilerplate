@@ -62,6 +62,7 @@ class IyzicoService
      */
     public function createPersonelSubMerchant(User $user)
     {
+        dd($user->company->id);
         $request = new CreateSubMerchantRequest();
         $request->setLocale(Locale::TR);
         $request->setSubMerchantExternalId($user->company->id);
