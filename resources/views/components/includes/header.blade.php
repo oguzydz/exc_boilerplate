@@ -40,6 +40,9 @@
                     <a href="{{ route('pricing') }}">Fiyatlandırma</a>
                 </li>
                 <li>
+                    <a href="{{ route('store') }}">Mağazalar</a>
+                </li>
+                <li>
                     <a href="{{ route('contact') }}">İletişim</a>
                 </li>
                 @auth
