@@ -40,6 +40,8 @@ class CompanyRequest extends FormRequest
             'instagram' => ['nullable', 'string'],
             'facebook'  => ['nullable', 'string'],
             'twitter'   => ['nullable', 'string'],
+            'logo'      => ['required', 'mimes:jpeg,png,jpg,gif,svg,webp'],
+            'bg_image'  => ['required', 'mimes:jpeg,png,jpg,gif,svg,webp'],
         ];
     }
 }
