@@ -1,6 +1,7 @@
 @extends('layouts.web')
-@section('title', 'Online Mağazalar - Exxefy')
-@section('description', 'Sende hızlıca ücretsiz bir şekilde online mağazanı açıp satışa başlayabilirsin.')
+@section('title', 'Mağazalarımız - Exxefy')
+@section('description', 'Exxefy ile satış yapan mağazalarımız; sade tasarım ve güvenilir altyapımız sayesinde ürünlerini müşterilerine
+kolaylıkla kavuşturmakta')
 
 @section('content')
 <x-pageTitle title="Mağazalar" />
@@ -11,7 +12,10 @@
             <div class="col-xl-6 col-lg-10">
                 <div class="section-title text-center">
                     <h2 class="title">Exxefy Kullanan <span>Mağazalar</span></h2>
-                    <p>Exxefy altyapısını kullanan online mağazalar, bizi tercih ederek hem satışlarını arttırdılar hem de kullanışlı yönetim panelleri sayesinde e-ticaret operasyonlarını kolaylıkla yönetiyorlar.</p>
+                    <p>
+                        Exxefy ile satış yapan mağazalarımız; sade tasarım ve güvenilir altyapımız sayesinde ürünlerini müşterilerine
+                        kolaylıkla kavuşturmakta aynı zamanda %100 müşteri memnuniyetini sağlamakta.
+                    </p>
                 </div>
             </div>
         </div>
