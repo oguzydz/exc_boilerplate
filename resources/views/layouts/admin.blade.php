@@ -20,7 +20,7 @@
 
     <!-- Scripts -->
     @routes
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="/js/app.js?v=123" defer></script>
 
 </head>
 
