@@ -28,7 +28,7 @@ kolaylıkla kavuşturmakta')
                         <div class="thumb">
                             <img src="assets\img\stores\evabid-magaza.jpg" alt="team">
                         </div>
-                        <h6><a href="https://exxefy.com/evabidhome">Evabid Home</a></h6>
+                        <h6><a href="https://exxefy.com/evabid-home">Evabid Home</a></h6>
                         <span>Dekoratif Ev Ürünleri</span>
                     </div>
                 </div>

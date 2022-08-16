@@ -256,10 +256,10 @@
                                 <ul id="testimonial-slider">
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
+                                                <h6>Yusuf Gündoğdu</h6>
+                                                <p class="designation">Enmoda</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -270,10 +270,66 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                            Exxefy Yönetim Paneli sayesinde sipariş trafiğimi rahatlıkla takip edebiliyorum. Böylece siparişler müşterilerime daha hızlı ulaşıyor.
                                         </p>
                                     </li>
                                     <li class="current_item">
+                                        <div class="media">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
+                                            <div class="media-body">
+                                                <h6>İlayda Karakaya</h6>
+                                                <p class="designation">NaiDesing</p>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Üyeliğin ücretsiz ve komisyon oranlarının düşük olması harika🤩. Ben ve müşterilerim Exxefy'dan 💯 memnunuz.
+                                    </li>
+                                    <li class="current_item">
+                                        <div class="media">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <div class="media-body">
+                                                <h6>Akif Er</h6>
+                                                <p class="designation">Evabid Home</p>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Uygun komisyon oranı ve güvenirliliğiyle online satışlarımız için Exxefy altypasını tercih ettik. İşletmemiz ve müşterilimiz oldukça memnun.
+                                        </p>
+                                    </li>
+                                    <li class="current_item">
+                                        <div class="media">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <div class="media-body">
+                                                <h6>Yunus Emre </h6>
+                                                <p class="designation">Exxestock</p>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Exxefy hem fiziksel hem dijital ürün satışına olanak sağlıyor. Dijital ürün satıcıları için harika bir sistem. Ayrıca sınırsız ürün ekleyebilmek harika!                     
+                                        </p>
+                                    </li>
+                                    {{-- <li class="current_item">
                                         <div class="media">
                                             <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
@@ -310,64 +366,7 @@
                                         <p>
                                             Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
                                         </p>
-                                    </li>
-                                    <li class="current_item">
-                                        <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
-                                            <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
-                                        </p>
-                                    </li>
-                                    <li class="current_item">
-                                        <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
-                                            <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
-                                        </p>
-                                    </li>
-                                    <li class="current_item">
-                                        <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
-                                            <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
-                                        </p>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
