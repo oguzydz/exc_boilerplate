@@ -28,7 +28,7 @@ kolaylıkla kavuşturmakta')
                         <div class="thumb">
                             <img src="assets\img\stores\evabid-magaza.jpg" alt="team">
                         </div>
-                        <h6><a href="http://127.0.0.1:8000/evabid-home">Evabid Home</a></h6>
+                        <h6><a href="exxefy.com/evabidhome">Evabid Home</a></h6>
                         <span>Dekoratif Ev Ürünleri</span>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ kolaylıkla kavuşturmakta')
                         <div class="thumb">
                             <img src="assets\img\stores\enmoda.jpg" alt="team">
                         </div>
-                        <h6><a href="#">Enmoda</a></h6>
+                        <h6><a href="exxefy.com/enmoda">Enmoda</a></h6>
                         <span>Kadın-Erkek Giyim</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ kolaylıkla kavuşturmakta')
                         <div class="thumb">
                             <img src="assets\img\stores\exxestock.jpg" alt="team">
                         </div>
-                        <h6><a href="#">Exxestock</a></h6>
+                        <h6><a href="exxefy.com/exxestock">Exxestock</a></h6>
                         <span>Dijital Lisans Ürünleri</span>
                     </div>
                 </div>
@@ -55,8 +55,8 @@ kolaylıkla kavuşturmakta')
                         <div class="thumb">
                             <img src="assets\img\stores\naidesing-logo.jpeg" alt="team">
                         </div>
-                        <h6><a href="#">Nai Design</a></h6>
-                        <span>Dijital Lisans Ürünleri</span>
+                        <h6><a href="exxefy.com/naidesing">NaiDesing</a></h6>
+                        <span>Giyim Markası</span>
                     </div>
                 </div>
             </div>
