@@ -13,8 +13,8 @@
                         <h6><a href="{{ route('policy.varranty') }}">Garanti Ve İade</a></h6>
                         <p>Garanti ve iade şartlarımızın devamını okumak için tıklayın.</p>
                         <div class="read-more">
-                            <a href="{{ route('policy.varranty') }}"><img
-                                    src="{{ asset('assets\img\service\arrow.png') }}" alt="arrow"></a>
+                            <a href="{{ route('policy.varranty') }}"><img src="{{ asset('assets\img\service\arrow.png') }}"
+                                    alt="arrow"></a>
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,8 @@
                         <h6><a href="{{ route('policy.security') }}">Gizlilik Politikası</a></h6>
                         <p>Gizlilik politikasının devamını okumak için tıklayın.</p>
                         <div class="read-more">
-                            <a href="{{ route('policy.security') }}"><img
-                                    src="{{ asset('assets\img\service\arrow.png') }}" alt="arrow"></a>
+                            <a href="{{ route('policy.security') }}"><img src="{{ asset('assets\img\service\arrow.png') }}"
+                                    alt="arrow"></a>
                         </div>
                     </div>
                 </div>
@@ -57,8 +57,8 @@
                         <h6><a href="{{ route('policy.sales') }}">Satış Sözleşmesi</a></h6>
                         <p>Satış sözleşmesinin devamını okumak için tıklayın.</p>
                         <div class="read-more">
-                            <a href="{{ route('policy.sales') }}"><img
-                                    src="{{ asset('assets\img\service\arrow.png') }}" alt="arrow"></a>
+                            <a href="{{ route('policy.sales') }}"><img src="{{ asset('assets\img\service\arrow.png') }}"
+                                    alt="arrow"></a>
                         </div>
                     </div>
                 </div>

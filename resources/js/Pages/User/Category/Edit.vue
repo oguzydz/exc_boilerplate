@@ -45,24 +45,28 @@
 <script>
 import AppLayout from "@/Layouts/AppUserLayout";
 import PageTitle from "@/Components/User/PageTitle";
+
 import vueFilePond from "vue-filepond";
 import "filepond/dist/filepond.min.css";
-import { VueEditor } from "vue3-editor";
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 
-const FilePond = vueFilePond();
+const FilePond = vueFilePond(
+    FilePondPluginFileValidateType,
+    FilePondPluginImagePreview
+)
 
 export default {
     components: {
         AppLayout,
         FilePond,
-        VueEditor,
         PageTitle,
     },
     props: {
         data: {},
         errors: {},
     },
-
     data() {
         return {
             title: "Kategori Düzenleme",
@@ -98,7 +102,6 @@ export default {
             },
         };
     },
-
     methods: {
         onAddFile(error, file) {
             if (error) {

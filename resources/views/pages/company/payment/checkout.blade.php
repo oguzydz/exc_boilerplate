@@ -118,8 +118,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="single-input-wrap">
-                                            <input name="note" type="text" value="{{ old('note') }}"
-                                                class="single-input">
+                                            <textarea name="note" class="single-input">{{ old('note') }}</textarea>
                                             <label class="{{ old('note') ? 'active' : '' }}">Satıcıya Not (Zorunlu
                                                 değil)</label>
                                         </div>
