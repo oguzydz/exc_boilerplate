@@ -155,6 +155,8 @@ class IyzicoService
         $billingAddress->setZipCode($paymentRequest->zipCode);
         $request->setBillingAddress($billingAddress);
 
+        dd(Cart::total(null, '.', '') + $company->cargoPrice());
+
         /**
          * Basket Informations
          */
@@ -183,8 +185,6 @@ class IyzicoService
             $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($company->cargoPrice(), $this->commissionFeeService->getCargoProduct()['qty'], $totalCount));
             $basketItems[] = $basketItem;
         }
-        dd(Cart::total(null, '.', '') + $company->cargoPrice());
-
 
         $request->setBasketItems($basketItems);
 
