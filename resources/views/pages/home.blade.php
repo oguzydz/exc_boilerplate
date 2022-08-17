@@ -326,10 +326,10 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Exxefy hem fiziksel hem dijital ürün satışına olanak sağlıyor. Dijital ürün satıcıları için harika bir sistem. Ayrıca sınırsız ürün ekleyebilmek harika!                     
+                                            Exxefy hem fiziksel hem dijital ürün satışına olanak sağlıyor. Dijital ürün satıcıları için harika bir sistem. Ayrıca sınırsız ürün ekleyebilmek harika!
                                         </p>
                                     </li>
-                                    {{-- <li class="current_item">
+                                    <li class="current_item">
                                         <div class="media">
                                             <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
@@ -366,7 +366,7 @@
                                         <p>
                                             Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
                                         </p>
-                                    </li> --}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>

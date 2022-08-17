@@ -90,6 +90,8 @@ class IyzicoService
         $cardExpire = explode('/', $paymentRequest->cardExpires);
         $totalCount = Cart::count() + ($company->cargoPrice() ? 1 : 0);
 
+        dd(Cart::total(null, '.', '') + $company->cargoPrice());
+
         /**
          * Price Informations
          */
