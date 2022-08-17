@@ -16,9 +16,22 @@
     <link rel="stylesheet" href="{{ asset('assets\css\themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets\css\nice-select.css')  }}">
+    <link rel="stylesheet" href="{{ asset('assets\css\nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\animated-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets\css\responsive.css')  }}">
-    <link rel="stylesheet" href="{{ asset('assets\css\jquery-ui.min.css')  }}">
+    <link rel="stylesheet" href="{{ asset('assets\css\responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets\css\jquery-ui.min.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXYH6BCHR6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DXYH6BCHR6');
+    </script>
 </head>

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
 
 class CompanyController extends Controller
 {
@@ -67,6 +67,7 @@ class CompanyController extends Controller
 
         try {
             $userCompany->update($companyData);
+            Artisan::call("optimize:clear");
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {

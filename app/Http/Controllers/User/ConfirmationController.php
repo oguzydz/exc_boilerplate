@@ -17,6 +17,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
 
 class ConfirmationController extends Controller
 {
@@ -142,6 +143,8 @@ class ConfirmationController extends Controller
                     ]
                 );
             }
+
+            Artisan::call("optimize:clear");
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla Kaydedildi.']);
         } catch (\Exception $e) {
