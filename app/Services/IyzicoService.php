@@ -90,7 +90,6 @@ class IyzicoService
         $cardExpire = explode('/', $paymentRequest->cardExpires);
         $totalCount = Cart::count() + ($company->cargoPrice() ? 1 : 0);
 
-        dd(Cart::total(null, '.', '') + $company->cargoPrice());
 
         /**
          * Price Informations
@@ -184,6 +183,8 @@ class IyzicoService
             $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($company->cargoPrice(), $this->commissionFeeService->getCargoProduct()['qty'], $totalCount));
             $basketItems[] = $basketItem;
         }
+        dd(Cart::total(null, '.', '') + $company->cargoPrice());
+
 
         $request->setBasketItems($basketItems);
 
