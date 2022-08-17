@@ -161,6 +161,8 @@ class IyzicoService
         $basketItems = [];
 
         foreach (Cart::content() as $cart) {
+            dd($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, $totalCount));
+
             $basketItem  = new BasketItem();
             $basketItem->setId($cart->rowId);
             $basketItem->setName($cart->name);
@@ -171,8 +173,6 @@ class IyzicoService
             $basketItem->setSubMerchantPrice($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, $totalCount));
             $basketItems[] = $basketItem;
         }
-
-        dd(Cart::total(null, '.', '') + $company->cargoPrice());
 
         if ($company->cargoPrice()) {
             $basketItem  = new BasketItem();
