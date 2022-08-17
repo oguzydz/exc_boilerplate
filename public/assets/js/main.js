@@ -587,7 +587,7 @@
         }
 
         $('#cardNumber').mask('9999 9999 9999 9999');
-        $('#cardExpires').mask('02/9999');
+        $('#cardExpires').mask('00/9999');
     });
 
 
