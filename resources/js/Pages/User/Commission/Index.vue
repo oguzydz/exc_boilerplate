@@ -21,12 +21,12 @@
                                 </el-table-column>
                                 <el-table-column label="TL İşlem Ücreti">
                                     <template #default="scope">
-                                        {{ ' %' + scope.row.local_processing_fee + ' + ' + scope.row.percent + ' TL' }}
+                                        {{ ' %' + scope.row.percent + ' + ' + scope.row.local_processing_fee + ' TL' }}
                                     </template>
                                 </el-table-column>
                                 <el-table-column label="Döviz İşlem Ücreti">
                                     <template #default="scope">
-                                        {{ ' %' + scope.row.foreign_proccessing_fee + ' + ' + scope.row.percent + ' TL'
+                                        {{ ' %' + scope.row.percent + ' + ' + scope.row.foreign_proccessing_fee + ' TL'
                                         }}
                                     </template>
                                 </el-table-column>
