@@ -161,7 +161,7 @@ class IyzicoService
         $basketItems = [];
 
         foreach (Cart::content() as $cart) {
-            dd($this->commissionFeeService->getCommissionedPrice($cart->price, $cart->qty, $totalCount));
+            dd($cart->price . '....' . $cart->qty . '....' .$totalCount);
 
             $basketItem  = new BasketItem();
             $basketItem->setId($cart->rowId);
