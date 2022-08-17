@@ -28,6 +28,7 @@ class CommissionFeeService
      */
     public function getCommissionedPrice(int $price, int $quantity, $total, $hasCargo = 0)
     {
+        dd($this->commissionFee->percent);
         $totalPrice         = $price * $quantity;
         $comissionPercent   = ($totalPrice * $this->commissionFee->percent) / self::PERCENT;
         $localProcessingFee = $this->commissionFee->local_processing_fee / $total;

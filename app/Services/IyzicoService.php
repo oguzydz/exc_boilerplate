@@ -161,8 +161,6 @@ class IyzicoService
         $basketItems = [];
 
         foreach (Cart::content() as $cart) {
-            dd($cart->price . '....' . $cart->qty . '....' .$totalCount);
-
             $basketItem  = new BasketItem();
             $basketItem->setId($cart->rowId);
             $basketItem->setName($cart->name);
