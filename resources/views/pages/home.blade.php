@@ -275,7 +275,7 @@
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\6.png') }}" alt="client">
                                             <div class="media-body">
                                                 <h6>İlayda Karakaya</h6>
                                                 <p class="designation">NaiDesing</p>
@@ -333,8 +333,8 @@
                                         <div class="media">
                                             <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
+                                                <h6>Selin Güneş</h6>
+                                                <p class="designation">LaLuna Accessories</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -345,15 +345,15 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                            Exxefy kullanmaya beni en cezbeden şey sınırsız ürün yükleyebilmek oldu imkanının olması, LaLuna Accessories olarak Exxefy'dan çok memnunuz.✨
                                         </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
                                             <div class="media-body">
-                                                <h6>Müşteri Adı</h6>
-                                                <p class="designation">Müşteri Firması</p>
+                                                <h6>Mehmet Akgül</h6>
+                                                <p class="designation">Plazma Oyuncak</p>
                                                 <span>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -364,9 +364,9 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter. Müşteri yorumu gelecektir, 120 karakter.
+                                            Sanal mağazamı bu kadar kolay ve ücretsiz açabiliyor olmak harika! İşletmem için Exxefy oldukça faydalı bir sistem. Emeği geçenlere teşekkür ediyorum
                                         </p>
-                                    </li>
+                                    </li> 
                                 </ul>
                             </div>
                         </div>
