@@ -50,7 +50,7 @@ class Order extends Model
      *
      * @var array
      */
-    protected $appends = ['city_view', 'county_view', 'status_view'];
+    protected $appends = ['company_view', 'city_view', 'county_view', 'status_view'];
 
     public function statusList()
     {
@@ -68,6 +68,11 @@ class Order extends Model
         return $statusList;
     }
 
+    public function getCompanyViewAttribute()
+    {
+        return $this->company->title;
+    }
+
     public function getCityViewAttribute()
     {
         return $this->city->city;
@@ -81,6 +86,11 @@ class Order extends Model
     public function getStatusViewAttribute()
     {
         return $this->statusList()[$this->status];
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 
     public function products()

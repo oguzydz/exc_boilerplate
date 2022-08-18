@@ -32,7 +32,7 @@
                     <el-descriptions-item label="Zip Kodu">{{
                             data.zip_code
                     }}</el-descriptions-item>
-                    <el-descriptions-item label="Sipariş Notu">{{
+                    <el-descriptions-item :span="4" label="Sipariş Notu">{{
                             data.note
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Oluşturulma Tarihi">{{

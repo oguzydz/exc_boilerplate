@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderShipped extends Mailable
+class NewOrder extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -37,6 +37,8 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.shipped');
+        return $this->markdown('emails.orders.new-order', [
+            'order' => $this->order
+        ])->subject("Siparişiniz oluşturuldu!");
     }
 }

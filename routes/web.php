@@ -10,14 +10,10 @@ use App\Http\Controllers\Company\CargoTrackingController;
 use App\Http\Controllers\Company\CategoryController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\ContactController;
-use App\Http\Controllers\User\ContactController as UserContactController;
-use App\Http\Controllers\User\UserContactController as UserUserContactController;
 use App\Http\Controllers\Web\ContactController as WebContactController;
 use App\Http\Controllers\Web\PolicyController;
 use App\Http\Controllers\Web\StaticPageController;
 use App\Models\Company;
-
-Route::get('/send-mail', [MailController::class, 'sendMail'])->name('send.mail');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');

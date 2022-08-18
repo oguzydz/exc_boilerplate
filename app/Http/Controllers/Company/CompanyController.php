@@ -12,6 +12,7 @@ use App\Models\Order;
 use App\Models\OrderPayment;
 use App\Models\Product;
 use App\Services\IyzicoService;
+use App\Services\MailService;
 use App\View\Components\Shop\Header;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -20,11 +21,13 @@ class CompanyController extends Controller
 {
     public $company;
     protected $iyzicoService;
+    protected $mailService;
 
-    public function __construct(Header $header, IyzicoService $iyzicoService)
+    public function __construct(Header $header, IyzicoService $iyzicoService, MailService $mailService)
     {
         $this->company       = $header->company;
         $this->iyzicoService = $iyzicoService;
+        $this->mailService   = $mailService;
     }
 
     /**
@@ -141,6 +144,8 @@ class CompanyController extends Controller
                     'stock' => $orderProduct->product->stock - $orderProduct->quantity
                 ]);
             }
+
+            $this->mailService->sendNewOrder($order);
 
             return redirect()->route($this->company->slug . '.payment.result', [$order->id]);
         } catch (\Exception $e) {

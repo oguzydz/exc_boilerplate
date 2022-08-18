@@ -1297,7 +1297,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   letter-spacing: 0.32px;
   color: #01358D;
   line-height: 19px;
-  margin: 0 24px;
+  /* margin: 0 24px; */
   font-weight: 500;
 }
 .footer-widget .about_us_widget .footer-logo {

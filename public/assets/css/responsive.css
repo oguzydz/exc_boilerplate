@@ -333,7 +333,7 @@
     }
 
     .footer-widget.widget_nav_menu ul li a {
-        margin: 0 15px;
+        /* margin: 0 15px; */
     }
 
     .worldmap-wrap {
@@ -3081,7 +3081,7 @@
     }
 
     .footer-widget.widget_nav_menu ul li a {
-        margin: 0 7px;
+        /* margin: 0 7px; */
         font-size: 14px;
     }
 
@@ -3980,7 +3980,7 @@
     }
 
     .footer-widget.widget_nav_menu ul li a {
-        line-height: 23px;
+        /* line-height: 23px; */
     }
 
     .footer-area-2 .footer-widget.widget_nav_menu ul li a {
