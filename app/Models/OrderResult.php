@@ -16,6 +16,7 @@ class OrderResult extends Model
      */
     protected $fillable = [
         'order_id',
+        'cargo_company_id',
         'shipping_no',
         'note',
     ];
@@ -29,4 +30,16 @@ class OrderResult extends Model
         'created_at' => 'date:d-m-Y H:i',
         'updated_at' => 'date:d-m-Y H:i',
     ];
+
+    protected $appends = ['cargo_company_view'];
+
+    public function getCargoCompanyViewAttribute()
+    {
+        return $this->cargoCompany->name;
+    }
+
+    public function cargoCompany()
+    {
+        return $this->belongsTo(CargoCompany::class);
+    }
 }

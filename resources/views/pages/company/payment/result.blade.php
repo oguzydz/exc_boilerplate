@@ -1,5 +1,5 @@
 @extends('layouts.shop.payment')
-@section('title', 'Ödeme Sonucu | Exxefy')
+@section('title', 'Ödeme Sonucu - ' . $company->title)
 {{-- @section('description', 'ExxeStock - Uygun Fiyatlarla Stock Ürünleri') --}}
 
 @section('content')

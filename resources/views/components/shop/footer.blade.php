@@ -33,7 +33,7 @@
                             <p>{{ $company->text }}</p>
                         </div>
                     </div>
-                    <div class="footer-widget widget widget_nav_menu text-center">
+                    <div class="footer-widget widget widget_nav_menu shop-side text-center">
                         <ul>
                             <li><a href="{{ route($company->slug . '.index') }}">Anasayfa</a></li>
                             <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>

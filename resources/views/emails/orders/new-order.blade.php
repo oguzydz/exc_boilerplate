@@ -3,7 +3,6 @@
 
 Siparişinizin teslimatı için gerekli bilgiler satıcıya iletilmiştir. Exxefy aracılığında güvenli alışverişi tercih ettiğiniz için teşekkür ederiz.
 
-# Sipariş Bilgileri
 # Sipariş No: {{$order->id}}
 @component('mail::table')
 | Satıcı                      | Ara Toplam                  | Kargo Ücreti             | Toplam Ücret               |

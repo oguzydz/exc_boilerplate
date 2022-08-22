@@ -417,8 +417,7 @@ export default {
                             this.fullForm,
                             {
                                 onSuccess: (page) => {
-                                    console.log(page);
-                                    this.$message({
+                                   this.$message({
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });

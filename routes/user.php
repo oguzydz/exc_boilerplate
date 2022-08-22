@@ -13,8 +13,6 @@ use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\PaymentController;
 use App\Http\Controllers\User\ProductGalleryController;
-use App\Http\Middleware\CheckConfirmationStore;
-use App\Http\Middleware\RedirectIfNew;
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 'user.status'], 'as' => 'user.'], function () {
 
@@ -74,10 +72,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum', 'role:user', 
         Route::get('/', [OrderController::class, 'index'])->name('index');
         Route::get('/show/{orderId}', [OrderController::class, 'show'])->name('show');
         Route::get('/create/{orderId}', [OrderController::class, 'create'])->name('create');
-        Route::post('/store', [OrderController::class, 'store'])->name('store');
-        Route::post('/update/{order}', [OrderController::class, 'update'])->name('update');
-        Route::post('/sent-payment/{order}', [OrderController::class, 'sentPayment'])->name('sent-payment');
-        Route::post('/cancel-order/{order}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
+        Route::post('/store/{orderId}', [OrderController::class, 'store'])->name('store');
+        Route::post('/update/{orderId}', [OrderController::class, 'update'])->name('update');
+        Route::post('/sent-payment/{orderId}', [OrderController::class, 'sentPayment'])->name('sent-payment');
+        Route::post('/cancel-order/{orderId}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
     });
 
     Route::group(['prefix' => 'payments', 'as' => 'payment.'], function () {

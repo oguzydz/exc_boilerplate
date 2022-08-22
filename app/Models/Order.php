@@ -9,11 +9,12 @@ class Order extends Model
     const STATUS_GIVEN     = 0;
     const STATUS_PAID      = 1;
     const STATUS_PROCESSED = 2;
-    const STATUS_INCARGO   = 3;
+    const STATUS_SHIPPED   = 3;
     const STATUS_COMPLETED = 4;
     const STATUS_CANCELED  = 5;
     const STATUS_ERROR     = 6;
     const STATUS_THREEDS   = 7;
+    const STATUS_RETURN    = 8;
 
     protected $fillable = [
         'company_id',
@@ -58,11 +59,12 @@ class Order extends Model
             self::STATUS_GIVEN     => 'ÖDEME BEKLENİYOR',
             self::STATUS_PAID      => 'ÖDENDİ',
             self::STATUS_PROCESSED => 'İŞLEME ALINDI',
-            self::STATUS_INCARGO   => 'KARGOYA VERİLDİ',
+            self::STATUS_SHIPPED   => 'KARGOYA VERİLDİ',
             self::STATUS_COMPLETED => 'TAMAMLANDI',
             self::STATUS_CANCELED  => 'İPTAL EDİLDİ',
             self::STATUS_ERROR     => 'HATALI İŞLEM',
             self::STATUS_THREEDS   => '3D AŞAMASI',
+            self::STATUS_RETURN    => 'İADE EDİLDİ',
         ];
 
         return $statusList;
@@ -101,6 +103,11 @@ class Order extends Model
     public function payment()
     {
         return $this->hasOne(OrderPayment::class);
+    }
+
+    public function result()
+    {
+        return $this->hasOne(OrderResult::class);
     }
 
     public function city()

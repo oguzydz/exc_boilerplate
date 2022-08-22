@@ -37,6 +37,8 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.shipped');
+        return $this->markdown('emails.orders.shipped', [
+            'order' => $this->order
+        ])->subject("Siparişiniz Kargoya Verildi!");
     }
 }

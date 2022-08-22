@@ -58,7 +58,7 @@ class DashboardController extends Controller
             'membership_type' => $request->membership_type,
             'name' => $request->name,
             'tc' => $request->tc,
-            'born_date' => Carbon::parse($request->born_date),
+            'born_date' => Carbon::parse($request->born_date)->setTimezone('Europe/Istanbul'),
             'phone' => $request->phone,
             'address' => $request->address,
             'city_id' => $request->city_id,

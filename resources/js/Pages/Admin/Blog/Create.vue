@@ -171,8 +171,7 @@ export default {
                             this.form,
                             {
                                 onSuccess: (page) => {
-                                    console.log(page);
-                                    this.$message({
+                                   this.$message({
                                         type: "success",
                                         message: "İşlem başarıyla tamamlandı.",
                                     });

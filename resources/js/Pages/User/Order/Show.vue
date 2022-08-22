@@ -42,7 +42,8 @@
                             data.status_view
                     }}</el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions title="Ödeme Bilgileri" direction="vertical" :column="4" class="mt-4" border>
+                <el-descriptions v-if="data.status === 1" title="Ödeme Bilgileri" direction="vertical" :column="4"
+                    class="mt-4" border>
                     <el-descriptions-item label="Kargo Ücreti">{{
                             data.cargo_price + ' TL'
                     }}</el-descriptions-item>
@@ -75,14 +76,30 @@
                         </table>
                     </el-descriptions-item>
                 </el-descriptions>
+                <el-descriptions v-if="data.status === 3" title="Tamamlandı Bilgileri" direction="vertical" :column="4"
+                    class="mt-4" border>
+                    <el-descriptions-item label="Kargo Firması">{{
+                            data.result.cargo_company_view
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Kargo Numarası">{{
+                            data.result.shipping_no
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Not">{{
+                            data.result.note
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Oluşturulma Tarihi">{{
+                            data.result.created_at
+                    }}</el-descriptions-item>
+                </el-descriptions>
                 <el-row class="mt-4">
-                    <el-button v-if="data.status === 1" type="success" icon="el-icon-arrow-right" size="medium" v-on:click="
-                        $inertia.get(
-                            route('user.order.create', {
-                                orderId: data.id,
-                            })
-                        )
-                    ">Tamamla</el-button>
+                    <el-button v-if="data.status === 1" type="success" icon="el-icon-arrow-right" size="medium"
+                        v-on:click="
+                            $inertia.get(
+                                route('user.order.create', {
+                                    orderId: data.id,
+                                })
+                            )
+                        ">Tamamla</el-button>
                 </el-row>
             </div>
         </div>

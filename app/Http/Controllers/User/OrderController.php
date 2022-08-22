@@ -3,19 +3,25 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateOrderRequest;
+use App\Http\Requests\CreateOrderResultRequest;
 use App\Http\Requests\SearchRequest;
+use App\Models\CargoCompany;
 use App\Models\Order;
-use App\Models\OrderCancel;
-use App\Models\Payment;
-use App\Models\PaymentSetting;
+use App\Models\OrderResult;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Product;
+use App\Services\MailService;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    protected $mailService;
+
+    public function __construct(MailService $mailService)
+    {
+        $this->mailService = $mailService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,11 +48,49 @@ class OrderController extends Controller
      */
     public function create(int $orderId)
     {
-        $order = Order::where('company_id', Auth::user()->company->id)->findOrFail($orderId);
+        $order = Order::where([
+            'company_id' => Auth::user()->company->id,
+            'status'     => Order::STATUS_PAID,
+        ])->findOrFail($orderId);
+
+        $cargoCompanies = CargoCompany::where('status', CargoCompany::STATUS_ACTIVE)->get();
 
         return Inertia::render('User/Order/Create', [
-            'data' => $order
+            'data'           => $order,
+            'cargoCompanies' => $cargoCompanies,
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(int $orderId, CreateOrderResultRequest $request)
+    {
+        $order = Order::where([
+            'company_id' => Auth::user()->company->id,
+            'status'     => Order::STATUS_PAID,
+        ])->find($orderId);
+
+        $data = [
+            'order_id'         => $orderId,
+            'cargo_company_id' => $request->cargo_company_id,
+            'shipping_no'      => $request->shipping_no,
+            'note'             => $request->note,
+        ];
+
+        try {
+            OrderResult::create($data);
+
+            $order->update(['status' => Order::STATUS_SHIPPED]);
+            $this->mailService->sendShippedOrder($order);
+
+            return redirect()->route('user.order.show', [$orderId]);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -57,7 +101,8 @@ class OrderController extends Controller
      */
     public function show(int $orderId)
     {
-        $order = Order::with('products', 'payment')->where('company_id', Auth::user()->company->id)->findOrFail($orderId);
+        $order = Order::with('products', 'payment', 'result')
+            ->where('company_id', Auth::user()->company->id)->findOrFail($orderId);
 
         return Inertia::render('User/Order/Show', [
             'data' => $order,

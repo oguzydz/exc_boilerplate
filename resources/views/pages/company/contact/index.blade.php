@@ -1,5 +1,5 @@
 @extends('layouts.shop.payment')
-@section('title', 'İletişim - ' . $company->title . ' - Exxefy')
+@section('title', 'İletişim - ' . $company->title)
 @section('description', $company->text)
 
 @section('content')
