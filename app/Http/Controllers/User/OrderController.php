@@ -8,6 +8,7 @@ use App\Http\Requests\SearchRequest;
 use App\Models\CargoCompany;
 use App\Models\Order;
 use App\Models\OrderResult;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Services\MailService;
@@ -85,7 +86,11 @@ class OrderController extends Controller
             OrderResult::create($data);
 
             $order->update(['status' => Order::STATUS_SHIPPED]);
-            $this->mailService->sendShippedOrder($order);
+
+            if ($order->type === Product::TYPE_DIGITAL)
+                $this->mailService->sendDigitalShippedOrder($order);
+            else
+                $this->mailService->sendShippedOrder($order);
 
             return redirect()->route('user.order.show', [$orderId]);
         } catch (\Exception $e) {

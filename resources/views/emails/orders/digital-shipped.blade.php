@@ -1,13 +1,13 @@
 @component('mail::message')
-# Siparişiniz Kargoya Verildi!
+# Siparişiniz Tamamlandı!
 
-Siparişiniz satıcı tarafından kargoya verildi. Exxefy aracılığında güvenli alışverişi tercih ettiğiniz için teşekkür ederiz.
+Siparişiniz satıcı tarafından dijital ortamda teslim edilmiştir. Exxefy aracılığında güvenli alışverişi tercih ettiğiniz için teşekkür ederiz.
 
-# Kargo Bilgileri
+# Satıcıdan Gelen Bilgi
 @component('mail::table')
-| Kargo Firması                           | Takip Numarası                  | Not                      |
-| :-------------------------------------: |:-------------------------------:| :-----------------------:|
-| {{$order->result->cargo_company_view}}  | {{$order->result->shipping_no}} | {{$order->result->note}} |
+| Not                       |
+| :-----------------------: |
+| {{$order->result->note}}  |
 @endcomponent
 
 # Sipariş No: {{$order->id}}

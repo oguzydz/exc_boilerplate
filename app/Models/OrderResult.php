@@ -35,7 +35,7 @@ class OrderResult extends Model
 
     public function getCargoCompanyViewAttribute()
     {
-        return $this->cargoCompany->name;
+        return $this->cargoCompany->name ?? null;
     }
 
     public function cargoCompany()

@@ -24,8 +24,8 @@ class CreateOrderResultRequest extends FormRequest
     public function rules()
     {
         return [
-            'cargo_company_id' => 'exclude_if:type,0|required|numeric',
-            'shipping_no'      => 'exclude_if:type,0|required|string',
+            'cargo_company_id' => 'exclude_unless:type,0|required|numeric',
+            'shipping_no'      => 'exclude_unless:type,0|required|string',
             'note'             => ['required', 'string'],
         ];
     }
