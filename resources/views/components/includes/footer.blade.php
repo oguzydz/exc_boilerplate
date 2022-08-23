@@ -5,7 +5,7 @@
                 <div class="section-title style-five text-center">
                     <h2 class="title">Sıkça Sorulan <span>Sorular</span></h2>
                     <p class="sub-title"><span>Aradığın cevabı bulamadın mı?</span><br> Bize canlı destek veya
-                        yandaki numarayı arayak ulaşabilirsiniz. 0 (850) 111 11 11 veya destek@exxefy.com</p>
+                        yandaki numarayı arayak ulaşabilirsiniz. 0537 496 5001 veya destek@exxefy.com</p>
                 </div>
                 <div class="accordion style-two accordion-h-five" id="accordion">
                     <div class="single-accordion card">
