@@ -59,6 +59,24 @@ kolaylıkla kavuşturmakta')
                         <span>Giyim Markası</span>
                     </div>
                 </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-team">
+                        <div class="thumb">
+                            <img src="assets\img\stores\laluna-logo.jpg" alt="team">
+                        </div>
+                        <h6><a href="https://exxefy.com/laluna-accessories">LaLuna Accessories</a></h6>
+                        <span>Takı & Aksesuar</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-team">
+                        <div class="thumb">
+                            <img src="assets\img\stores\plazma-oyuncak.jpg" alt="team">
+                        </div>
+                        <h6><a href="https://exxefy.com/plazma-oyuncak">Plazma Oyuncak</a></h6>
+                        <span>Oyuncak & Kırtasiye</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
