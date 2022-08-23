@@ -5,7 +5,7 @@
                 <div class="section-title style-five text-center">
                     <h2 class="title">Sıkça Sorulan <span>Sorular</span></h2>
                     <p class="sub-title"><span>Aradığın cevabı bulamadın mı?</span><br> Bize canlı destek veya
-                        yandaki numarayı arayak ulaşabilirsiniz. 0537 496 5001 veya destek@exxefy.com</p>
+                        yandaki numarayı arayak ulaşabilirsiniz. <a href="tel:+905374965001"><b> 0537 496 5001 </b></a> veya destek@exxefy.com</p>
                 </div>
                 <div class="accordion style-two accordion-h-five" id="accordion">
                     <div class="single-accordion card">
@@ -182,7 +182,7 @@
                     <div class="footer-widget widget ">
                         <h4 class="widget-title">İletişim</h4>
                         <div class="contact_info_list">
-                            <p><span>Telefon:</span> +(90) 537 496 50 01</p>
+                            <p><span>Telefon:</span> <a href="tel:+905374965001"> 0537 496 5001 </a></p>
                             <p><span>E-Posta:</span> info@exxefy.com</p>
                             <p class="contact-content">
                                 <span>Adres:</span>
