@@ -121,8 +121,8 @@ export default {
                     },
                     {
                         min: 3,
-                        max: 40,
-                        message: "En küçük 3, en fazla 40 karakter olabilir.",
+                        max: 255,
+                        message: "En küçük 3, en fazla 255 karakter olabilir.",
                         trigger: "blur",
                     },
                 ],
