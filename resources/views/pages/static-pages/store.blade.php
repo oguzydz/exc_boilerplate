@@ -71,7 +71,7 @@ kolaylıkla kavuşturmakta')
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-team">
                         <div class="thumb">
-                            <img src="assets\img\stores\plazma-oyuncak.jpg" alt="team">
+                            <img src="assets\img\stores\plazma-magaza.jpg" alt="team">
                         </div>
                         <h6><a href="https://exxefy.com/plazma-oyuncak">Plazma Oyuncak</a></h6>
                         <span>Oyuncak & Kırtasiye</span>
