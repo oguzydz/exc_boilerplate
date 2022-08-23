@@ -94,7 +94,7 @@
         <div class="responsive-mobile-menu">
             <div class="logo-wrapper mobile-logo">
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="90px" alt="logo">
+                    <img src="{{ asset('assets/img/exxefy-logo.png') }}" width="90px" alt="logo">
                 </a>
             </div>
             <div class="nav-right-content">
@@ -169,7 +169,7 @@
         <div class="collapse navbar-collapse" id="exxefy_main_menu">
             <div class="logo-wrapper desktop-logo">
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets\img\exxefy-logo.png') }}" width="130px" alt="logo">
+                    <img src="{{ asset('assets/img/exxefy-logo.png') }}" width="130px" alt="logo">
                 </a>
             </div>
             <ul class="navbar-nav">

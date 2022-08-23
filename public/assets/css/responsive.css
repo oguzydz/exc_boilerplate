@@ -332,8 +332,8 @@
         padding-bottom: 100px;
     }
 
-    .footer-widget.widget_nav_menu ul li a {
-        /* margin: 0 15px; */
+    .footer-widget.shop-side ul li a {
+        margin: 0 15px;
     }
 
     .worldmap-wrap {
