@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Http\Requests\PaymentRequest;
 use App\Models\City;
-use App\Models\CommissionFee;
 use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
@@ -89,7 +88,6 @@ class IyzicoService
     {
         $cardExpire = explode('/', $paymentRequest->cardExpires);
         $totalCount = Cart::count() + ($company->cargoPrice() ? 1 : 0);
-
 
         /**
          * Price Informations

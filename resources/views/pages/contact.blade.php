@@ -4,7 +4,6 @@
 
 
 @section('content')
-
     <x-pageTitle title="İletişim" />
 
     <div class="contact-form-area pd-top-112">
@@ -75,7 +74,6 @@
             </div>
         </div>
     </div>
-
     <div class="map-area pd-top-120">
         <div class="container">
             <div class="map-area-wrap">
