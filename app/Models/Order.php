@@ -36,6 +36,15 @@ class Order extends Model
         'type',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $casts = [
+        'created_at' => 'date:d-m-Y H:i',
+        'updated_at' => 'date:d-m-Y H:i',
+    ];
 
     /**
      * The accessors to append to the model's array form.
