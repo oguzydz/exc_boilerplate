@@ -113,8 +113,7 @@
                             <span>Exxefy</span> Kullanmalıyım?
                         </h2>
                         <p class="wow animated fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.2s">
-                            Ürünlerini pazarlamanın en butik yolu, Exxefy ile ürün satışlarını kolaylaştır.
-                        </p>
+                            Ürünlerinizin internet üzerinden satışını Exxefy ile rahatlıkla gerçekleştirebilirsiniz. Exxefy ile herhangi bir sınırlandırma olmadan mağazanızı oluşturabilir, düşük komisyon ve sorunsuz ödeme sistemi ile harika bir alışveriş deneyimi kazanabilirsiniz.                        </p>
                     </div>
                 </div>
             </div>
@@ -124,8 +123,7 @@
                         <img src="{{ asset('assets/img/features/1.svg') }}" alt="service">
                         <h6><a href="#">Sınırsız Ürün Ekleme</a></h6>
                         <p>
-                            Exxefy'da mağazana sınırsız kategori ve ürünü ücretsiz ekleyip, satabilirsin.
-                            Ayrıca ürüne birçok özellik, resim, kategori ve benzeri yenilikler ekleyebilirsiniz.
+                            Exxefy kullanarak mağazanız için dilediğiniz kadar ürün ve kategori oluşturabilir, herhangi bir sınırlandırma olmadan ürünlerinizi kolayca satışa sunabilirsiniz.
                         </p>
                         <div class="read-more">
                             <a href="#"><img src="assets\img\service\arrow.png" alt="arrow"></a>
@@ -135,10 +133,9 @@
                 <div class="col-xl-3 col-md-6 col-sm-6">
                     <div class="single-service wow animated fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <img src="{{ asset('assets/img/features/2.svg') }}" alt="service">
-                        <h6><a href="#">Tüm Ödeme Yöntemleri</a></h6>
+                        <h6><a href="#">Kolay Ödeme Arayüzü</a></h6>
                         <p>
-                            Exxefy altyapısı tüm ödeme yöntemlerini desteklemektedir. Bu sayede ürünlerinizi kesintisiz
-                            hiç uğraşmadan heryere kolayca satıp, kargolayabilirsiniz.
+                            Exxefy ile her platformdan müşterileriniz güvenle alışveriş yapabilir. Exxefy, ödeme için müşterinizi; size özel hazırlanmış bir ödeme arayüzüne yönlendirir.
                         </p>
                         <div class="read-more">
                             <a href="#"><img src="assets\img\service\arrow.png" alt="arrow"></a>
@@ -150,7 +147,7 @@
                         <img src="assets/img/features/3.svg" alt="service">
                         <h6><a href="#">Hızlı ve Sade Tasarım</a></h6>
                         <p>
-                            Responsive mağazanız ile ürünlerinizi en iyi şekilde müşterilerinize
+                            Tüm cihazlarla uyumlu web sitemiz sayesinde ürünlerinizi en iyi şekilde müşterilerinize
                             tanıtabilir. Kullanıcı dostu arayüz sayesinde kolayca alışveriş yapmasını sağlayabilirsiniz.
                         </p>
                         <div class="read-more">
@@ -161,10 +158,10 @@
                 <div class="col-xl-3 col-md-6 col-sm-6">
                     <div class="single-service wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
                         <img src="assets/img/features/4.svg" alt="service">
-                        <h6><a href="#">A+ Yönetim Paneli</a></h6>
+                        <h6><a href="#">Gelişmiş Yönetim Paneli</a></h6>
                         <p>
                             Mağazanı, siparişlerini, kargolarını, müşterilerini, satış raporlarını kısaca aklınıza
-                            gelebilecek herşeyi
+                            gelebilecek her şeyi
                             Exxefy Yönetim Paneli ile kolayca yönetebilirsiniz.
                         </p>
                         <div class="read-more">
