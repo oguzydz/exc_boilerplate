@@ -154,7 +154,7 @@
                         <h6><a href="#">Hızlı ve Sade Tasarım</a></h6>
                         <p>
                             Tüm cihazlarla uyumlu web sitemiz sayesinde ürünlerinizi en iyi şekilde müşterilerinize
-                            tanıtabilir. Kullanıcı dostu arayüz sayesinde kolayca alışveriş yapmasını sağlayabilirsiniz.
+                            sunabilir, kullanıcı dostu arayüz ile kolayca alışveriş yapmasını sağlayabilirsiniz.
                         </p>
                         <div class="read-more">
                             <a href="#"><img src="assets\img\service\arrow.png" alt="arrow"></a>
