@@ -1,6 +1,8 @@
 @extends('layouts.web')
-@section('title', 'Kendi Mağazanı Aç ve Ürünlerini Satmaya Başla - Exxefy')
-@section('description', 'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy ile hemen bir online mağaza açıp satış yapmaya başlayın!')
+@section('title', 'Hemen Online Mağazanı Aç - Sana Özel E-Pazaryeri Sitesi - Exxefy')
+@section('description',
+    'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy
+    ile hemen bir online mağaza açıp satış yapmaya başlayın!')
 
 @section('content')
     <div class="header-area header-bg" style="background-image:url({{ asset('assets/img/bg/banner-bg.png') }});">
@@ -17,8 +19,8 @@
                                         Tüm bankalardan ödeme alabilir ve kullanışlı arayüz ile mağazanızı yönetebilirsiniz.
                                     </p>
                                     <div class="btn-wrapper desktop-left padding-top-20">
-                                        <a href="{{ asset('register') }}"
-                                            class="btn btn-radius btn-green s-animate-3">Hemen Kayıt Ol</a>
+                                        <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen
+                                            Kayıt Ol</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +45,8 @@
                                         Exxefy kullanıcı dostu bir mağaza tasarımı sunmaktadır, hemen şimdi ücretsiz
                                         deneyebilirsiniz.</p>
                                     <div class="btn-wrapper desktop-left padding-top-20">
-                                        <a href="{{ asset('register') }}"
-                                            class="btn btn-radius btn-green s-animate-3">Hemen Kayıt Ol</a>
+                                        <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen
+                                            Kayıt Ol</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +88,8 @@
                                         Hemde piyasadaki en uygun komisyonlandırma sistemi ile ertesi gün paranız
                                         hesabınızda.</p>
                                     <div class="btn-wrapper desktop-left padding-top-20">
-                                        <a href="{{ asset('register') }}"
-                                            class="btn btn-radius btn-green s-animate-3">Hemen Kayıt Ol</a>
+                                        <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen
+                                            Kayıt Ol</a>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +115,9 @@
                             <span>Exxefy</span> Kullanmalıyım?
                         </h2>
                         <p class="wow animated fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.2s">
-                            Ürünlerinizin internet üzerinden satışını Exxefy ile rahatlıkla gerçekleştirebilirsiniz. Exxefy ile herhangi bir sınırlandırma olmadan mağazanızı oluşturabilir, düşük komisyon ve sorunsuz ödeme sistemi ile harika bir alışveriş deneyimi kazanabilirsiniz.                        </p>
+                            Ürünlerinizin internet üzerinden satışını Exxefy ile rahatlıkla gerçekleştirebilirsiniz. Exxefy
+                            ile herhangi bir sınırlandırma olmadan mağazanızı oluşturabilir, düşük komisyon ve sorunsuz
+                            ödeme sistemi ile harika bir alışveriş deneyimi kazanabilirsiniz. </p>
                     </div>
                 </div>
             </div>
@@ -123,7 +127,8 @@
                         <img src="{{ asset('assets/img/features/1.svg') }}" alt="service">
                         <h6><a href="#">Sınırsız Ürün Ekleme</a></h6>
                         <p>
-                            Exxefy kullanarak mağazanız için dilediğiniz kadar ürün ve kategori oluşturabilir, herhangi bir sınırlandırma olmadan ürünlerinizi kolayca satışa sunabilirsiniz.
+                            Exxefy kullanarak mağazanız için dilediğiniz kadar ürün ve kategori oluşturabilir, herhangi bir
+                            sınırlandırma olmadan ürünlerinizi kolayca satışa sunabilirsiniz.
                         </p>
                         <div class="read-more">
                             <a href="#"><img src="assets\img\service\arrow.png" alt="arrow"></a>
@@ -135,7 +140,8 @@
                         <img src="{{ asset('assets/img/features/2.svg') }}" alt="service">
                         <h6><a href="#">Kolay Ödeme Arayüzü</a></h6>
                         <p>
-                            Exxefy ile her platformdan müşterileriniz güvenle alışveriş yapabilir. Exxefy, ödeme için müşterinizi; size özel hazırlanmış bir ödeme arayüzüne yönlendirir.
+                            Exxefy ile her platformdan müşterileriniz güvenle alışveriş yapabilir. Exxefy, ödeme için
+                            müşterinizi; size özel hazırlanmış bir ödeme arayüzüne yönlendirir.
                         </p>
                         <div class="read-more">
                             <a href="#"><img src="assets\img\service\arrow.png" alt="arrow"></a>
@@ -185,7 +191,8 @@
                             Mağazanızı özelleştirip, ürünlerinizi listeleyebilir ve dakikalar içerisinde satışa hazır
                             olabilirsiniz.
                         </p>
-                        <a class="btn btn-green text-white" href="{{ route('startNow') }}" style="line-height: 52px;">Hemen Başla</a>
+                        <a class="btn btn-green text-white" href="{{ route('startNow') }}"
+                            style="line-height: 52px;">Hemen Başla</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 order-lg-1 wow animated fadeInLeft" data-wow-duration="1s"
@@ -226,7 +233,8 @@
                                 Sosyal medya takipçilerin artık müşterin olsun istiyorsan
                                 hemen ücretsiz kayıt ol!
                             </p>
-                            <a class="btn btn-green text-white" href="{{ route('register') }}" style="line-height: 52px;">Hemen Kayıt Ol</a>
+                            <a class="btn btn-green text-white" href="{{ route('register') }}"
+                                style="line-height: 52px;">Hemen Kayıt Ol</a>
                         </div>
                     </div>
                 </div>
@@ -242,7 +250,8 @@
                         <h2 class="title">Kullanıcılarımız <span>Ne Diyor?</span></h2>
                         <p>
                             Exxefy sayesinde işini geliştiren kullanıcılarımız bizim
-                            hakkımızda ne anlatıyor? Sizlerde ücretsiz mağazanızı açarak hemen satış yapmaya başlayabilirsiniz.
+                            hakkımızda ne anlatıyor? Sizlerde ücretsiz mağazanızı açarak hemen satış yapmaya
+                            başlayabilirsiniz.
                         </p>
                     </div>
                 </div>
@@ -253,7 +262,8 @@
                                 <ul id="testimonial-slider">
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>Yusuf Gündoğdu</h6>
                                                 <p class="designation">Enmoda</p>
@@ -267,12 +277,14 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Exxefy Yönetim Paneli sayesinde sipariş trafiğimi rahatlıkla takip edebiliyorum. Böylece siparişler müşterilerime daha hızlı ulaşıyor.
+                                            Exxefy Yönetim Paneli sayesinde sipariş trafiğimi rahatlıkla takip edebiliyorum.
+                                            Böylece siparişler müşterilerime daha hızlı ulaşıyor.
                                         </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\6.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\6.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>İlayda Karakaya</h6>
                                                 <p class="designation">NaiDesing</p>
@@ -286,11 +298,13 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Üyeliğin ücretsiz ve komisyon oranlarının düşük olması harika🤩. Ben ve müşterilerim Exxefy'dan 💯 memnunuz.
+                                            Üyeliğin ücretsiz ve komisyon oranlarının düşük olması harika🤩. Ben ve
+                                            müşterilerim Exxefy'dan 💯 memnunuz.
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>Akif Er</h6>
                                                 <p class="designation">Evabid Home</p>
@@ -304,12 +318,14 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Uygun komisyon oranı ve güvenirliliğiyle online satışlarımız için Exxefy altypasını tercih ettik. İşletmemiz ve müşterilimiz oldukça memnun.
+                                            Uygun komisyon oranı ve güvenirliliğiyle online satışlarımız için Exxefy
+                                            altypasını tercih ettik. İşletmemiz ve müşterilimiz oldukça memnun.
                                         </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>Yunus Emre </h6>
                                                 <p class="designation">Exxestock</p>
@@ -323,12 +339,14 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Exxefy hem fiziksel hem dijital ürün satışına olanak sağlıyor. Dijital ürün satıcıları için harika bir sistem. Ayrıca sınırsız ürün ekleyebilmek harika!
+                                            Exxefy hem fiziksel hem dijital ürün satışına olanak sağlıyor. Dijital ürün
+                                            satıcıları için harika bir sistem. Ayrıca sınırsız ürün ekleyebilmek harika!
                                         </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\5.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>Selin Güneş</h6>
                                                 <p class="designation">LaLuna Accessories</p>
@@ -342,12 +360,14 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Exxefy kullanmaya beni en cezbeden şey sınırsız ürün yükleyebilmek oldu imkanının olması, LaLuna Accessories olarak Exxefy'dan çok memnunuz.✨
+                                            Exxefy kullanmaya beni en cezbeden şey sınırsız ürün yükleyebilmek oldu
+                                            imkanının olması, LaLuna Accessories olarak Exxefy'dan çok memnunuz.✨
                                         </p>
                                     </li>
                                     <li class="current_item">
                                         <div class="media">
-                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}" alt="client">
+                                            <img class="media-left" src="{{ asset('assets\img\client\4.png') }}"
+                                                alt="client">
                                             <div class="media-body">
                                                 <h6>Mehmet Akgül</h6>
                                                 <p class="designation">Plazma Oyuncak</p>
@@ -361,15 +381,18 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Sanal mağazamı bu kadar kolay ve ücretsiz açabiliyor olmak harika! İşletmem için Exxefy oldukça faydalı bir sistem. Emeği geçenlere teşekkür ediyorum
+                                            Sanal mağazamı bu kadar kolay ve ücretsiz açabiliyor olmak harika! İşletmem için
+                                            Exxefy oldukça faydalı bir sistem. Emeği geçenlere teşekkür ediyorum
                                         </p>
-                                    </li> 
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="sbs-arrowleft"><a id="btn_next" href="#"><i class="fa fa-long-arrow-left"></i></a>
+                        <div class="sbs-arrowleft"><a id="btn_next" href="#"><i
+                                    class="fa fa-long-arrow-left"></i></a>
                         </div>
-                        <div class="sbs-arrowright"><a id="btn_prev" href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <div class="sbs-arrowright"><a id="btn_prev" href="#"><i
+                                    class="fa fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
