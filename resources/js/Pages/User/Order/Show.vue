@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Sipariş Detayları">
+    <app-layout :title="'#' + data.id + ' Sipariş Detayları'">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
                 <el-page-header v-on:click="
@@ -66,7 +66,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(product, index) in data.products">
+                                <tr v-for="(product, index) in data.products" v-bind:key="index">
                                     <td>{{ product.product_view }}</td>
                                     <td>{{ product.quantity }}</td>
                                     <td>{{ product.price }}</td>
@@ -76,8 +76,11 @@
                         </table>
                     </el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions v-if="data.status === 3" title="Tamamlandı Bilgileri" direction="vertical" :column="4"
-                    class="mt-4" border>
+                <el-descriptions v-if="data.status === 3" title="Kargolandı/Gönderildi Bilgileri" direction="vertical"
+                    :column="4" class="mt-4" border>
+                    <el-descriptions-item label="Kargo Ücreti">{{
+                            data.cargo_price
+                    }}</el-descriptions-item>
                     <el-descriptions-item label="Kargo Firması">{{
                             data.result.cargo_company_view
                     }}</el-descriptions-item>
@@ -117,7 +120,6 @@ export default {
     },
     props: {
         data: {},
-        markQuestions: {},
         errors: {},
     },
     data() {

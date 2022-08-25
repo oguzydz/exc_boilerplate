@@ -152,7 +152,7 @@ class OrderController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Ürün güncellenirken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }
@@ -182,7 +182,7 @@ class OrderController extends Controller
         ]);
     }
 
-        /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -200,7 +200,7 @@ class OrderController extends Controller
         $orderResult = $order->result();
 
         try {
-            if($orderResult->count()) {
+            if ($orderResult->count()) {
                 $orderResult->update($data);
             } else {
                 OrderResult::create($data);
@@ -213,7 +213,7 @@ class OrderController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Ürün güncellenirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Ürün güncellenirken beklenmedik bir hata oldu'));
             return redirect()->back();
         }
     }
@@ -235,7 +235,7 @@ class OrderController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             $request->session()->flash('type', 'error');
-            $request->session()->flash('message',__('Ürün silinirken beklenmedik bir hata oldu'));
+            $request->session()->flash('message', __('Ürün silinirken beklenmedik bir hata oldu'));
 
             return redirect()->back();
         }

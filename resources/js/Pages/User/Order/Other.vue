@@ -1,13 +1,18 @@
 <template>
-    <app-layout title="Yeni Siparişler">
+    <app-layout title="Diğer Siparişler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header v-on:click="$inertia.get(route('user.index'))" title="Geri" content="Yeni Siparişler">
+                <el-page-header v-on:click="$inertia.get(route('user.index'))" title="Geri" content="Diğer Siparişler">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="col-sm-12 col-lg-12 col-md-12">
                     <el-tabs v-model="activeTabName" @tab-click="tabClick">
                         <el-tab-pane label="Aktif" name="index">
+                        </el-tab-pane>
+                        <el-tab-pane label="Kargolandı/Gönderildi" name="shipped"></el-tab-pane>
+                        <el-tab-pane label="Tamamlandı" name="completed"></el-tab-pane>
+                        <el-tab-pane label="İptal Edildi" name="cancelled"></el-tab-pane>
+                        <el-tab-pane label="Diğer" name="other">
                             <div class="card">
                                 <div class="card-header">
                                     Sipariş Listesi
@@ -34,6 +39,8 @@
                                                 {{ scope.row.cargo_price + ' TL' }}
                                             </template>
                                         </el-table-column>
+                                        <el-table-column prop="status_view" label="Durum">
+                                        </el-table-column>
                                         <el-table-column prop="created_at" label="Oluşuturulma Tarihi">
                                         </el-table-column>
                                         <el-table-column label="İşlem" width="130">
@@ -57,10 +64,6 @@
                                 </div>
                             </div>
                         </el-tab-pane>
-                        <el-tab-pane label="Kargolandı/Gönderildi" name="shipped"></el-tab-pane>
-                        <el-tab-pane label="Tamamlandı" name="completed"></el-tab-pane>
-                        <el-tab-pane label="İptal Edildi" name="cancelled"></el-tab-pane>
-                        <el-tab-pane label="Diğer" name="other"></el-tab-pane>
                     </el-tabs>
                 </div>
             </div>
@@ -85,9 +88,9 @@ export default {
     },
     data() {
         return {
-            activeTabName: 'index',
+            activeTabName: 'other',
             searchText: this.getUrlQuery('search'),
-            routeName: "user.order.index",
+            routeName: "user.order.other",
             deleteMessage:
                 "Siparişü silerek pasife alınmış Yeni Siparişler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
         };

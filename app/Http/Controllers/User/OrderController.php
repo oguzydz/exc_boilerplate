@@ -43,6 +43,63 @@ class OrderController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function shipped(SearchRequest $request)
+    {
+        $orders = Order::with('result')->where('company_id', Auth::user()->company->id)
+            ->where('status', Order::STATUS_SHIPPED)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->orderBy('id', 'desc')->paginate(10);
+
+        return Inertia::render('User/Order/Shipped', [
+            'data' => $orders,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function completed(SearchRequest $request)
+    {
+        $orders = Order::with('result')->where('company_id', Auth::user()->company->id)
+            ->where('status', Order::STATUS_COMPLETED)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->orderBy('id', 'desc')->paginate(10);
+
+        return Inertia::render('User/Order/Completed', [
+            'data' => $orders,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function other(SearchRequest $request)
+    {
+        $orders = Order::where('company_id', Auth::user()->company->id)
+            ->whereIn('status', [Order::STATUS_GIVEN, Order::STATUS_ERROR, Order::STATUS_THREEDS])
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->orderBy('id', 'desc')->paginate(10);
+
+        return Inertia::render('User/Order/Other', [
+            'data' => $orders,
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

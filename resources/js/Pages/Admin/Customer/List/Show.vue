@@ -97,10 +97,9 @@
                 </el-descriptions>
 
                 <el-row class="mt-4">
-                    <el-button type="success" v-if="data.status === 2" icon="el-icon-check"
-                        @click="confirm()">Aktif Et
+                    <el-button type="success" v-if="data.status === 2" icon="el-icon-check" @click="confirm()">Aktif Et
                     </el-button>
-                    <el-button type="danger" v-if="data.status === 1" icon="el-icon-delete"  v-on:click="
+                    <el-button type="danger" v-if="data.status === 1" icon="el-icon-delete" v-on:click="
                         $inertia.get(
                             route('admin.customer.pasive', {
                                 id: data.id,
@@ -140,7 +139,6 @@ export default {
     },
     props: {
         data: {},
-        markQuestions: {},
         errors: {},
         userCancel: {},
         userPasive: {},

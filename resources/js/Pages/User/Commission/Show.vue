@@ -41,7 +41,6 @@ export default {
     },
     props: {
         data: {},
-        markQuestions: {},
         errors: {},
     },
     data() {
