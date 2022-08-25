@@ -106,7 +106,49 @@
             </div>
         </div>
     </div>
-    <div class="service-area">
+    <div class="sbbs-business-manage-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 order-lg-12 desktop-center-item">
+                    <div class="text-lg-left text-center">
+                        <div class="section-title style-two">
+                            <h2 class="title"><span>Ücretsiz</span> Online Mağaza</h2>
+                            <p>Kendi mağazanızı saniyeler içerisinde oluşturup, satışa başlayabilirsiniz. Exxefy üyeliğinizi
+                                ücretsiz oluşturun ve
+                                tek tıkla ödeme almanın keyfini çıkarın.
+                            </p>
+                        </div>
+                        <div class="exxefy-check-list">
+                            <img src="assets\img\icons\check.svg" alt="check">
+                            <span>Üyelik veya aylık kullanım ücreti yok!</span>
+                        </div>
+                        <div class="exxefy-check-list">
+                            <img src="assets\img\icons\check.svg" alt="check">
+                            <span>Sınırsız ürün yükleme hakkı.</span>
+                        </div>
+                        <div class="exxefy-check-list">
+                            <img src="assets\img\icons\check.svg" alt="check">
+                            <span>Kredi Kartı Tahsilatı.</span>
+                        </div>
+                        <div class="exxefy-check-list">
+                            <img src="assets\img\icons\check.svg" alt="check">
+                            <span>Taksitli Satış İmkanı.
+                            </span>
+                        </div>
+                        <div class="exxefy-check-list">
+                            <img src="assets\img\icons\check.svg" alt="check">
+                            <span>Sipariş yönetim paneli ve sipariş otomasyonu.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-6 order-lg-1">
+                    <img src="assets/img/we-provide/store-example.jpg" alt="video">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="service-area pd-top-120">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-10">
@@ -178,7 +220,6 @@
             </div>
         </div>
     </div>
-
     <div class="sba-work-area img-with-video-area">
         <div class="container">
             <div class="row">
