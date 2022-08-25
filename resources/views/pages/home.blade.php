@@ -110,7 +110,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-lg-6 order-lg-12 desktop-center-item">
-                    <div class="text-lg-left text-center">
+                    <div class="text-lg-left">
                         <div class="section-title style-two">
                             <h2 class="title"><span>Ücretsiz</span> Online Mağaza</h2>
                             <p>Kendi mağazanızı saniyeler içerisinde oluşturup, satışa başlayabilirsiniz. Exxefy üyeliğinizi
