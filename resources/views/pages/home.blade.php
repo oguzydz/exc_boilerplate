@@ -128,11 +128,11 @@
                         </div>
                         <div class="exxefy-check-list">
                             <img src="assets\img\icons\check.svg" alt="check">
-                            <span>Kredi Kartı Tahsilatı.</span>
+                            <span>Kredi kartı ile şirketsiz ödeme alabilirsin.</span>
                         </div>
                         <div class="exxefy-check-list">
                             <img src="assets\img\icons\check.svg" alt="check">
-                            <span>Taksitli Satış İmkanı.
+                            <span>Taksitli satış imkanı.
                             </span>
                         </div>
                         <div class="exxefy-check-list">
