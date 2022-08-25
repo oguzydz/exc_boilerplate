@@ -33,6 +33,17 @@ class OrderProduct extends Model
     ];
 
     /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format('Ymd His');
+    }
+
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array

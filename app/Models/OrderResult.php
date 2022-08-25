@@ -9,7 +9,7 @@ class OrderResult extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -32,6 +32,17 @@ class OrderResult extends Model
     ];
 
     protected $appends = ['cargo_company_view'];
+
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format('Ymd His');
+    }
 
     public function getCargoCompanyViewAttribute()
     {

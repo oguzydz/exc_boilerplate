@@ -7,19 +7,19 @@ import { InertiaProgress } from "@inertiajs/progress";
 import ElementPlus from "element-plus";
 import locale from "element-plus/lib/locale/lang/tr";
 import Maska from "maska";
-import { Link } from '@inertiajs/inertia-vue3'
-import CIcon from '@coreui/icons-vue'
-import { iconsSet as icons } from '@/assets/icons'
+import { Link } from "@inertiajs/inertia-vue3";
+import CIcon from "@coreui/icons-vue";
+import { iconsSet as icons } from "@/assets/icons";
 
-import moment from 'moment';
-moment.locale('tr');
+import moment from "moment";
+moment.locale("tr");
 
 import "element-plus/lib/theme-chalk/index.css";
 import "@coreui/coreui/dist/css/coreui.min.css";
 import "@coreui/coreui/dist/js/coreui.bundle.min.js";
 import "@coreui/chartjs/dist/js/coreui-chartjs.bundle.js";
 import "@coreui/utils/dist/coreui-utils.js";
-import CoreuiVue from '@coreui/vue'
+import CoreuiVue from "@coreui/vue";
 
 const el = document.getElementById("app");
 
@@ -119,16 +119,19 @@ function isMobile() {
     }
 }
 
-function elemeSearch(route = '', searchText = '', paramater = {}) {
-    this.$inertia.get(this.route(route,
-        {
-            ...paramater,
-            search: searchText,
-        },
-        {
-            preserveState: true
-        }
-    ));
+function elemeSearch(route = "", searchText = "", paramater = {}) {
+    this.$inertia.get(
+        this.route(
+            route,
+            {
+                ...paramater,
+                search: searchText,
+            },
+            {
+                preserveState: true,
+            }
+        )
+    );
 }
 
 function getUrlQuery(paramater) {
@@ -154,22 +157,21 @@ createInertiaApp({
                     isMobile,
                     elemeSearch,
                     getUrlQuery,
-                    // moment: (value) => moment(value),
                     handlePagination(page, routeName, values = {}) {
                         this.$inertia.get(route(routeName, values), {
                             page: page,
                         });
                     },
-                    confirmDelete(id, routeName, title = 'Bu öğeyi silmek üzeresiniz, devam edecek misiniz?') {
-                        this.$confirm(
-                            title,
-                            "UYARI!",
-                            {
-                                confirmButtonText: "OK",
-                                cancelButtonText: "İptal",
-                                type: "warning",
-                            }
-                        )
+                    confirmDelete(
+                        id,
+                        routeName,
+                        title = "Bu öğeyi silmek üzeresiniz, devam edecek misiniz?"
+                    ) {
+                        this.$confirm(title, "UYARI!", {
+                            confirmButtonText: "OK",
+                            cancelButtonText: "İptal",
+                            type: "warning",
+                        })
                             .then(() => {
                                 this.$inertia.post(
                                     route(routeName, id),
@@ -178,7 +180,8 @@ createInertiaApp({
                                         onSuccess: (page) => {
                                             this.$message({
                                                 type: "success",
-                                                message: "İşlem başarıyla tamamlandı.",
+                                                message:
+                                                    "İşlem başarıyla tamamlandı.",
                                             });
                                         },
                                         onError: (errors) => {
@@ -187,7 +190,9 @@ createInertiaApp({
                                                 dangerouslyUseHTMLString: true,
                                                 message:
                                                     "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
-                                                    this.errorsToMessage(errors),
+                                                    this.errorsToMessage(
+                                                        errors
+                                                    ),
                                             });
                                         },
                                     }
@@ -201,16 +206,16 @@ createInertiaApp({
                                 });
                             });
                     },
-                    confirmActive(id, routeName, title = 'Bu öğeyi aktif etmek üzeresiniz, devam edecek misiniz?') {
-                        this.$confirm(
-                            title,
-                            "UYARI!",
-                            {
-                                confirmButtonText: "OK",
-                                cancelButtonText: "İptal",
-                                type: "warning",
-                            }
-                        )
+                    confirmActive(
+                        id,
+                        routeName,
+                        title = "Bu öğeyi aktif etmek üzeresiniz, devam edecek misiniz?"
+                    ) {
+                        this.$confirm(title, "UYARI!", {
+                            confirmButtonText: "OK",
+                            cancelButtonText: "İptal",
+                            type: "warning",
+                        })
                             .then(() => {
                                 this.$inertia.post(
                                     route(routeName, id),
@@ -219,7 +224,8 @@ createInertiaApp({
                                         onSuccess: (page) => {
                                             this.$message({
                                                 type: "success",
-                                                message: "İşlem başarıyla tamamlandı.",
+                                                message:
+                                                    "İşlem başarıyla tamamlandı.",
                                             });
                                         },
                                         onError: (errors) => {
@@ -228,7 +234,9 @@ createInertiaApp({
                                                 dangerouslyUseHTMLString: true,
                                                 message:
                                                     "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
-                                                    this.errorsToMessage(errors),
+                                                    this.errorsToMessage(
+                                                        errors
+                                                    ),
                                             });
                                         },
                                     }
@@ -248,17 +256,13 @@ createInertiaApp({
             .use(plugin)
             .use(Maska)
             .use(CoreuiVue)
-            .provide('icons', icons)
-            .component('CIcon', CIcon)
+            .provide("icons", icons)
+            .component("CIcon", CIcon)
             .use(Link);
 
         vueapp.config.globalProperties.$moment = moment;
-
-        vueapp.mount(el)
-
+        vueapp.mount(el);
     },
 });
-
-
 
 InertiaProgress.init({ color: "#f00" });

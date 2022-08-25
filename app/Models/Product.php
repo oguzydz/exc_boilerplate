@@ -24,8 +24,8 @@ class Product extends Model implements Buyable
     ];
 
     const TYPE_LIST = [
-          self::TYPE_DEFAULT => 'Fiziksel',
-          self::TYPE_DIGITAL => 'Dijital' ,
+        self::TYPE_DEFAULT => 'Fiziksel',
+        self::TYPE_DIGITAL => 'Dijital',
     ];
 
     public function getBuyableIdentifier($options = null)
@@ -88,6 +88,17 @@ class Product extends Model implements Buyable
         'created_at'  => 'date:d-m-Y H:i',
         'updated_at'  => 'date:d-m-Y H:i',
     ];
+
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format('Ymd His');
+    }
 
     public function getCategoryViewAttribute()
     {

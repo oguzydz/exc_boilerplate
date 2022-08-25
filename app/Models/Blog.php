@@ -22,6 +22,17 @@ class Blog extends Model
         'updated_at' => 'date:d-m-Y',
     ];
 
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format('Ymd His');
+    }
+
     public static function getNextId()
     {
         if (Blog::all()->last() !== null) {
