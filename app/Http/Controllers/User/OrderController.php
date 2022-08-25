@@ -166,8 +166,6 @@ class OrderController extends Controller
         $order = Order::with('products', 'payment', 'result')
             ->where('company_id', Auth::user()->company->id)->findOrFail($orderId);
 
-        dd($order->created_at);
-
         return Inertia::render('User/Order/Show', [
             'data' => $order,
         ]);
