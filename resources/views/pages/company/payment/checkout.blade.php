@@ -82,8 +82,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <select id="city" name="city" onchange="getCounties()" class="single-select"
-                                                required>
+                                            <select id="city" name="city" onchange="getCounties()"
+                                                class="single-select" required>
                                                 <option value="">İl Seçiniz</option>
                                                 @foreach ($cities as $city)
                                                     <option value="{{ $city->id }}"
@@ -109,9 +109,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-input-wrap">
-                                            <input name="identityNumber" type="number"
-                                                value="{{ old('identityNumber') }}" maxlength="11" class="single-input"
-                                                required>
+                                            <input name="identityNumber" type="number" value="{{ old('identityNumber') }}"
+                                                maxlength="11" class="single-input" required>
                                             <label class="{{ old('identityNumber') ? 'active' : '' }}">Tc Kimlik
                                                 No</label>
                                         </div>
@@ -186,8 +185,8 @@
                                             </svg>
                                         </span>
 
-                                        <img src="{{ asset('assets\img\footer/footer_logo-2.png') }}"
-                                            class="float-right" alt="img">
+                                        <img src="{{ asset('assets\img\footer/footer_logo-2.png') }}" class="float-right"
+                                            alt="img">
                                     </div>
                                     <div class="col-12 payment-description">
                                         <span class="d-block check-box-area mt-3">
@@ -216,7 +215,8 @@
                                                 <td>
                                                     <div class="media single-cart-product">
                                                         <div class="media-left">
-                                                            <img src="/storage/{{ $cart->options->image }}" alt="img">
+                                                            <img src="/storage/{{ $cart->options->image }}"
+                                                                style="width: 90px;" alt="img">
                                                         </div>
                                                         <div class="media-body">
                                                             <span>{{ $cart->name }}</span>
@@ -225,7 +225,8 @@
                                                     </div>
                                                 </td>
                                                 <td class="cart-product-price text-center">
-                                                    {{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR')}} TL</td>
+                                                    {{ $company::getFormattedNumber($cart->price * $cart->qty, 'pt_BR') }}
+                                                    TL</td>
                                             </tr>
                                         @endforeach
                                     @else
