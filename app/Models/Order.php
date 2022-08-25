@@ -70,7 +70,7 @@ class Order extends Model
             self::STATUS_GIVEN     => 'ÖDEME BEKLENİYOR',
             self::STATUS_PAID      => 'ÖDENDİ',
             self::STATUS_PROCESSED => 'İŞLEME ALINDI',
-            self::STATUS_SHIPPED   => 'KARGOYA VERİLDİ',
+            self::STATUS_SHIPPED   => 'KARGOYA VERİLDİ/DİJİTAL TESLİM',
             self::STATUS_COMPLETED => 'TAMAMLANDI',
             self::STATUS_CANCELED  => 'İPTAL EDİLDİ',
             self::STATUS_ERROR     => 'HATALI İŞLEM',
