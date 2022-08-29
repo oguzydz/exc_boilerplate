@@ -31,7 +31,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $admin = User::create([
             'email' => 'admin@exxefy.com',
             'name' => 'Admin',
-            'password' => Hash::make('exxee123/*'),
+            'password' => Hash::make('123/*exxee123/*'),
         ]);
 
         $user = User::create([
