@@ -21,9 +21,13 @@
                                     <div class="btn-wrapper desktop-left padding-top-20">
                                         <a href="{{ asset('register') }}" class="btn btn-radius btn-green s-animate-3">Hemen
                                             Kayıt Ol</a>
-                                        <a href="https://www.youtube.com/watch?v=anYufqsUCAU"
-                                            class="btn btn-radius btn-green s-animate-3 ml-md-2 mt-2 mt-md-0 video-play-btn mfp-iframe">Tanıtım
-                                            Videosu</a>
+                                        <script src="https://fast.wistia.com/embed/medias/5ichyyvp0d.jsonp" async></script>
+                                        <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><span
+                                            class="wistia_embed wistia_async_5ichyyvp0d popover=true popoverContent=link"
+                                            style="display:inline;position:relative"> <a href="#"
+                                                class="btn btn-radius btn-green s-animate-3 ml-md-2 mt-2 mt-md-0 video-play-btn mfp-iframe">Tanıtım
+                                                Videosu</a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -245,9 +249,10 @@
                         <div class="img-wrap">
                             <img src="assets\img\we-provide\01.png" alt="video">
                             <div class="hover">
-                                <a href="https://www.youtube.com/watch?v=anYufqsUCAU"
-                                    class="video-play-btn mfp-iframe"><img src="assets\img\we-provide\3.svg"
-                                        alt="video"></a>
+                                <span class="wistia_embed wistia_async_5ichyyvp0d popover=true popoverContent=link"
+                                    style="display:inline;position:relative"> <a href="#"><img
+                                            src="assets\img\we-provide\3.svg" alt="video"></a>
+                                </span>
                             </div>
                         </div>
                     </div>
