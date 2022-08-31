@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('title', 'Hemen Online Mağazanı Aç - Sana Özel E-Pazaryeri Sitesi - Exxefy')
+@section('title', 'Hemen Online Mağazanı Aç - Sana Özel E-Ticaret Sitesi - Exxefy')
 @section('description',
     'Exxefy: kendi özelleştirilmiş mağazanızdan kolayca satış yapıp ödeme almanızı sağlar. Exxefy
     ile hemen bir online mağaza açıp satış yapmaya başlayın!')
