@@ -27,20 +27,7 @@
                                 <file-pond v-model="form.image" ref="pond"
                                     label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
                                     :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile" />
-                                    <el-upload
-  class="upload-demo"
-  drag
-  action="https://jsonplaceholder.typicode.com/posts/"
-  :on-preview="handlePreview"
-  :on-remove="handleRemove"
-  :file-list="fileList"
-  multiple>
-  <i class="el-icon-upload"></i>
-  <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
-  <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
-</el-upload>
-
+                                    @addfile="onAddFile" :captureMethod="null"/>
                             </el-form-item>
                             <div class="float-right">
                                 <el-button type="success" icon="el-icon-check" @click="submitForm('form')">GÖNDER
