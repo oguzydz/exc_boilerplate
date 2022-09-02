@@ -54,17 +54,6 @@ export default {
             this.drawerMenuFoldable = !this.drawerMenuFoldable;
             console.log(this.drawerMenuFoldable);
         },
-        isMobile() {
-            if (
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                    navigator.userAgent
-                )
-            ) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         sidebarActive() {
             if (this.isMobile()) {
                 this.drawerMenuVisible = false;

@@ -20,7 +20,7 @@
 
     <!-- Scripts -->
     @routes
-    <script src="/js/app.js?v=123457" defer></script>
+    <script src="/js/app.js?v=1234578" defer></script>
 
 </head>
 
