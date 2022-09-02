@@ -1,13 +1,11 @@
 <template>
-                                <file-pond v-model="form.image" ref="pond"
-                                    label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
-                                    :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile" />
+    <FilePond />
 </template>
 
 <script>
 import AppLayout from "@/Layouts/AppUserLayout";
 import PageTitle from "@/Components/User/PageTitle";
+import FilePondx from "@/Components/Shared/FilePond";
 
 import vueFilePond from "vue-filepond";
 import "filepond/dist/filepond.min.css";
@@ -24,6 +22,7 @@ export default {
     components: {
         AppLayout,
         FilePond,
+        FilePondx,
         PageTitle,
     },
     props: {
