@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <FilePondDemo />
+        <input type="file">
     </div>
 </template>
 
