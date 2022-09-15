@@ -27,7 +27,6 @@ Route::get('/hemen-basla', [StaticPageController::class, 'startNow'])->name('sta
 Route::get('/fiyatlandirma', [StaticPageController::class, 'pricing'])->name('pricing');
 Route::get('/magazalar', [StaticPageController::class, 'store'])->name('store');
 
-
 Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
     Route::get('/', [PolicyController::class, 'index'])->name('index');
     Route::get('/uyelik-sozlesmesi', [PolicyController::class, 'rule1'])->name('rule1');
