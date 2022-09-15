@@ -7,6 +7,10 @@
                 " title="Geri" content="Ürün Oluştur">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
+                <el-alert title="İpucu: Ürün eklemeden önce kategori oluşturmayı unutmayın!" type="info" class="mb-4" show-icon>
+                    Ürününüzün hangi kategoriye ait olacağını belirtmeniz gerekiyor. Ürün eklemeye başlamadan önce kategori oluşturmanız gerekiyor.
+                    <br> Sol taraftaki Ürün Yönetimi panelinden Kategoriler kısmına tıklayarak kategori oluşturmaya başlayabilirsiniz.
+                </el-alert>
                 <div class="card">
                     <div class="card-header">Yeni Ürün Oluştur</div>
                     <div class="card-body">
