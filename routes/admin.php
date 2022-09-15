@@ -30,9 +30,7 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::get('/', [ContactController::class, 'index'])->name('index');
         Route::get('/show/{contactId}', [ContactController::class, 'show'])->name('show');
         Route::post('/destroy/{contactId}', [ContactController::class, 'destroy'])->name('destroy');
-
     });
-
 
     Route::group(['prefix' => 'commission', 'as' => 'commission.'], function () {
         Route::get('/', [CommissionController::class, 'index'])->name('index');
@@ -43,7 +41,6 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::post('/destroy/{commissionId}', [CommissionController::class, 'destroy'])->name('destroy');
 
     });
-
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {
         Route::get('/', [NewCustomerController::class, 'index'])->name('index');

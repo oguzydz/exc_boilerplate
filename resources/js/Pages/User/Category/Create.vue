@@ -27,7 +27,7 @@
                                 <file-pond v-model="form.image" ref="pond"
                                     label-idle="Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
                                     :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile" />
+                                    @addfile="onAddFile" :captureMethod="null"/>
                             </el-form-item>
                             <div class="float-right">
                                 <el-button type="success" icon="el-icon-check" @click="submitForm('form')">GÖNDER

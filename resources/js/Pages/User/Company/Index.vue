@@ -47,14 +47,14 @@
                                 <file-pond v-model="data.logo" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
                                     :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile" />
+                                    @addfile="onAddFile" :captureMethod="null"/>
                                 <img :src="'/storage/' + logo" class="img" style="width: 100px" />
                             </el-form-item>
                             <el-form-item label="Arka Plan:" prop="bg_image">
                                 <file-pond v-model="data.bg_image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
                                     :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFileBg" />
+                                    @addfile="onAddFileBg" :captureMethod="null"/>
                                 <img :src="'/storage/' + bg_image" class="img" style="width: 400px" />
                             </el-form-item>
                             <div class="float-right">

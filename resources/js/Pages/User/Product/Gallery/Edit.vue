@@ -20,7 +20,7 @@
                                 <file-pond v-model="data.image" ref="pond"
                                     label-idle="Güncellemek için Sürükle veya <span class='filepond--label-action'>Tıkla</span>"
                                     :allow-multiple="false" accepted-file-types="image/jpeg, image/png"
-                                    @addfile="onAddFile" />
+                                    @addfile="onAddFile" :captureMethod="null"/>
                                 <img :src="'/storage/' + image" class="img" style="width: 100px" />
                             </el-form-item>
                             <div class="float-right">
