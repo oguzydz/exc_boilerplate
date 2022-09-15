@@ -161,11 +161,10 @@
                         <ul>
                             <li><a href="{{ route('startNow') }}">Hemen Başla</a></li>
                             <li><a href="{{ route('pricing') }}">Fiyatlandırma</a></li>
+                            <li><a href="{{ route('store') }}">Mağazalarımız</a></li>
                             <li><a href="{{ route('about') }}">Hakkımızda</a></li>
-                            <li><a href="{{ route('contact') }}">İletişim</a></li>
                             <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                             <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
-                            <li><a href="#">Sipariş Takip</a></li>
                         </ul>
                     </div>
                 </div>
@@ -173,6 +172,8 @@
                     <div class="footer-widget widget widget_nav_menu">
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
+                            <li><a href="#">Sipariş Takip</a></li>
+                            <li><a href="{{ route('contact') }}">İletişim</a></li>
                             <li><a href="{{ route('contact') }}">7/24 Destek</a></li>
                             <li><a href="{{ route('policy.index') }}">Gizlilik ve Koşullar</a></li>
                         </ul>
