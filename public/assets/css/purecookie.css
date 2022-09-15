@@ -97,11 +97,9 @@
 }
 
 .cookieConsentContainer .cookieButton a:hover { 
-
 	cursor: pointer;
-
-	background: #3E9B67;
-
+	background: #32E2A9;
+	color: white;
 }
 
 
