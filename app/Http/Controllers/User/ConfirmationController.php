@@ -13,6 +13,7 @@ use App\Models\UserConfirmData;
 use App\Models\UserIban;
 use App\Models\UserPasive;
 use App\Models\UserType;
+use App\Services\MailService;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -21,6 +22,13 @@ use Illuminate\Support\Facades\Artisan;
 
 class ConfirmationController extends Controller
 {
+    protected $mailService;
+
+    public function __construct(MailService $mailService)
+    {
+        $this->mailService = $mailService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -143,6 +151,8 @@ class ConfirmationController extends Controller
                     ]
                 );
             }
+
+            $this->mailService->sendConfirmation($user);
 
             Artisan::call("optimize:clear");
 

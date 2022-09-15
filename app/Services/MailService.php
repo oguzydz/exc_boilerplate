@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
+use App\Mail\Confirmation;
 use App\Mail\NewOrder;
 use App\Mail\OrderDigitalShipped;
 use App\Mail\OrderShipped;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class MailService
@@ -46,5 +48,16 @@ class MailService
     public function sendDigitalShippedOrder(Order $order)
     {
         Mail::to($order->email)->send(new OrderDigitalShipped($order));
+    }
+
+    /**
+     * Send digital shipped order email to customer & shop
+     * @param  Order  $order;
+     *
+     * @return  integer
+     */
+    public function sendConfirmation(User $user)
+    {
+        Mail::to($user->email)->send(new Confirmation($user));
     }
 }

@@ -85,7 +85,6 @@
                                             </div>
                                         </jet-label>
                                     </div>
-
                                     <div class="row">
                                         <jet-validation-errors class="mb-4" />
                                     </div>
