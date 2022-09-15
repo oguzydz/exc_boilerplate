@@ -1,6 +1,6 @@
 // --- Config --- //
-var purecookieTitle = "Çerez Kullanımı"; // Title
-var purecookieDesc = "Sitemizi ziyaret ederek çerez kullanım koşullarını kabul etmektesiniz."; // Description
+var purecookieTitle = "Gizliliğinize değer veriyoruz"; // Title
+var purecookieDesc = "Çerezleri size daha iyi bir hizmet sağlamak için kullanıyoruz."; // Description
 var purecookieLink = '<a href="https://exxefy.com/politikalar" target="_blank">Çerez Kullanımı</a>'; // Cookiepolicy link
 var purecookieButton = "Onayla"; // Button text
 // ---        --- //
