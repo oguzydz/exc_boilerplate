@@ -75,7 +75,7 @@ export default {
                 {
                     tag: 'nav-item',
                     text: 'Siparişler',
-                    url: 'admin.index',
+                    url: 'admin.order.index',
                     icon: 'fad fa-shopping-cart',
                 },
                 {

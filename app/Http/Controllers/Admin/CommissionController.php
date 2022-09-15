@@ -47,11 +47,11 @@ class CommissionController extends Controller
     public function store(SearchRequest $request)
     {
         $data = [
-            'price'                         => $request->price,
-            'finish_price'                  => $request->finish_price,
-            'percent'                       => $request->percent,
-            'local_processing_fee'          => $request->local_processing_fee,
-            'foreign_proccessing_fee'       => $request->foreign_proccessing_fee,
+            'price'                   => $request->price,
+            'finish_price'            => $request->finish_price,
+            'percent'                 => $request->percent,
+            'local_processing_fee'    => $request->local_processing_fee,
+            'foreign_proccessing_fee' => $request->foreign_proccessing_fee,
         ];
 
         try {
@@ -125,7 +125,6 @@ class CommissionController extends Controller
      */
     public function destroy(int $commissionId, Request $request)
     {
-
         try {
             CommissionFee::destroy($commissionId);
 

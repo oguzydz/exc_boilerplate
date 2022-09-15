@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets\css\animated-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets\css/purecookie.css') }}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXYH6BCHR6"></script>
     <script>

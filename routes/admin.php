@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\NewCustomerController;
+use App\Http\Controllers\Admin\OrderController;
 
 Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admin'], 'as' => 'admin.'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -39,7 +40,19 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::get('/edit/{commissionId}', [CommissionController::class, 'edit'])->name('edit');
         Route::post('/update/{commissionId}', [CommissionController::class, 'update'])->name('update');
         Route::post('/destroy/{commissionId}', [CommissionController::class, 'destroy'])->name('destroy');
+    });
 
+    Route::group(['prefix' => 'orders', 'as' => 'order.'], function () {
+        Route::get('/', [OrderController::class, 'index'])->name('index');
+        Route::get('/shipped', [OrderController::class, 'shipped'])->name('shipped');
+        Route::get('/completed', [OrderController::class, 'completed'])->name('completed');
+        Route::get('/other', [OrderController::class, 'other'])->name('other');
+        Route::get('/show/{orderId}', [OrderController::class, 'show'])->name('show');
+        Route::get('/create/{orderId}', [OrderController::class, 'create'])->name('create');
+        Route::post('/store/{orderId}', [OrderController::class, 'store'])->name('store');
+        Route::post('/update/{orderId}', [OrderController::class, 'update'])->name('update');
+        Route::post('/sent-payment/{orderId}', [OrderController::class, 'sentPayment'])->name('sent-payment');
+        Route::post('/cancel-order/{orderId}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
     });
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {

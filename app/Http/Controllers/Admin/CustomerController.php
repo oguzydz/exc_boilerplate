@@ -57,9 +57,9 @@ class CustomerController extends Controller
      */
     public function show(int $userId)
     {
-        $data        = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
-        $userCancel  = UserCancel::where('user_id', $userId)->first();
-        $userPasive  = UserPasive::where('user_id', $userId)->first();
+        $data       = User::with(['iban', 'confirmData', 'company', 'type', 'city', 'county'])->findOrFail($userId);
+        $userCancel = UserCancel::where('user_id', $userId)->first();
+        $userPasive = UserPasive::where('user_id', $userId)->first();
 
         return Inertia::render('Admin/Customer/List/Show', [
             'data'        => $data,
