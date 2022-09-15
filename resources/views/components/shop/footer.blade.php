@@ -39,7 +39,7 @@
                             <li><a href="{{ route($company->slug . '.category.index') }}">Kategoriler</a></li>
                             <li><a href="{{ route($company->slug . '.cargoTracking.index') }}">Sipariş Takibi</a></li>
                             <li><a href="{{ route($company->slug . '.contact.index') }}">İletişim</a></li>
-                            <li><a href="{{ route('policy.index') }}" target="blank">Gizlilik Ve Koşullar</a></li>
+                            <li><a href="{{ route('policy.index') }}" target="blank">Gizlilik ve Koşullar</a></li>
                         </ul>
                     </div>
                     <div class="container text-center mb-5 ">

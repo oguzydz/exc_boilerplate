@@ -174,7 +174,7 @@
                         <h4 class="widget-title">Yardım</h4>
                         <ul>
                             <li><a href="{{ route('contact') }}">7/24 Destek</a></li>
-                            <li><a href="{{ route('policy.index') }}">Gizlilik Ve Koşullar</a></li>
+                            <li><a href="{{ route('policy.index') }}">Gizlilik ve Koşullar</a></li>
                         </ul>
                     </div>
                 </div>
