@@ -1,13 +1,10 @@
 <template>
-<inertia-head title="Ücretsiz Hesap Oluştur - Exxefy"></inertia-head>
-    <div
-        class="bg-light register min-vh-100 d-flex flex-row align-items-center"
-        style="
+    <inertia-head title="Ücretsiz Hesap Oluştur - Exxefy"></inertia-head>
+    <div class="bg-light register min-vh-100 d-flex flex-row align-items-center" style="
             background-image: url(/assets/img/register-bgfy.jpeg);
             background-size: cover;
             background-position: center;
-        "
-    >
+        ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 shadow-lg">
@@ -25,102 +22,65 @@
                                         <span class="input-group-text">
                                             <i class="fad fa-user"></i>
                                         </span>
-                                        <input
-                                            class="form-control"
-                                            type="text"
-                                            placeholder="Ad - Soyad"
-                                            v-model="form.name"
-                                            required
-                                            autofocus
-                                            autocomplete="name"
-                                        />
+                                        <input class="form-control" type="text" placeholder="Ad - Soyad"
+                                            v-model="form.name" required autofocus autocomplete="name" />
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">
                                             <i class="fad fa-at"></i>
                                         </span>
-                                        <input
-                                            class="form-control"
-                                            type="email"
-                                            placeholder="E-posta"
-                                            v-model="form.email"
-                                            required
-                                        />
+                                        <input class="form-control" type="email" placeholder="E-posta"
+                                            v-model="form.email" required />
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">
                                             <i class="fad fa-lock"></i>
                                         </span>
-                                        <input
-                                            class="form-control"
-                                            type="password"
-                                            placeholder="Şifre"
-                                            v-model="form.password"
-                                            required
-                                            autocomplete="new-password"
-                                        />
+                                        <input class="form-control" type="password" placeholder="Şifre"
+                                            v-model="form.password" required autocomplete="new-password" />
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">
                                             <i class="fad fa-lock"></i>
                                         </span>
-                                        <input
-                                            class="form-control"
-                                            type="password"
-                                            placeholder="Şifre Onayı"
-                                            v-model="form.password_confirmation"
-                                            required
-                                            autocomplete="new-password"
-                                        />
+                                        <input class="form-control" type="password" placeholder="Şifre Onayı"
+                                            v-model="form.password_confirmation" required autocomplete="new-password" />
                                     </div>
 
-                                    <div
-                                        class="form-group"
-                                        v-if="
-                                            $page.props.jetstream
-                                                .hasTermsAndPrivacyPolicyFeature
-                                        "
-                                    >
+                                    <div class="form-group">
                                         <jet-label for="terms">
                                             <div class="flex items-center">
-                                                <jet-checkbox
-                                                    name="terms"
-                                                    id="terms"
-                                                    v-model:checked="form.terms"
-                                                />
+                                                <jet-checkbox name="terms" id="terms-1" v-model:checked="form.terms" required/>
 
                                                 <div class="ml-2">
-                                                    I agree to the
-                                                    <a
-                                                        target="_blank"
-                                                        :href="
-                                                            route('terms.show')
-                                                        "
-                                                        class="
+                                                    <a target="_blank" :href="
+                                                        route('policy.rule1')
+                                                    " class="
                                                             underline
-                                                            text-sm
+                                                            text-xs
                                                             text-gray-600
                                                             hover:text-gray-900
-                                                        "
-                                                        >Terms of Service</a
-                                                    >
-                                                    and
-                                                    <a
-                                                        target="_blank"
-                                                        :href="
-                                                            route('policy.show')
-                                                        "
-                                                        class="
+                                                        ">Exxefy Üyelik Sözleşmesi’ni</a> kabul ediyorum.
+                                                </div>
+                                            </div>
+                                        </jet-label>
+                                        <jet-label for="terms">
+                                            <div class="flex items-center">
+                                                <jet-checkbox name="terms" id="terms-2"
+                                                    v-model:checked="form.terms_second" required/>
+                                                <div class="ml-2">
+                                                    <a target="_blank" :href="
+                                                        route('policy.rule12')
+                                                    " class="
                                                             underline
-                                                            text-sm
+                                                            text-xs
                                                             text-gray-600
                                                             hover:text-gray-900
-                                                        "
-                                                        >Privacy Policy</a
-                                                    >
+                                                        ">Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni</a>
+                                                    ’ni okudum.
                                                 </div>
                                             </div>
                                         </jet-label>
@@ -131,14 +91,11 @@
                                     </div>
 
                                     <div class="flex items-start">
-                                        <jet-button
-                                            :class="
-                                                form.processing
-                                                    ? 'opacity-25 bg-[#01358D]'
-                                                    : 'bg-[#01358D]'
-                                            "
-                                            :disabled="form.processing"
-                                        >
+                                        <jet-button :class="
+                                            form.processing
+                                                ? 'opacity-25 bg-[#01358D]'
+                                                : 'bg-[#01358D]'
+                                        " :disabled="form.processing">
                                             KAYDOL
                                         </jet-button>
                                         <!-- <a
@@ -173,8 +130,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div
-                            class="
+                        <div class="
                                 bg-[#01358D]
                                 col-md-5
                                 text-white
@@ -183,8 +139,7 @@
                                 flex
                                 items-center
                                 justify-center
-                            "
-                        >
+                            ">
                             <a :href="route('home')">
                                 <img class="img-register" src="/assets/img/exxefy-logo-white.png" />
                             </a>
@@ -226,7 +181,6 @@ export default {
         JetLabel,
         JetValidationErrors,
     },
-
     data() {
         return {
             form: this.$inertia.form({
@@ -238,7 +192,6 @@ export default {
             }),
         };
     },
-
     methods: {
         submit() {
             this.form.post(this.route("register"), {
@@ -264,5 +217,11 @@ input::-webkit-input-placeholder {
 }
 .img-register {
     width: 120px;
+}
+.form-group .text-sm {
+    padding: 5px 0px !important;
+}
+.items-start {
+    margin-top: 10px;
 }
 </style>
