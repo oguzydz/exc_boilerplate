@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Company\CargoTrackingController;
@@ -31,11 +30,20 @@ Route::get('/magazalar', [StaticPageController::class, 'store'])->name('store');
 
 Route::group(['prefix' => 'politikalar', 'as' => 'policy.'], function () {
     Route::get('/', [PolicyController::class, 'index'])->name('index');
-    Route::get('/garanti-iade', [PolicyController::class, 'varranty'])->name('varranty');
-    Route::get('/gizlilik-guvenlik', [PolicyController::class, 'security'])->name('security');
-    Route::get('/odeme-teslimat', [PolicyController::class, 'delivery'])->name('delivery');
-    Route::get('/uyelik-sozlesmesi', [PolicyController::class, 'agreement'])->name('agreement');
-    Route::get('/satıs-sozlesmesi', [PolicyController::class, 'sales'])->name('sales');
+    Route::get('/uyelik-sozlesmesi', [PolicyController::class, 'rule1'])->name('rule1');
+    Route::get('/kullanim-kosulllari', [PolicyController::class, 'rule2'])->name('rule2');
+    Route::get('/uygulama-magazasi', [PolicyController::class, 'rule3'])->name('rule3');
+    Route::get('/listeleme-kurallari', [PolicyController::class, 'rule4'])->name('rule4');
+    Route::get('/yasakli-urunler', [PolicyController::class, 'rule5'])->name('rule5');
+    Route::get('/alisveris-guvenligi', [PolicyController::class, 'rule6'])->name('rule6');
+    Route::get('/hizmet-bedeli-kosullari', [PolicyController::class, 'rule7'])->name('rule7');
+    Route::get('/on-bilgilendirme-formu', [PolicyController::class, 'rule8'])->name('rule8');
+    Route::get('/mesafeli-satis-sozlesmesi', [PolicyController::class, 'rule9'])->name('rule9');
+    Route::get('/teslim-kosullari', [PolicyController::class, 'rule10'])->name('rule10');
+    Route::get('/iade-kosullari', [PolicyController::class, 'rule11'])->name('rule11');
+    Route::get('/kvkk', [PolicyController::class, 'rule12'])->name('rule12');
+    Route::get('/uygulama-kvkk', [PolicyController::class, 'rule13'])->name('rule13');
+    Route::get('/yasal-uyarilar', [PolicyController::class, 'rule14'])->name('rule14');
 });
 
 Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
