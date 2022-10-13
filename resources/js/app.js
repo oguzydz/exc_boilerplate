@@ -5,21 +5,23 @@ import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import ElementPlus from "element-plus";
-import locale from "element-plus/lib/locale/lang/tr";
+import trLocale from "element-plus/lib/locale/lang/tr";
 import Maska from "maska";
 import { Link } from "@inertiajs/inertia-vue3";
 import CIcon from "@coreui/icons-vue";
 import { iconsSet as icons } from "@/assets/icons";
-
 import moment from "moment";
-moment.locale("tr");
-
 import "element-plus/lib/theme-chalk/index.css";
 import "@coreui/coreui/dist/css/coreui.min.css";
 import "@coreui/coreui/dist/js/coreui.bundle.min.js";
 import "@coreui/chartjs/dist/js/coreui-chartjs.bundle.js";
 import "@coreui/utils/dist/coreui-utils.js";
 import CoreuiVue from "@coreui/vue";
+import dayjs from 'dayjs'
+
+dayjs.Ls.en ??= {}
+dayjs.Ls.en.weekStart = 1
+moment.locale("tr");
 
 const el = document.getElementById("app");
 
@@ -252,7 +254,7 @@ createInertiaApp({
                     },
                 },
             })
-            .use(ElementPlus, { locale })
+            .use(ElementPlus, { trLocale })
             .use(plugin)
             .use(Maska)
             .use(CoreuiVue)
