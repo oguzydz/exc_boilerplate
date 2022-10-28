@@ -42,7 +42,16 @@
                             data.status_view
                     }}</el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions v-if="data.status === 1" title="Ödeme Bilgileri" direction="vertical" :column="4"
+                <el-descriptions v-if="data.status !== 0 " title="Ödeme Bilgileri" direction="vertical" :column="4"
+                    class="mt-4" border>
+                    <el-descriptions-item label="Payment Id">{{
+                            data.payment.payment_id
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Fraud Status">{{
+                            data.payment.fraud_status
+                    }}</el-descriptions-item>
+                </el-descriptions>
+                <el-descriptions v-if="data.status !== 0 " title="Transaction Bilgileri" direction="vertical" :column="4"
                     class="mt-4" border>
                     <el-descriptions-item label="Kargo Ücreti">{{
                             data.cargo_price + ' TL'
@@ -76,7 +85,7 @@
                         </table>
                     </el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions v-if="data.status === 3" title="Kargolandı/Gönderildi Bilgileri" direction="vertical"
+                <el-descriptions v-if="data.status !== 0" title="Kargolandı/Gönderildi Bilgileri" direction="vertical"
                     :column="4" class="mt-4" border>
                     <el-descriptions-item label="Kargo Ücreti">{{
                             data.cargo_price
