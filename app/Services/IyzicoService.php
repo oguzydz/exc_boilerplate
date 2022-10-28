@@ -7,12 +7,14 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
+use App\Models\OrderPaymentApprove;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Iyzipay\Model\Address;
+use Iyzipay\Model\Approval;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use Iyzipay\Model\Buyer;
@@ -26,6 +28,7 @@ use Iyzipay\Model\SubMerchantType;
 use Iyzipay\Model\ThreedsInitialize;
 use Iyzipay\Model\ThreedsPayment;
 use Iyzipay\Options;
+use Iyzipay\Request\CreateApprovalRequest;
 use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Request\CreateSubMerchantRequest;
 use Iyzipay\Request\CreateThreedsPaymentRequest;
@@ -219,6 +222,20 @@ class IyzicoService
     }
 
     /**
+     * Threeds Payment
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function approval(Order $order)
+    {
+        $request = new CreateApprovalRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId($order->id);
+        $request->setPaymentTransactionId($order->payment->payment_id);
+
+        return Approval::create($request, self::options());
+    }
+
+    /**
      * Create Order & Order Products
      * @param  \App\Http\Requests\PaymentRequest  $request
      * @param  \App\Models\Company  $company
@@ -313,6 +330,28 @@ class IyzicoService
     }
 
     /**
+     * Create Order Payment Aprove
+     * @param  \Iyzipay\Model\Approval  $approval
+     */
+    public function createOrderPaymentApprove(Approval $approval)
+    {
+        /**
+         * Approval Response
+         */
+        $paymentData = [
+            'order_id'      => $approval->getConversationId(),
+            'status'        => $approval->getStatus(),
+            'error_code'    => $approval->getErrorCode(),
+            'error_message' => $approval->getErrorMessage(),
+            'error_group'   => $approval->getErrorGroup(),
+            'locale'        => $approval->getLocale(),
+            'system_time'   => $approval->getSystemTime()
+        ];
+
+        return OrderPaymentApprove::create($paymentData);
+    }
+
+    /**
      * Iyzico options
      */
     public static function options()
@@ -321,9 +360,9 @@ class IyzicoService
         self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
         self::$options->setBaseUrl('https://api.iyzipay.com');
 
-        // self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
-        // self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
-        // self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
+        //self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
+        //self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
+        //self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
 
         return self::$options;
     }

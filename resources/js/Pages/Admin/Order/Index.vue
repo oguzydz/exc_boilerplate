@@ -18,6 +18,7 @@
                                 <div class="card-body">
                                     <el-table :data="data.data" style="width: 100%">
                                         <el-table-column prop="id" label="#" width="45"></el-table-column>
+                                        <el-table-column prop="company_view" label="Satıcı"></el-table-column>
                                         <el-table-column label="Müşteri">
                                             <template #default="scope">
                                                 {{ scope.row.name + ' ' + scope.row.surname }}
@@ -77,6 +78,7 @@ export default {
     },
     props: {
         data: Object,
+        errors: Object
     },
     methods: {
         tabClick(tab, event) {

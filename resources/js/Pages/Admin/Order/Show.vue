@@ -96,13 +96,7 @@
                 </el-descriptions>
                 <el-row class="mt-4">
                     <el-button v-if="data.status === 3" type="success" icon="el-icon-arrow-right" size="medium"
-                        v-on:click="
-                            $inertia.get(
-                                route('admin.order.create', {
-                                    orderId: data.id,
-                                })
-                            )
-                        ">Onayla</el-button>
+                        @click="confirm()">Onayla</el-button>
                 </el-row>
             </div>
         </div>
@@ -128,7 +122,29 @@ export default {
         };
     },
     methods: {
-        //
+        confirm() {
+            this.$inertia.get(
+                route("admin.order.paymentApprove", { orderId: this.data.id, }),
+                {},
+                {
+                    onSuccess: (page) => {
+                        this.$message({
+                            type: "success",
+                            message: "İşlem başarıyla tamamlandı.",
+                        });
+                    },
+                    onError: (errors) => {
+                        this.$message({
+                            type: "error",
+                            dangerouslyUseHTMLString: true,
+                            message:
+                                "Hata: Aşağıda yazan sorunları düzeltmelisiniz. <br><br>" +
+                                this.errorsToMessage(errors),
+                        });
+                    },
+                }
+            );
+        },
     },
 };
 </script>

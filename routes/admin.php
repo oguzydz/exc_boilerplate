@@ -48,11 +48,7 @@ Route::group(['prefix' => 'adminfy', 'middleware' => ['auth:sanctum', 'role:admi
         Route::get('/completed', [OrderController::class, 'completed'])->name('completed');
         Route::get('/other', [OrderController::class, 'other'])->name('other');
         Route::get('/show/{orderId}', [OrderController::class, 'show'])->name('show');
-        Route::get('/create/{orderId}', [OrderController::class, 'create'])->name('create');
-        Route::post('/store/{orderId}', [OrderController::class, 'store'])->name('store');
-        Route::post('/update/{orderId}', [OrderController::class, 'update'])->name('update');
-        Route::post('/sent-payment/{orderId}', [OrderController::class, 'sentPayment'])->name('sent-payment');
-        Route::post('/cancel-order/{orderId}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
+        Route::get('/paymentApprove/{orderId}', [OrderController::class, 'paymentApprove'])->name('paymentApprove');
     });
 
     Route::group(['prefix' => 'new-customers', 'as' => 'newCustomer.'], function () {

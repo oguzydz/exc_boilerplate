@@ -5,16 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Models\Order;
+use App\Services\IyzicoService;
 use App\Services\MailService;
 use Inertia\Inertia;
 
 class OrderController extends Controller
 {
+    protected $iyzicoService;
     protected $mailService;
 
-    public function __construct(MailService $mailService)
+    public function __construct(IyzicoService $iyzicoService, MailService $mailService)
     {
-        $this->mailService = $mailService;
+        $this->iyzicoService = $iyzicoService;
+        $this->mailService   = $mailService;
     }
 
     /**
@@ -67,5 +70,30 @@ class OrderController extends Controller
         return Inertia::render('Admin/Order/Show', [
             'data' => $order,
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function paymentApprove(int $orderId)
+    {
+        try {
+            $order    = Order::findOrFail($orderId);
+            $approval = $this->iyzicoService->approval($order);
+
+            if ($approval->getStatus() !== 'success') {
+                throw new \Exception($approval->getErrorMessage());
+            }
+
+            $this->iyzicoService->createOrderPaymentApprove($approval);
+            $order->update(['status' => Order::STATUS_COMPLETED]);
+
+            return redirect()->back()->withSuccess(['msg' => 'Başarıyla onaylandı.']);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
+        }
     }
 }
