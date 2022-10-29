@@ -105,6 +105,7 @@ class OrderController extends Controller
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla onaylandı.']);
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return redirect()->back()->withErrors(['msg' => $e->getMessage()]);
         }
     }
