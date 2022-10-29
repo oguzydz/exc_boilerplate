@@ -236,6 +236,8 @@ class IyzicoService
 
             $approval = Approval::create($request, self::options());
 
+            dd($approval);
+
             if ($approval->getStatus() !== 'success') {
                 throw new \Exception($approval->getErrorMessage());
             }
