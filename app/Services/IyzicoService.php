@@ -231,6 +231,8 @@ class IyzicoService
         if (!$order->payment->items)
             throw new \Exception('Sipariş kırılımları bulunamadı. Eski sipariş olabilir.');
 
+        dd($order->payment->items);
+
         foreach ($order->payment->items as $item) {
             $request = new CreateApprovalRequest();
             $request->setLocale(Locale::TR);
