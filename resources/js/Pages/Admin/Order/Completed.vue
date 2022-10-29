@@ -2,13 +2,13 @@
     <app-layout title="Tamamlanan Siparişler">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <el-page-header v-on:click="$inertia.get(route('user.index'))" title="Geri"
+                <el-page-header v-on:click="$inertia.get(route('admin.index'))" title="Geri"
                     content="Tamamlanan Siparişler">
                 </el-page-header>
                 <div class="header-divider mb-4"></div>
                 <div class="col-sm-12 col-lg-12 col-md-12">
                     <el-tabs v-model="activeTabName" @tab-click="tabClick">
-                        <el-tab-pane label="Aktif" name="index"></el-tab-pane>
+                        <el-tab-pane label="Ödendi" name="index"></el-tab-pane>
                         <el-tab-pane label="Kargolandı/Gönderildi" name="shipped">
                         </el-tab-pane>
                         <el-tab-pane label="Tamamlandı" name="completed">
@@ -46,7 +46,7 @@
                                             <template #default="scope">
                                                 <el-button icon="el-icon-right" size="mini" v-on:click="
                                                     $inertia.get(
-                                                        route('user.order.show', {
+                                                        route('admin.order.show', {
                                                             id: scope.row.id,
                                                         })
                                                     )
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppUserLayout";
+import AppLayout from "@/Layouts/AppAdminLayout";
 
 export default {
     components: {
@@ -84,14 +84,14 @@ export default {
     },
     methods: {
         tabClick(tab, event) {
-            this.$inertia.get(route('user.order.' + tab.paneName))
+            this.$inertia.get(route('admin.order.' + tab.paneName))
         }
     },
     data() {
         return {
             activeTabName: 'completed',
             searchText: this.getUrlQuery('search'),
-            routeName: "user.order.completed",
+            routeName: "admin.order.completed",
             deleteMessage:
                 "Siparişü silerek pasife alınmış Yeni Siparişler durumuna göndereceksiniz. Devam etmek istiyor musunuz?",
         };

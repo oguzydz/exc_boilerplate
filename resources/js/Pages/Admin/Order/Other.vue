@@ -7,7 +7,7 @@
                 <div class="header-divider mb-4"></div>
                 <div class="col-sm-12 col-lg-12 col-md-12">
                     <el-tabs v-model="activeTabName" @tab-click="tabClick">
-                        <el-tab-pane label="Aktif" name="index">
+                        <el-tab-pane label="Ödendi" name="index">
                         </el-tab-pane>
                         <el-tab-pane label="Kargolandı/Gönderildi" name="shipped"></el-tab-pane>
                         <el-tab-pane label="Tamamlandı" name="completed"></el-tab-pane>

@@ -58,6 +58,25 @@ class OrderController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function completed(SearchRequest $request)
+    {
+        $orders = Order::with('result')
+            ->where('status', Order::STATUS_COMPLETED)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->orderBy('id', 'desc')->paginate(10);
+
+        return Inertia::render('Admin/Order/Completed', [
+            'data' => $orders,
+        ]);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $orderId
