@@ -406,13 +406,13 @@ class IyzicoService
      */
     public static function options()
     {
-        // self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');
-        // self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
-        // self::$options->setBaseUrl('https://api.iyzipay.com');
+        self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');
+        self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
+        self::$options->setBaseUrl('https://api.iyzipay.com');
 
-        self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
-        self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
-        self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
+        //self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
+        //self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
+        //self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
 
         return self::$options;
     }
