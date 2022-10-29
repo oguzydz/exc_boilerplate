@@ -9,58 +9,115 @@
                 <div class="header-divider mb-4"></div>
                 <el-descriptions title="Müşteri Bilgileri" direction="vertical" :column="4" border>
                     <el-descriptions-item label="Sipariş Numarası">{{
-                            data.id
+                    data.id
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Ad-Soyad">{{
-                            data.name + ' ' + data.surname
+                    data.name + ' ' + data.surname
                     }}</el-descriptions-item>
                     <el-descriptions-item label="E-Posta">{{
-                            data.email
+                    data.email
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Telefon">{{
-                            data.phone
+                    data.phone
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Şehir">{{
-                            data.city_view
+                    data.city_view
                     }}</el-descriptions-item>
                     <el-descriptions-item label="İlçe">{{
-                            data.county_view
+                    data.county_view
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Adres">{{
-                            data.address
+                    data.address
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Zip Kodu">{{
-                            data.zip_code
+                    data.zip_code
                     }}</el-descriptions-item>
                     <el-descriptions-item :span="4" label="Sipariş Notu">{{
-                            data.note
+                    data.note
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Oluşturulma Tarihi">{{
-                            data.created_at
+                    data.created_at
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Sipariş Durumu">{{
-                            data.status_view
+                    data.status_view
                     }}</el-descriptions-item>
                 </el-descriptions>
                 <el-descriptions v-if="data.status !== 0 " title="Ödeme Bilgileri" direction="vertical" :column="4"
                     class="mt-4" border>
                     <el-descriptions-item label="Payment Id">{{
-                            data.payment.payment_id
+                    data.payment.payment_id
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Fraud Status">{{
-                            data.payment.fraud_status
+                    data.payment.fraud_status
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Sub Total Price">{{
+                    data.payment.sub_total_price
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Total Price">{{
+                    data.payment.total_price
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Currency">{{
+                    data.payment.currency
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Merchant Commission Rate">{{
+                    data.payment.merchant_commission_rate
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Merchant Commission Rate Amount">{{
+                    data.payment.merchant_commission_rate_amount
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="İyzi Commission Rate">{{
+                    data.payment.iyzi_commission_rate_amount
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="İyzi Commission Fee">{{
+                    data.payment.iyzi_commission_fee
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Card Type">{{
+                    data.payment.card_type
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Card Association">{{
+                    data.payment.card_association
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Card Family">{{
+                    data.payment.card_family
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Bin Number">{{
+                    data.payment.bin_number
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Auth Code">{{
+                    data.payment.auth_code
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Phase">{{
+                    data.payment.phase
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Last Four Digits">{{
+                    data.payment.last_four_digits
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Status">{{
+                    data.payment.status
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Locale">{{
+                    data.payment.locale
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="System Time">{{
+                    data.payment.systemTime
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Created At">{{
+                    data.payment.created_at
+                    }}</el-descriptions-item>
+                    <el-descriptions-item label="Updated At">{{
+                    data.payment.updated_at
                     }}</el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions v-if="data.status !== 0 " title="Transaction Bilgileri" direction="vertical" :column="4"
-                    class="mt-4" border>
+                <el-descriptions v-if="data.status !== 0 " title="Transaction Bilgileri" direction="vertical"
+                    :column="4" class="mt-4" border>
                     <el-descriptions-item label="Kargo Ücreti">{{
-                            data.cargo_price + ' TL'
+                    data.cargo_price + ' TL'
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Ara Toplam">{{
-                            data.sub_total_price + ' TL'
+                    data.sub_total_price + ' TL'
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Toplam">{{
-                            data.total_price + ' TL'
+                    data.total_price + ' TL'
                     }}</el-descriptions-item>
                 </el-descriptions>
                 <el-descriptions title="Satın Alınan Ürünler" direction="vertical" :column="4" class="mt-4" border>
@@ -85,22 +142,22 @@
                         </table>
                     </el-descriptions-item>
                 </el-descriptions>
-                <el-descriptions v-if="data.status !== 0" title="Kargolandı/Gönderildi Bilgileri" direction="vertical"
+                <el-descriptions v-if="data.status > 1" title="Kargolandı/Gönderildi Bilgileri" direction="vertical"
                     :column="4" class="mt-4" border>
                     <el-descriptions-item label="Kargo Ücreti">{{
-                            data.cargo_price
+                    data.cargo_price
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Kargo Firması">{{
-                            data.result.cargo_company_view
+                    data.result.cargo_company_view
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Kargo Numarası">{{
-                            data.result.shipping_no
+                    data.result.shipping_no
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Not">{{
-                            data.result.note
+                    data.result.note
                     }}</el-descriptions-item>
                     <el-descriptions-item label="Oluşturulma Tarihi">{{
-                            data.result.created_at
+                    data.result.created_at
                     }}</el-descriptions-item>
                 </el-descriptions>
                 <el-row class="mt-4">
