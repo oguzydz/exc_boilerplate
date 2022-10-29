@@ -8,6 +8,7 @@ use App\Models\Company;
 use App\Models\Order;
 use App\Models\OrderPayment;
 use App\Models\OrderPaymentApprove;
+use App\Models\OrderPaymentItem;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\User;
@@ -227,12 +228,26 @@ class IyzicoService
      */
     public function approval(Order $order)
     {
-        $request = new CreateApprovalRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId($order->id);
-        $request->setPaymentTransactionId($order->payment->payment_id);
+        foreach ($order->payment->items as $item) {
+            $request = new CreateApprovalRequest();
+            $request->setLocale(Locale::TR);
+            $request->setConversationId($item->id);
+            $request->setPaymentTransactionId($item->payment_transaction_id);
 
-        return Approval::create($request, self::options());
+            $approval = Approval::create($request, self::options());
+
+            if ($approval->getStatus() !== 'success') {
+                throw new \Exception($approval->getErrorMessage());
+            }
+
+            $this->createOrderPaymentApprove($approval, $order);
+        }
+
+        return $order->update(
+            [
+                'status' => Order::STATUS_COMPLETED
+            ]
+        );
     }
 
     /**
@@ -326,26 +341,61 @@ class IyzicoService
             'systemTime'                      => $threedsPayment->getSystemTime()
         ];
 
-        return OrderPayment::create($paymentData);
+        $orderPayment = OrderPayment::create($paymentData);
+
+        foreach ($threedsPayment->getPaymentItems() as $paymentItem) {
+            /**
+             * Threeds Payment Item Response
+             */
+            $paymentItemData = [
+                'item_id'                           => $paymentItem->getItemId(),
+                'order_id'                          => $threedsPayment->getConversationId(),
+                'order_payment_id'                  => $orderPayment->id,
+                'payment_transaction_id'            => $paymentItem->getPaymentTransactionId(),
+                'transaction_status'                => $paymentItem->getTransactionStatus(),
+                'price'                             => $paymentItem->getPrice(),
+                'paid_price'                        => $paymentItem->getPaidPrice(),
+                'merchant_commission_rate'          => $paymentItem->getMerchantCommissionRate(),
+                'merchant_commission_rate_amount'   => $paymentItem->getMerchantCommissionRateAmount(),
+                'iyzi_commission_rate_amount'       => $paymentItem->getIyziCommissionRateAmount(),
+                'iyzi_commission_fee'               => $paymentItem->getIyziCommissionFee(),
+                'blockage_rate'                     => $paymentItem->getBlockageRate(),
+                'blockage_rate_amount_merchant'     => $paymentItem->getBlockageRateAmountMerchant(),
+                'blockage_rate_amount_sub_merchant' => $paymentItem->getBlockageRateAmountSubMerchant(),
+                'blockage_resolved_date'            => $paymentItem->getBlockageResolvedDate(),
+                'sub_merchant_key'                  => $paymentItem->getSubMerchantKey(),
+                'sub_merchant_price'                => $paymentItem->getSubMerchantPrice(),
+                'sub_merchant_payout_rate'          => $paymentItem->getSubMerchantPayoutRate(),
+                'sub_merchant_payout_amount'        => $paymentItem->getSubMerchantPayoutAmount(),
+                'merchant_payout_amount'            => $paymentItem->getMerchantPayoutAmount(),
+            ];
+
+            OrderPaymentItem::create($paymentItemData);
+        }
+
+        return $orderPayment;
     }
 
     /**
      * Create Order Payment Aprove
      * @param  \Iyzipay\Model\Approval  $approval
      */
-    public function createOrderPaymentApprove(Approval $approval)
+    public function createOrderPaymentApprove(Approval $approval, Order $order)
     {
         /**
          * Approval Response
          */
         $paymentData = [
-            'order_id'      => $approval->getConversationId(),
-            'status'        => $approval->getStatus(),
-            'error_code'    => $approval->getErrorCode(),
-            'error_message' => $approval->getErrorMessage(),
-            'error_group'   => $approval->getErrorGroup(),
-            'locale'        => $approval->getLocale(),
-            'system_time'   => $approval->getSystemTime()
+            'order_id'               => $order->id,
+            'order_payment_id'       => $order->payment->id,
+            'order_payment_item_id'  => $approval->getConversationId(),
+            'payment_transaction_id' => $approval->getPaymentTransactionId(),
+            'status'                 => $approval->getStatus(),
+            'error_code'             => $approval->getErrorCode(),
+            'error_message'          => $approval->getErrorMessage(),
+            'error_group'            => $approval->getErrorGroup(),
+            'locale'                 => $approval->getLocale(),
+            'system_time'            => $approval->getSystemTime()
         ];
 
         return OrderPaymentApprove::create($paymentData);
@@ -356,13 +406,13 @@ class IyzicoService
      */
     public static function options()
     {
-        self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');
-        self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
-        self::$options->setBaseUrl('https://api.iyzipay.com');
+        // self::$options->setApiKey('MazJRqHLrlZA4bV3XlNB52hs8SbOweFI');
+        // self::$options->setSecretKey('b2dbPWob6ju9PwGyDNNROs5VnFllJaTI');
+        // self::$options->setBaseUrl('https://api.iyzipay.com');
 
-        //self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
-        //self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
-        //self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
+        self::$options->setApiKey('sandbox-0s0AFotEep8pHVxfDaRmeOeyDHSbP6rM');
+        self::$options->setSecretKey('sandbox-Uae7qhC7GlRosKBaNu5jCPPXLJv5ZFJc');
+        self::$options->setBaseUrl('https://sandbox-api.iyzipay.com');
 
         return self::$options;
     }

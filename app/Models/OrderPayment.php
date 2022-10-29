@@ -18,6 +18,7 @@ class OrderPayment extends Model
         'order_id',
         'sub_total_price',
         'total_price',
+        'installment',
         'currency',
         'payment_id',
         'payment_status',
@@ -65,5 +66,10 @@ class OrderPayment extends Model
     protected function serializeDate(\DateTimeInterface $date)
     {
         return $date->format('Ymd His');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderPaymentItem::class);
     }
 }

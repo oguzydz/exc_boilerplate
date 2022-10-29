@@ -82,14 +82,7 @@ class OrderController extends Controller
     {
         try {
             $order    = Order::findOrFail($orderId);
-            $approval = $this->iyzicoService->approval($order);
-
-            if ($approval->getStatus() !== 'success') {
-                throw new \Exception($approval->getErrorMessage());
-            }
-
-            $this->iyzicoService->createOrderPaymentApprove($approval);
-            $order->update(['status' => Order::STATUS_COMPLETED]);
+            $this->iyzicoService->approval($order);
 
             return redirect()->back()->withSuccess(['msg' => 'Başarıyla onaylandı.']);
         } catch (\Exception $e) {

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderPaymentApprove extends Model
+class OrderPaymentItem extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,26 @@ class OrderPaymentApprove extends Model
      * @var array
      */
     protected $fillable = [
+        'item_id',
         'order_id',
         'order_payment_id',
-        'order_payment_item_id',
         'payment_transaction_id',
-        'status',
-        'error_code',
-        'error_message',
-        'error_group',
-        'locale',
-        'systemTime',
+        'transaction_status',
+        'price',
+        'paid_price',
+        'merchant_commission_rate',
+        'merchant_commission_rate_amount',
+        'iyzi_commission_rate_amount',
+        'iyzi_commission_fee',
+        'blockage_rate',
+        'blockage_rate_amount_merchant',
+        'blockage_rate_amount_sub_merchant',
+        'blockage_resolved_date',
+        'sub_merchant_key',
+        'sub_merchant_price',
+        'sub_merchant_payout_rate',
+        'sub_merchant_payout_amount',
+        'merchant_payout_amount'
     ];
 
     protected $dates = [
