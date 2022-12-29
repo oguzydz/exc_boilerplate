@@ -61,7 +61,6 @@ export default {
                     tag: "nav-title",
                     text: "ÜRÜN YÖNETİMİ",
                 },
-
                 {
                     tag: "nav-item",
                     text: "Kategoriler",
